@@ -197,6 +197,7 @@ Layout rules:
 - Keep eyes and main facial features unobstructed.
 - Put the headline around the lower third when a portrait is used, usually over shirt/background rather than across the eyes, nose, or mouth.
 - Make the headline larger and stronger than the person and logo.
+- Make the cover headline visually heavy. Use same-color stroke/thickening around the title text when needed; do not add black shadows, glow, or offset effects.
 - Put the company logo badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast background.
 - Keep the top `AI 信息差快报` / topic metadata small.
 - Show only one bottom conclusion row; do not show all six info rows on the cover.
