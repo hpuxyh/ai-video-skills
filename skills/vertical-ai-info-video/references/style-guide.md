@@ -23,7 +23,11 @@ Use a JSON file with these top-level keys:
   ],
   "info_rows": [
     {"label": "结论", "text": "顶级 AI 发布前，先过安全审查"},
-    {"label": "普通人机会", "text": "AI 安全、评测、合规会变成新机会"}
+    {"label": "跟你有关", "text": "别只等新模型，先用现有 AI 整理资料、写方案"},
+    {"label": "发生", "text": "OpenAI 与 Anthropic 被纳入审查"},
+    {"label": "谁先用", "text": "获批客户才可提前试用"},
+    {"label": "影响", "text": "最强模型开放节奏会变慢"},
+    {"label": "信息差", "text": "发布不等于人人可用，入口才是关键"}
   ],
   "images": [
     "assets/images/event1/event1-01.jpg",
@@ -83,21 +87,37 @@ Reject screenshots that show Cloudflare verification, loading spinners, blank pa
 Use this order for news explainers:
 
 1. `结论`: the one-sentence takeaway.
-2. `普通人机会`: what this means for normal viewers.
+2. `跟你有关`: what this means for a normal viewer right now.
 3. `发生`: what happened.
-4. `变化`: what changes.
-5. `影响`: the industry or user impact.
+4. `谁先用`: who gets access first, or where the real entry point is.
+5. `影响`: the user or industry impact.
 6. `信息差`: what most viewers may not have noticed.
+
+Use `跟你有关` as the default second row because it directly answers the viewer's hidden question: "what does this have to do with me?" Use `普通人机会` only when the row is about a concrete personal opportunity, job direction, workflow, or action.
 
 Keep each row short. If a row wraps visually, rewrite it rather than shrinking all rows.
 
-For `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
+For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
 
+- Good: `别等新模型，先用现有 AI 整理资料、写方案`
 - Good: `不用等内测，先用现有 AI 整理资料、写方案`
 - Good: `先别抢入口，学会判断哪些事该交给 AI`
 - Good: `不用等最强模型，先把重复工作交给 AI`
 - Good: `会拆任务的人，比会抢内测的人更占便宜`
 - Bad: `先看深度推理与工作流适配`
+
+## Viewer-First Example
+
+For a GPT-5.6 limited-preview story, prefer rows like:
+
+```text
+01 结论：GPT-5.6 已预览，但普通用户还不能直接用
+02 跟你有关：别等新模型，先用现有 AI 整理资料、写方案
+03 发生：OpenAI 先测试 Sol、Terra、Luna 三个版本
+04 谁先用：先给合作客户、开发者和 Codex/API 场景
+05 影响：ChatGPT 里的全面开放，还要再等一段时间
+06 信息差：发布不等于人人可用，入口才是关键
+```
 
 ## Verification
 

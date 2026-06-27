@@ -34,7 +34,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Attach multiple real images to that single event. Use them as the middle carousel only.
 - Keep all explanatory text in the template: the top title and the bottom one-by-one info rows.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific info-row set, usually: `结论` / `普通人机会` / `发生` / `变化` / `影响` / `信息差`.
+- Use one event-specific info-row set from the viewer's path: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
 - The target look is the previously approved White House safety-review sample: large top headline, real images in the middle, structured text rows below, beat-synced image cuts, no voiceover.
 
 ## Default Creative Rules
@@ -46,7 +46,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Image count: prefer 5 images for a 7-second video.
 - Image sourcing priority: real people/company/product photos first; official announcement/help/docs screenshots second; product entry/API/Codex screenshots third; media report screenshots fourth; auxiliary context images last.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
-- Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `普通人机会` to explain the viewer's practical angle.
+- Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Output: one final MP4 plus a contact sheet or preview frame.
 
