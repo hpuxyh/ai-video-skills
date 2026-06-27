@@ -44,6 +44,23 @@ Use a JSON file with these top-level keys:
 
 All relative paths resolve from `--project-dir`.
 
+## Request Routing
+
+Use two modes:
+
+1. Specific-topic mode: if the user gives a concrete topic, event, company, URL, or direct instruction, create one video for that event.
+2. Auto-scout mode: if the user asks for an AI information-gap video but does not provide a concrete topic, search the latest 7 days of AI news and choose 5 topics across China and the US.
+
+In auto-scout mode:
+
+- Search current sources because the 7-day window is time-sensitive.
+- Prefer China/US AI stories with clear platform appeal: model releases, policy/regulation, major product launches, safety/security, AI hardware, agent/tools, major company moves, and consumer/workflow impact.
+- Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
+- Choose topics that can support real images and a people-first or company-recognition cover.
+- Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
+- Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
+- Each topic must still follow the one-event pattern and row order: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
+
 ## Title Defaults
 
 - `title_weight_multiplier`: `0.9`

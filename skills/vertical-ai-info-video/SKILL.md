@@ -1,6 +1,6 @@
 ---
 name: vertical-ai-info-video
-description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, or says to use this short-video workflow skill."
+description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
 ---
 
 # Vertical AI Info Video
@@ -13,11 +13,14 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 
 ## Workflow
 
-1. Confirm or infer the video topic, title lines, info rows, image set, and BGM.
-2. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
-3. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
-4. Build a JSON config using the schema in `references/style-guide.md`.
-5. Run `scripts/render_vertical_info_video.py` from a project directory:
+1. Route the request:
+   - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
+   - If the user does not give a concrete topic, search the latest 7 days of AI news, prioritize China/US high-signal stories, choose 5 distinct topics, and generate 5 separate one-event videos.
+2. Confirm or infer each video's topic, title lines, info rows, image set, cover, and BGM.
+3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
+4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
+5. Build a JSON config using the schema in `references/style-guide.md`.
+6. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vertical_info_video.py \
@@ -27,7 +30,15 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-6. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+7. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+
+## Topic Selection Modes
+
+- Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
+- Auto-scout mode: when no concrete topic is provided, search the latest 7 days of AI news across US and China, then select 5 topics before rendering.
+- Auto-scout selection criteria: prioritize stories with viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
+- Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
+- Before rendering 5 videos, show the chosen 5 topics with one-line rationale when the user has not already approved the topic list.
 
 ## One-Event Video Logic
 
