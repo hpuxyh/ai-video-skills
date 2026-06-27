@@ -31,12 +31,14 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 ```
 
 7. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+8. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
 
 ## Topic Selection Modes
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
 - Auto-scout mode: when no concrete topic is provided, search the latest 7 days of AI news across US and China, then select 5 topics before rendering.
 - Auto-scout selection criteria: do not simply pick the top 5 headlines. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files. Do not choose the exact same event/topic as an earlier batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 
@@ -63,6 +65,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export naming: final deliverables must use Chinese folder and file names. Separate `01-视频`, `02-封面`, and `03-总览`; include the topic in each folder/file name so the user can distinguish video, cover, and theme at a glance.
+- Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 
 ## Iteration Rules
 

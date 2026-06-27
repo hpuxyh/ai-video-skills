@@ -54,6 +54,7 @@ Use two modes:
 In auto-scout mode:
 
 - Search current sources because the 7-day window is time-sensitive.
+- Before choosing topics, review previous generated batches in the workspace, dated export folders, and any `选题记录.md` / `topic-history.md` files. Treat these as a local topic history.
 - Prefer China/US AI stories with clear platform appeal: model releases, policy/regulation, major product launches, safety/security, AI hardware, agent/tools, major company moves, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent stories when possible, then narrow down to 5. The goal is not "news ranking top 5"; the goal is "the 5 stories most suitable for AI 信息差短视频".
 - Score candidates by:
@@ -65,12 +66,15 @@ In auto-scout mode:
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover.
+- Avoid exact repeats from previous days. A topic is considered a repeat when the same company/person/product and the same event angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
+- Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
 - Each topic must still follow the one-event pattern and row order: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
 
 Reject candidates when:
 
+- The same event/topic has already been generated in a previous daily batch.
 - The story is only a funding amount with weak viewer relevance.
 - The item is mostly opinion or prediction without a concrete event.
 - The source is unreliable or cannot be verified.
@@ -251,3 +255,14 @@ Rules:
 - File names should start with `视频-` or `封面-`, then repeat the topic name.
 - Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
 - Also create a zip package with the same Chinese top-level name when handing off a batch.
+
+## Topic History And GitHub Sync
+
+For recurring daily batches:
+
+- Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
+- Record date, topic title, company/product, source URLs, selected angle, and final output folder.
+- Before every auto-scout run, compare candidates against previous records and dated export folders.
+- Do not repeat the exact same event from a previous day. Prefer a follow-up only when there is a new development, and label it clearly as a follow-up angle.
+- If the workflow rules, scripts, or skill documentation change, copy the skill into the user's GitHub skill repository and push the commit after validation.
+- Generated video assets do not need to be pushed to the skill repository unless the user explicitly asks; only reusable skill/workflow updates should be pushed.
