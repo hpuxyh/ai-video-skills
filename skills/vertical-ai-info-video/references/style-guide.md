@@ -225,3 +225,29 @@ Confirm:
 - format duration is 7 seconds unless the user requested otherwise.
 - both video and audio streams exist when BGM is requested.
 - contact sheet shows title, image area, and rows without overlap.
+
+## Export Naming
+
+Final deliverables should be organized with Chinese names rather than raw English slugs. Use a dated top-level folder and split videos, covers, and overview images:
+
+```text
+导出-2026年06月28日AI信息差快报/
+  01-视频/
+    01-新模型先过安审-OpenAI与Anthropic/
+      视频-01-新模型先过安审-OpenAI与Anthropic.mp4
+  02-封面/
+    01-新模型先过安审-OpenAI与Anthropic/
+      封面-01-新模型先过安审-OpenAI与Anthropic.jpg
+  03-总览/
+    视频总览-2026年06月28日AI信息差快报.jpg
+    封面总览-2026年06月28日AI信息差快报.jpg
+```
+
+Rules:
+
+- The top-level export folder should include the date and batch theme.
+- Use `01-视频`, `02-封面`, and `03-总览` as the first split.
+- Each topic gets a numbered Chinese topic folder.
+- File names should start with `视频-` or `封面-`, then repeat the topic name.
+- Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
+- Also create a zip package with the same Chinese top-level name when handing off a batch.

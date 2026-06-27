@@ -62,6 +62,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Audio: no voiceover by default. Use local BGM, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
+- Export naming: final deliverables must use Chinese folder and file names. Separate `01-视频`, `02-封面`, and `03-总览`; include the topic in each folder/file name so the user can distinguish video, cover, and theme at a glance.
 
 ## Iteration Rules
 
