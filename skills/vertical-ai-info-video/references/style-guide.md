@@ -55,11 +55,45 @@ In auto-scout mode:
 
 - Search current sources because the 7-day window is time-sensitive.
 - Prefer China/US AI stories with clear platform appeal: model releases, policy/regulation, major product launches, safety/security, AI hardware, agent/tools, major company moves, and consumer/workflow impact.
+- Start from a candidate pool of roughly 15-30 recent stories when possible, then narrow down to 5. The goal is not "news ranking top 5"; the goal is "the 5 stories most suitable for AI 信息差短视频".
+- Score candidates by:
+  - Normal-viewer relevance: can a casual viewer understand why it matters to work, creation, tools, learning, business, or daily AI use?
+  - Information-gap strength: is there a non-obvious takeaway beyond the surface headline?
+  - Heat and authority: is it from an official source, reputable media, or clearly discussed by the industry?
+  - Visual asset quality: are there usable real people, company logos, product screenshots, launch images, official pages, or media screenshots?
+  - Title tension: can it become a strong, honest, click-worthy short-video headline?
+  - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
 - Each topic must still follow the one-event pattern and row order: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
+
+Reject candidates when:
+
+- The story is only a funding amount with weak viewer relevance.
+- The item is mostly opinion or prediction without a concrete event.
+- The source is unreliable or cannot be verified.
+- No real visual assets are available and the video would become a text-card deck.
+- It overlaps too much with a stronger selected topic.
+- The angle is too technical for a normal viewer to understand in 7 seconds.
+
+Prefer a balanced final set when possible:
+
+- 1 US model/company story.
+- 1 China model/company story.
+- 1 policy, safety, or regulation story.
+- 1 product entry or consumer/workflow tool story.
+- 1 AI hardware, agent, infrastructure, or business-model story.
+
+Before rendering, present the proposed list in this format:
+
+```text
+01 话题：...
+为什么选：普通人能看懂的变化是 ...
+封面素材：人物 / 公司 logo / 产品截图 / 官方页面
+信息差角度：...
+```
 
 ## Title Defaults
 
@@ -71,6 +105,8 @@ In auto-scout mode:
 ## Layout Defaults
 
 - `photo_box`: `[0, 515, 1080, 1235]`
+- Use `photo_fit: "contain"` when source images are screenshots, logos, documents, portraits, or mixed aspect ratios that must remain fully visible. This uses a blurred same-image background to fill the photo box, then keeps the original image complete in the center.
+- Use `photo_fit: "cover"` only when the source is a spacious photo that can be safely cropped.
 - Info rows start at `y=1288`, row height `64`.
 - Top brand pill stays at the top-right.
 - Do not draw carousel dots, footer labels, or decorative title bands.

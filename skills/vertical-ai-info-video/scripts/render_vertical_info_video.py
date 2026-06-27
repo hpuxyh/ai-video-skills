@@ -72,6 +72,18 @@ def fit_cover(img, size, idx, total, zoom=1.0):
     return img.resize((int(img.width * scale + 0.5), int(img.height * scale + 0.5)), Image.Resampling.LANCZOS)
 
 
+def fit_contain(img, size, idx, total, zoom_amount, progress, is_pull=False):
+    target_w, target_h = size
+    img = grade_image(img, idx, total)
+    eased = ease(progress)
+    peak = max(0.0, float(zoom_amount))
+    contain_scale = min(target_w / img.width, target_h / img.height) * 0.992
+    base_scale = contain_scale / (1.0 + peak)
+    zoom = 1.0 + peak * (1.0 - eased if is_pull else eased)
+    scale = base_scale * zoom
+    return img.resize((int(img.width * scale + 0.5), int(img.height * scale + 0.5)), Image.Resampling.LANCZOS)
+
+
 def paste_clipped(dst, src, xy):
     x, y = xy
     src_left = max(0, -x)
@@ -248,21 +260,46 @@ def draw_info_rows(canvas, t, cfg):
 def photo_layer(img, progress, idx, total, cfg):
     box = tuple(cfg.get("photo_box", [0, 515, W, 1235]))
     motion = cfg.get("motion", {"zoom": 0.13, "pan_x": 54, "pan_y": 46})
+    photo_fit = cfg.get("photo_fit", "cover")
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
     eased = ease(progress)
     is_pull = idx % 2 == 1
-    zoom = 1.0 + float(motion.get("zoom", 0.13)) * (1.0 - eased if is_pull else eased)
-    photo = fit_cover(img, (box[2] - box[0], box[3] - box[1]), idx, total, zoom=zoom).convert("RGBA")
-
     view_w = box[2] - box[0]
     view_h = box[3] - box[1]
-    view = Image.new("RGBA", (view_w, view_h), (0, 0, 0, 0))
+    view_size = (view_w, view_h)
+    view = Image.new("RGBA", view_size, (0, 0, 0, 0))
+
+    if photo_fit == "contain":
+        bg = cover_crop(grade_image(img, idx, total).filter(ImageFilter.GaussianBlur(18)), view_size)
+        bg = ImageEnhance.Brightness(bg).enhance(0.45)
+        bg = ImageEnhance.Contrast(bg).enhance(1.08).convert("RGBA")
+        overlay = Image.new("RGBA", view_size, (4, 6, 12, 76))
+        view.alpha_composite(Image.alpha_composite(bg, overlay))
+        photo = fit_contain(
+            img,
+            view_size,
+            idx,
+            total,
+            float(motion.get("zoom", 0.08)),
+            progress,
+            is_pull=is_pull,
+        ).convert("RGBA")
+    else:
+        zoom = 1.0 + float(motion.get("zoom", 0.13)) * (1.0 - eased if is_pull else eased)
+        photo = fit_cover(img, view_size, idx, total, zoom=zoom).convert("RGBA")
 
     x_dir = -1 if idx % 2 else 1
     y_dir = -1 if idx % 3 == 0 else 1
-    px = (view_w - photo.width) // 2 + int(float(motion.get("pan_x", 54)) * (eased - 0.5) * x_dir)
-    py = (view_h - photo.height) // 2 + int(float(motion.get("pan_y", 46)) * (eased - 0.5) * y_dir)
+    spare_x = max(0, view_w - photo.width)
+    spare_y = max(0, view_h - photo.height)
+    pan_x = float(motion.get("pan_x", 54))
+    pan_y = float(motion.get("pan_y", 46))
+    if photo_fit == "contain":
+        pan_x = min(pan_x, spare_x * 0.42)
+        pan_y = min(pan_y, spare_y * 0.42)
+    px = spare_x // 2 + int(pan_x * (eased - 0.5) * x_dir)
+    py = spare_y // 2 + int(pan_y * (eased - 0.5) * y_dir)
 
     paste_clipped(view, photo, (px, py))
     layer.alpha_composite(view, (box[0], box[1]))
