@@ -1,0 +1,4 @@
+interface:
+  display_name: "竖屏 AI 信息差视频"
+  short_description: "Create 9:16 beat-synced AI news shorts"
+  default_prompt: "Use $vertical-ai-info-video to generate a 9:16 AI information-gap news video from a config file."

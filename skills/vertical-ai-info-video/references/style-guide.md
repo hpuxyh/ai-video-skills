@@ -1,0 +1,114 @@
+# Style Guide
+
+## Config Schema
+
+Use a JSON file with these top-level keys:
+
+```json
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/output.mp4",
+  "contact_sheet": "renders/output-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "重磅",
+    "category": "法律 · AI 安全",
+    "source": "AP News · 2026.06.27"
+  },
+  "title": [
+    {"text": "OpenAI × Anthropic", "y": 126, "size": 88, "color": [236, 255, 255]},
+    {"text": "新模型先过白宫安审", "y": 218, "size": 100, "color": [255, 255, 255]},
+    {"text": "获批客户才可提前试用", "y": 344, "size": 94, "color": [255, 145, 118]}
+  ],
+  "info_rows": [
+    {"label": "结论", "text": "顶级 AI 发布前，先过安全审查"},
+    {"label": "普通人机会", "text": "AI 安全、评测、合规会变成新机会"}
+  ],
+  "images": [
+    "assets/images/event1/event1-01.jpg",
+    "assets/images/event1/event1-02.jpg"
+  ],
+  "beat_cuts": [0.90, 1.99, 3.87, 5.83],
+  "bgm": {
+    "path": "assets/audio/bgm.mp3",
+    "start": 3,
+    "volume": 0.55
+  }
+}
+```
+
+All relative paths resolve from `--project-dir`.
+
+## Title Defaults
+
+- `title_weight_multiplier`: `0.9`
+- `title_oblique`: `-0.075`
+- No glow, no black offset shadow, no highlight.
+- Keep the title large enough for mobile viewing; reduce text length before shrinking too much.
+
+## Layout Defaults
+
+- `photo_box`: `[0, 515, 1080, 1235]`
+- Info rows start at `y=1288`, row height `64`.
+- Top brand pill stays at the top-right.
+- Do not draw carousel dots, footer labels, or decorative title bands.
+
+## One News Event Pattern
+
+Use this skill for one event at a time. For example, "GPT-5.6 enters limited preview" is one event. The five images should all support that same event from different angles:
+
+- person/company/product photo
+- official evidence screenshot
+- product/API/Codex entry screenshot
+- media report screenshot
+- related company or product scene
+
+The title and `info_rows` explain the event. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
+
+## Image Sourcing Priority
+
+Use multiple images for one news event. The middle image carousel should feel like real news footage, not a deck of text cards.
+
+1. Real people/company/product photos: founders, executives, company offices, product launch scenes, real product screenshots, or official brand/product images.
+2. Official evidence screenshots: announcement pages, Help Center pages, docs, API pages, safety cards, or release notes.
+3. Product entry screenshots: ChatGPT, OpenAI Platform, Codex, model selector, API console, pricing page, or developer docs.
+4. Media report screenshots: reputable news pages only when official/product imagery is insufficient or useful for news context.
+5. Auxiliary context images: developer scenes, data centers, laptops, or abstract tech imagery only as a last supplement.
+
+Reject screenshots that show Cloudflare verification, loading spinners, blank pages, cookie walls, or unrelated search results. Replace them with another source before making a video.
+
+## Recommended Row Logic
+
+Use this order for news explainers:
+
+1. `结论`: the one-sentence takeaway.
+2. `普通人机会`: what this means for normal viewers.
+3. `发生`: what happened.
+4. `变化`: what changes.
+5. `影响`: the industry or user impact.
+6. `信息差`: what most viewers may not have noticed.
+
+Keep each row short. If a row wraps visually, rewrite it rather than shrinking all rows.
+
+For `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
+
+- Good: `不用等内测，先用现有 AI 整理资料、写方案`
+- Good: `先别抢入口，学会判断哪些事该交给 AI`
+- Good: `不用等最强模型，先把重复工作交给 AI`
+- Good: `会拆任务的人，比会抢内测的人更占便宜`
+- Bad: `先看深度推理与工作流适配`
+
+## Verification
+
+After rendering:
+
+```bash
+ffprobe -v error -show_entries stream=codec_type,duration -show_entries format=duration -of json renders/output.mp4
+```
+
+Confirm:
+
+- format duration is 7 seconds unless the user requested otherwise.
+- both video and audio streams exist when BGM is requested.
+- contact sheet shows title, image area, and rows without overlap.

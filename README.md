@@ -14,6 +14,7 @@
 | Skill | 说明 | 路径 |
 |---|---|---|
 | AI 信息差快报 | 新闻检索、素材匹配、口播字幕、视频渲染 | `skills/ai-tech-news-video/SKILL.md` |
+| 竖屏 AI 信息差视频 | 9:16 单事件快报、多真实图片卡点轮播、结论优先信息流、无口播 BGM 成片 | `skills/vertical-ai-info-video/SKILL.md` |
 | 产品介绍视频 | 官网信息提炼、叙事结构、成片节奏 | `skills/product-intro-video/SKILL.md` |
 | 视频音效工作流 | 音效搜索、下载与合成、时间线接入 | `skills/sound-fx-for-video/SKILL.md` |
 | 简笔画动画视频 | 线稿风 + 短画面字；**主动网络搜参考图临摹**；逼真非抽象；GSAP 主时间线 + 可选 Anime.js；抽检闭环 | `skills/sketch-animation-video/SKILL.md` |
