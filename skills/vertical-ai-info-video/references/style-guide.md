@@ -119,6 +119,45 @@ For a GPT-5.6 limited-preview story, prefer rows like:
 06 信息差：发布不等于人人可用，入口才是关键
 ```
 
+## Cover Generation Logic
+
+For 小红书 / 抖音 publishing, generate a separate 9:16 cover image when useful. The cover is not a text card; it is a click-entry frame built from real event assets.
+
+Visual priority:
+
+1. Headline impact: the headline must be the first visual layer.
+2. Real person: use a recognizable person connected to the event for trust and stopping power.
+3. Company recognition: add a company or product logo badge as a secondary anchor.
+4. One conclusion: show only the first conclusion row as supporting context.
+
+Asset priority for covers:
+
+1. Real person portrait or half-body image: founder, CEO, product lead, government figure, or other event protagonist.
+2. Company/product logo: use a clean white-background badge when possible.
+3. Product or official screenshot: use only when no relevant person exists.
+4. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
+
+Layout rules:
+
+- Use `1080x1920`.
+- Let the person photo fill the background or main visual area.
+- Keep eyes and main facial features unobstructed.
+- Put the headline around the lower third when a portrait is used, usually over shirt/background rather than across the eyes, nose, or mouth.
+- Make the headline larger and stronger than the person and logo.
+- Put the company logo badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast background.
+- Keep the top `AI 信息差快报` / topic metadata small.
+- Show only one bottom conclusion row; do not show all six info rows on the cover.
+- Do not add platform play buttons; 小红书/抖音 add those automatically.
+
+For a GPT-5.6 limited-preview cover, use:
+
+```text
+Person: Sam Altman portrait
+Company badge: OpenAI logo, preferably white background and larger than a tiny corner mark
+Headline: GPT-5.6 要来了？ / 但普通人 / 还不能直接用
+Bottom row: 结论：预览中，普通用户还不能直接用
+```
+
 ## Verification
 
 After rendering:

@@ -1,13 +1,13 @@
 ---
 name: vertical-ai-info-video
-description: "Generate 9:16 Chinese AI information-gap short videos with real news images, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, or says to use this short-video workflow skill."
+description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, or says to use this short-video workflow skill."
 ---
 
 # Vertical AI Info Video
 
 ## Overview
 
-Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
+Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -15,8 +15,9 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 
 1. Confirm or infer the video topic, title lines, info rows, image set, and BGM.
 2. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
-3. Build a JSON config using the schema in `references/style-guide.md`.
-4. Run `scripts/render_vertical_info_video.py` from a project directory:
+3. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
+4. Build a JSON config using the schema in `references/style-guide.md`.
+5. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vertical_info_video.py \
@@ -26,7 +27,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-5. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+6. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
 
 ## One-Event Video Logic
 
@@ -48,7 +49,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
-- Output: one final MP4 plus a contact sheet or preview frame.
+- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
+- Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 
 ## Iteration Rules
 
