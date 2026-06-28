@@ -6,12 +6,12 @@ This reference captures the confirmed production logic for the normal `vertical-
 
 - Format: 9:16, `1080x1920`, 7 seconds, no voiceover, with BGM unless the user asks for silence.
 - Card: one white textured paper card on a dark phone-like background.
-- Title: very bold black headline, usually two centered lines.
-- Ribbon: one purple horizontal rounded ribbon directly under the headline.
+- Title: very bold three-line headline, usually two black lines plus one blue emphasis line.
+- Ribbon: no large purple ribbon by default. Purple ribbon/panel is legacy and only used on explicit request.
 - Media: one middle media area containing the original five-image carousel for the same news event.
-- Image transition: use short soft cross-fade transitions between carousel images. Avoid hard-only cuts, fast left-right slide switching, white flashes, or empty side gaps.
-- Media fit: real people/product images may fill the media area; screenshots, source cards, product UI, tweet cards, and other text-bearing images must preserve the full text and not be cropped.
-- Bottom: structured thin-line rows, revealed one by one at a readable pace, then kept visible.
+- Image transition: use short soft fade transitions between carousel images. Normal photos can cross-fade directly, but text-bearing screenshots/source cards/product UI must use split fade-out/fade-in so two text layers never overlap. Avoid hard-only cuts, fast left-right slide switching, white flashes, empty side gaps, or text-on-text overlap.
+- Media fit: real people/product images may fill the media area; screenshots, source cards, product UI, tweet cards, and other text-bearing images must use safe-fill behavior. Enlarge them as much as possible and crop only background/empty edges, but preserve the full text and key UI without cropping, hiding, or partial cut-off.
+- Bottom: structured unnumbered cyan-highlight reading lines, revealed one by one at a readable pace, then kept visible.
 - Date: show the newest verified date on the card as a small top-right marker, such as `最新 2026.06.28`.
 - Positioning label: keep `AI 信息差快报` small and secondary.
 - Do not add carousel dots, decorative divider lines, empty bands, large footers, or dark-template components.
@@ -23,34 +23,34 @@ The top area must work like the approved reference cases:
 ```text
 黑色标题第 1 行：谁/什么 + 发生了什么具体事
 黑色标题第 2 行：这件事造成什么变化、冲突或反差
-紫色条：最大信息差、普通人该注意什么、或者下一步行动
+蓝色第 3 行：最大信息差、普通人该注意什么、或者下一步行动
 ```
 
 Good title tests:
 
 - A normal viewer can understand the basic story within 3 seconds.
 - The title contains a concrete actor, product, policy, number, company, or event.
-- The ribbon does not repeat the title; it translates the event into a viewer-facing takeaway.
+- The blue third title line does not repeat the title; it translates the event into a viewer-facing takeaway.
 - The wording is sharp but still supported by sources.
 
 Avoid:
 
 - Mood-only titles such as `AI 又出大事了`.
 - Abstract titles such as `能力边界正在变化`.
-- Repeating the same phrase in both the title and purple ribbon.
-- Purple title panels as the default. The current default is black title plus purple ribbon.
+- Repeating the same phrase in both the title and blue third line.
+- Purple title panels or purple ribbons as the default. The current default is black title plus blue third-line emphasis.
 
 ## Language Style
 
 - Use plain, short Chinese that a non-specialist can understand.
 - Prefer concrete nouns and verbs: `入口`, `账号`, `算力`, `模型`, `试用`, `下单`, `合规`, `排队`.
 - Put the strongest contrast up top, not hidden in the bottom rows.
-- The purple ribbon should feel like a takeaway, not a news subtitle.
+- The blue third title line should feel like a takeaway, not a news subtitle.
 - Do not exaggerate unverifiable claims for clicks.
 
 ## Bottom Row Structure
 
-Use `body_style: "editorial_lines"` and 5 rows by default:
+Use unnumbered cyan-highlight reading lines and 5 rows by default:
 
 ```text
 01 事件：verified event in plain language
@@ -83,8 +83,8 @@ Sequence rules:
 
 - First image must identify the protagonist/company/product whenever possible.
 - Core source screenshots can stay longer with `image_hold_weights`, commonly `[1, 2, 1, 1, 1]`.
-- Use `image_roles` and `image_quality` to mark screenshots/cards/products so the renderer can preserve them in full. Roles/qualities such as `media`, `source-card`, `official-screenshot`, `clean-card`, `product`, `tweet`, and `screenshot` should not be aggressively cropped.
-- Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` for readable image transitions.
+- Use `image_roles` and `image_quality` to mark screenshots/cards/products so the renderer can preserve them with safe-fill. Roles/qualities such as `media`, `source-card`, `official-screenshot`, `clean-card`, `product`, `tweet`, and `screenshot` should be enlarged as much as possible but must not crop text or key UI.
+- Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` for readable image transitions. The renderer must avoid direct overlap between two text-bearing media frames.
 - Do not use blocked pages, blank screenshots, download-error cards, `403`, `429`, or `图片源不可用`.
 - Run `scripts/check_image_sequence.py --strict` before rendering.
 - Inspect the contact sheet before final delivery.
@@ -97,7 +97,7 @@ Cover images are for 小红书/抖音 recognition:
 - The title must be more visually important than the face, but should not destroy the face.
 - Use a company badge or logo as secondary recognition.
 - Use one conclusion row only; do not turn the cover into a full explainer.
-- Reuse the same title/ribbon logic as the video, but shorten for cover readability.
+- Reuse the same three-line title logic as the video, but shorten for cover readability.
 
 ## BGM Logic
 
@@ -164,9 +164,9 @@ Before reporting completion:
 - Confirm each config has a selected `bgm.path` and `bgm.source_track`.
 - For multi-video batches, confirm the BGM plan did not assign one inherited track to every video.
 - Confirm the final delivery folder is topic-first: each video topic has exactly the three core files `视频.mp4`, `封面.jpg`, and `文案.md`.
-- Confirm each contact sheet shows black title, purple ribbon, middle carousel, and bottom rows.
-- Confirm images are complete inside the media area, text-bearing images are not cropped, and images are not leaking off-screen.
-- Confirm carousel image transitions have soft fade motion without white flashes, empty side gaps, or distracting rapid left-right slides.
+- Confirm each contact sheet shows the red metadata tag, black/blue three-line title, middle carousel, and bottom cyan-highlight reading lines without `01`-`05` number pills.
+- Confirm images occupy the media area as fully as possible, text-bearing images are not cropped or partially cut, and images are not leaking off-screen.
+- Confirm carousel image transitions have soft fade motion without white flashes, empty side gaps, distracting rapid left-right slides, or overlapping text from two screenshots.
 - Confirm there are no carousel dots or old dark-template remnants.
 - Confirm publishing copy exists for 小红书 and 抖音.
 - Update `选题历史.md` so future daily runs avoid exact repeats.
@@ -193,10 +193,10 @@ Do not push by default:
 
 Use this batch as the canonical example for the white paper-card title pattern:
 
-| Topic | Black title | Purple ribbon |
+| Topic | Black title | Blue third title line |
 | --- | --- | --- |
 | SpaceX 出租算力 | `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口` | `真正稀缺的不是模型，是算力！` |
-| Anthropic 指控阿里 | `Anthropic 指控阿里蒸馏 Claude` / `2.5 万假账号狂刷模型` | `AI 公司不只防黑客，也防能力被偷学！` |
-| 阿里 HappyHorse | `阿里视频模型 HappyHorse 升级` / `AI 视频开始抢创作者` | `会写分镜的人，先吃到 AI 视频红利！` |
-| 豆包内测打车 | `豆包开始内测打车` / `AI 应用不只会聊天` | `聊天框正在变成新的下单入口！` |
-| 百度文心入口合并 | `百度合并文心 AI 入口` / `普通人别再找错入口` | `别只追新模型，先找对官方入口！` |
+| Anthropic 指控阿里 | `Anthropic 指控阿里蒸馏 Claude` / `2.5 万假账号狂刷模型` | `也防能力被偷学` |
+| 阿里 HappyHorse | `阿里视频模型 HappyHorse 升级` / `AI 视频开始抢创作者` | `会写分镜的人先吃红利` |
+| 豆包内测打车 | `豆包开始内测打车` / `AI 应用不只会聊天` | `聊天框变成下单入口` |
+| 百度文心入口合并 | `百度合并文心 AI 入口` / `普通人别再找错入口` | `先找对官方入口` |

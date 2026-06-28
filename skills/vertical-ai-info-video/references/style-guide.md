@@ -54,6 +54,77 @@ This schema is for the older dark vertical fast-news renderer only. Do not use i
 
 All relative paths resolve from `--project-dir`.
 
+## Clean White Paper Card Video Config Schema
+
+Use this schema for the current default daily/news-video MP4 output. It uses the approved no-purple white-card style: red metadata tag, three-line title with blue third line, five-image carousel, and clean numbered rows.
+
+```json
+{
+  "duration": 7,
+  "fps": 30,
+  "badge": "AI 信息差快报",
+  "date": "2026.06.27",
+  "header_tag": "重磅",
+  "header_category": "模型安全 · 访问限制",
+  "header_source": "最新 · 2026.06.27",
+  "title": [
+    "Anthropic 发布 Fable 5",
+    "美国限制外籍用户访问"
+  ],
+  "title_line3": "普通人还不能直接用",
+  "images": [
+    "assets/images/event/01-hero.jpg",
+    "assets/images/event/02-official.png",
+    "assets/images/event/03-source.png",
+    "assets/images/event/04-product.jpg",
+    "assets/images/event/05-latest-card.png"
+  ],
+  "image_roles": ["hero", "official", "media", "product", "source-card"],
+  "image_quality": ["real", "official-screenshot", "source-card", "product", "source-card"],
+  "media_box": [0, 492, 1080, 1262],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.34,
+  "body_y": 1298,
+  "body_show_numbers": false,
+  "body_highlight_fill": [53, 214, 226, 232],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    {"label": "事件", "text": "用一句话说清楚发生了什么"},
+    {"label": "关键", "text": "说清楚表面新闻背后的变化"},
+    {"label": "跟你有关", "text": "翻译成普通用户会遇到的影响"},
+    {"label": "变化", "text": "谁的流程、入口、资格或成本变了"},
+    {"label": "信息差", "text": "最后给一个能带走的判断"}
+  ],
+  "bgm": {
+    "path": "assets/audio/bba进行曲.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}
+```
+
+Render it with:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clean_white_video.py \
+  --config configs/clean-white-video.json \
+  --project-dir . \
+  --output renders/clean-white-video.mp4 \
+  --contact-sheet renders/clean-white-video-contact.jpg
+```
+
+## Legacy Paper Card Preview Config Schema
+
+The following preview/video schemas are for older purple-ribbon paper-card variants. Do not use them for default daily output unless the user explicitly asks for the purple-ribbon style.
+
 ## Paper Card Preview Config Schema
 
 Use this schema when the user asks for the approved white-card reference style or wants a rendered image before full video production:
@@ -178,8 +249,8 @@ Paper-card video rules:
 
 - `images` must contain the same real one-event media set used by the normal video, usually 5 images.
 - Do not pass the already-rendered paper-card JPG as the only image.
-- Preserve the title entrance rhythm: black title lines pop in one by one, then the purple ribbon expands with the information-gap sentence. The title should not be static from the first frame in MP4 output.
-- In the current structured paper-card style, use `title_on_purple: false`, `show_ribbon: true`, `strap`, `body_style: "editorial_lines"`, and `body_rows`.
+- Preserve the title entrance rhythm: three title lines pop in one by one, with the third line in blue as the information-gap sentence. The title should not be static from the first frame in MP4 output.
+- In the current structured paper-card style, use `scripts/render_clean_white_video.py`, `title_line3`, `body_rows`, `body_rows_animate: true`, and no purple ribbon.
 - If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
 - Default to `media_outline_width: 0` for the current clean white-card variant. Use a visible purple border only when a specific style asks for it. Do not add carousel dots or extra footer strips.
@@ -253,17 +324,17 @@ Before rendering, present the proposed list in this format:
 
 For the paper-card explainer style, the title area is not the same as the normal three-line video title. This paper-card style is the current default for daily scheduled AI news videos.
 
-- In the current structured default, use a bold black headline on the white card plus a purple horizontal ribbon. The older purple title-panel layout is only for explicit fallback requests.
+- In the current structured default, use a bold three-line headline on the white card: first two lines black, third line blue. Purple title/ribbon layouts are only for explicit fallback requests.
 - Prefer two black title lines: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
-- Use `strap` inside the purple ribbon for the strongest information-gap sentence, action hook, or counterintuitive takeaway. It should tell the viewer what to notice or do, not merely restate the title.
-- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + purple ribbon `普通人该注意的关键点`.
-- Run the 3-second comprehension test before rendering: after reading only the black title and purple ribbon, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
+- Use `title_line3` for the strongest information-gap sentence, action hook, or counterintuitive takeaway. It should tell the viewer what to notice or do, not merely restate the title.
+- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + blue third line `普通人该注意的关键点`.
+- Run the 3-second comprehension test before rendering: after reading only the three title lines, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
 - Do not use abstract mood-only titles. They may sound dramatic but fail as a social-video entry point.
 - Examples:
-  - Black title: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `别只看“开源”，还要看谁能真正使用`.
-  - Black title: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `真正被冲击的是 API 收费入口`.
-  - Black title: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
-  - Black title: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; ribbon: `别只问会不会被替代，先学会分配任务`.
+  - Title: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由` / `别只看“开源”`.
+  - Title: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT` / `API 收费入口被冲击`.
+  - Title: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口` / `稀缺的是算力`.
+  - Title: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作` / `先学会分配任务`.
 - Avoid:
   - Headline: `Claude 用户最怕的事` / `高频用户反而更乐观`; why: it does not say what happened.
   - Headline: `AI 工作方式巨变` / `普通人必须重视`; why: it has no source, number, product, or concrete event.
@@ -274,7 +345,7 @@ For the paper-card explainer style, the title area is not the same as the normal
 - Use the newest date from the verified source set for that story. If sources disagree, use the newest publication/update date and keep source notes in the project record.
 - Preferred display: a small top-right marker such as `最新：2026.06.28`.
 - Do not rely only on the embedded screenshot's tiny source date, because it may be cropped or unreadable on mobile.
-- Keep the date marker secondary to the headline: visible enough to prove freshness, but smaller than title and purple ribbon.
+- Keep the date marker secondary to the headline: visible enough to prove freshness, but smaller than title.
 - When a date marker is present, leave enough top padding so it does not overlap the headline.
 
 ## Layout Defaults
@@ -295,14 +366,14 @@ Use these defaults for static paper-card previews and for the current daily pape
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
 - Top: current default is a very bold black headline, centered, usually 2 lines.
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
-- Purple ribbon: one rounded horizontal strip under the title. Use `strap` for the viewer takeaway, information gap, or action hook.
-- Media: real image or screenshot in a purple rounded frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
-- Copy: bottom structured thin-line rows by default. Use numbered rows, purple labels, thin dividers, and black explanatory text. Prefer labels such as `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`.
+- No purple ribbon by default: use the blue third title line for the viewer takeaway, information gap, or action hook.
+- Media: real image or screenshot in a clean full-width frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
+- Copy: bottom structured cyan-highlight reading lines by default. Use `标签：内容` on a cyan highlight strip, no `01`-`05` number pills, and concise explanatory text. Prefer labels such as `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
 
-The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows` rendered with `body_style: "editorial_lines"`:
+The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows` rendered as unnumbered cyan-highlight reading lines:
 
 ```json
 [
@@ -343,7 +414,7 @@ Use this skill for one event at a time. For example, "GPT-5.6 enters limited pre
 - media report screenshot
 - related company or product scene
 
-The title, purple ribbon, and `body_rows` explain the event in the default paper-card workflow. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
+The title and `body_rows` explain the event in the default clean white workflow. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
 
 ## Image Sourcing Priority
 
@@ -626,7 +697,7 @@ Validation:
 
 For recurring daily batches:
 
-- Use the white paper-card video style by default: black headline, purple information-gap ribbon, five-image carousel with soft cross-fade transitions, structured thin-line bottom rows, and body rows revealing one by one at a readable pace.
+- Use the clean white paper-card video style by default: red metadata tag, black/blue three-line headline, five-image carousel with soft cross-fade transitions, structured clean bottom rows, and body rows revealing one by one at a readable pace.
 - Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
 - Record date, topic title, company/product, source URLs, selected angle, and final output folder.
 - Before every auto-scout run, compare candidates against previous records and dated export folders.
