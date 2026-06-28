@@ -43,20 +43,22 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 11. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-12. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder:
+12. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
   导出-YYYY年MM月DD日-推特版AI信息差快报/
-    01-视频/
-    02-封面/
-    03-总览/
-    04-素材与来源/
-    选题记录.md
+    01-中文话题名/
+      视频.mp4
+      封面.jpg
+    02-中文话题名/
+      视频.mp4
+      封面.jpg
+    整体描述.md
 ```
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
-13. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, source URLs, information-gap angle, and final export folder in both the local batch `选题记录.md` and the GitHub-synced history records.
+13. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, source URLs, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
 14. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
 
 ## Topic Selection Modes
@@ -220,16 +222,19 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Image count: prefer 5 images for a 7-second video.
 - Middle image brightness: the carousel images should be bright and legible. Avoid dark cards, black backgrounds, low-contrast screenshots, or heavy overlays in the photo box. If a real source is dark, use `photo_fit: "contain"` with a bright blurred/background treatment or choose a brighter asset.
 - Image sourcing priority: real people/company/product photos first; the bright verified core tweet screenshot second; official announcement/help/docs screenshots third; product entry/API/Codex screenshots fourth; media report screenshots fifth; auxiliary context images last.
+- Real-visual crop safety: before rendering, inspect each carousel panel or contact sheet. Person images must preserve the full face and recognizable body/gesture when possible. Company/product screenshots must preserve the logo, product name, and central UI/visual; do not crop away the first word, logo, face, or main object.
+- Horizontal page handling: for wide official pages, product pages, and news pages, do not force a cover-fill crop when it cuts off important text or visuals. Prefer `contain` inside a bright rounded card, with only the blurred background filling the frame.
+- Carousel copy limit: real images may carry one short Chinese caption or at most two simple lines. Do not rebuild images 1/3/4/5 as dense text cards; the title and bottom rows already carry the explanation.
 - Text-card boundary: self-made explainer cards are allowed only as minor support assets when no better real image exists. They must not replace the person/product/official-page logic, and they must not dominate a 5-image carousel.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Language handling: final visible titles, labels, rows, captions, chart explanations, and tweet-summary text should be Chinese. Do not leave an English tweet screenshot as the only readable explanation in the final artifact.
 - Timing: for tweet-anchored videos, keep total duration at 7 seconds but hold image 2 for about 2x the other images by setting `image_hold_weights: [1, 2, 1, 1, 1]`. Use manual `beat_cuts` only when the user asks for a music-specific exception.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
-- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Reuse the same three animated title lines as the large cover headline, protect the face, add a company logo badge, and show only one conclusion row with no numeric prefix.
+- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Reuse the same three animated title lines as the large cover headline, protect the face and full representative subject, add a company logo badge, and show only one conclusion row with no numeric prefix. If there is no suitable person, use the company's logo/product page/official visual and preserve the complete brand/product identity.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export destination: final 推特版 deliverables must be organized under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`. Temporary render files can stay in the project folder during iteration, but the handoff-ready batch must be copied or rendered into this dedicated folder.
-- Export naming: final deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`, then split into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源`; include the topic in each folder/file name so the user can distinguish video, cover, theme, and tweet source.
+- Export naming: final user-facing deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`; inside it, create one numbered topic folder per project. Each topic folder contains only `视频.mp4` and `封面.jpg`. Put the batch title/copy/description for all topics in one root `整体描述.md`. Keep source screenshots, configs, overviews, and detailed history in the working project or GitHub records.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 
 ## Iteration Rules
@@ -252,27 +257,24 @@ Use this batch structure:
 
 ```text
 导出-YYYY年MM月DD日-推特版AI信息差快报/
-  01-视频/
-    01-中文话题名/
-      视频-01-中文话题名.mp4
-  02-封面/
-    01-中文话题名/
-      封面-01-中文话题名.jpg
-  03-总览/
-    视频总览-YYYY年MM月DD日-推特版AI信息差快报.jpg
-    封面总览-YYYY年MM月DD日-推特版AI信息差快报.jpg
-  04-素材与来源/
-    01-中文话题名/
-      核心推文截图.jpg
-      来源记录.md
-  选题记录.md
+  01-中文话题名/
+    视频.mp4
+    封面.jpg
+  02-中文话题名/
+    视频.mp4
+    封面.jpg
+  03-中文话题名/
+    视频.mp4
+    封面.jpg
+  整体描述.md
 ```
 
 Rules:
 
 - Do not leave final deliverables only inside a temporary project `renders/` directory.
-- Keep iteration previews in the working project while tuning, but copy the approved MP4, cover, overview, and source notes into the dedicated Xiaohongshu video export folder before reporting completion.
-- `来源记录.md` should include the source tweet URL, tweet author, observed heat signal, screenshot filename, supporting source URLs, and why this topic is suitable for a 推特版 AI 信息差 video.
+- Do not split the user-facing export into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源` unless the user explicitly requests the old structure.
+- Keep iteration previews, contact sheets, overviews, configs, and detailed source notes in the working project while tuning; copy only the approved MP4, cover, and one root `整体描述.md` into the handoff-ready Xiaohongshu export folder.
+- GitHub/local source records should include the source tweet URL, tweet author, observed heat signal, screenshot filename, supporting source URLs, and why this topic is suitable for a 推特版 AI 信息差 video.
 - The folder or file name must clearly say `推特版` or `推特专用`.
 
 ## GitHub Sync And History

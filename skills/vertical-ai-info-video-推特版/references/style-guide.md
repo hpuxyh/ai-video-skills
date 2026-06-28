@@ -362,6 +362,9 @@ The middle `photo_box` must feel like bright real news/product footage, not dark
 - The first image should usually be a real person, company/product visual, or official report/product page, not a text explainer.
 - The second image is always the tweet anchor and should be bright enough to read quickly.
 - If an image is dark, blocked, low contrast, or visually empty, replace it or add a bright readable treatment.
+- Person crop check: preserve the full face, eyes, chin, hairline, and recognizable body/gesture when the person is the subject. If a source photo is vertical or tightly framed, use `contain` rather than cutting the subject.
+- Company/product crop check: preserve the company logo, product name, and central UI/visual. If a wide official page or product page becomes unreadable when cropped, place the whole page inside a bright rounded card and let only the background blur/crop.
+- Caption density: carousel images 1/3/4/5 may include one short Chinese caption, or two very short lines at most. They should not become dense text cards; the title and bottom rows carry the explanation.
 
 Reject screenshots that show Cloudflare verification, loading spinners, blank pages, cookie walls, or unrelated search results. Replace them with another source before making a video.
 
@@ -429,7 +432,8 @@ Layout rules:
 
 - Use `1080x1920`.
 - Let the person photo fill the background or main visual area.
-- Keep eyes and main facial features unobstructed.
+- Keep eyes and main facial features unobstructed. Also preserve the face boundary and recognizable posture; do not crop off the top of the head, chin, or important hand/body gesture when that gesture helps identify the scene.
+- For brand-only covers, preserve the complete logo/product identity. Do not use a hard fill crop that cuts off the company name, first word of the product title, core UI, or main object. Wide official pages should usually be contained inside a white rounded card while the blurred background fills the cover.
 - Put the headline around the lower third when a portrait is used, usually over shirt/background rather than across the eyes, nose, or mouth.
 - Make the headline larger and stronger than the person and logo.
 - Use the same wording as the video's three animated title lines. The cover may enlarge, stack, or color the lines differently, but should not rewrite them unless the user asks.
@@ -472,25 +476,18 @@ Final 推特版 deliverables should be organized under the dedicated Xiaohongshu
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
 ```
 
-Use Chinese names rather than raw English slugs. The dated top-level folder must clearly include `推特版` or `推特专用`, then split videos, covers, overview images, and source notes:
+Use Chinese names rather than raw English slugs. The dated top-level folder must clearly include `推特版` or `推特专用`, then use one numbered project folder per topic:
 
 ```text
 推特专用-AI信息差视频/
   导出-2026年06月28日-推特版AI信息差快报/
-  01-视频/
     01-新模型先过安审-OpenAI与Anthropic/
-      视频-01-新模型先过安审-OpenAI与Anthropic.mp4
-  02-封面/
-    01-新模型先过安审-OpenAI与Anthropic/
-      封面-01-新模型先过安审-OpenAI与Anthropic.jpg
-  03-总览/
-    视频总览-2026年06月28日-推特版AI信息差快报.jpg
-    封面总览-2026年06月28日-推特版AI信息差快报.jpg
-  04-素材与来源/
-    01-新模型先过安审-OpenAI与Anthropic/
-      核心推文截图.jpg
-      来源记录.md
-  选题记录.md
+      视频.mp4
+      封面.jpg
+    02-Google-Finance-AI研究工具/
+      视频.mp4
+      封面.jpg
+    整体描述.md
 ```
 
 Rules:
@@ -498,13 +495,13 @@ Rules:
 - The top-level export folder should include the date and batch theme.
 - The top-level export folder should live under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`.
 - The folder name must include `推特版` or `推特专用`.
-- Use `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源` as the first split.
-- Each topic gets a numbered Chinese topic folder.
-- File names should start with `视频-` or `封面-`, then repeat the topic name.
+- Use one numbered Chinese topic folder per project in the user-facing handoff.
+- Each topic folder should contain only `视频.mp4` and `封面.jpg`.
+- Put all titles, captions, publishing copy, source summaries, and topic descriptions into one root `整体描述.md`.
 - Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
-- Each topic's `04-素材与来源` folder should preserve the core tweet screenshot or localized tweet card plus a `来源记录.md` with tweet URL, tweet author, observed heat signal, screenshot path, supporting source URLs, and information-gap angle.
+- The working project or GitHub records should preserve the core tweet screenshot/localized tweet card plus source notes with tweet URL, tweet author, observed heat signal, screenshot path, supporting source URLs, and information-gap angle.
 - Temporary preview renders may remain in the working project during iteration, but approved final deliverables must be copied or rendered into this dedicated export folder.
-- Also create a zip package with the same Chinese top-level name when handing off a batch.
+- Do not use the old `01-视频` / `02-封面` / `03-总览` / `04-素材与来源` split unless the user explicitly asks for it.
 
 ## BGM Selection
 

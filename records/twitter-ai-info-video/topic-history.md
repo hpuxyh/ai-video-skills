@@ -27,8 +27,8 @@
 推文作者：OpenAI @OpenAI
 热度信号：2026年6月26日 · 约1610.1万 Views · 3.3K回复 / 5.5K转发 / 38.6K赞
 信息差角度：会用入口的人，比等发布的人更快
-最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报
-输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/01-GPT-56-Sol限量预览/视频-01-GPT-56-Sol限量预览.mp4
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/01-GPT-56-Sol限量预览/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
 
 ### 2026-06-28 02 Google-Finance-AI研究工具
@@ -40,8 +40,8 @@
 推文作者：Google @Google
 热度信号：2026年6月25日 · 约3.2万 Views · 4回复 / 8转发 / 138赞
 信息差角度：AI 先改变信息收集，不是替你下注
-最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报
-输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/02-Google-Finance-AI研究工具/视频-02-Google-Finance-AI研究工具.mp4
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/02-Google-Finance-AI研究工具/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
 
 ### 2026-06-28 03 BytePlus-Seedance-20-4K
@@ -53,8 +53,8 @@
 推文作者：BytePlus @BytePlusGlobal
 热度信号：2026年6月23日 · 约1144.1万 Views · 262回复 / 316转发 / 1418赞
 信息差角度：会写镜头参考，比单纯写提示词更重要
-最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报
-输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/03-BytePlus-Seedance-20-4K/视频-03-BytePlus-Seedance-20-4K.mp4
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/03-BytePlus-Seedance-20-4K/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
 
 ### 2026-06-28 04 Claude-Tag进入Slack
@@ -66,8 +66,8 @@
 推文作者：Ashwin Gopinath @ashwingop
 热度信号：推文讨论 Claude Tag 与 Slack 工作流锁定风险；截图含 Claude 官方嵌入推文
 信息差角度：模型能换，但公司记忆最难搬走
-最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报
-输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/04-Claude-Tag进入Slack/视频-04-Claude-Tag进入Slack.mp4
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/04-Claude-Tag进入Slack/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
 
 ### 2026-06-28 05 A24回应Google-AI合作
@@ -79,7 +79,6 @@
 推文作者：DiscussingFilm @DiscussingFilm
 热度信号：围绕 A24 × Google AI 合作的争议声明；来源指向 WIRED 2026年6月24日文章
 信息差角度：真正的竞争是“工具怎么被建造”
-最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报
-输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/05-A24回应Google-AI合作/视频-05-A24回应Google-AI合作.mp4
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/05-A24回应Google-AI合作/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
-

@@ -114,16 +114,18 @@
     1235
   ],
   "image_grade": {
-    "brightness": 1.16,
-    "contrast": 1.06,
-    "color": 1.03,
-    "high_luma_brightness": 0.92,
-    "normal_brightness": 1.08
+    "high_luma_brightness": 0.95,
+    "high_luma_contrast": 1.0,
+    "normal_brightness": 1.02,
+    "normal_contrast": 1.02,
+    "low_brightness": 1.18,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.12
   },
   "motion": {
-    "zoom": 0.09,
-    "pan_x": 36,
-    "pan_y": 30
+    "zoom": 0.06,
+    "pan_x": 26,
+    "pan_y": 22
   },
   "bgm": {
     "path": "assets/audio/bba.mp3",

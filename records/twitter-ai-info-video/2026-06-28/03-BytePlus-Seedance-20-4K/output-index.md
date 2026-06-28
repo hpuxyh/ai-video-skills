@@ -1,5 +1,8 @@
 # 03 BytePlus-Seedance-20-4K 输出索引
 
+- 当前优化版视频：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/03-BytePlus-Seedance-20-4K/视频.mp4
+- 当前优化版封面：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/03-BytePlus-Seedance-20-4K/封面.jpg
+
 - 视频：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/03-BytePlus-Seedance-20-4K/视频-03-BytePlus-Seedance-20-4K.mp4
 - 封面：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/02-封面/03-BytePlus-Seedance-20-4K/封面-03-BytePlus-Seedance-20-4K.jpg
 - 视频总览：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/03-总览/视频总览-2026年06月28日-推特版AI信息差快报.jpg
