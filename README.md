@@ -55,6 +55,8 @@
 当前日更默认样式已沉淀在 `skills/vertical-ai-info-video/references/paper-card-daily-production.md`：
 白底纸卡、黑色粗标题、紫色信息差条、中间五图轮播、底部结构化说明。批量选题/文案结构示例见 `skills/vertical-ai-info-video/examples/white-paper-card-batch-manifest.example.json`。
 
+交付目录按项目维度组织：一个批次项目下有 5 个视频条目文件夹，每个条目只放 `视频.mp4`、`封面.jpg`、`文案.md` 三个发布核心文件；总览、校验、素材证据放入 `_记录/`。
+
 ## 账号信息
 
 - 名称：拓扑同学

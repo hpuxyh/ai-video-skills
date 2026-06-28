@@ -2,6 +2,13 @@
   "schema": "vertical-ai-info-video.white-paper-card-batch.v1",
   "batch_name": "2026年06月28日AI信息差快报-第二批",
   "export_root": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频",
+  "delivery_structure": {
+    "type": "project_topic_first",
+    "topic_folder_pattern": "NN-中文主题名",
+    "core_files_per_topic": ["视频.mp4", "封面.jpg", "文案.md"],
+    "records_folder": "_记录",
+    "legacy_category_first_layout": "intermediate_only"
+  },
   "style": {
     "title_on_purple": false,
     "show_ribbon": true,

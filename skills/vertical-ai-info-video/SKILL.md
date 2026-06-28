@@ -57,7 +57,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
 If the user explicitly requests the legacy dark fast-news template, render with `scripts/render_vertical_info_video.py` instead.
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-11. Export every finished topic into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频`, including the final video, cover image, and platform publishing copy.
+11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the project-level delivery structure below. Each topic folder must contain only three core publishing files: `视频.mp4`, `封面.jpg`, and `文案.md`.
 12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
 
 ## Delivery Output Contract
@@ -69,29 +69,32 @@ All finished news-video deliverables must live under the dedicated 小红书 cre
   README.md
   选题历史.md
   导出-YYYY年MM月DD日AI信息差快报/
-    01-视频/
-      01-主题名/
-        视频-01-主题名.mp4
-    02-封面/
-      01-主题名/
-        封面-01-主题名.jpg
-    03-发布文案/
-      01-主题名/
-        小红书-标题标签-01-主题名.md
-        抖音-标题标签-01-主题名.md
-    04-总览与记录/
+    01-主题名/
+      视频.mp4
+      封面.jpg
+      文案.md
+    02-主题名/
+      视频.mp4
+      封面.jpg
+      文案.md
+    ...
+    项目总览.md
+    _记录/
       视频总览-YYYY年MM月DD日AI信息差快报.jpg
       封面总览-YYYY年MM月DD日AI信息差快报.jpg
       选题记录.md
-    05-素材与来源/
-      01-主题名/
+      渲染校验.md
+      bgm-selection-plan.json
+      素材与来源/
 ```
 
 Each topic must include three user-facing outputs before it is considered complete:
 
-- `视频-...mp4`: final 9:16 video with BGM unless the user asked for silence.
-- `封面-...jpg`: 9:16 cover image using the people/company-first cover rules.
-- `小红书-标题标签-...md` and, when useful, `抖音-标题标签-...md`: platform-ready title, short description, tags, and a one-line posting note.
+- `视频.mp4`: final 9:16 video with BGM unless the user asked for silence.
+- `封面.jpg`: 9:16 cover image using the people/company-first cover rules.
+- `文案.md`: platform-ready 小红书 and 抖音 title, short description, tags, and one-line posting note.
+
+Do not make the publishing surface category-first (`01-视频`, `02-封面`, `03-发布文案`) for new daily outputs. That older shape is only a temporary legacy/intermediate layout. If a renderer still emits the older layout, run `scripts/package_project_delivery.py` to create the clean project-level delivery folder before reporting completion.
 
 Publishing copy defaults:
 
@@ -224,7 +227,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
-- Export naming: final deliverables must use Chinese folder and file names. Separate `01-视频`, `02-封面`, and `03-总览`; include the topic in each folder/file name so the user can distinguish video, cover, and theme at a glance.
+- Export naming: final deliverables must use Chinese folder and file names. Use project-level topic folders, one folder per video topic, and keep only `视频.mp4`, `封面.jpg`, and `文案.md` in each topic folder. Put validation and source evidence under `_记录`.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 
 ## Iteration Rules
@@ -255,7 +258,7 @@ BGM selection rules:
 - Choose a short candidate set by topic mood first, then use weighted randomness inside that set. Do not pick purely at random from all tracks.
 - Increase the chance of `bba进行曲.mp3` by including it in most serious/high-energy candidate sets with weight `3`; other matched tracks usually have weight `1`.
 - For a 5-video daily batch, allow repeats when the theme strongly fits, but do not allow all five videos to inherit or use the same track unless the user explicitly requests one unified BGM.
-- Write a BGM selection plan such as `renders/bgm-selection-plan.json` and copy it into the batch's `05-素材与来源` or `04-总览与记录`.
+- Write a BGM selection plan such as `renders/bgm-selection-plan.json` and copy it into the batch's `_记录` folder.
 - During validation, inspect final configs and confirm the `bgm.source_track` summary is not accidentally all one track.
 - Match examples:
   - `算力 / 芯片 / 大厂战略 / 政策安审`: `bba进行曲.mp3`, `say no cry.mp3`, `moment.mp3`.

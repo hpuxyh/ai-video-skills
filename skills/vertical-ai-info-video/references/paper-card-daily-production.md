@@ -113,20 +113,43 @@ Every finished batch goes under:
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/
   导出-YYYY年MM月DD日AI信息差快报/
-    01-视频/
-    02-封面/
-    03-发布文案/
-    04-总览与记录/
-    05-素材与来源/
+    01-主题名/
+      视频.mp4
+      封面.jpg
+      文案.md
+    02-主题名/
+      视频.mp4
+      封面.jpg
+      文案.md
+    ...
+    项目总览.md
+    _记录/
+      视频总览.jpg
+      封面总览.jpg
+      渲染校验.md
+      选题记录.md
+      bgm-selection-plan.json
+      素材与来源/
 ```
 
 Each topic must include:
 
-- final mp4 in `01-视频`
-- cover jpg in `02-封面`
-- 小红书 and 抖音 publishing markdown in `03-发布文案`
-- video overview, cover overview, render validation, and topic record in `04-总览与记录`
-- configs, preflight image, contact sheet, and source images in `05-素材与来源`
+- `视频.mp4`
+- `封面.jpg`
+- `文案.md`, merging 小红书 and 抖音 publishing copy
+
+The project folder should be organized by topic/video first, not by asset type. Do not make the user jump between separate `视频`, `封面`, and `文案` category folders to assemble one post.
+
+Keep validation, overview, source material, and debug evidence under `_记录/` so the delivery surface stays clean.
+
+If an older renderer or batch script still creates the legacy category-first structure (`01-视频`, `02-封面`, `03-发布文案`, `04-总览与记录`, `05-素材与来源`), run:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/package_project_delivery.py \
+  --legacy-batch-dir /path/to/legacy-batch \
+  --output-dir /path/to/clean-project-delivery \
+  --overwrite
+```
 
 ## Validation Checklist
 
@@ -136,6 +159,7 @@ Before reporting completion:
 - Confirm each MP4 contains video and audio streams.
 - Confirm each config has a selected `bgm.path` and `bgm.source_track`.
 - For multi-video batches, confirm the BGM plan did not assign one inherited track to every video.
+- Confirm the final delivery folder is topic-first: each video topic has exactly the three core files `视频.mp4`, `封面.jpg`, and `文案.md`.
 - Confirm each contact sheet shows black title, purple ribbon, middle carousel, and bottom rows.
 - Confirm images are complete inside the media frame and not leaking off-screen.
 - Confirm there are no carousel dots or old dark-template remnants.
