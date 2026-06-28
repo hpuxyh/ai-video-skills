@@ -54,6 +54,8 @@ Use this schema when the user asks for the approved white-card reference style o
 {
   "output": "renders/paper-card-preview.jpg",
   "badge": "AI 信息差快报",
+  "date_label": "最新",
+  "date": "2026.06.28",
   "title": [
     "SpaceX 开始出租 AI 算力",
     "开源模型公司抢 GPU 入口"
@@ -154,6 +156,15 @@ For the paper-card explainer style, the title area is not the same as the normal
   - Headline: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `直接击穿大模型 API 商业模式`.
   - Headline: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
 
+## Paper Card Date Rule
+
+- Every paper-card preview should show the latest verified news date on the card itself.
+- Use the newest date from the verified source set for that story. If sources disagree, use the newest publication/update date and keep source notes in the project record.
+- Preferred display: a small top-right marker such as `最新：2026.06.28`.
+- Do not rely only on the embedded screenshot's tiny source date, because it may be cropped or unreadable on mobile.
+- Keep the date marker secondary to the headline: visible enough to prove freshness, but smaller than title and purple ribbon.
+- When a date marker is present, leave enough top padding so it does not overlap the headline.
+
 ## Layout Defaults
 
 - `photo_box`: `[0, 515, 1080, 1235]`
@@ -171,6 +182,7 @@ Use these defaults for static paper-card previews and for future paper-card vide
 - Background: dark phone-like backdrop.
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
 - Top: black, very bold headline, centered, usually 2 lines.
+- Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
 - Ribbon: purple rounded bar under the headline, white bold text, one sentence only.
 - Media: real image or screenshot in a purple rounded frame. Use `contain` so screenshots and portraits stay complete.
 - Copy: bottom paragraph copy with cyan highlight blocks per wrapped line. This replaces the six numbered info rows.

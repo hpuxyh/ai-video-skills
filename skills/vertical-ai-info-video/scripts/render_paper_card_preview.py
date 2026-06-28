@@ -101,11 +101,38 @@ def render_card(cfg, project_dir, output):
     canvas = Image.alpha_composite(canvas.convert("RGBA"), card_layer)
     draw = ImageDraw.Draw(canvas, "RGBA")
 
+    date_text = cfg.get("date")
+    if date_text:
+        label = cfg.get("date_label", "最新")
+        date_font = font(int(cfg.get("date_size", 27)), True)
+        label_font = font(int(cfg.get("date_label_size", 24)), True)
+        label_w = int(text_len(draw, label, label_font))
+        date_w = int(text_len(draw, date_text, date_font))
+        pill_h = 42
+        pill_w = label_w + date_w + 58
+        pill_x = card_x + card_w - pill_w - 28
+        pill_y = card_y + 26
+        draw.rounded_rectangle(
+            (pill_x, pill_y, pill_x + pill_w, pill_y + pill_h),
+            radius=12,
+            fill=tuple(cfg.get("date_bg", [238, 238, 232, 235])),
+            outline=tuple(cfg.get("date_outline", [0, 0, 0, 26])),
+            width=1,
+        )
+        draw.rounded_rectangle(
+            (pill_x + 8, pill_y + 7, pill_x + 8 + label_w + 20, pill_y + pill_h - 7),
+            radius=8,
+            fill=tuple(cfg.get("date_label_bg", [255, 126, 104, 245])),
+        )
+        draw.text((pill_x + 18, pill_y + 9), label, font=label_font, fill=(13, 16, 24))
+        draw.text((pill_x + label_w + 40, pill_y + 7), date_text, font=date_font, fill=(45, 48, 55))
+
     title = cfg.get("title", [])
     if isinstance(title, str):
         title = [title]
     title_font = font(int(cfg.get("title_size", 62)), True)
-    y = card_y + int(cfg.get("title_y_offset", 62))
+    default_title_y_offset = 96 if date_text else 62
+    y = card_y + int(cfg.get("title_y_offset", default_title_y_offset))
     y = draw_centered(draw, title, y, title_font, tuple(cfg.get("title_color", [0, 0, 0])), card_w - 90)
 
     ribbon_y = y + int(cfg.get("ribbon_gap", 22))

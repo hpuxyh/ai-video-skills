@@ -72,6 +72,7 @@ Preview card layout:
 - Canvas stays `1080x1920`.
 - Put one rounded white textured paper card inside a dark phone-like background.
 - Top area: bold black title, usually 2 lines.
+- Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
 - Under the title: a purple rounded ribbon with white bold text.
 - Middle area: one real topic-matched screenshot/photo/product image, inside a thin purple rounded border. Prefer a source/report screenshot, official page, real person, product screenshot, or company/product image over an abstract placeholder.
 - Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This is not the six-row info table.
