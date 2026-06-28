@@ -13,6 +13,14 @@
     "duration": 7,
     "fps": 30
   },
+  "bgm_selection": {
+    "required_script": "scripts/select_bgm_for_batch.py",
+    "run_after": "write all paper-card configs",
+    "run_before": "render videos",
+    "write_plan": "renders/bgm-selection-plan.json",
+    "allow_all_same": false,
+    "rule": "match topic mood first, use weighted randomness second, and prevent accidental inherited one-track batches"
+  },
   "topics": [
     {
       "slug": "01-spacex-compute-reflection-ai",

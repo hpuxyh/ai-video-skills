@@ -21,8 +21,18 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 2. Confirm or infer each video's topic, title lines, info rows, image set, cover, and BGM.
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
-5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
+5. Select background music from the local BGM pool using `scripts/select_bgm_for_batch.py`. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored, and validate that the batch is not accidentally inheriting the same BGM for every video.
 6. Build a JSON config using the schema in `references/style-guide.md` and the production checklist in `references/paper-card-daily-production.md`. For daily/news-video output, build a white paper-card video JSON by default and render with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time. Render a static preview first with `scripts/render_paper_card_preview.py` only when the user asks to see a screenshot. Use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
+   - After writing all batch configs and before rendering, run the BGM selector:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/select_bgm_for_batch.py \
+  --project-dir . \
+  --configs configs/*-paper-card.json \
+  --write-plan renders/bgm-selection-plan.json
+```
+
+   - Do not let newly generated daily configs simply inherit an old `bgm` value. The selector must overwrite `bgm.path` for each config and copy the chosen audio into `assets/audio/`.
 7. Run the image-sequence preflight before rendering. The first carousel image must identify the protagonist/company/product; source screenshots and auxiliary context images should appear later. If the check fails, reorder or replace the image set before rendering:
 
 ```bash
@@ -241,9 +251,12 @@ Use these local tracks as the default accompaniment pool for this skill. They ar
 
 BGM selection rules:
 
+- Always run `scripts/select_bgm_for_batch.py` after config generation and before rendering a daily/batch output.
 - Choose a short candidate set by topic mood first, then use weighted randomness inside that set. Do not pick purely at random from all tracks.
 - Increase the chance of `bba进行曲.mp3` by including it in most serious/high-energy candidate sets with weight `3`; other matched tracks usually have weight `1`.
-- For a 5-video daily batch, allow repeats when the theme strongly fits, but avoid using the same track for all five videos.
+- For a 5-video daily batch, allow repeats when the theme strongly fits, but do not allow all five videos to inherit or use the same track unless the user explicitly requests one unified BGM.
+- Write a BGM selection plan such as `renders/bgm-selection-plan.json` and copy it into the batch's `05-素材与来源` or `04-总览与记录`.
+- During validation, inspect final configs and confirm the `bgm.source_track` summary is not accidentally all one track.
 - Match examples:
   - `算力 / 芯片 / 大厂战略 / 政策安审`: `bba进行曲.mp3`, `say no cry.mp3`, `moment.mp3`.
   - `争议 / 风险 / 安全 / 合规`: `say no cry.mp3`, `bba进行曲.mp3`, `moment.mp3`.

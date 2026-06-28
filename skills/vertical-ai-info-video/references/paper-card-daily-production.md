@@ -98,8 +98,11 @@ Cover images are for 小红书/抖音 recognition:
 ## BGM Logic
 
 - Use local BGM assets from the skill BGM pool.
+- Daily and batch scripts must run `scripts/select_bgm_for_batch.py` after generating configs and before rendering. Do not rely on inherited `bgm` fields from older configs.
 - For serious company, policy, infrastructure, or safety topics, include `bba进行曲.mp3` in the candidate set with higher weight.
 - Match topic mood before randomness.
+- For 5-video batches, repeats are allowed when they fit the topic, but all five videos must not use the same track unless the user explicitly asks for a single unified soundtrack.
+- Save a BGM plan such as `renders/bgm-selection-plan.json` and include it in the delivery evidence.
 - Keep final duration at 7 seconds unless the user says otherwise.
 - Do not upload user music files to GitHub.
 
@@ -131,6 +134,8 @@ Before reporting completion:
 
 - Confirm each MP4 is 7 seconds.
 - Confirm each MP4 contains video and audio streams.
+- Confirm each config has a selected `bgm.path` and `bgm.source_track`.
+- For multi-video batches, confirm the BGM plan did not assign one inherited track to every video.
 - Confirm each contact sheet shows black title, purple ribbon, middle carousel, and bottom rows.
 - Confirm images are complete inside the media frame and not leaking off-screen.
 - Confirm there are no carousel dots or old dark-template remnants.
@@ -166,4 +171,3 @@ Use this batch as the canonical example for the white paper-card title pattern:
 | 阿里 HappyHorse | `阿里视频模型 HappyHorse 升级` / `AI 视频开始抢创作者` | `会写分镜的人，先吃到 AI 视频红利！` |
 | 豆包内测打车 | `豆包开始内测打车` / `AI 应用不只会聊天` | `聊天框正在变成新的下单入口！` |
 | 百度文心入口合并 | `百度合并文心 AI 入口` / `普通人别再找错入口` | `别只追新模型，先找对官方入口！` |
-

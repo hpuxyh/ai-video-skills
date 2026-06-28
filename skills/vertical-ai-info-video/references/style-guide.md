@@ -577,12 +577,28 @@ Use local BGM for all final videos unless the user asks for silence. The current
 
 Selection algorithm:
 
-1. Classify the topic mood: heavy/urgent, controversy/risk, creator/product, consumer/lifestyle, practical/workflow, or reflective/business.
-2. Build a candidate set from the mood. Include `bba进行曲.mp3` in serious/high-energy candidate sets with weight `3`; matched alternatives usually use weight `1`.
-3. Randomly choose from the candidate set using the weights. This gives the batch variety without ignoring topic fit.
-4. In a 5-video batch, do not force all videos to use different tracks, but avoid one track taking every video unless the user asks for a single unified BGM.
-5. Copy the selected track into `assets/audio/` in the project and set `bgm.path` to the copied relative path. Keep `bgm.start` around `3` by default, `volume` around `0.55`, and tiny fade-in/out.
-6. If the track has a more suitable downbeat later, adjust `bgm.start` while keeping the final video duration at 7 seconds unless the user says otherwise.
+1. After generating all batch configs, run `scripts/select_bgm_for_batch.py`. Do not let batch scripts inherit old `bgm` values.
+2. Classify the topic mood: heavy/urgent, controversy/risk, creator/product, consumer/lifestyle, practical/workflow, or reflective/business.
+3. Build a candidate set from the mood. Include `bba进行曲.mp3` in serious/high-energy candidate sets with weight `3`; matched alternatives usually use weight `1`.
+4. Randomly choose from the candidate set using deterministic weighted randomness. This gives the batch variety without ignoring topic fit.
+5. In a 5-video batch, do not force all videos to use different tracks, but reject accidental all-same output unless the user asks for a single unified BGM.
+6. Copy the selected track into `assets/audio/` in the project and set `bgm.path` to the copied relative path. Also set `bgm.source_track` and `bgm.mood` so validation can inspect the assignment.
+7. Keep `bgm.start` around `3` by default, `volume` around `0.55`, and tiny fade-in/out. If the track has a more suitable downbeat later, adjust `bgm.start` while keeping the final video duration at 7 seconds unless the user says otherwise.
+
+Run:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/select_bgm_for_batch.py \
+  --project-dir . \
+  --configs configs/*-paper-card.json \
+  --write-plan renders/bgm-selection-plan.json
+```
+
+Validation:
+
+- The plan must list one `track`, `mood`, and `reason` per config.
+- The final configs must include `bgm.path`, `bgm.source_track`, and `bgm.mood`.
+- For a 5-video batch, do not accept `summary` with only one track unless the user explicitly asked for one BGM across all videos.
 
 ## Topic History And GitHub Sync
 
