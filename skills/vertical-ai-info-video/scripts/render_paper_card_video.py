@@ -409,6 +409,84 @@ def draw_editorial_body(draw, cfg, card_x, card_y, card_w, card_h, text_y):
     return text_y
 
 
+def draw_dynamic_editorial_body(canvas, t, cfg, layout):
+    rows = cfg.get("body_rows") or cfg.get("body_items", [])
+    if not rows:
+        return
+
+    start = float(cfg.get("body_anim_start", 0.12))
+    step = float(cfg.get("body_anim_step", 0.14))
+    duration = float(cfg.get("body_anim_duration", 0.22))
+    offset_y = int(cfg.get("body_anim_offset_y", 18))
+
+    card_x = layout["card_x"]
+    card_y = layout["card_y"]
+    card_w = layout["card_w"]
+    card_h = layout["card_h"]
+    text_y = layout["text_y"]
+
+    probe = ImageDraw.Draw(Image.new("RGBA", (W, H), (0, 0, 0, 0)), "RGBA")
+    body_font = font(int(cfg.get("body_size", 31)), True)
+    label_font = font(int(cfg.get("body_label_size", 24)), True)
+    number_font = font(int(cfg.get("body_number_size", 24)), True)
+    row_x = card_x + int(cfg.get("body_row_x_offset", 54))
+    row_w = card_w - int(cfg.get("body_row_x_offset", 54)) * 2
+    label_w = int(cfg.get("body_editorial_label_w", 112))
+    row_gap = int(cfg.get("body_item_gap", 5))
+    line_h = int(cfg.get("body_line_h", 38))
+    row_min_h = int(cfg.get("body_editorial_row_h", 58))
+    label_fill = tuple(cfg.get("body_label_color", [126, 51, 163]))
+    text_fill = tuple(cfg.get("body_text_color", [18, 22, 28]))
+    number_fill = tuple(cfg.get("body_number_fill", [180, 59, 205, 230]))
+    divider = tuple(cfg.get("body_divider", [30, 36, 46, 42]))
+    bottom_limit = card_y + card_h - int(cfg.get("body_bottom_margin", 78))
+
+    for index, row in enumerate(rows, start=1):
+        label = row.get("label", "")
+        text = row.get("text", "")
+        text_x = row_x + label_w + 40
+        text_max_w = row_x + row_w - text_x
+        lines = wrap_text(probe, text, body_font, text_max_w)
+        use_body_font = body_font
+        if len(lines) > 1:
+            use_body_font = font(max(24, body_font.size - 3), True)
+            lines = wrap_text(probe, text, use_body_font, text_max_w)
+        row_h = max(row_min_h, len(lines) * line_h + 16)
+        if text_y + row_h > bottom_limit:
+            break
+
+        p = (t - (start + (index - 1) * step)) / duration
+        if p <= 0:
+            text_y += row_h + row_gap
+            continue
+
+        eased = ease(min(1.0, p))
+        shift = int(offset_y * (1.0 - eased))
+        row_y = text_y + shift
+        layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(layer, "RGBA")
+
+        number = f"{index:02d}"
+        draw.text((row_x, row_y + 12), number, font=number_font, fill=number_fill)
+        draw.text((row_x + 52, row_y + 14), label, font=label_font, fill=label_fill)
+        current_y = row_y + max(10, (row_h - len(lines) * line_h) // 2 - 1)
+        for line in lines:
+            draw.text((text_x, current_y), line, font=use_body_font, fill=text_fill)
+            current_y += line_h
+        if index < len(rows):
+            draw.line((row_x, row_y + row_h, row_x + row_w, row_y + row_h), fill=divider, width=1)
+
+        alpha_composite_with_opacity(canvas, layer, eased)
+        text_y += row_h + row_gap
+
+
+def draw_dynamic_body(canvas, t, cfg, layout):
+    if not cfg.get("animate_body_rows", False):
+        return
+    if cfg.get("body_style") == "editorial_lines":
+        draw_dynamic_editorial_body(canvas, t, cfg, layout)
+
+
 def draw_static_base(cfg):
     canvas = Image.new("RGB", (W, H), tuple(cfg.get("background", [19, 20, 22])))
     dark = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -578,28 +656,36 @@ def draw_static_base(cfg):
     media_h = int(cfg.get("media_h", 660))
 
     text_y = media_y + media_h + int(cfg.get("body_gap", 46))
-    if cfg.get("body_style") == "editorial_lines":
-        draw_editorial_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
-    elif cfg.get("body_rows") or cfg.get("body_style") == "structured":
-        draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
-    else:
-        body_font = font(int(cfg.get("body_size", 31)), True)
-        max_w = card_w - 86
-        line_h = int(cfg.get("body_line_h", 40))
-        highlight = tuple(cfg.get("highlight_color", [52, 211, 226, 218]))
-        for para in cfg.get("body", []):
-            for line in wrap_text(draw, para, body_font, max_w):
-                if text_y > card_y + card_h - 62:
-                    break
-                line_w = text_len(draw, line, body_font)
-                draw.rounded_rectangle(
-                    (card_x + 30, text_y - 4, card_x + 42 + line_w, text_y + line_h - 4),
-                    radius=6,
-                    fill=highlight,
-                )
-                draw.text((card_x + 38, text_y), line, font=body_font, fill=(0, 0, 0))
-                text_y += line_h + 5
-            text_y += 6
+    body_layout = {
+        "card_x": card_x,
+        "card_y": card_y,
+        "card_w": card_w,
+        "card_h": card_h,
+        "text_y": text_y,
+    }
+    if not cfg.get("animate_body_rows", False):
+        if cfg.get("body_style") == "editorial_lines":
+            draw_editorial_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
+        elif cfg.get("body_rows") or cfg.get("body_style") == "structured":
+            draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
+        else:
+            body_font = font(int(cfg.get("body_size", 31)), True)
+            max_w = card_w - 86
+            line_h = int(cfg.get("body_line_h", 40))
+            highlight = tuple(cfg.get("highlight_color", [52, 211, 226, 218]))
+            for para in cfg.get("body", []):
+                for line in wrap_text(draw, para, body_font, max_w):
+                    if text_y > card_y + card_h - 62:
+                        break
+                    line_w = text_len(draw, line, body_font)
+                    draw.rounded_rectangle(
+                        (card_x + 30, text_y - 4, card_x + 42 + line_w, text_y + line_h - 4),
+                        radius=6,
+                        fill=highlight,
+                    )
+                    draw.text((card_x + 38, text_y), line, font=body_font, fill=(0, 0, 0))
+                    text_y += line_h + 5
+                text_y += 6
 
     badge = cfg.get("badge", "AI 信息差快报")
     if badge:
@@ -611,7 +697,7 @@ def draw_static_base(cfg):
             fill=(76, 76, 76, 210),
         )
 
-    return canvas, (media_x, media_y, media_w, media_h), purple, header_layout
+    return canvas, (media_x, media_y, media_w, media_h), purple, header_layout, body_layout
 
 
 def frame_timing(t, total_photos, cfg):
@@ -799,7 +885,7 @@ def main():
     if not images:
         raise ValueError("Config must include at least one image")
 
-    base, media_rect, purple, header_layout = draw_static_base(cfg)
+    base, media_rect, purple, header_layout, body_layout = draw_static_base(cfg)
     frames_dir = output.parent / f"{output.stem}-frames"
     frames_dir.mkdir(parents=True, exist_ok=True)
     for old_frame in frames_dir.glob("frame-*.jpg"):
@@ -811,6 +897,7 @@ def main():
         canvas = base.copy()
         draw_dynamic_header(canvas, t, cfg, header_layout)
         canvas.alpha_composite(media_layer(images[idx], media_rect, idx, len(images), progress, cfg, purple))
+        draw_dynamic_body(canvas, t, cfg, body_layout)
         canvas.convert("RGB").save(frames_dir / f"frame-{n:04d}.jpg", quality=int(cfg.get("frame_quality", 92)))
 
     run_ffmpeg_frames(frames_dir, fps, silent_output)

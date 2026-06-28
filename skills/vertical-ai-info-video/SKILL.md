@@ -45,7 +45,63 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 ```
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-11. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
+11. Export every finished topic into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频`, including the final video, cover image, and platform publishing copy.
+12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
+
+## Delivery Output Contract
+
+All finished news-video deliverables must live under the dedicated 小红书 creator directory:
+
+```text
+/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/
+  README.md
+  选题历史.md
+  导出-YYYY年MM月DD日AI信息差快报/
+    01-视频/
+      01-主题名/
+        视频-01-主题名.mp4
+    02-封面/
+      01-主题名/
+        封面-01-主题名.jpg
+    03-发布文案/
+      01-主题名/
+        小红书-标题标签-01-主题名.md
+        抖音-标题标签-01-主题名.md
+    04-总览与记录/
+      视频总览-YYYY年MM月DD日AI信息差快报.jpg
+      封面总览-YYYY年MM月DD日AI信息差快报.jpg
+      选题记录.md
+    05-素材与来源/
+      01-主题名/
+```
+
+Each topic must include three user-facing outputs before it is considered complete:
+
+- `视频-...mp4`: final 9:16 video with BGM unless the user asked for silence.
+- `封面-...jpg`: 9:16 cover image using the people/company-first cover rules.
+- `小红书-标题标签-...md` and, when useful, `抖音-标题标签-...md`: platform-ready title, short description, tags, and a one-line posting note.
+
+Publishing copy defaults:
+
+- 小红书标题: punchy, specific, 18-28 Chinese characters when possible, with the product/company name near the front.
+- 小红书描述: 3-5 short lines. Start with the conclusion, then explain why it matters to a normal viewer, then end with a question or save-worthy takeaway.
+- 小红书标签: 8-12 tags, mixing broad tags (`AI`, `人工智能`, `AI工具`) with topic-specific tags (`OpenAI`, `算力`, `大模型`, company/product names).
+- 抖音标题: shorter and more direct than 小红书, usually 12-22 Chinese characters.
+- 抖音描述: 1-3 compact lines; keep the strongest contrast and the viewer takeaway.
+- Do not invent exaggerated claims just for a clickable title. The title can be sharp, but it must be supported by the verified source.
+
+Daily-history rule:
+
+- Before any auto-scout or daily batch, read `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` plus any current batch `选题记录.md` files.
+- Do not repeat the exact same news event, title angle, and viewer takeaway from history.
+- A company may repeat only when the event is materially new and the `信息差` angle is different.
+- After rendering, append each topic with date, topic name, companies/people, source links, information-gap angle, output paths, and whether it was manually requested or auto-scouted.
+
+Default daily automation:
+
+- The standing daily job is `AI信息差新闻视频-每日8点`.
+- It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
+- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid historical repeats, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
 
 ## Topic Selection Modes
 
