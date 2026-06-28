@@ -93,12 +93,12 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 Use two modes:
 
 1. Specific-topic mode: if the user gives a concrete topic, event, company, URL, or direct instruction, create one video for that event.
-2. X/Twitter auto-scout mode: if the user asks for an AI information-gap video but does not provide a concrete topic, search the latest 2-3 days of AI discussion on X/Twitter first, then choose topics that have a strong tweet anchor plus enough real supporting assets.
+2. X/Twitter auto-scout mode: if the user asks for an AI information-gap video but does not provide a concrete topic, search the latest 2-3 days of AI discussion on X/Twitter first, then choose 5 topics that have a strong tweet anchor plus enough real supporting assets.
 
 In auto-scout mode:
 
 - Search current X/Twitter sources because the 2-3 day window is time-sensitive.
-- Before choosing topics, review previous generated batches in the workspace, dated export folders, and any `选题记录.md` / `topic-history.md` files. Treat these as a local topic history.
+- Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, and GitHub-synced history under `records/twitter-ai-info-video/`. Treat these as the duplicate-prevention source of truth.
 - Prefer China/US/global AI stories with clear X/Twitter discussion value: model releases, product demos, policy/regulation, safety/security, AI hardware, agent/tools, major company moves, open-source releases, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent X/Twitter signals when possible, then narrow down to 5. The goal is not "the top 5 posts by engagement"; the goal is "the 5 tweet-anchored stories most suitable for AI 信息差短视频".
 - Score candidates by:
@@ -111,7 +111,7 @@ In auto-scout mode:
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover.
-- Avoid exact repeats from previous days. A topic is considered a repeat when the same company/person/product and the same event angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
+- Avoid exact repeats from previous days. A topic is considered a repeat when the same company/person/product, same event, same source tweet, and same information-gap angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
 - Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
@@ -121,6 +121,7 @@ In auto-scout mode:
 Reject candidates when:
 
 - The same event/topic has already been generated in a previous daily batch.
+- The source tweet URL and information-gap angle are the same as an item already recorded in GitHub history.
 - The story is only a funding amount with weak viewer relevance.
 - The item is mostly opinion or prediction without a concrete event.
 - The source is unreliable or cannot be verified.
@@ -147,6 +148,13 @@ Before rendering, present the proposed list in this format:
 封面素材：人物 / 公司 logo / 产品截图 / 官方页面
 信息差角度：...
 ```
+
+Daily execution rules:
+
+- If the user gives a topic, tweet URL, company, event, or concrete instruction, use that input and make only that requested topic.
+- If the user gives no topic, default to 5 hot X/Twitter AI topics from the latest 2-3 days.
+- Before locking the topics, check GitHub-synced history and local history to prevent exact repeats.
+- After a successful run, update local export records and GitHub history, then commit and push before reporting completion.
 
 ## Tweet Anchor And Image 2
 
@@ -437,9 +445,24 @@ Selection algorithm:
 
 For recurring daily batches:
 
-- Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
-- Record date, topic title, company/product, source tweet URL, source tweet author, observed X/Twitter heat signal, supporting source URLs, selected angle, and final output folder.
-- Before every auto-scout run, compare candidates against previous records and dated export folders.
+- Maintain a per-batch `选题记录.md` in the local export folder and a GitHub-synced history under `records/twitter-ai-info-video/`.
+- The recommended GitHub history repository is `/Users/xieyahao/Documents/别人好项目/ai-video-skills/`.
+- Recommended GitHub history layout:
+
+```text
+records/twitter-ai-info-video/
+  topic-history.md
+  YYYY-MM-DD/
+    batch-summary.md
+    01-中文话题名/
+      来源记录.md
+      config.json
+      output-index.md
+```
+
+- Record date, topic title, company/product/person, source tweet URL, source tweet author, observed X/Twitter heat signal, supporting source URLs, selected angle, final export folder, and output filenames.
+- Before every auto-scout run, compare candidates against GitHub history, previous local records, and dated export folders.
 - Do not repeat the exact same event from a previous day. Prefer a follow-up only when there is a new development, and label it clearly as a follow-up angle.
+- After every successful invocation, commit and push the updated history records to GitHub. Do not report full completion until sync succeeds or the sync failure is explicitly reported.
+- Sync final deliverable indexes, configs, source notes, and topic history every time. Include final media assets when practical for the target repo; if MP4 files are too large or unsuitable, at minimum sync enough metadata and local export paths to prevent duplicate topics later.
 - If the workflow rules, scripts, or skill documentation change, copy the skill into the user's GitHub skill repository and push the commit after validation.
-- Generated video assets do not need to be pushed to the skill repository unless the user explicitly asks; only reusable skill/workflow updates should be pushed.

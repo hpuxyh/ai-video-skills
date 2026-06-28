@@ -22,16 +22,17 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 ## Workflow
 
 1. Route the request:
-   - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
-   - If the user does not give a concrete topic, search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool, verify the strongest candidates with official/news sources when needed, choose distinct topics, and generate one-event videos.
+   - If the user gives a concrete news topic, company, event, URL, tweet URL, or instruction, use the given topic directly and generate one video for that event using the confirmed workflow.
+   - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
 2. Confirm or infer each video's topic, title lines, info rows, image set, cover, BGM, and tweet anchor.
-3. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary exists, use it only as a discovery signal, not as the anchor.
-4. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from it, and later images should add official/news/product evidence. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
-5. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
-6. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-7. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
-8. Before rendering, inspect downloaded assets or a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, replace it before rendering. Never ship a video with an asset-error card visible.
-9. Run `scripts/render_vertical_info_video.py` from a project directory:
+3. Before choosing or rendering topics, check the GitHub-synced history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
+4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary exists, use it only as a discovery signal, not as the anchor.
+5. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from it, and later images should add official/news/product evidence. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
+6. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
+7. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
+8. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
+9. Before rendering, inspect downloaded assets or a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, replace it before rendering. Never ship a video with an asset-error card visible.
+10. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_vertical_info_video.py \
@@ -41,8 +42,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-11. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder:
+11. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+12. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
@@ -55,17 +56,27 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
-12. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, source URLs, information-gap angle, and final export folder in the project history file.
+13. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, source URLs, information-gap angle, and final export folder in both the local batch `选题记录.md` and the GitHub-synced history records.
+14. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
 
 ## Topic Selection Modes
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
-- X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select topics with strong AI 信息差信号.
+- X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select 5 topics with strong AI 信息差信号.
 - X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first, then pick the stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor.
 - Heat judgment: treat X/Twitter engagement as a signal, not the only proof. Consider views, reposts, likes, replies, account authority, quote-post spread, whether AI builders are discussing it, and whether official/news sources can verify the underlying event.
-- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files. Do not choose the exact same event/topic as an earlier batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, and the GitHub-synced history records. Do not choose the exact same event/topic as an earlier successful batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, tweet anchor, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
+
+## Daily Execution Logic
+
+- If the user provides a topic, tweet URL, company, event, or concrete instruction, do not auto-scout a new batch. Produce the requested topic only.
+- If the user does not provide a topic, default to finding 5 hot X/Twitter AI topics from the latest 2-3 days.
+- "Hot" does not mean likes-only. Rank candidates by tweet heat, account authority, quote/reply spread, source credibility, viewer relevance, information-gap strength, and available real assets.
+- Before finalizing the 5 topics, check GitHub-synced history and local topic history. Reject exact repeats.
+- A non-duplicate follow-up is allowed only when there is a materially new development, a new source tweet, or a different information-gap angle.
+- After each successful run, update the history records and sync them to GitHub before telling the user the run is complete.
 
 ## Tweet Anchor Rules
 
@@ -200,6 +211,37 @@ Rules:
 - Keep iteration previews in the working project while tuning, but copy the approved MP4, cover, overview, and source notes into the dedicated Xiaohongshu video export folder before reporting completion.
 - `来源记录.md` should include the source tweet URL, tweet author, observed heat signal, screenshot filename, supporting source URLs, and why this topic is suitable for a 推特版 AI 信息差 video.
 - The folder or file name must clearly say `推特版` or `推特专用`.
+
+## GitHub Sync And History
+
+Every successful invocation must be synced to GitHub.
+
+Sync target:
+
+```text
+/Users/xieyahao/Documents/别人好项目/ai-video-skills/
+```
+
+Recommended GitHub history location:
+
+```text
+records/twitter-ai-info-video/
+  topic-history.md
+  YYYY-MM-DD/
+    batch-summary.md
+    01-中文话题名/
+      来源记录.md
+      config.json
+      output-index.md
+```
+
+Sync rules:
+
+- Before selecting topics, read the GitHub-synced `records/twitter-ai-info-video/topic-history.md` when present, plus local batch histories.
+- After a successful run, append the selected topics to `topic-history.md`.
+- Record enough fields to block duplicates later: date, topic title, company/product/person, source tweet URL, source tweet author, observed heat signal, supporting source URLs, information-gap angle, final export folder, and output filenames.
+- Commit and push after each successful invocation. Do not report the run as fully complete until the GitHub sync succeeds or the sync failure is clearly reported.
+- If final MP4 files are too large or unsuitable for the skill repository, still sync topic history, source records, configs, output index, and local export paths so future runs can avoid duplicate topics.
 
 ## BGM Pool And Selection
 
