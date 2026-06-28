@@ -1,0 +1,135 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-GPT-56-Sol限量预览.mp4",
+  "contact_sheet": "renders/01-GPT-56-Sol限量预览-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "模型发布",
+    "source": "X · 2026.06.28"
+  },
+  "title": [
+    {
+      "text": "OpenAI 官宣 GPT-5.6 Sol",
+      "y": 126,
+      "size": 84,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "普通用户还不能直接用",
+      "y": 222,
+      "size": 96,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "先拿到入口的人先升级",
+      "y": 344,
+      "size": 88,
+      "color": [
+        255,
+        145,
+        118
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "GPT-5.6 已预览，但不是人人可用"
+    },
+    {
+      "label": "跟你有关",
+      "text": "别只等新模型，先练会拆任务"
+    },
+    {
+      "label": "发生",
+      "text": "OpenAI 同时展示 Sol、Terra、Luna"
+    },
+    {
+      "label": "谁先用",
+      "text": "先给有限预览和高价值场景"
+    },
+    {
+      "label": "影响",
+      "text": "模型更像分层产品，不是一次性全开"
+    },
+    {
+      "label": "信息差",
+      "text": "会用入口的人，比等发布的人更快"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/01-GPT-56-Sol限量预览/01-真实视觉.jpg",
+    "assets/images/01-GPT-56-Sol限量预览/02-核心推文中文卡.jpg",
+    "assets/images/01-GPT-56-Sol限量预览/03-来源截图.jpg",
+    "assets/images/01-GPT-56-Sol限量预览/04-信息差解释.jpg",
+    "assets/images/01-GPT-56-Sol限量预览/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAI/status/2070555272230384038",
+    "author": "OpenAI @OpenAI",
+    "screenshot": "assets/images/01-GPT-56-Sol限量预览/02-核心推文中文卡.jpg",
+    "observed_signal": "2026年6月26日 · 约1610.1万 Views · 3.3K回复 / 5.5K转发 / 38.6K赞"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "brightness": 1.16,
+    "contrast": 1.06,
+    "color": 1.03,
+    "high_luma_brightness": 0.92,
+    "normal_brightness": 1.08
+  },
+  "motion": {
+    "zoom": 0.09,
+    "pan_x": 36,
+    "pan_y": 30
+  },
+  "bgm": {
+    "path": "assets/audio/bba.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-BytePlus-Seedance-20-4K.mp4",
+  "contact_sheet": "renders/03-BytePlus-Seedance-20-4K-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "AI视频",
+    "source": "X · 2026.06.28"
+  },
+  "title": [
+    {
+      "text": "BytePlus 推出 Seedance 2.0 4K",
+      "y": 126,
+      "size": 76,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "AI 视频开始卷真实镜头感",
+      "y": 222,
+      "size": 94,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "创作者门槛继续下降",
+      "y": 344,
+      "size": 94,
+      "color": [
+        255,
+        145,
+        118
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "Seedance 2.0 把 AI 视频推到 4K"
+    },
+    {
+      "label": "跟你有关",
+      "text": "普通创作者先用它做样片和分镜"
+    },
+    {
+      "label": "发生",
+      "text": "BytePlus 展示 Dreamina Seedance 2.0"
+    },
+    {
+      "label": "谁先用",
+      "text": "开发者和创作者可从 API 入口试"
+    },
+    {
+      "label": "影响",
+      "text": "短视频、广告样片制作成本继续下降"
+    },
+    {
+      "label": "信息差",
+      "text": "会写镜头参考，比单纯写提示词更重要"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/03-BytePlus-Seedance-20-4K/01-真实视觉.jpg",
+    "assets/images/03-BytePlus-Seedance-20-4K/02-核心推文中文卡.jpg",
+    "assets/images/03-BytePlus-Seedance-20-4K/03-来源截图.jpg",
+    "assets/images/03-BytePlus-Seedance-20-4K/04-信息差解释.jpg",
+    "assets/images/03-BytePlus-Seedance-20-4K/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/BytePlusGlobal/status/2069228410422079665",
+    "author": "BytePlus @BytePlusGlobal",
+    "screenshot": "assets/images/03-BytePlus-Seedance-20-4K/02-核心推文中文卡.jpg",
+    "observed_signal": "2026年6月23日 · 约1144.1万 Views · 262回复 / 316转发 / 1418赞"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "brightness": 1.16,
+    "contrast": 1.06,
+    "color": 1.03,
+    "high_luma_brightness": 0.92,
+    "normal_brightness": 1.08
+  },
+  "motion": {
+    "zoom": 0.09,
+    "pan_x": 36,
+    "pan_y": 30
+  },
+  "bgm": {
+    "path": "assets/audio/fashion-motion.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

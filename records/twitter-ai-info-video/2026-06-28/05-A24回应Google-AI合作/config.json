@@ -1,0 +1,135 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-A24回应Google-AI合作.mp4",
+  "contact_sheet": "renders/05-A24回应Google-AI合作-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "创作争议",
+    "source": "X · 2026.06.28"
+  },
+  "title": [
+    {
+      "text": "A24 回应 Google AI 合作争议",
+      "y": 126,
+      "size": 72,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "影视公司也要抢工具规则权",
+      "y": 222,
+      "size": 90,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "不是用不用 AI，而是谁定标准",
+      "y": 344,
+      "size": 82,
+      "color": [
+        255,
+        145,
+        118
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "A24 不是简单用 AI，而是在抢工具规则权"
+    },
+    {
+      "label": "跟你有关",
+      "text": "创作者别只骂 AI，要看谁能参与定规则"
+    },
+    {
+      "label": "发生",
+      "text": "A24 为 Google AI 合作发布辩护说法"
+    },
+    {
+      "label": "谁先用",
+      "text": "影视、广告、视觉制作行业先受影响"
+    },
+    {
+      "label": "影响",
+      "text": "AI 工具会进入创作流程和版权谈判"
+    },
+    {
+      "label": "信息差",
+      "text": "真正的竞争是“工具怎么被建造”"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/05-A24回应Google-AI合作/01-真实视觉.jpg",
+    "assets/images/05-A24回应Google-AI合作/02-核心推文中文卡.jpg",
+    "assets/images/05-A24回应Google-AI合作/03-来源截图.jpg",
+    "assets/images/05-A24回应Google-AI合作/04-信息差解释.jpg",
+    "assets/images/05-A24回应Google-AI合作/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/DiscussingFilm/status/2070601640642801704",
+    "author": "DiscussingFilm @DiscussingFilm",
+    "screenshot": "assets/images/05-A24回应Google-AI合作/02-核心推文中文卡.jpg",
+    "observed_signal": "围绕 A24 × Google AI 合作的争议声明；来源指向 WIRED 2026年6月24日文章"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "brightness": 1.16,
+    "contrast": 1.06,
+    "color": 1.03,
+    "high_luma_brightness": 0.92,
+    "normal_brightness": 1.08
+  },
+  "motion": {
+    "zoom": 0.09,
+    "pan_x": 36,
+    "pan_y": 30
+  },
+  "bgm": {
+    "path": "assets/audio/say-no-cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}
