@@ -83,7 +83,7 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 ## Tweet Anchor Rules
 
 - The second carousel image must be the topic-confirming X/Twitter screenshot.
-- The tweet anchor should look like a bright, source-like artifact. The preferred default is the previously approved proof-card layout: a cleaned real tweet screenshot on the left, a Chinese interpretation block on the right, source metadata at the bottom-left, and a small purple note at the bottom-right explaining that this second image holds longer for reading.
+- The tweet anchor should look like a bright, source-like artifact. The preferred default is the previously approved proof-card layout: a cleaned real tweet screenshot on the left, a Chinese interpretation block on the right, and source metadata at the bottom-left. Do not show internal timing notes such as "第二张图停留加长" in the final audience-facing card.
 - For this proof-card layout, do not turn the frame into a new headline card. Use `中文释义` as the small purple label, then 3-5 cyan highlighted Chinese lines that summarize the tweet's core fact and viewer meaning. Keep the original tweet visible for credibility.
 - The typography should be tidy and consistent: at 1600x1000 source-card size, use roughly 34-40px bold Chinese for cyan highlighted lines, 29-34px for small labels, 23-26px for URL/source metadata, with even line height and aligned left edges. Shorten the wording before shrinking below that range.
 - Prefer direct posts by the core person in the story: founder, CEO, product lead, researcher, government official, creator of the tool, or other primary actor.
@@ -171,8 +171,9 @@ Cover and card text rule:
 - Cover visuals should prefer event people first, then representative company people, then company identity/mascot/logo, then product screenshots. For example, Google-related covers can use Sundar Pichai or a strong Google identity image; Claude/Anthropic covers can use Dario Amodei or a strong Anthropic/Claude identity image before falling back to product UI.
 - For subsidiary or product-line stories, identify the backing company and use that recognition layer when it helps normal viewers. Example: Coze, BytePlus, Seedance, and Doubao are ByteDance-family topics; if no direct product lead is more suitable, consider Zhang Yiming as ByteDance founder/representative figure, or use ByteDance/Doubao/BytePlus/Coze brand visuals before falling back to a generic product screenshot.
 - Do not force the tweet proof card or middle carousel source cards to repeat the full three-line hook. The three-line hook belongs to the animated title and cover; the middle carousel should remain evidence-like.
-- Image 2 should use the tweet proof-card layout above: left real tweet screenshot, right Chinese cyan-highlight interpretation, bottom source metadata, optional purple hold-note.
+- Image 2 should use the tweet proof-card layout above: left real tweet screenshot, right Chinese cyan-highlight interpretation, and bottom source metadata. Do not show timing or production notes on the card.
 - Other middle carousel cards should stay visually simple: one real visual focus plus at most 1-2 short Chinese caption lines. Avoid stuffing the top title, bottom rows, and long explanation into the image itself because those layers already exist in the video template.
+- Never expose internal production instructions in final images, covers, contact sheets, or videos. Remove phrases such as `第二张图停留加长，方便读推文`, `人物优先`, `脸部完整`, `真实素材优先`, `只保留一句说明`, `先看背后公司是谁`, crop notes, hold-time notes, asset-selection rationale, and other operator-facing text. Replace them with viewer-facing facts such as the person name, company name, product name, source label, or one concrete event caption.
 
 ## Paper Card Explainer Mode
 

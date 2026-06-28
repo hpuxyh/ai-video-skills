@@ -11,6 +11,7 @@
 - `03-BytePlus-Seedance-20-4K` 按字节系主题处理，封面和第一视觉改用张一鸣人物图；BytePlus / Seedance 产品页仍保留在视频证据轮播中。
 - Google 主题继续使用 Sundar Pichai，Claude / Anthropic 主题继续使用 Dario Amodei，OpenAI 主题继续使用 Sam Altman。
 - A24 主题无更合适单一人物时，使用公司识别视觉。
+- 清理最终画面中的内部制作提示：不再显示“第二张图停留加长”“人物优先”“脸部完整”“真实素材优先”“先看背后公司是谁”等操作说明；素材卡只保留人名、公司名、来源标签和事件事实。
 
 ## 文件清单
 
@@ -25,7 +26,7 @@
 
 - 5 个 MP4 均为 7 秒。
 - 5 个 MP4 均包含 video 和 audio stream。
-- 总览复核图：/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-28/renders/audit-backing-company-covers-videos.jpg
+- 总览复核图：/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-28/renders/audit-no-internal-prompts.jpg
 
 ## 自动任务同步
 

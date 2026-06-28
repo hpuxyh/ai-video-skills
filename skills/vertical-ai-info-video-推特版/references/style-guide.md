@@ -161,7 +161,7 @@ Daily execution rules:
 For the 推特版 workflow, the tweet anchor is not optional.
 
 - `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic.
-- The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, bottom-left keeps source metadata, and bottom-right can show a purple note that image 2 stays longer for reading.
+- The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, and bottom-left keeps source metadata. Do not show internal timing notes such as `第二张图停留加长` in the final card.
 - The right-side Chinese interpretation should use a small purple `中文释义` label followed by 3-5 cyan highlighted lines. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
 - Keep the raw tweet visible for credibility. Crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card.
 - Typography for the proof card should be orderly: for a 1600x1000 card, cyan-highlight Chinese text should usually be 34-40px bold, labels around 29-34px, URL/source metadata around 23-26px. Use consistent line height, aligned left edges, and shorter wording rather than tiny text.
@@ -197,8 +197,7 @@ Example proof-card config:
   ],
   "source_title": "来源：OpenAI @OpenAI",
   "source_meta": "2026年6月26日 · 约1610.1万 Views · 3.3K回复 / 5.5K转发",
-  "source_url": "https://x.com/OpenAI/status/2070555272230384038",
-  "hold_note": "第二张图停留加长，方便读推文"
+  "source_url": "https://x.com/OpenAI/status/2070555272230384038"
 }
 ```
 
@@ -365,6 +364,7 @@ The middle `photo_box` must feel like bright real news/product footage, not dark
 - Person crop check: preserve the full face, eyes, chin, hairline, and recognizable body/gesture when the person is the subject. If a source photo is vertical or tightly framed, use `contain` rather than cutting the subject.
 - Company/product crop check: preserve the company logo, product name, and central UI/visual. If a wide official page or product page becomes unreadable when cropped, place the whole page inside a bright rounded card and let only the background blur/crop.
 - Caption density: carousel images 1/3/4/5 may include one short Chinese caption, or two very short lines at most. They should not become dense text cards; the title and bottom rows carry the explanation.
+- Caption wording must be audience-facing. Do not show operator-facing production notes such as `人物优先`, `脸部完整`, `真实素材优先`, `只保留一句说明`, `先看背后公司是谁`, `第二张图停留加长`, crop notes, asset-selection rationale, or hold-time notes. Use person names, company names, product names, source labels, and concrete event facts instead.
 
 Reject screenshots that show Cloudflare verification, loading spinners, blank pages, cookie walls, or unrelated search results. Replace them with another source before making a video.
 
