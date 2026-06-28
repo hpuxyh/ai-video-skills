@@ -187,6 +187,57 @@ Final audience-facing output should be Chinese-first.
 - `title_oblique`: `-0.075`
 - No glow, no black offset shadow, no highlight.
 - Keep the title large enough for mobile viewing; reduce text length before shrinking too much.
+- Keep the original line-by-line pop animation for the three title lines in video renders.
+
+## Three-Line Animated Title Logic
+
+Normal 推特版 videos use a shared three-line hook. These are the words shown in the opening animation, and the same three lines should also become the main cover headline.
+
+Structure:
+
+1. Line 1 names the protagonist, company, product, source, or concrete event.
+2. Line 2 names the direct change: launch, entry, response, new state, or what just happened.
+3. Line 3 translates the story into a normal-viewer hook: consequence, contrast, risk, opportunity, or information gap.
+
+Writing rules:
+
+- Do not write a neutral news headline. Write a short-video hook.
+- Make the first line instantly identifiable.
+- Make the second line explain the change without jargon.
+- Make the third line the strongest and most viewer-facing line.
+- Use concrete everyday language, not abstract technical terms.
+- Keep each line short enough to read on a phone; shorten text before shrinking the font.
+- The third line can use stronger color or weight because it carries the information-gap punch.
+
+Examples:
+
+```text
+GPT-5.6 要来了？
+但普通人
+还不能直接用
+
+Google Finance
+接入 AI 研究工具
+看盘变成投资助理
+
+Seedance 2.0
+直接冲到 4K
+AI 视频更像实拍
+
+Claude 进入 Slack
+不只是聊天助手
+还会记住公司
+
+A24 回应 Google AI
+电影圈开始抢规则
+创作者要争边界
+```
+
+Relationship to other title modes:
+
+- Normal videos: use the three-line animated title above.
+- Normal covers: reuse the same three lines as the cover headline.
+- Paper-card previews: use the separate paper-card title plus purple ribbon logic below.
 
 ## Paper Card Title Logic
 
@@ -328,8 +379,8 @@ For 小红书 / 抖音 publishing, generate a separate 9:16 cover image when use
 
 Visual priority:
 
-1. Headline impact: the headline must be the first visual layer.
-2. Real person: use a recognizable person connected to the event for trust and stopping power.
+1. Real person or company identity: use a recognizable person connected to the event first; if no person exists, use the clearest company/product identity.
+2. Headline impact: reuse the same three animated video title lines as the cover headline and make them the first text layer.
 3. Company recognition: add a company or product logo badge as a secondary anchor.
 4. One conclusion: show only the first conclusion row as supporting context.
 
@@ -347,11 +398,13 @@ Layout rules:
 - Keep eyes and main facial features unobstructed.
 - Put the headline around the lower third when a portrait is used, usually over shirt/background rather than across the eyes, nose, or mouth.
 - Make the headline larger and stronger than the person and logo.
+- Use the same wording as the video's three animated title lines. The cover may enlarge, stack, or color the lines differently, but should not rewrite them unless the user asks.
 - Make the cover headline visually heavy. Use same-color stroke/thickening around the title text when needed; do not add black shadows, glow, or offset effects.
 - Put the company logo badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast background.
 - Keep the top `AI 信息差快报` / topic metadata small.
 - Show only one bottom conclusion row; do not show all six info rows on the cover.
 - Do not add platform play buttons; 小红书/抖音 add those automatically.
+- Do not use the core tweet screenshot as the main cover background when a person, avatar, company logo, product visual, or official brand asset can represent the topic. The tweet screenshot belongs as video image 2 and as source evidence.
 
 For a GPT-5.6 limited-preview cover, use:
 

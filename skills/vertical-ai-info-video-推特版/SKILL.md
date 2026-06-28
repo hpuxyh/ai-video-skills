@@ -24,11 +24,11 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, tweet URL, or instruction, use the given topic directly and generate one video for that event using the confirmed workflow.
    - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
-2. Confirm or infer each video's topic, title lines, info rows, image set, cover, BGM, and tweet anchor.
+2. Confirm or infer each video's topic, three-line animated title, info rows, image set, cover, BGM, and tweet anchor.
 3. Before choosing or rendering topics, check the GitHub-synced history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
 4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary exists, use it only as a discovery signal, not as the anchor.
 5. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from it, and later images should add official/news/product evidence. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
-6. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
+6. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only.
 7. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
 8. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
 9. Before rendering, inspect downloaded assets or a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, replace it before rendering. Never ship a video with an asset-error card visible.
@@ -108,6 +108,54 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - Use one event-specific info-row set from the viewer's path: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
 - The target look is the previously approved White House safety-review sample, with one important change: the second image is always the clean X/Twitter source screenshot or Chinese-localized tweet card that confirms the topic.
 
+## Animated Title And Cover Text Logic
+
+Use one shared three-line hook as the main title system for normal 推特版 videos. The video shows these lines with the original line-by-line pop animation; the cover reuses the same three lines as its large headline. Do not invent a separate cover headline unless the user explicitly asks for a different cover copy.
+
+Three-line structure:
+
+1. Line 1: protagonist, company, product, source, or core event. Name the concrete actor first so the viewer immediately knows who the story is about.
+2. Line 2: the direct change, action, launch, entry, response, or new state. This line explains what just changed.
+3. Line 3: the normal-viewer hook: the consequence, contrast, information gap, risk, or useful takeaway. This is usually the strongest line and can use heavier color/emphasis.
+
+Language style:
+
+- Write like a short-video hook, not a neutral news headline.
+- Prefer concrete, ordinary language over technical abstraction.
+- Make the third line translate the event into "what this means" for normal viewers.
+- Keep each line short enough for mobile reading. Shorten wording before shrinking the title too much.
+- Keep the line-by-line title animation in final videos.
+
+Current batch examples:
+
+```text
+GPT-5.6 要来了？
+但普通人
+还不能直接用
+
+Google Finance
+接入 AI 研究工具
+看盘变成投资助理
+
+Seedance 2.0
+直接冲到 4K
+AI 视频更像实拍
+
+Claude 进入 Slack
+不只是聊天助手
+还会记住公司
+
+A24 回应 Google AI
+电影圈开始抢规则
+创作者要争边界
+```
+
+Cover text rule:
+
+- Normal 小红书/抖音 covers use the same three lines above as the cover headline.
+- The cover should not switch to a separate paper-card title or a tweet-screenshot title.
+- The cover headline can be larger, heavier, and arranged around the real person/company/product visual, but the words should remain the same as the video title unless the user asks to rewrite them.
+
 ## Paper Card Explainer Mode
 
 Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below.
@@ -152,7 +200,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 
 - Canvas: `1080x1920`, 30 fps, default duration 7 seconds.
 - Layout: title area on top, full-width image area in the middle, text rows in the lower area.
-- Title style: 3 centered lines, heavy body weight `0.9`, oblique slant, pure fill colors, no drop shadow, no black offset, no glow, no highlight layer.
+- Title style: 3 centered animated lines, heavy body weight `0.9`, oblique slant, pure fill colors, no drop shadow, no black offset, no glow, no highlight layer. Keep the original line-by-line pop animation.
 - Image motion: strong push-pull plus pan, no fade-flashing at cut points.
 - Image count: prefer 5 images for a 7-second video.
 - Middle image brightness: the carousel images should be bright and legible. Avoid dark cards, black backgrounds, low-contrast screenshots, or heavy overlays in the photo box. If a real source is dark, use `photo_fit: "contain"` with a bright blurred/background treatment or choose a brighter asset.
@@ -163,7 +211,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Timing: for tweet-anchored videos, keep total duration at 7 seconds but hold image 2 for about 2x the other images by setting `image_hold_weights: [1, 2, 1, 1, 1]`. Use manual `beat_cuts` only when the user asks for a music-specific exception.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
-- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
+- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Reuse the same three animated title lines as the large cover headline, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export destination: final 推特版 deliverables must be organized under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`. Temporary render files can stay in the project folder during iteration, but the handoff-ready batch must be copied or rendered into this dedicated folder.
 - Export naming: final deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`, then split into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源`; include the topic in each folder/file name so the user can distinguish video, cover, theme, and tweet source.
