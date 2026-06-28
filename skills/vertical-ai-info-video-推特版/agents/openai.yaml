@@ -1,0 +1,4 @@
+interface:
+  display_name: "竖屏 AI 信息差视频-推特版"
+  short_description: "Create 9:16 AI shorts from X/Twitter hotspots"
+  default_prompt: "Use $vertical-ai-info-video-推特版 to generate a 9:16 AI information-gap news video from recent X/Twitter AI hotspots, with image 2 as the core tweet screenshot."
