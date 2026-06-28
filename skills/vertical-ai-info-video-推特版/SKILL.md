@@ -150,11 +150,13 @@ A24 回应 Google AI
 创作者要争边界
 ```
 
-Cover text rule:
+Cover and card text rule:
 
 - Normal 小红书/抖音 covers use the same three lines above as the cover headline.
 - The cover should not switch to a separate paper-card title or a tweet-screenshot title.
 - The cover headline can be larger, heavier, and arranged around the real person/company/product visual, but the words should remain the same as the video title unless the user asks to rewrite them.
+- Any generated source card, real-visual card, explanation card, or overview card inside the video should also use this same three-line hook for its top title when it needs a title. Do not write those card titles as neutral news summaries such as `Google Finance 开始做 AI 研究工具`; use the three-line hook style instead.
+- Cards may add body copy, source notes, or cyan-highlight explanation below, but their top title should stay aligned with the animated title and cover title.
 
 ## Paper Card Explainer Mode
 

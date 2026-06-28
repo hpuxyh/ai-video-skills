@@ -237,6 +237,7 @@ Relationship to other title modes:
 
 - Normal videos: use the three-line animated title above.
 - Normal covers: reuse the same three lines as the cover headline.
+- Normal generated cards inside the video: when a source card, real-visual card, explanation card, or overview card needs a top title, reuse the same three-line hook. The card can include extra body copy below, but the title should not become a separate neutral news sentence.
 - Paper-card previews: use the separate paper-card title plus purple ribbon logic below.
 
 ## Paper Card Title Logic

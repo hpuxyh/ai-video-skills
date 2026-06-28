@@ -7,3 +7,4 @@
 - 本地配置：/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-28/configs/05-A24回应Google-AI合作.json
 - GitHub 配置副本：records/twitter-ai-info-video/2026-06-28/05-A24回应Google-AI合作/config.json
 - 核心推文：https://x.com/DiscussingFilm/status/2070601640642801704
+- 2026-06-28 重整：视频、封面、素材卡已按三行钩子标题逻辑刷新；素材卡副本见本地素材与来源目录。
