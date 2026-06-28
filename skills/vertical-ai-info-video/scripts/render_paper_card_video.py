@@ -414,9 +414,9 @@ def draw_dynamic_editorial_body(canvas, t, cfg, layout):
     if not rows:
         return
 
-    start = float(cfg.get("body_anim_start", 0.12))
-    step = float(cfg.get("body_anim_step", 0.14))
-    duration = float(cfg.get("body_anim_duration", 0.22))
+    start = float(cfg.get("body_anim_start", 1.05))
+    step = float(cfg.get("body_anim_step", 0.52))
+    duration = float(cfg.get("body_anim_duration", 0.42))
     offset_y = int(cfg.get("body_anim_offset_y", 18))
 
     card_x = layout["card_x"]
@@ -481,9 +481,9 @@ def draw_dynamic_editorial_body(canvas, t, cfg, layout):
 
 
 def draw_dynamic_body(canvas, t, cfg, layout):
-    if not cfg.get("animate_body_rows", False):
+    if not cfg.get("animate_body_rows", True):
         return
-    if cfg.get("body_style") == "editorial_lines":
+    if cfg.get("body_style", "editorial_lines") == "editorial_lines":
         draw_dynamic_editorial_body(canvas, t, cfg, layout)
 
 
@@ -663,8 +663,8 @@ def draw_static_base(cfg):
         "card_h": card_h,
         "text_y": text_y,
     }
-    if not cfg.get("animate_body_rows", False):
-        if cfg.get("body_style") == "editorial_lines":
+    if not cfg.get("animate_body_rows", True):
+        if cfg.get("body_style", "editorial_lines") == "editorial_lines" and (cfg.get("body_rows") or cfg.get("body_items")):
             draw_editorial_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
         elif cfg.get("body_rows") or cfg.get("body_style") == "structured":
             draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
@@ -729,7 +729,29 @@ def frame_timing(t, total_photos, cfg):
     start = starts[idx]
     end = ends[idx]
     progress = (t - start) / max(1 / float(cfg.get("fps", DEFAULT_FPS)), end - start)
-    return idx, progress
+    return idx, progress, start, end
+
+
+def should_preserve_media(idx, cfg):
+    roles = cfg.get("image_roles", [])
+    qualities = cfg.get("image_quality", [])
+    preserve_roles = set(
+        cfg.get(
+            "media_preserve_roles",
+            [
+                "media",
+                "source-card",
+                "official-screenshot",
+                "clean-card",
+                "product",
+                "tweet",
+                "screenshot",
+            ],
+        )
+    )
+    role = roles[idx] if idx < len(roles) else ""
+    quality = qualities[idx] if idx < len(qualities) else ""
+    return role in preserve_roles or quality in preserve_roles
 
 
 def media_layer(img, media_rect, idx, total, progress, cfg, purple):
@@ -738,19 +760,28 @@ def media_layer(img, media_rect, idx, total, progress, cfg, purple):
     inner_w = media_w - frame_pad * 2
     inner_h = media_h - frame_pad * 2
     motion = cfg.get("motion", {})
+    preserve_media = should_preserve_media(idx, cfg)
     zoom_amount = float(motion.get("zoom", 0.025))
     pan_x = float(motion.get("pan_x", 10))
     pan_y = float(motion.get("pan_y", 7))
 
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer, "RGBA")
-    d.rounded_rectangle(
-        (media_x, media_y, media_x + media_w, media_y + media_h),
-        radius=16,
-        fill=(255, 255, 255),
-        outline=purple,
-        width=5,
-    )
+    outline_width = int(cfg.get("media_outline_width", 5))
+    if outline_width > 0:
+        d.rounded_rectangle(
+            (media_x, media_y, media_x + media_w, media_y + media_h),
+            radius=16,
+            fill=(255, 255, 255),
+            outline=purple,
+            width=outline_width,
+        )
+    else:
+        d.rounded_rectangle(
+            (media_x, media_y, media_x + media_w, media_y + media_h),
+            radius=0,
+            fill=(255, 255, 255),
+        )
 
     src = brighten(img, cfg)
     bg = fit_cover(src.filter(ImageFilter.GaussianBlur(18)), (inner_w, inner_h))
@@ -760,20 +791,58 @@ def media_layer(img, media_rect, idx, total, progress, cfg, purple):
     view = Image.alpha_composite(bg, wash)
 
     eased = ease(progress)
-    scale = min(inner_w / src.width, inner_h / src.height) * (1 + zoom_amount * eased)
+    fit_mode = "contain" if preserve_media else cfg.get("media_fit", "contain")
+    if fit_mode == "cover":
+        scale = max(inner_w / src.width, inner_h / src.height) * (1 + zoom_amount * eased)
+    else:
+        scale = min(inner_w / src.width, inner_h / src.height) * (1 + (0 if preserve_media else zoom_amount) * eased)
     photo = src.resize((int(src.width * scale + 0.5), int(src.height * scale + 0.5)), Image.Resampling.LANCZOS).convert("RGBA")
     spare_x = inner_w - photo.width
     spare_y = inner_h - photo.height
     x_dir = -1 if idx % 2 else 1
     y_dir = -1 if idx % 3 == 0 else 1
-    px = spare_x // 2 + int(pan_x * (eased - 0.5) * x_dir)
-    py = spare_y // 2 + int(pan_y * (eased - 0.5) * y_dir)
+    px = spare_x // 2 + int((0 if preserve_media else pan_x) * (eased - 0.5) * x_dir)
+    py = spare_y // 2 + int((0 if preserve_media else pan_y) * (eased - 0.5) * y_dir)
 
     clipped = Image.new("RGBA", (inner_w, inner_h), (0, 0, 0, 0))
     clipped.alpha_composite(view)
     clipped.alpha_composite(photo, (px, py))
     layer.paste(clipped, (media_x + frame_pad, media_y + frame_pad), rounded_mask((inner_w, inner_h), 12))
     return layer
+
+
+def media_transition_layer(images, media_rect, idx, progress, segment_start, t, cfg, purple):
+    current = media_layer(images[idx], media_rect, idx, len(images), progress, cfg, purple)
+    transition_duration = float(cfg.get("media_transition_duration", 0.30))
+    if idx == 0 or t - segment_start < 0 or t - segment_start >= transition_duration:
+        return current
+
+    p = ease((t - segment_start) / max(0.001, transition_duration))
+    prev = media_layer(images[idx - 1], media_rect, idx - 1, len(images), 1.0, cfg, purple)
+    transition_mode = cfg.get("media_transition_mode", "fade")
+    if transition_mode == "fade":
+        combined = prev.copy()
+        alpha_composite_with_opacity(combined, current, p)
+        return combined
+
+    media_x, media_y, media_w, media_h = media_rect
+    direction = -1 if idx % 2 == 0 else 1
+    reveal_w = int(media_w * p)
+    mask = Image.new("L", (W, H), 0)
+    mask_draw = ImageDraw.Draw(mask)
+    if direction > 0:
+        edge_x = media_x + media_w - reveal_w
+        mask_draw.rectangle((edge_x, media_y, media_x + media_w, media_y + media_h), fill=255)
+    else:
+        edge_x = media_x + reveal_w
+        mask_draw.rectangle((media_x, media_y, edge_x, media_y + media_h), fill=255)
+    combined = prev.copy()
+    combined.paste(current, (0, 0), mask)
+    edge_alpha = int(125 * (1.0 - p))
+    if edge_alpha > 0:
+        edge = Image.new("RGBA", (8, int(media_h)), (255, 255, 255, edge_alpha))
+        combined.alpha_composite(edge, (int(edge_x) - 4, int(media_y)))
+    return combined
 
 
 def run_ffmpeg_frames(frames_dir, fps, silent_output):
@@ -893,10 +962,10 @@ def main():
 
     for n in range(total_frames):
         t = n / fps
-        idx, progress = frame_timing(t, len(images), cfg)
+        idx, progress, segment_start, _ = frame_timing(t, len(images), cfg)
         canvas = base.copy()
         draw_dynamic_header(canvas, t, cfg, header_layout)
-        canvas.alpha_composite(media_layer(images[idx], media_rect, idx, len(images), progress, cfg, purple))
+        canvas.alpha_composite(media_transition_layer(images, media_rect, idx, progress, segment_start, t, cfg, purple))
         draw_dynamic_body(canvas, t, cfg, body_layout)
         canvas.convert("RGB").save(frames_dir / f"frame-{n:04d}.jpg", quality=int(cfg.get("frame_quality", 92)))
 

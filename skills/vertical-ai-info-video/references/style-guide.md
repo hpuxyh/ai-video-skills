@@ -125,9 +125,28 @@ Use this schema for the current default daily/news-video MP4 output. This keeps 
     "assets/images/event/product.png",
     "assets/images/event/chart.png"
   ],
+  "image_roles": ["hero", "tweet", "official", "product", "media"],
+  "image_quality": ["real", "tweet", "official-screenshot", "product", "source-card"],
   "image_hold_weights": [1, 2, 1, 1, 1],
   "media_h": 720,
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.34,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
   "body_style": "editorial_lines",
+  "animate_body_rows": true,
+  "body_anim_start": 1.05,
+  "body_anim_step": 0.52,
+  "body_anim_duration": 0.42,
   "body_rows": [
     {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
     {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
@@ -163,8 +182,10 @@ Paper-card video rules:
 - In the current structured paper-card style, use `title_on_purple: false`, `show_ribbon: true`, `strap`, `body_style: "editorial_lines"`, and `body_rows`.
 - If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
-- Use the purple border only as a media frame. Do not add carousel dots or extra footer strips.
-- Daily scheduled videos default to the white paper-card video style. The bottom copy should appear as a full set of thin-line rows, not animated row-by-row, unless the user explicitly asks for row animation.
+- Default to `media_outline_width: 0` for the current clean white-card variant. Use a visible purple border only when a specific style asks for it. Do not add carousel dots or extra footer strips.
+- Use `media_fit: "cover"` for real people/product images, but preserve text-bearing screenshots/cards via `image_roles`, `image_quality`, and `media_preserve_roles` so their text is not cropped.
+- Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` so image changes have a soft cross-fade without white flashing or fast left-right slide motion.
+- Daily scheduled videos default to the white paper-card video style. The bottom copy should reveal row by row at a readable pace, then remain visible.
 
 ## Request Routing
 
@@ -605,7 +626,7 @@ Validation:
 
 For recurring daily batches:
 
-- Use the white paper-card video style by default: black headline, purple information-gap ribbon, five-image carousel, structured thin-line bottom rows, and body rows visible as a full set.
+- Use the white paper-card video style by default: black headline, purple information-gap ribbon, five-image carousel with soft cross-fade transitions, structured thin-line bottom rows, and body rows revealing one by one at a readable pace.
 - Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
 - Record date, topic title, company/product, source URLs, selected angle, and final output folder.
 - Before every auto-scout run, compare candidates against previous records and dated export folders.

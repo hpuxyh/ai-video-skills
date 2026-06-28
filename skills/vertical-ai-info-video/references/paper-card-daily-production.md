@@ -8,8 +8,10 @@ This reference captures the confirmed production logic for the normal `vertical-
 - Card: one white textured paper card on a dark phone-like background.
 - Title: very bold black headline, usually two centered lines.
 - Ribbon: one purple horizontal rounded ribbon directly under the headline.
-- Media: one middle media frame containing the original five-image carousel for the same news event.
-- Bottom: structured thin-line rows, shown as a full set by default.
+- Media: one middle media area containing the original five-image carousel for the same news event.
+- Image transition: use short soft cross-fade transitions between carousel images. Avoid hard-only cuts, fast left-right slide switching, white flashes, or empty side gaps.
+- Media fit: real people/product images may fill the media area; screenshots, source cards, product UI, tweet cards, and other text-bearing images must preserve the full text and not be cropped.
+- Bottom: structured thin-line rows, revealed one by one at a readable pace, then kept visible.
 - Date: show the newest verified date on the card as a small top-right marker, such as `最新 2026.06.28`.
 - Positioning label: keep `AI 信息差快报` small and secondary.
 - Do not add carousel dots, decorative divider lines, empty bands, large footers, or dark-template components.
@@ -63,7 +65,7 @@ Rules:
 - Each row should be readable as a standalone screen sentence.
 - Use `跟你有关` unless the line is truly a concrete personal opportunity; then `普通人机会` or `机会` is acceptable.
 - Keep rows short enough to fit one line when possible.
-- Bottom rows appear as a full set by default. Do not animate them row by row unless explicitly requested.
+- Bottom rows reveal one by one by default in MP4 output. Recommended timing: start around `1.05s`, interval around `0.52s`, duration around `0.42s`, so all rows are stable by about `3.5s`.
 
 ## Image Sourcing And Sequence
 
@@ -81,6 +83,8 @@ Sequence rules:
 
 - First image must identify the protagonist/company/product whenever possible.
 - Core source screenshots can stay longer with `image_hold_weights`, commonly `[1, 2, 1, 1, 1]`.
+- Use `image_roles` and `image_quality` to mark screenshots/cards/products so the renderer can preserve them in full. Roles/qualities such as `media`, `source-card`, `official-screenshot`, `clean-card`, `product`, `tweet`, and `screenshot` should not be aggressively cropped.
+- Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` for readable image transitions.
 - Do not use blocked pages, blank screenshots, download-error cards, `403`, `429`, or `图片源不可用`.
 - Run `scripts/check_image_sequence.py --strict` before rendering.
 - Inspect the contact sheet before final delivery.
@@ -161,7 +165,8 @@ Before reporting completion:
 - For multi-video batches, confirm the BGM plan did not assign one inherited track to every video.
 - Confirm the final delivery folder is topic-first: each video topic has exactly the three core files `视频.mp4`, `封面.jpg`, and `文案.md`.
 - Confirm each contact sheet shows black title, purple ribbon, middle carousel, and bottom rows.
-- Confirm images are complete inside the media frame and not leaking off-screen.
+- Confirm images are complete inside the media area, text-bearing images are not cropped, and images are not leaking off-screen.
+- Confirm carousel image transitions have soft fade motion without white flashes, empty side gaps, or distracting rapid left-right slides.
 - Confirm there are no carousel dots or old dark-template remnants.
 - Confirm publishing copy exists for 小红书 and 抖音.
 - Update `选题历史.md` so future daily runs avoid exact repeats.
