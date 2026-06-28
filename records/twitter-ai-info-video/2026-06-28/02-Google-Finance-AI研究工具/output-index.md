@@ -8,3 +8,4 @@
 - GitHub 配置副本：records/twitter-ai-info-video/2026-06-28/02-Google-Finance-AI研究工具/config.json
 - 核心推文：https://x.com/Google/status/2070203169309602115
 - 2026-06-28 重整：视频、封面、素材卡已按三行钩子标题逻辑刷新；素材卡副本见本地素材与来源目录。
+- 2026-06-28 封面二次调整：封面主视觉改用 Sundar Pichai 人物照；单张封面和封面总览已去掉视觉编号。

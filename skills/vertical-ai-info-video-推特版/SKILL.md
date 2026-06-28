@@ -155,6 +155,8 @@ Cover and card text rule:
 - Normal 小红书/抖音 covers use the same three lines above as the cover headline.
 - The cover should not switch to a separate paper-card title or a tweet-screenshot title.
 - The cover headline can be larger, heavier, and arranged around the real person/company/product visual, but the words should remain the same as the video title unless the user asks to rewrite them.
+- Do not draw topic serial numbers such as `01`, `02`, `03`, or `04` on the cover image itself or on cover overview tiles. Numbering is allowed in folder/file names only.
+- Cover visuals should prefer event people first, then representative company people, then company identity/mascot/logo, then product screenshots. For example, Google-related covers can use Sundar Pichai or a strong Google identity image; Claude/Anthropic covers can use Dario Amodei or a strong Anthropic/Claude identity image before falling back to product UI.
 - Any generated source card, real-visual card, explanation card, or overview card inside the video should also use this same three-line hook for its top title when it needs a title. Do not write those card titles as neutral news summaries such as `Google Finance 开始做 AI 研究工具`; use the three-line hook style instead.
 - Cards may add body copy, source notes, or cyan-highlight explanation below, but their top title should stay aligned with the animated title and cover title.
 
@@ -213,7 +215,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Timing: for tweet-anchored videos, keep total duration at 7 seconds but hold image 2 for about 2x the other images by setting `image_hold_weights: [1, 2, 1, 1, 1]`. Use manual `beat_cuts` only when the user asks for a music-specific exception.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
-- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Reuse the same three animated title lines as the large cover headline, protect the face, add a company logo badge, and show only one conclusion row.
+- Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Reuse the same three animated title lines as the large cover headline, protect the face, add a company logo badge, and show only one conclusion row with no numeric prefix.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export destination: final 推特版 deliverables must be organized under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`. Temporary render files can stay in the project folder during iteration, but the handoff-ready batch must be copied or rendered into this dedicated folder.
 - Export naming: final deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`, then split into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源`; include the topic in each folder/file name so the user can distinguish video, cover, theme, and tweet source.

@@ -380,7 +380,7 @@ For 小红书 / 抖音 publishing, generate a separate 9:16 cover image when use
 
 Visual priority:
 
-1. Real person or company identity: use a recognizable person connected to the event first; if no person exists, use the clearest company/product identity.
+1. Real person or company identity: use a recognizable event person first; if no event person exists, use the representative company person before product UI. Examples: Google can use Sundar Pichai or a strong Google identity asset; Claude/Anthropic can use Dario Amodei or a strong Anthropic/Claude identity asset.
 2. Headline impact: reuse the same three animated video title lines as the cover headline and make them the first text layer.
 3. Company recognition: add a company or product logo badge as a secondary anchor.
 4. One conclusion: show only the first conclusion row as supporting context.
@@ -388,9 +388,10 @@ Visual priority:
 Asset priority for covers:
 
 1. Real person portrait or half-body image: founder, CEO, product lead, government figure, or other event protagonist.
-2. Company/product logo: use a clean white-background badge when possible.
-3. Product or official screenshot: use only when no relevant person exists.
-4. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
+2. Representative company person when the source is an official/product account but the company has a widely recognized leader or spokesperson.
+3. Company/product logo, mascot, or identity asset: use a clean white-background badge when possible.
+4. Product or official screenshot: use only when no relevant person or stronger company identity exists.
+5. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
 
 Layout rules:
 
@@ -404,6 +405,7 @@ Layout rules:
 - Put the company logo badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast background.
 - Keep the top `AI 信息差快报` / topic metadata small.
 - Show only one bottom conclusion row; do not show all six info rows on the cover.
+- Do not draw topic serial numbers such as `01`, `02`, `03`, or `04` anywhere inside the cover. The bottom conclusion strip should read `结论：...`, not `01 结论：...`. Cover overview images should also avoid adding serial numbers beneath the tiles.
 - Do not add platform play buttons; 小红书/抖音 add those automatically.
 - Do not use the core tweet screenshot as the main cover background when a person, avatar, company logo, product visual, or official brand asset can represent the topic. The tweet screenshot belongs as video image 2 and as source evidence.
 
