@@ -20,7 +20,8 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Build a JSON config using the schema in `references/style-guide.md`.
-6. Run `scripts/render_vertical_info_video.py` from a project directory:
+6. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
+7. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vertical_info_video.py \
@@ -30,8 +31,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-7. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-8. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
+8. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+9. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
 
 ## Topic Selection Modes
 
@@ -59,6 +60,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Image motion: strong push-pull plus pan, no fade-flashing at cut points.
 - Image count: prefer 5 images for a 7-second video.
 - Image sourcing priority: real people/company/product photos first; official announcement/help/docs screenshots second; product entry/API/Codex screenshots third; media report screenshots fourth; auxiliary context images last.
+- Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
 - Audio: no voiceover by default. Use local BGM, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
