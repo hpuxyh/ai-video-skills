@@ -1,7 +1,7 @@
 # 02 Google-Finance-AI研究工具 输出索引
 
-- 当前优化版视频：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/02-Google-Finance-AI研究工具/视频.mp4
-- 当前优化版封面：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-优化版/02-Google-Finance-AI研究工具/封面.jpg
+- 当前背后公司逻辑版视频：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-背后公司逻辑版/02-Google-Finance-AI研究工具/视频.mp4
+- 当前背后公司逻辑版封面：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-背后公司逻辑版/02-Google-Finance-AI研究工具/封面.jpg
 
 - 视频：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/01-视频/02-Google-Finance-AI研究工具/视频-02-Google-Finance-AI研究工具.mp4
 - 封面：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报/02-封面/02-Google-Finance-AI研究工具/封面-02-Google-Finance-AI研究工具.jpg

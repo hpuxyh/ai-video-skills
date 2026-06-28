@@ -345,7 +345,7 @@ The title and `info_rows` explain the event. The images should not be five separ
 
 Use multiple images for one news event. The middle image carousel should feel like real news footage, not a deck of text cards.
 
-1. Real people/company/product photos: founders, executives, company offices, product launch scenes, real product screenshots, or official brand/product images.
+1. Real people/company/product photos: founders, executives, company offices, product launch scenes, real product screenshots, parent-company identity, or official brand/product images.
 2. Core X/Twitter screenshot or Chinese-localized tweet card: the topic-confirming post by the core person or official account. This must be the second carousel image and should use a bright/white source-like treatment.
 3. Official evidence screenshots: announcement pages, Help Center pages, docs, API pages, safety cards, or release notes.
 4. Product entry screenshots: ChatGPT, OpenAI Platform, Codex, model selector, API console, pricing page, or developer docs.
@@ -416,17 +416,25 @@ For 小红书 / 抖音 publishing, generate a separate 9:16 cover image when use
 Visual priority:
 
 1. Real person or company identity: use a recognizable event person first; if no event person exists, use the representative company person before product UI. Examples: Google can use Sundar Pichai or a strong Google identity asset; Claude/Anthropic can use Dario Amodei or a strong Anthropic/Claude identity asset.
-2. Headline impact: reuse the same three animated video title lines as the cover headline and make them the first text layer.
-3. Company recognition: add a company or product logo badge as a secondary anchor.
-4. One conclusion: show only the first conclusion row as supporting context.
+2. Backing-company recognition: if the topic is a product, sub-brand, overseas version, or lab under a larger company, identify the parent company and use the most recognizable parent-company person or identity when it makes the cover easier to understand.
+3. Headline impact: reuse the same three animated video title lines as the cover headline and make them the first text layer.
+4. Company recognition: add a company or product logo badge as a secondary anchor.
+5. One conclusion: show only the first conclusion row as supporting context.
+
+Brand lineage examples:
+
+- Coze / BytePlus / Seedance / Doubao: treat them as ByteDance-family topics. Prefer a directly relevant product leader if available; otherwise consider Zhang Yiming as ByteDance founder/representative figure, or use ByteDance/Doubao/BytePlus/Coze brand visuals before falling back to a product-page crop.
+- Google product stories: use Sundar Pichai or strong Google identity before a generic product UI crop when there is no product-specific person.
+- Anthropic/Claude stories: use Dario Amodei or strong Anthropic/Claude identity before a generic chat UI crop when there is no product-specific person.
 
 Asset priority for covers:
 
 1. Real person portrait or half-body image: founder, CEO, product lead, government figure, or other event protagonist.
 2. Representative company person when the source is an official/product account but the company has a widely recognized leader or spokesperson.
-3. Company/product logo, mascot, or identity asset: use a clean white-background badge when possible.
-4. Product or official screenshot: use only when no relevant person or stronger company identity exists.
-5. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
+3. Parent-company or backing-company identity when the product itself is less recognizable than the company behind it.
+4. Company/product logo, mascot, or identity asset: use a clean white-background badge when possible.
+5. Product or official screenshot: use only when no relevant person or stronger company identity exists.
+6. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
 
 Layout rules:
 
