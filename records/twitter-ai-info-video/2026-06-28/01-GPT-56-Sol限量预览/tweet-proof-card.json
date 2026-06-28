@@ -1,0 +1,44 @@
+{
+  "raw_screenshot": "assets/raw/openai-tweet.png",
+  "crop_box": [
+    110,
+    0,
+    710,
+    740
+  ],
+  "output": "assets/images/01-GPT-56-Sol限量预览/02-核心推文中文卡.jpg",
+  "left_box": [
+    120,
+    82,
+    640,
+    600
+  ],
+  "right_x": 960,
+  "right_y": 104,
+  "right_w": 560,
+  "label_font_size": 34,
+  "summary_font_size": 36,
+  "min_summary_font_size": 32,
+  "highlight_pad_x": 18,
+  "highlight_pad_y": 8,
+  "highlight_gap": 12,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "summary_lines": [
+    "OpenAI 限量预览 GPT-5.6 Sol",
+    "同时给出 Terra、Luna 两个分层模型",
+    "普通用户看到发布，不代表马上能用",
+    "真正变化是模型开始按场景分配入口",
+    "信息差：先看谁能用，再看模型多强"
+  ],
+  "link_title": "核心链接",
+  "source_title": "来源：OpenAI @OpenAI",
+  "source_meta": "2026年6月26日 · 约1610.1万 Views · 3.3K回复 / 5.5K转发",
+  "source_url": "https://x.com/OpenAI/status/2070555272230384038",
+  "source_box": [
+    86,
+    810,
+    850,
+    88
+  ]
+}

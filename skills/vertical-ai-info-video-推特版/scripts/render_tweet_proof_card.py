@@ -131,6 +131,7 @@ def render_card(cfg, project_dir, output):
     highlight_pad_y = int(cfg.get("highlight_pad_y", 7))
     highlight_gap = int(cfg.get("highlight_gap", 10))
     max_summary_lines = int(cfg.get("max_summary_lines", 6))
+    highlight_full_width = bool(cfg.get("highlight_full_width", False))
 
     while True:
         summary_font = font(summary_font_size, True)
@@ -146,7 +147,7 @@ def render_card(cfg, project_dir, output):
     line_h = summary_font_size + highlight_pad_y * 2
     for line in wrapped[:max_summary_lines]:
         line_w = int(text_len(draw, line, summary_font))
-        rect_w = min(right_w, line_w + highlight_pad_x * 2)
+        rect_w = right_w if highlight_full_width else min(right_w, line_w + highlight_pad_x * 2)
         draw.rounded_rectangle((right_x, y, right_x + rect_w, y + line_h), radius=8, fill=(32, 213, 222, 255))
         draw.text((right_x + highlight_pad_x, y + highlight_pad_y - 1), line, font=summary_font, fill=(10, 18, 24, 255))
         y += line_h + highlight_gap

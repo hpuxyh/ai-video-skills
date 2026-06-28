@@ -1,0 +1,44 @@
+{
+  "raw_screenshot": "assets/raw/claude-tag-tweet.png",
+  "crop_box": [
+    110,
+    0,
+    710,
+    900
+  ],
+  "output": "assets/images/04-Claude-Tag进入Slack/02-核心推文中文卡.jpg",
+  "left_box": [
+    120,
+    82,
+    640,
+    600
+  ],
+  "right_x": 960,
+  "right_y": 104,
+  "right_w": 560,
+  "label_font_size": 34,
+  "summary_font_size": 36,
+  "min_summary_font_size": 32,
+  "highlight_pad_x": 18,
+  "highlight_pad_y": 8,
+  "highlight_gap": 12,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "summary_lines": [
+    "Claude Tag 开始进入 Slack 线程",
+    "AI 不只是在旁边回答问题",
+    "它会跟随团队讨论和上下文",
+    "真正沉淀的是公司的协作记忆",
+    "信息差：公司记忆最难搬"
+  ],
+  "link_title": "核心链接",
+  "source_title": "来源：Ashwin Gopinath @ashwingop",
+  "source_meta": "推文讨论 Claude Tag 与 Slack 工作流锁定风险",
+  "source_url": "https://x.com/ashwingop/status/2069814177624121469",
+  "source_box": [
+    86,
+    810,
+    850,
+    88
+  ]
+}

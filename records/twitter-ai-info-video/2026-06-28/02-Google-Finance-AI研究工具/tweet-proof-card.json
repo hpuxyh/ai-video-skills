@@ -1,0 +1,44 @@
+{
+  "raw_screenshot": "assets/raw/google-finance-tweet.png",
+  "crop_box": [
+    110,
+    0,
+    710,
+    760
+  ],
+  "output": "assets/images/02-Google-Finance-AI研究工具/02-核心推文中文卡.jpg",
+  "left_box": [
+    120,
+    82,
+    640,
+    600
+  ],
+  "right_x": 960,
+  "right_y": 104,
+  "right_w": 560,
+  "label_font_size": 34,
+  "summary_font_size": 36,
+  "min_summary_font_size": 32,
+  "highlight_pad_x": 18,
+  "highlight_pad_y": 8,
+  "highlight_gap": 12,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "summary_lines": [
+    "Google Finance 接入 AI 研究",
+    "新 App 先从 Android 开始",
+    "AI 会先帮你整理财经信息",
+    "它不是替你下注，而是改研究流程",
+    "信息差：会提问的人先看懂市场"
+  ],
+  "link_title": "核心链接",
+  "source_title": "来源：Google @Google",
+  "source_meta": "2026年6月25日 · 约3.2万 Views · 4回复 / 8转发",
+  "source_url": "https://x.com/Google/status/2070203169309602115",
+  "source_box": [
+    86,
+    810,
+    850,
+    88
+  ]
+}

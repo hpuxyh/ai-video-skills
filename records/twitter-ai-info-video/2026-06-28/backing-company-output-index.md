@@ -12,6 +12,7 @@
 - Google 主题继续使用 Sundar Pichai，Claude / Anthropic 主题继续使用 Dario Amodei，OpenAI 主题继续使用 Sam Altman。
 - A24 主题无更合适单一人物时，使用公司识别视觉。
 - 清理最终画面中的内部制作提示：不再显示“第二张图停留加长”“人物优先”“脸部完整”“真实素材优先”“先看背后公司是谁”等操作说明；素材卡只保留人名、公司名、来源标签和事件事实。
+- 第二张推文证据卡统一为“左侧原推文/来源截图 + 右侧 5 行中文释义”；右侧 cyan 高亮条使用统一宽度，避免单字断行；A24 证据截图改为宽裁剪，保留作者、正文和完整品牌主视觉。
 
 ## 文件清单
 
@@ -27,6 +28,7 @@
 - 5 个 MP4 均为 7 秒。
 - 5 个 MP4 均包含 video 和 audio stream。
 - 总览复核图：/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-28/renders/audit-no-internal-prompts.jpg
+- 最新复核：/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-28/renders/optimized-cover-overview.jpg 与各条 contact sheet。
 
 ## 自动任务同步
 

@@ -1,0 +1,44 @@
+{
+  "raw_screenshot": "assets/raw/byteplus-seedance-tweet.png",
+  "crop_box": [
+    110,
+    0,
+    710,
+    780
+  ],
+  "output": "assets/images/03-BytePlus-Seedance-20-4K/02-核心推文中文卡.jpg",
+  "left_box": [
+    120,
+    82,
+    640,
+    600
+  ],
+  "right_x": 960,
+  "right_y": 104,
+  "right_w": 560,
+  "label_font_size": 34,
+  "summary_font_size": 36,
+  "min_summary_font_size": 32,
+  "highlight_pad_x": 18,
+  "highlight_pad_y": 8,
+  "highlight_gap": 12,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "summary_lines": [
+    "BytePlus 发布 Seedance 2.0",
+    "AI 视频生成能力直接冲到 4K",
+    "清晰度提升只是表面变化",
+    "创作者会先用它做分镜和样片",
+    "信息差：镜头参考更关键"
+  ],
+  "link_title": "核心链接",
+  "source_title": "来源：BytePlus @BytePlusGlobal",
+  "source_meta": "2026年6月23日 · 约1144.1万 Views · 262回复 / 316转发",
+  "source_url": "https://x.com/BytePlusGlobal/status/2069228410422079665",
+  "source_box": [
+    86,
+    810,
+    850,
+    88
+  ]
+}

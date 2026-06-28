@@ -1,0 +1,44 @@
+{
+  "raw_screenshot": "assets/raw/a24-google-tweet.png",
+  "crop_box": [
+    0,
+    188,
+    940,
+    1010
+  ],
+  "output": "assets/images/05-A24回应Google-AI合作/02-核心推文中文卡.jpg",
+  "left_box": [
+    120,
+    82,
+    640,
+    600
+  ],
+  "right_x": 960,
+  "right_y": 104,
+  "right_w": 560,
+  "label_font_size": 34,
+  "summary_font_size": 36,
+  "min_summary_font_size": 32,
+  "highlight_pad_x": 18,
+  "highlight_pad_y": 8,
+  "highlight_gap": 12,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "summary_lines": [
+    "A24 回应与 Google AI 的合作争议",
+    "电影圈争的不是一句用不用 AI",
+    "关键是训练、授权和创作边界",
+    "创作者开始要求参与工具规则",
+    "信息差：真正竞争是工具怎么被建造"
+  ],
+  "link_title": "核心链接",
+  "source_title": "来源：DiscussingFilm @DiscussingFilm",
+  "source_meta": "争议声明指向 WIRED 2026年6月24日报道",
+  "source_url": "https://x.com/DiscussingFilm/status/2070601640642801704",
+  "source_box": [
+    86,
+    810,
+    850,
+    88
+  ]
+}
