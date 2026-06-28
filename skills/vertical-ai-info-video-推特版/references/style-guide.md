@@ -219,6 +219,7 @@ Final audience-facing output should be Chinese-first.
 - No glow, no black offset shadow, no highlight.
 - Keep the title large enough for mobile viewing; reduce text length before shrinking too much.
 - Keep the original line-by-line pop animation for the three title lines in video renders.
+- Cover headlines use a separate readable-photo treatment: clean heavy text, white first line, flat topic-accent second/third lines, white stroke/rim for readability, and no black thick outline, neon color, glow, or glowing edge.
 
 ## Three-Line Animated Title Logic
 
@@ -434,22 +435,23 @@ Asset priority for covers:
 3. Parent-company or backing-company identity when the product itself is less recognizable than the company behind it.
 4. Company/product logo, mascot, or identity asset: use a clean white-background badge when possible.
 5. Product or official screenshot: use only when no relevant person or stronger company identity exists.
-6. Avoid pure screenshots, pure logos, abstract tech backgrounds, or text-only cards as the main cover.
+6. Avoid pure screenshots, abstract tech backgrounds, or text-only cards as the main cover. Use a pure logo/identity visual only when no stronger person or product visual exists, and crop it cleanly so no browser/login/tweet clutter remains.
 
 Layout rules:
 
 - Use `1080x1920`.
-- Let the person photo fill the background or main visual area.
+- Default to the approved full-bleed quick-report cover style: a bright full-screen real person/company/identity visual, with only light local contrast treatment behind text when needed, no large white title card, and no framed image card.
 - Keep eyes and main facial features unobstructed. Also preserve the face boundary and recognizable posture; do not crop off the top of the head, chin, or important hand/body gesture when that gesture helps identify the scene.
-- For brand-only covers, preserve the complete logo/product identity. Do not use a hard fill crop that cuts off the company name, first word of the product title, core UI, or main object. Wide official pages should usually be contained inside a white rounded card while the blurred background fills the cover.
+- For portrait covers, use focal cropping so the face or upper body sits in the upper/middle area and the headline can live in the lower third. A dark overlay is allowed, but the person must remain recognizable.
+- For brand-only covers, preserve the complete logo/product identity. Do not use a hard fill crop that cuts off the company name, first word of the product title, core UI, or main object. Crop away browser chrome, tweet text, login prompts, and unrelated UI. Wide official pages should usually be contained inside a white rounded card while the blurred background fills the cover only when there is no clean full-bleed identity crop.
 - Put the headline around the lower third when a portrait is used, usually over shirt/background rather than across the eyes, nose, or mouth.
 - Make the headline larger and stronger than the person and logo.
 - Use the same wording as the video's three animated title lines. The cover may enlarge, stack, or color the lines differently, but should not rewrite them unless the user asks.
-- Make the cover headline visually heavy. Use same-color stroke/thickening around the title text when needed; do not add black shadows, glow, or offset effects.
-- Put the company logo badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast background.
-- Keep the top `AI 信息差快报` / topic metadata small.
+- Make the cover headline visually heavy but clean. A good default is first line bright white, second/third line in flat topic accent colors, with a white stroke/rim for readability and at most a very soft translucent gray lift. Do not use black thick outlines, black offset shadows, neon colors, glow layers, or glowing edges.
+- Add a top-left red `重磅` tag and a small top-right dark `AI 信息差快报` pill.
+- Put the company/product badge near the headline, commonly lower-right or side-adjacent, with a white or high-contrast rounded background.
 - Show only one bottom conclusion row; do not show all six info rows on the cover.
-- Do not draw topic serial numbers such as `01`, `02`, `03`, or `04` anywhere inside the cover. The bottom conclusion strip should read `结论：...`, not `01 结论：...`. Cover overview images should also avoid adding serial numbers beneath the tiles.
+- The bottom row should be a dark rounded strip with one conclusion sentence. In the full-bleed quick-report cover style, a small pale left-side `01`-style badge is allowed inside this bottom strip. Do not add big standalone topic numbers elsewhere, and do not put extra numbers under cover overview tiles.
 - Do not add platform play buttons; 小红书/抖音 add those automatically.
 - Do not use the core tweet screenshot as the main cover background when a person, avatar, company logo, product visual, or official brand asset can represent the topic. The tweet screenshot belongs as video image 2 and as source evidence.
 
