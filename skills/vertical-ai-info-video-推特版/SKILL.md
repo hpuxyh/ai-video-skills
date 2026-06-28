@@ -285,6 +285,12 @@ Rules:
 
 Every successful invocation must be synced to GitHub.
 
+Scheduling boundary:
+
+- The recurring daily runner for this skill is the local Codex Automation `ai-9` named `推特版AI信息差视频-每日9点`, scheduled for 09:00 Asia/Shanghai.
+- GitHub is the sync and history surface for the skill, configs, source notes, and duplicate-prevention records. It is not the default video-rendering runtime.
+- Do not replace the local Codex Automation with GitHub Actions unless the user explicitly asks for a cloud-only version. This workflow depends on local BGM files, local export folders, possible logged-in X/Twitter browser state, and local media inspection.
+
 Sync target:
 
 ```text

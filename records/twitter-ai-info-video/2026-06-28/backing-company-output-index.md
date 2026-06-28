@@ -35,3 +35,4 @@
 - 自动任务：推特版AI信息差视频-每日9点
 - 自动任务 ID：ai-9
 - 同步内容：每日 09:00 执行时先读取 Skill；无指定选题时默认找近 2-3 天 5 个 X/Twitter AI 热点；生成前查 GitHub 历史避重；成功后同步 GitHub；封面取图执行背后公司识别规则。
+- 2026-06-28 检查补强：`ai-9` prompt 已补充新版第二张推文证据卡规则：左侧原推文/来源截图，右侧 5 行中文释义，cyan 条统一宽度，避免单字断行，裁剪保留作者、正文和主视觉。Skill 已明确本地 Codex Automation 负责每日调度，GitHub 负责 Skill/records/history 同步，不默认使用 GitHub Actions 执行视频渲染。
