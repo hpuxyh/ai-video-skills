@@ -64,14 +64,16 @@ Use this schema when the user asks for the approved white-card reference style o
   "badge": "AI 信息差快报",
   "date_label": "最新",
   "date": "2026.06.28",
-  "title_on_purple": true,
-  "show_ribbon": false,
+  "title_on_purple": false,
+  "show_ribbon": true,
   "title": [
     "超 1/3 Claude 用户说",
     "AI 一年内能接管大半工作"
   ],
-  "title_line_colors": [[255, 255, 255], [255, 238, 118]],
-  "action_text": "别只问会不会被替代，先学会分配任务",
+  "title_color": [0, 0, 0],
+  "title_size": 58,
+  "strap": "别只问会不会被替代，先学会分配任务",
+  "strap_color": [255, 255, 255],
   "image": "assets/images/event/tweet-anchor-cn.png",
   "body_style": "structured",
   "body_rows": [
@@ -106,14 +108,16 @@ Use this schema for the current default daily/news-video MP4 output. This keeps 
   "badge": "AI 信息差快报",
   "date_label": "最新",
   "date": "2026.06.28",
-  "title_on_purple": true,
-  "show_ribbon": false,
+  "title_on_purple": false,
+  "show_ribbon": true,
   "title": [
     "超 1/3 Claude 用户说",
     "AI 一年内能接管大半工作"
   ],
-  "title_line_colors": [[255, 255, 255], [255, 238, 118]],
-  "action_text": "别只问会不会被替代，先学会分配任务",
+  "title_color": [0, 0, 0],
+  "title_size": 58,
+  "strap": "别只问会不会被替代，先学会分配任务",
+  "strap_color": [255, 255, 255],
   "images": [
     "assets/images/event/person.png",
     "assets/images/event/tweet-anchor-cn.png",
@@ -155,8 +159,8 @@ Paper-card video rules:
 
 - `images` must contain the same real one-event media set used by the normal video, usually 5 images.
 - Do not pass the already-rendered paper-card JPG as the only image.
-- Preserve the title entrance rhythm: the purple title panel expands in, title lines pop in one by one, then the normal action line appears. The title should not be static from the first frame in MP4 output.
-- In the current structured paper-card style, use `title_on_purple: true`, `show_ribbon: false`, `action_text`, `body_style: "editorial_lines"`, and `body_rows`.
+- Preserve the title entrance rhythm: black title lines pop in one by one, then the purple ribbon expands with the information-gap sentence. The title should not be static from the first frame in MP4 output.
+- In the current structured paper-card style, use `title_on_purple: false`, `show_ribbon: true`, `strap`, `body_style: "editorial_lines"`, and `body_rows`.
 - If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
 - Use the purple border only as a media frame. Do not add carousel dots or extra footer strips.
@@ -228,17 +232,17 @@ Before rendering, present the proposed list in this format:
 
 For the paper-card explainer style, the title area is not the same as the normal three-line video title. This paper-card style is the current default for daily scheduled AI news videos.
 
-- In the current structured default, use a purple title panel instead of the older black headline plus purple ribbon.
-- Prefer two title lines inside the purple panel: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
-- Use `action_text` under the purple panel for the strongest information-gap sentence, action hook, or counterintuitive takeaway. It should tell the viewer what to notice or do, not merely restate the title.
-- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + normal action line `普通人该注意的关键点`.
-- Run the 3-second comprehension test before rendering: after reading only the purple title panel and action line, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
+- In the current structured default, use a bold black headline on the white card plus a purple horizontal ribbon. The older purple title-panel layout is only for explicit fallback requests.
+- Prefer two black title lines: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
+- Use `strap` inside the purple ribbon for the strongest information-gap sentence, action hook, or counterintuitive takeaway. It should tell the viewer what to notice or do, not merely restate the title.
+- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + purple ribbon `普通人该注意的关键点`.
+- Run the 3-second comprehension test before rendering: after reading only the black title and purple ribbon, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
 - Do not use abstract mood-only titles. They may sound dramatic but fail as a social-video entry point.
 - Examples:
-  - Purple title: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; action: `别只看“开源”，还要看谁能真正使用`.
-  - Purple title: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; action: `真正被冲击的是 API 收费入口`.
-  - Purple title: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; action: `真正稀缺的不是模型，是算力`.
-  - Purple title: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; action: `别只问会不会被替代，先学会分配任务`.
+  - Black title: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `别只看“开源”，还要看谁能真正使用`.
+  - Black title: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `真正被冲击的是 API 收费入口`.
+  - Black title: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
+  - Black title: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; ribbon: `别只问会不会被替代，先学会分配任务`.
 - Avoid:
   - Headline: `Claude 用户最怕的事` / `高频用户反而更乐观`; why: it does not say what happened.
   - Headline: `AI 工作方式巨变` / `普通人必须重视`; why: it has no source, number, product, or concrete event.
@@ -268,9 +272,9 @@ Use these defaults for static paper-card previews and for the current daily pape
 - Canvas: `1080x1920`.
 - Background: dark phone-like backdrop.
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
-- Top: current default is a purple title panel, centered, usually 2 lines. Use high-contrast line colors such as white plus yellow.
+- Top: current default is a very bold black headline, centered, usually 2 lines.
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
-- Action line: normal black text under the purple title panel. Use it for the viewer takeaway or action hook.
+- Purple ribbon: one rounded horizontal strip under the title. Use `strap` for the viewer takeaway, information gap, or action hook.
 - Media: real image or screenshot in a purple rounded frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
 - Copy: bottom structured thin-line rows by default. Use numbered rows, purple labels, thin dividers, and black explanatory text. Prefer labels such as `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
@@ -584,7 +588,7 @@ Selection algorithm:
 
 For recurring daily batches:
 
-- Use the white paper-card video style by default: purple title panel, black action line, five-image carousel, structured thin-line bottom rows, and body rows visible as a full set.
+- Use the white paper-card video style by default: black headline, purple information-gap ribbon, five-image carousel, structured thin-line bottom rows, and body rows visible as a full set.
 - Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
 - Record date, topic title, company/product, source URLs, selected angle, and final output folder.
 - Before every auto-scout run, compare candidates against previous records and dated export folders.
