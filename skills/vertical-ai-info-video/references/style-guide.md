@@ -64,18 +64,22 @@ Use this schema when the user asks for the approved white-card reference style o
   "badge": "AI 信息差快报",
   "date_label": "最新",
   "date": "2026.06.28",
+  "title_on_purple": true,
+  "show_ribbon": false,
   "title": [
-    "SpaceX 开始出租 AI 算力",
-    "开源模型公司抢 GPU 入口"
+    "超 1/3 Claude 用户说",
+    "AI 一年内能接管大半工作"
   ],
-  "strap": "真正稀缺的不是模型，是算力",
-  "image": "assets/images/event/source-screenshot.jpg",
-  "body": [
-    "重磅！Reflection AI 签下 SpaceX 的计算资源，开源模型公司开始租顶级 GPU。",
-    "这说明 AI 竞争不只是谁模型更强，更是谁能拿到更便宜、更稳定的算力。",
-    "对普通人来说，AI 服务变贵、变慢、限量开放，背后常常不是产品问题，而是 GPU 不够。",
-    "小团队如果能租到巨头机房，就有机会用更低成本挑战闭源大模型。",
-    "信息差：未来 AI 入口可能不在 App，而在谁掌握芯片和机房。"
+  "title_line_colors": [[255, 255, 255], [255, 238, 118]],
+  "action_text": "别只问会不会被替代，先学会分配任务",
+  "image": "assets/images/event/tweet-anchor-cn.png",
+  "body_style": "structured",
+  "body_rows": [
+    {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
+    {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+    {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+    {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
   ]
 }
 ```
@@ -102,11 +106,14 @@ Use this schema only after the paper-card preview style is approved and the user
   "badge": "AI 信息差快报",
   "date_label": "最新",
   "date": "2026.06.28",
+  "title_on_purple": true,
+  "show_ribbon": false,
   "title": [
     "超 1/3 Claude 用户说",
     "AI 一年内能接管大半工作"
   ],
-  "strap": "别只问会不会被替代，先学会分配任务",
+  "title_line_colors": [[255, 255, 255], [255, 238, 118]],
+  "action_text": "别只问会不会被替代，先学会分配任务",
   "images": [
     "assets/images/event/person.png",
     "assets/images/event/tweet-anchor-cn.png",
@@ -114,14 +121,15 @@ Use this schema only after the paper-card preview style is approved and the user
     "assets/images/event/product.png",
     "assets/images/event/chart.png"
   ],
-  "beat_cuts": [0.90, 1.99, 3.87, 5.83],
-  "media_h": 660,
-  "body": [
-    "Anthropic 调查 Claude 用户：超 1/3 的人认为，一年内 AI 能完成自己大部分工作",
-    "普通人别只看“会不会被替代”，更该看谁先学会把工作拆给 AI",
-    "背后机制是：AI 正从聊天助手变成长期执行任务的工具",
-    "风险是只等答案的人更被动；机会是会拆任务、会验收结果的人先升级",
-    "信息差：拉开差距的不是有没有 AI，而是谁先学会指挥 AI"
+  "image_hold_weights": [1, 2, 1, 1, 1],
+  "media_h": 720,
+  "body_style": "structured",
+  "body_rows": [
+    {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
+    {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+    {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+    {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
   ],
   "bgm": {
     "path": "assets/audio/moment.mp3",
@@ -147,7 +155,9 @@ Paper-card video rules:
 
 - `images` must contain the same real one-event media set used by the normal video, usually 5 images.
 - Do not pass the already-rendered paper-card JPG as the only image.
-- Preserve the original title entrance rhythm: headline lines pop in one by one, then the purple ribbon expands in. The title/ribbon should not be static from the first frame in MP4 output.
+- Preserve the title entrance rhythm: the purple title panel expands in, title lines pop in one by one, then the normal action line appears. The title should not be static from the first frame in MP4 output.
+- In the current structured paper-card style, use `title_on_purple: true`, `show_ribbon: false`, `action_text`, and `body_rows`.
+- If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
 - Use the purple border only as a media frame. Do not add carousel dots or extra footer strips.
 
@@ -217,17 +227,17 @@ Before rendering, present the proposed list in this format:
 
 For the paper-card explainer style, the title area is not the same as the normal three-line video title.
 
-- Use a short, high-impact black headline at the top of the white card.
-- Prefer two lines: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
-- Use the purple ribbon for the strongest information-gap sentence, action hook, or counterintuitive takeaway. The ribbon should tell the viewer what to notice or do, not merely restate the headline.
-- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + purple `普通人该注意的关键点`.
-- Run the 3-second comprehension test before rendering: after reading only the title and purple ribbon, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
+- In the current structured default, use a purple title panel instead of the older black headline plus purple ribbon.
+- Prefer two title lines inside the purple panel: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
+- Use `action_text` under the purple panel for the strongest information-gap sentence, action hook, or counterintuitive takeaway. It should tell the viewer what to notice or do, not merely restate the title.
+- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + normal action line `普通人该注意的关键点`.
+- Run the 3-second comprehension test before rendering: after reading only the purple title panel and action line, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
 - Do not use abstract mood-only titles. They may sound dramatic but fail as a social-video entry point.
 - Examples:
-  - Headline: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `并不是真正意义上的“免费”`.
-  - Headline: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `直接击穿大模型 API 商业模式`.
-  - Headline: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
-  - Headline: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; ribbon: `别只问会不会被替代，先学会分配任务`.
+  - Purple title: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; action: `别只看“开源”，还要看谁能真正使用`.
+  - Purple title: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; action: `真正被冲击的是 API 收费入口`.
+  - Purple title: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; action: `真正稀缺的不是模型，是算力`.
+  - Purple title: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; action: `别只问会不会被替代，先学会分配任务`.
 - Avoid:
   - Headline: `Claude 用户最怕的事` / `高频用户反而更乐观`; why: it does not say what happened.
   - Headline: `AI 工作方式巨变` / `普通人必须重视`; why: it has no source, number, product, or concrete event.
@@ -257,24 +267,36 @@ Use these defaults for static paper-card previews and for future paper-card vide
 - Canvas: `1080x1920`.
 - Background: dark phone-like backdrop.
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
-- Top: black, very bold headline, centered, usually 2 lines.
+- Top: current default is a purple title panel, centered, usually 2 lines. Use high-contrast line colors such as white plus yellow.
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
-- Ribbon: purple rounded bar under the headline, white bold text, one sentence only.
-- Media: real image or screenshot in a purple rounded frame. Use `contain` so screenshots and portraits stay complete.
-- Copy: bottom paragraph copy with cyan highlight blocks per wrapped line. This replaces the six numbered info rows.
+- Action line: normal black text under the purple title panel. Use it for the viewer takeaway or action hook.
+- Media: real image or screenshot in a purple rounded frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
+- Copy: bottom structured rows with cyan backgrounds by default. Use labels such as `发生`, `跟你有关`, `背后机制`, `风险机会`, `信息差`.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
 
-The bottom copy should read like a compact short-video explanation, not a bullet table:
+The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows`:
+
+```json
+[
+  {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+  {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
+  {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+  {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+  {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
+]
+```
+
+Write rows in this order:
 
 1. Fact: what happened, in plain language. Include the source, actor, number, product, date/context, or action when available.
 2. Viewer meaning: why a normal viewer should care. Translate it into work, learning, creation, cost, access, opportunity, or risk.
 3. Mechanism: what changed in the product, business model, policy, workflow, access path, or industry structure.
 4. Boundary: risk, dispute, limitation, opportunity, or who is affected first.
-5. Information gap: end with `信息差：...`.
+5. Information gap: end with the `信息差` row.
 
-Write short paragraphs that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should be suitable for cyan highlighted lines and should not require voiceover to understand.
+Write short rows that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should not require voiceover to understand.
 
 Bottom copy quality rules:
 

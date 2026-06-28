@@ -9,7 +9,7 @@ description: "Generate 9:16 Chinese AI information-gap short videos and platform
 
 Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
 
-It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong black headline, purple information-gap ribbon, real news media in the middle, and cyan-highlighted explanatory copy at the bottom. This is a triggerable 图文卡解释器模式, not a replacement for the normal vertical fast-news video template. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", "图文卡", "先做一张预览图", or wants a static rendered image before video production. Otherwise, keep the normal title + middle image carousel + bottom info-row video workflow.
+It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong hook title area, real news media in the middle, and an explanatory bottom area. The current approved paper-card default is the structured version: the concrete fact and direct consequence sit inside a purple title panel, the viewer action line is normal black text underneath, the middle media area keeps the five-real-image carousel, and the bottom uses structured cyan rows. This is a triggerable 图文卡解释器模式, not a replacement for the normal vertical fast-news video template. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", "图文卡", "先做一张预览图", "结构化显示", or wants a static rendered image before video production. Otherwise, keep the normal title + middle image carousel + bottom info-row video workflow.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -22,7 +22,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`. If the user asks for a video after confirming this style, render the video variant with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame.
+6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py` when the user asks to see a screenshot. If the user asks for a video, render the video variant with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time.
 7. Run the image-sequence preflight before rendering. The first carousel image must identify the protagonist/company/product; source screenshots and auxiliary context images should appear later. If the check fails, reorder or replace the image set before rendering:
 
 ```bash
@@ -67,11 +67,24 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 
 ## Paper Card Explainer Mode
 
-Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below. Treat it as a static preview and explainer style first. After the user confirms the look, the same visual language can be used for a video variant.
+Use this mode when the user approves or references the white-card examples: a white paper card, strong hook title, real screenshot/photo carousel in the center, and concise explanatory copy below. Treat it as a static preview and explainer style first when requested. After the user confirms the look, use the same visual language for the video variant.
 
-For the video variant, do not flatten the preview into one static image. The outer paper card, title, purple ribbon, and cyan copy become the frame language, while the middle media area still runs the normal one-event five-image carousel with real photos/screenshots and light push-pull motion.
+For the video variant, do not flatten the preview into one static image. The outer paper card, title, action line, bottom copy, and media border become the frame language, while the middle media area still runs the normal one-event five-image carousel with real photos/screenshots and light push-pull motion.
 
-The paper-card video variant must preserve the original title entrance rhythm: top headline lines pop in one by one, then the purple ribbon appears. Do not render the title and ribbon as static text from frame 0 unless the user explicitly asks for a still preview.
+The paper-card video variant must preserve the original title entrance rhythm: the purple title panel expands in, the title lines pop in one by one, then the action line appears. Do not render the title as static text from frame 0 unless the user explicitly asks for a still preview.
+
+Current structured paper-card flow:
+
+- Use `title_on_purple: true` for the approved default. Put line 1 and line 2 inside one purple title panel.
+- Title line 1: who/source + a concrete fact, number, product, policy, or event.
+- Title line 2: the direct consequence, contrast, or outcome in ordinary language.
+- Use `title_line_colors` to make the title lines high contrast, usually first line white and second line yellow.
+- Use `action_text` under the purple title panel for the normal-viewer interpretation or action hook. This line is normal black text, not another purple ribbon.
+- Keep the middle media frame bright and legible. It must show real event media, not a pre-rendered full-card image.
+- Use exactly one event per video and usually five images: person/company/product recognition, core source/tweet screenshot, official report or evidence, product page, chart or supporting evidence.
+- If the second image is the core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
+- Use `body_rows` for the approved structured bottom area. Preferred labels: `发生`, `跟你有关`, `背后机制`, `风险机会`, `信息差`.
+- Keep each bottom row short enough to scan in one glance. The label tells the viewer what kind of information the row contains; the text should be a plain Chinese sentence.
 
 Title logic:
 
@@ -87,22 +100,22 @@ Preview card layout:
 
 - Canvas stays `1080x1920`.
 - Put one white textured paper card inside the 9:16 canvas, usually on a dark phone-like background.
-- Card top: thick black title, usually 1-2 lines.
+- Card top: for the current structured default, use a purple title panel with 1-2 hook lines. The older black-title plus purple-ribbon layout is only a compatible fallback.
 - Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
-- Under the title: a purple rounded horizontal strip with white bold text for the core judgment.
+- Under the title: show a normal black action/interpretation line when `title_on_purple: true`. Use a purple rounded ribbon only in the older fallback layout.
 - Middle area: one real topic-matched news asset inside a thin purple rounded border. Use real news material, screenshots, people, product images, official pages, or company/product visuals. Do not use abstract placeholders as the main media.
-- Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This replaces the six-row info table in paper-card mode.
+- Bottom area: use structured cyan rows by default. Each row has a short label on the left and one concise explanation on the right. Paragraph-style cyan highlights are a fallback, not the current preferred style.
 - Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
 
 Paper-card copy logic:
 
-The bottom cyan-highlighted copy is not a second title and not a list of industry slogans. It should explain the story in the order a normal viewer thinks:
+The bottom copy is not a second title and not a list of industry slogans. In the current structured default, it should be `body_rows` with labels and one-sentence explanations. It should explain the story in the order a normal viewer thinks:
 
 1. Fact: start with the verified event in plain language. Include the key actor, source, date/context, number, product, or action when available.
 2. Viewer meaning: explain what a normal viewer should understand or care about. Use concrete work, learning, creation, cost, access, or risk language.
 3. Mechanism: explain what changed behind the scenes, such as product behavior, business model, policy, access, workflow, or infrastructure.
 4. Boundary: name the risk, controversy, limitation, opportunity, or who is affected first.
-5. Information gap: end with `信息差：...` as the short takeaway. This line should be a usable conclusion, not a slogan.
+5. Information gap: end with the `信息差` row as the short takeaway. This line should be a usable conclusion, not a slogan.
 
 Every bottom line should be able to stand alone on screen. Avoid abstract phrasing such as `能力边界变化`, `工作流适配`, or `产业范式迁移` unless immediately translated into a concrete ordinary-life meaning.
 

@@ -307,8 +307,21 @@ def photo_layer(img, progress, idx, total, cfg):
 
 
 def frame_timing(t, total_photos, cfg):
-    cuts = cfg.get("beat_cuts")
     duration = float(cfg.get("duration", 7))
+    weights = cfg.get("image_hold_weights") or cfg.get("image_weights")
+    if weights:
+        weights = [float(x) for x in weights[:total_photos]]
+        if len(weights) < total_photos:
+            weights.extend([1.0] * (total_photos - len(weights)))
+        weights = [max(0.01, x) for x in weights]
+        unit = duration / sum(weights)
+        cuts = []
+        elapsed = 0.0
+        for weight in weights[:-1]:
+            elapsed += weight * unit
+            cuts.append(round(elapsed, 4))
+    else:
+        cuts = cfg.get("beat_cuts")
     if cuts is None:
         cuts = [round(duration * i / total_photos, 2) for i in range(1, total_photos)]
     cuts = [float(x) for x in cuts[: total_photos - 1]]
