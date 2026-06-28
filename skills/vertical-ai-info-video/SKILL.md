@@ -9,7 +9,7 @@ description: "Generate 9:16 Chinese AI information-gap short videos and platform
 
 Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
 
-It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong black headline, purple information-gap ribbon, real news media in the middle, and cyan-highlighted explanatory copy at the bottom. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", or wants a static rendered image before video production.
+It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong black headline, purple information-gap ribbon, real news media in the middle, and cyan-highlighted explanatory copy at the bottom. This is a triggerable 图文卡解释器模式, not a replacement for the normal vertical fast-news video template. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", "图文卡", "先做一张预览图", or wants a static rendered image before video production. Otherwise, keep the normal title + middle image carousel + bottom info-row video workflow.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -22,9 +22,19 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
-7. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
-8. Run `scripts/render_vertical_info_video.py` from a project directory:
+6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`. If the user asks for a video after confirming this style, render the video variant with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame.
+7. Run the image-sequence preflight before rendering. The first carousel image must identify the protagonist/company/product; source screenshots and auxiliary context images should appear later. If the check fails, reorder or replace the image set before rendering:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/check_image_sequence.py \
+  --config configs/video.json \
+  --project-dir . \
+  --contact-sheet renders/image-sequence-preflight.jpg \
+  --strict
+```
+
+8. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
+9. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vertical_info_video.py \
@@ -34,8 +44,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-9. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-10. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
+10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+11. Record the finished topics in the project history file, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
 
 ## Topic Selection Modes
 
@@ -57,34 +67,46 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 
 ## Paper Card Explainer Mode
 
-Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below.
+Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below. Treat it as a static preview and explainer style first. After the user confirms the look, the same visual language can be used for a video variant.
+
+For the video variant, do not flatten the preview into one static image. The outer paper card, title, purple ribbon, and cyan copy become the frame language, while the middle media area still runs the normal one-event five-image carousel with real photos/screenshots and light push-pull motion.
+
+The paper-card video variant must preserve the original title entrance rhythm: top headline lines pop in one by one, then the purple ribbon appears. Do not render the title and ribbon as static text from frame 0 unless the user explicitly asks for a still preview.
 
 Title logic:
 
-- Use a strong two-part hook instead of a neutral news title.
-- Line 1-2: black, heavy, high-contrast headline that names the surprising event or actor.
-- Purple ribbon: the sharp conclusion, information gap, or counterintuitive takeaway.
-- The headline should answer why a normal viewer should stop and watch: "what changed", "why it matters", or "what most people missed".
+- Use a strong hook structure like the approved reference images, not a neutral news title.
+- Top title: black, very bold, high-contrast, usually 1-2 lines. It must first say the concrete thing that happened, then name the biggest surprise or consequence.
+- Use viewer-first headline logic: line 1 usually names the actor/source plus a concrete fact, number, product, or event; line 2 says the consequence in plain language. A casual viewer should not need the body copy to understand the basic story.
+- Purple horizontal ribbon: carries the information gap, counterintuitive takeaway, or action hook. It should translate the fact into "what should I notice or do?", not repeat the title.
+- The headline should make a normal viewer instantly understand "what happened?", "what does this have to do with me?", and "what is the biggest contrast here?"
 - Keep titles honest and specific. Avoid vague wording such as "AI 又有大事" unless the next line immediately names the event.
+- Avoid abstract summary headlines such as `Claude 用户最怕的事 / 高频用户反而更乐观`: they sound punchy but do not tell a normal viewer what happened. Prefer `超 1/3 Claude 用户说 / AI 一年内能接管大半工作`, with the ribbon `别只问会不会被替代，先学会分配任务`.
 
 Preview card layout:
 
 - Canvas stays `1080x1920`.
-- Put one rounded white textured paper card inside a dark phone-like background.
-- Top area: bold black title, usually 2 lines.
+- Put one white textured paper card inside the 9:16 canvas, usually on a dark phone-like background.
+- Card top: thick black title, usually 1-2 lines.
 - Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
-- Under the title: a purple rounded ribbon with white bold text.
-- Middle area: one real topic-matched screenshot/photo/product image, inside a thin purple rounded border. Prefer a source/report screenshot, official page, real person, product screenshot, or company/product image over an abstract placeholder.
-- Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This is not the six-row info table.
+- Under the title: a purple rounded horizontal strip with white bold text for the core judgment.
+- Middle area: one real topic-matched news asset inside a thin purple rounded border. Use real news material, screenshots, people, product images, official pages, or company/product visuals. Do not use abstract placeholders as the main media.
+- Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This replaces the six-row info table in paper-card mode.
 - Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
 
 Paper-card copy logic:
 
-1. Start with the event in plain language.
-2. Explain what a normal viewer should understand.
-3. Explain the mechanism or business change behind it.
-4. Name the risk, controversy, limitation, or opportunity.
-5. End with `信息差：...` as the short takeaway.
+The bottom cyan-highlighted copy is not a second title and not a list of industry slogans. It should explain the story in the order a normal viewer thinks:
+
+1. Fact: start with the verified event in plain language. Include the key actor, source, date/context, number, product, or action when available.
+2. Viewer meaning: explain what a normal viewer should understand or care about. Use concrete work, learning, creation, cost, access, or risk language.
+3. Mechanism: explain what changed behind the scenes, such as product behavior, business model, policy, access, workflow, or infrastructure.
+4. Boundary: name the risk, controversy, limitation, opportunity, or who is affected first.
+5. Information gap: end with `信息差：...` as the short takeaway. This line should be a usable conclusion, not a slogan.
+
+Every bottom line should be able to stand alone on screen. Avoid abstract phrasing such as `能力边界变化`, `工作流适配`, or `产业范式迁移` unless immediately translated into a concrete ordinary-life meaning.
+
+Do not use paper-card mode as a generic alternate template. It is specifically for static explainer previews and reference-style 图文卡 output. The ordinary vertical AI news video keeps its existing large title, real middle carousel, and one-by-one bottom information rows.
 
 Use `scripts/render_paper_card_preview.py` for a single static check before video rendering:
 
@@ -95,6 +117,16 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
   --output renders/paper-card-preview.jpg
 ```
 
+Use `scripts/render_paper_card_video.py` when the approved paper-card style needs an MP4 while preserving the five-image carousel:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_paper_card_video.py \
+  --config configs/paper-card-video.json \
+  --project-dir . \
+  --output renders/paper-card-video.mp4 \
+  --contact-sheet renders/paper-card-video-contact.jpg
+```
+
 ## Default Creative Rules
 
 - Canvas: `1080x1920`, 30 fps, default duration 7 seconds.
@@ -103,6 +135,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
 - Image motion: strong push-pull plus pan, no fade-flashing at cut points.
 - Image count: prefer 5 images for a 7-second video.
 - Image sourcing priority: real people/company/product photos first; official announcement/help/docs screenshots second; product entry/API/Codex screenshots third; media report screenshots fourth; auxiliary context images last.
+- Image sequence preflight: the first image must be a recognizable protagonist/company/product or official/product evidence image. Media screenshots should usually be slot 4-5, and auxiliary context images should not lead the carousel. Use `scripts/check_image_sequence.py --strict` before rendering.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
 - Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.

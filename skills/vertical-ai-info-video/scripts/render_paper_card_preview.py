@@ -133,29 +133,40 @@ def render_card(cfg, project_dir, output):
     title_font = font(int(cfg.get("title_size", 62)), True)
     default_title_y_offset = 96 if date_text else 62
     y = card_y + int(cfg.get("title_y_offset", default_title_y_offset))
-    y = draw_centered(draw, title, y, title_font, tuple(cfg.get("title_color", [0, 0, 0])), card_w - 90)
+    show_title = cfg.get("show_title", True)
+    if show_title:
+        y = draw_centered(draw, title, y, title_font, tuple(cfg.get("title_color", [0, 0, 0])), card_w - 90)
+    else:
+        probe = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+        wrapped = []
+        for raw in title:
+            wrapped.extend(wrap_text(probe, raw, title_font, card_w - 90))
+        for line in wrapped:
+            box = probe.textbbox((0, 0), line, font=title_font)
+            y += box[3] - box[1] + 12
 
     ribbon_y = y + int(cfg.get("ribbon_gap", 22))
     ribbon_x = card_x + 30
     ribbon_w = card_w - 60
     ribbon_h = int(cfg.get("ribbon_h", 92))
     purple = tuple(cfg.get("ribbon_color", [180, 59, 205]))
-    draw.rounded_rectangle(
-        (ribbon_x, ribbon_y, ribbon_x + ribbon_w, ribbon_y + ribbon_h),
-        radius=42,
-        fill=purple,
-    )
-    draw.rectangle((ribbon_x, ribbon_y, ribbon_x + 58, ribbon_y + ribbon_h), fill=purple)
     strap = cfg.get("strap", "")
-    strap_font = font(int(cfg.get("strap_size", 54)), True)
-    while text_len(draw, strap, strap_font) > ribbon_w - 70 and strap_font.size > 24:
-        strap_font = font(strap_font.size - 2, True)
-    draw.text(
-        (ribbon_x + (ribbon_w - text_len(draw, strap, strap_font)) / 2, ribbon_y + 17),
-        strap,
-        font=strap_font,
-        fill=tuple(cfg.get("strap_color", [255, 255, 255])),
-    )
+    if cfg.get("show_ribbon", True):
+        draw.rounded_rectangle(
+            (ribbon_x, ribbon_y, ribbon_x + ribbon_w, ribbon_y + ribbon_h),
+            radius=42,
+            fill=purple,
+        )
+        draw.rectangle((ribbon_x, ribbon_y, ribbon_x + 58, ribbon_y + ribbon_h), fill=purple)
+        strap_font = font(int(cfg.get("strap_size", 54)), True)
+        while text_len(draw, strap, strap_font) > ribbon_w - 70 and strap_font.size > 24:
+            strap_font = font(strap_font.size - 2, True)
+        draw.text(
+            (ribbon_x + (ribbon_w - text_len(draw, strap, strap_font)) / 2, ribbon_y + 17),
+            strap,
+            font=strap_font,
+            fill=tuple(cfg.get("strap_color", [255, 255, 255])),
+        )
 
     media_x = card_x + 28
     media_y = ribbon_y + ribbon_h + int(cfg.get("media_gap", 34))
@@ -168,11 +179,13 @@ def render_card(cfg, project_dir, output):
         outline=purple,
         width=5,
     )
-    img = Image.open(resolve_path(project_dir, cfg["image"]))
-    fitted = fit_contain(img, (media_w - 18, media_h - 18), bg=(255, 255, 255))
-    canvas.paste(fitted, (media_x + 9, media_y + 9))
+    show_media_content = cfg.get("show_media_content", True)
+    if show_media_content:
+        img = Image.open(resolve_path(project_dir, cfg["image"]))
+        fitted = fit_contain(img, (media_w - 18, media_h - 18), bg=(255, 255, 255))
+        canvas.paste(fitted, (media_x + 9, media_y + 9))
 
-    if cfg.get("play_marker", True):
+    if show_media_content and cfg.get("play_marker", True):
         overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         overlay_draw = ImageDraw.Draw(overlay, "RGBA")
         cx = media_x + media_w // 2

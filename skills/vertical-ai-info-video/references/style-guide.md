@@ -33,6 +33,14 @@ Use a JSON file with these top-level keys:
     "assets/images/event1/event1-01.jpg",
     "assets/images/event1/event1-02.jpg"
   ],
+  "image_roles": [
+    "hero",
+    "official"
+  ],
+  "image_quality": [
+    "real",
+    "real"
+  ],
   "beat_cuts": [0.90, 1.99, 3.87, 5.83],
   "bgm": {
     "path": "assets/audio/bba进行曲.mp3",
@@ -80,6 +88,68 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
   --project-dir . \
   --output renders/paper-card-preview.jpg
 ```
+
+## Paper Card Video Config Schema
+
+Use this schema only after the paper-card preview style is approved and the user asks for MP4 output. This keeps the paper-card frame language while preserving the one-event five-real-image carousel inside the middle media frame.
+
+```json
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/paper-card-video.mp4",
+  "contact_sheet": "renders/paper-card-video-contact.jpg",
+  "badge": "AI 信息差快报",
+  "date_label": "最新",
+  "date": "2026.06.28",
+  "title": [
+    "超 1/3 Claude 用户说",
+    "AI 一年内能接管大半工作"
+  ],
+  "strap": "别只问会不会被替代，先学会分配任务",
+  "images": [
+    "assets/images/event/person.png",
+    "assets/images/event/tweet-anchor-cn.png",
+    "assets/images/event/official-report.png",
+    "assets/images/event/product.png",
+    "assets/images/event/chart.png"
+  ],
+  "beat_cuts": [0.90, 1.99, 3.87, 5.83],
+  "media_h": 660,
+  "body": [
+    "Anthropic 调查 Claude 用户：超 1/3 的人认为，一年内 AI 能完成自己大部分工作",
+    "普通人别只看“会不会被替代”，更该看谁先学会把工作拆给 AI",
+    "背后机制是：AI 正从聊天助手变成长期执行任务的工具",
+    "风险是只等答案的人更被动；机会是会拆任务、会验收结果的人先升级",
+    "信息差：拉开差距的不是有没有 AI，而是谁先学会指挥 AI"
+  ],
+  "bgm": {
+    "path": "assets/audio/moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}
+```
+
+Render it with:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_paper_card_video.py \
+  --config configs/paper-card-video.json \
+  --project-dir . \
+  --output renders/paper-card-video.mp4 \
+  --contact-sheet renders/paper-card-video-contact.jpg
+```
+
+Paper-card video rules:
+
+- `images` must contain the same real one-event media set used by the normal video, usually 5 images.
+- Do not pass the already-rendered paper-card JPG as the only image.
+- Preserve the original title entrance rhythm: headline lines pop in one by one, then the purple ribbon expands in. The title/ribbon should not be static from the first frame in MP4 output.
+- Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
+- Use the purple border only as a media frame. Do not add carousel dots or extra footer strips.
 
 ## Request Routing
 
@@ -148,13 +218,19 @@ Before rendering, present the proposed list in this format:
 For the paper-card explainer style, the title area is not the same as the normal three-line video title.
 
 - Use a short, high-impact black headline at the top of the white card.
-- Prefer two lines: line 1 names the event or actor, line 2 names the surprising change or conflict.
-- Use the purple ribbon for the strongest information-gap sentence, not for a generic category.
-- Good pattern: `事件/主角` + `反常识变化` + purple `真正关键点`.
+- Prefer two lines: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
+- Use the purple ribbon for the strongest information-gap sentence, action hook, or counterintuitive takeaway. The ribbon should tell the viewer what to notice or do, not merely restate the headline.
+- Good pattern: `谁/什么来源 + 发生了什么具体事` + `这件事造成什么变化` + purple `普通人该注意的关键点`.
+- Run the 3-second comprehension test before rendering: after reading only the title and purple ribbon, a normal viewer should know the basic story, why it matters, and the main contrast. If they still need the bottom copy to decode the title, rewrite it.
+- Do not use abstract mood-only titles. They may sound dramatic but fail as a social-video entry point.
 - Examples:
   - Headline: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `并不是真正意义上的“免费”`.
   - Headline: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `直接击穿大模型 API 商业模式`.
   - Headline: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
+  - Headline: `超 1/3 Claude 用户说` / `AI 一年内能接管大半工作`; ribbon: `别只问会不会被替代，先学会分配任务`.
+- Avoid:
+  - Headline: `Claude 用户最怕的事` / `高频用户反而更乐观`; why: it does not say what happened.
+  - Headline: `AI 工作方式巨变` / `普通人必须重视`; why: it has no source, number, product, or concrete event.
 
 ## Paper Card Date Rule
 
@@ -192,13 +268,22 @@ Use these defaults for static paper-card previews and for future paper-card vide
 
 The bottom copy should read like a compact short-video explanation, not a bullet table:
 
-1. Event: what happened, in plain language.
-2. Viewer meaning: why a normal viewer should care.
-3. Mechanism: what changed in the product, business model, policy, or industry structure.
+1. Fact: what happened, in plain language. Include the source, actor, number, product, date/context, or action when available.
+2. Viewer meaning: why a normal viewer should care. Translate it into work, learning, creation, cost, access, opportunity, or risk.
+3. Mechanism: what changed in the product, business model, policy, workflow, access path, or industry structure.
 4. Boundary: risk, dispute, limitation, opportunity, or who is affected first.
 5. Information gap: end with `信息差：...`.
 
 Write short paragraphs that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should be suitable for cyan highlighted lines and should not require voiceover to understand.
+
+Bottom copy quality rules:
+
+- Each line should add new information. Do not repeat the title in different words.
+- Start concrete, then explain. Avoid opening with conclusions such as `AI 正在重构工作方式` before stating the actual event.
+- Use everyday verbs: `接走`, `分配`, `验收`, `变贵`, `变慢`, `先开放`, `先用上`, `拿不到`, `抢入口`.
+- Prefer `普通人...`, `对你来说...`, or direct action language when the line is about viewer meaning.
+- Avoid jargon-only phrasing such as `能力边界变化`, `工作流适配`, `产业范式迁移`, `组织效率重构`, unless immediately translated into a concrete consequence.
+- The final `信息差：...` line should be a sharp conclusion the viewer can remember, for example `信息差：拉开差距的不是有没有 AI，而是谁先学会指挥 AI`.
 
 ## One News Event Pattern
 
@@ -225,6 +310,53 @@ Use multiple images for one news event. The middle image carousel should feel li
 Reject screenshots that show Cloudflare verification, loading spinners, blank pages, cookie walls, or unrelated search results. Replace them with another source before making a video.
 
 Reject generated fallback/error cards that say `图片源不可用`, `403`, `429`, `Too Many Requests`, `Forbidden`, or similar downloader errors. These cards are only temporary diagnostics. If they appear in assets, configs, contact sheets, or covers, replace them with a real local cached asset, official/product screenshot, usable media screenshot, or a clean source card that summarizes the source without exposing the fetch error.
+
+## Image Sequence Preflight
+
+Before rendering, run the preflight checker against every final video config:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/check_image_sequence.py \
+  --config configs/video.json \
+  --project-dir . \
+  --contact-sheet renders/image-sequence-preflight.jpg \
+  --strict
+```
+
+The checker is a guardrail, not a replacement for human review. It catches obvious ordering and asset-quality mistakes before rendering:
+
+- Slot 1 should be a protagonist/company/product recognition image, or at least an official/product evidence image when no person/company photo exists.
+- The first two slots should include a `hero` image whenever the story has a recognizable person, company, product, or place.
+- Media/source screenshots should normally appear after the recognition and evidence images, usually slot 4-5.
+- Auxiliary context images such as chips, data centers, laptops, local/generated context cards, and generic compute scenes should not lead the carousel.
+- Error/fallback assets such as `403`, `429`, Cloudflare pages, loading screens, and unavailable-image cards are hard failures.
+- If the filename is ambiguous, add explicit `image_roles` to the config so the checker can evaluate the intended order.
+- If the asset quality is known, add `image_quality` values such as `real`, `source-card`, `clean-card`, `fallback`, or `error`. `fallback` and `error` are hard failures.
+- The checker can also produce a contact sheet. Always inspect it when a source was downloaded from the web, because filename-only checks cannot reliably read every embedded error message.
+
+Recommended 5-image order:
+
+```text
+01 hero: real person / company / product / recognizable place
+02 official: announcement, docs, release notes, official page, or direct evidence
+03 product: app, API, model selector, Codex, console, or product-entry screenshot
+04 media: reputable news/source screenshot
+05 auxiliary: related context scene, hardware, infrastructure, or supporting background
+```
+
+Allowed `image_roles` values:
+
+```text
+hero, official, product, media, auxiliary
+```
+
+Recommended `image_quality` values:
+
+```text
+real, official-screenshot, product-screenshot, source-card, clean-card, fallback, error
+```
+
+If the checker fails, do not weaken the rule just to pass. Reorder the images, replace weak assets, rename assets descriptively, or add explicit roles only when the visual source truly matches that role.
 
 ## Recommended Row Logic
 
