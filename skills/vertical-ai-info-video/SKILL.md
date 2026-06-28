@@ -22,7 +22,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-6. Build a JSON config using the schema in `references/style-guide.md`. For daily/news-video output, build a white paper-card video JSON by default and render with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time. Render a static preview first with `scripts/render_paper_card_preview.py` only when the user asks to see a screenshot. Use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
+6. Build a JSON config using the schema in `references/style-guide.md` and the production checklist in `references/paper-card-daily-production.md`. For daily/news-video output, build a white paper-card video JSON by default and render with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time. Render a static preview first with `scripts/render_paper_card_preview.py` only when the user asks to see a screenshot. Use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
 7. Run the image-sequence preflight before rendering. The first carousel image must identify the protagonist/company/product; source screenshots and auxiliary context images should appear later. If the check fails, reorder or replace the image set before rendering:
 
 ```bash
@@ -255,4 +255,6 @@ BGM selection rules:
 ## References
 
 - Read `references/style-guide.md` when creating or editing a config.
+- Read `references/paper-card-daily-production.md` before daily batches, batch rerenders, or workflow updates. It contains the fixed white-paper-card production logic, copy rules, delivery checklist, validation checklist, and a record of the approved 2026-06-28 second-batch title pattern.
+- Use `examples/white-paper-card-batch-manifest.example.json` as the canonical manifest shape when turning selected topics into reusable configs, videos, covers, publishing copy, and source records.
 - Patch `scripts/render_vertical_info_video.py` only when the workflow itself needs new reusable behavior.

@@ -52,6 +52,9 @@
 
 每条新闻至少包含视频、封面、发布文案三件套，并在 `选题历史.md` 中登记，避免每日自动选题重复。
 
+当前日更默认样式已沉淀在 `skills/vertical-ai-info-video/references/paper-card-daily-production.md`：
+白底纸卡、黑色粗标题、紫色信息差条、中间五图轮播、底部结构化说明。批量选题/文案结构示例见 `skills/vertical-ai-info-video/examples/white-paper-card-batch-manifest.example.json`。
+
 ## 账号信息
 
 - 名称：拓扑同学

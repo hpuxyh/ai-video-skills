@@ -1,0 +1,138 @@
+{
+  "schema": "vertical-ai-info-video.white-paper-card-batch.v1",
+  "batch_name": "2026年06月28日AI信息差快报-第二批",
+  "export_root": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频",
+  "style": {
+    "title_on_purple": false,
+    "show_ribbon": true,
+    "title_color": [0, 0, 0],
+    "strap_color": [255, 255, 255],
+    "body_style": "editorial_lines",
+    "animate_title": true,
+    "animate_body_rows": false,
+    "duration": 7,
+    "fps": 30
+  },
+  "topics": [
+    {
+      "slug": "01-spacex-compute-reflection-ai",
+      "name": "SpaceX出租算力-Reflection先用",
+      "date": "2026.06.22",
+      "title": ["SpaceX 开始出租 AI 算力", "开源模型公司抢 GPU 入口"],
+      "strap": "真正稀缺的不是模型，是算力！",
+      "cover": {
+        "badge": "SpaceX",
+        "title": ["SpaceX 出租算力", "开源模型公司", "抢 GPU 入口"],
+        "conclusion": "真正稀缺的不是模型，是算力",
+        "preferred_image_role": "real person/company/product first"
+      },
+      "body_rows": [
+        {"label": "事件", "text": "Reflection AI 租用 SpaceX 算力，抢顶级 GPU"},
+        {"label": "关键", "text": "AI 竞争不只拼模型，也拼稳定算力"},
+        {"label": "跟你有关", "text": "AI 服务变贵、排队，背后可能是 GPU 不够"},
+        {"label": "机会", "text": "会整合算力的小团队，能低成本挑战大模型"},
+        {"label": "信息差", "text": "AI 入口不只在 App，也在芯片和机房"}
+      ],
+      "platform_copy": {
+        "xhs_title": "SpaceX 出租算力，AI 公司抢 GPU 入口",
+        "douyin_title": "SpaceX 出租算力，真正稀缺的是算力"
+      }
+    },
+    {
+      "slug": "02-anthropic-alibaba-distillation",
+      "name": "Anthropic指控阿里-蒸馏攻击争议",
+      "date": "2026.06.25",
+      "title": ["Anthropic 指控阿里蒸馏 Claude", "2.5 万假账号狂刷模型"],
+      "strap": "AI 公司不只防黑客，也防能力被偷学！",
+      "cover": {
+        "badge": "Anthropic",
+        "title": ["Anthropic 指控阿里", "2.5 万假账号", "狂刷 Claude"],
+        "conclusion": "AI 公司开始防能力被偷学",
+        "preferred_image_role": "real person/company/product first"
+      },
+      "body_rows": [
+        {"label": "事件", "text": "Anthropic 称阿里相关方大规模蒸馏 Claude"},
+        {"label": "关键", "text": "争议不只是调用量，而是模型能力会不会被偷学"},
+        {"label": "跟你有关", "text": "以后 AI 账号、调用来源和批量访问会更严"},
+        {"label": "风险", "text": "安全、风控、合规会更早进入 AI 产品流程"},
+        {"label": "信息差", "text": "AI 公司不只防黑客，也防能力被复制"}
+      ],
+      "platform_copy": {
+        "xhs_title": "Anthropic 指控阿里，AI 能力也要防偷学",
+        "douyin_title": "Anthropic 指控阿里，模型也怕被偷学"
+      }
+    },
+    {
+      "slug": "03-alibaba-happyhorse-video",
+      "name": "阿里HappyHorse-视频模型给创作者",
+      "date": "2026.06.23",
+      "title": ["阿里视频模型 HappyHorse 升级", "AI 视频开始抢创作者"],
+      "strap": "会写分镜的人，先吃到 AI 视频红利！",
+      "cover": {
+        "badge": "Alibaba",
+        "title": ["阿里 HappyHorse 升级", "AI 视频", "开始抢创作者"],
+        "conclusion": "会写分镜的人先吃到红利",
+        "preferred_image_role": "real person/company/product first"
+      },
+      "body_rows": [
+        {"label": "事件", "text": "阿里升级 HappyHorse，并推 AI 影像创作入口"},
+        {"label": "关键", "text": "视频模型不只炫效果，而是进入创作者工作流"},
+        {"label": "跟你有关", "text": "做短视频，可先把脚本变成分镜和试片"},
+        {"label": "机会", "text": "会写提示词、会拆镜头的人更容易先吃到红利"},
+        {"label": "信息差", "text": "平台抢的不是模型，是创作者每天怎么开工"}
+      ],
+      "platform_copy": {
+        "xhs_title": "阿里 HappyHorse 升级，会写分镜的人先吃红利",
+        "douyin_title": "阿里 HappyHorse 抢创作者"
+      }
+    },
+    {
+      "slug": "04-doubao-ride-hailing",
+      "name": "豆包内测打车-AI应用变入口",
+      "date": "2026.06.23",
+      "title": ["豆包开始内测打车", "AI 应用不只会聊天"],
+      "strap": "聊天框正在变成新的下单入口！",
+      "cover": {
+        "badge": "Doubao",
+        "title": ["豆包内测打车", "AI 应用", "不只会聊天"],
+        "conclusion": "聊天框正在变成下单入口",
+        "preferred_image_role": "real person/company/product first"
+      },
+      "body_rows": [
+        {"label": "事件", "text": "豆包在北京、杭州内测 App 内打车能力"},
+        {"label": "关键", "text": "AI 助手正在从问答工具，变成办事入口"},
+        {"label": "跟你有关", "text": "以后可能一句话下单，不用来回切 App"},
+        {"label": "变化", "text": "本地生活、搜索和交易入口会被 AI 重新连接"},
+        {"label": "信息差", "text": "AI App 的价值不只回答，而是替你完成动作"}
+      ],
+      "platform_copy": {
+        "xhs_title": "豆包内测打车，聊天框正在变成下单入口",
+        "douyin_title": "豆包开始打车，AI 不只聊天"
+      }
+    },
+    {
+      "slug": "05-baidu-ernie-portal",
+      "name": "百度文心入口合并-别找错AI入口",
+      "date": "2026.06",
+      "title": ["百度合并文心 AI 入口", "普通人别再找错入口"],
+      "strap": "别只追新模型，先找对官方入口！",
+      "cover": {
+        "badge": "Baidu",
+        "title": ["百度合并文心入口", "普通人", "别再找错 AI"],
+        "conclusion": "别只追新模型，先找对入口",
+        "preferred_image_role": "real person/company/product first"
+      },
+      "body_rows": [
+        {"label": "事件", "text": "百度整合文心一言与 ERNIE Bot 网页入口"},
+        {"label": "关键", "text": "AI 产品从分散试验，开始回到统一入口"},
+        {"label": "跟你有关", "text": "用 AI 先找官方入口，少踩旧链接和假入口"},
+        {"label": "变化", "text": "未来不只拼模型名，也拼谁更容易被普通人打开"},
+        {"label": "信息差", "text": "别只追新模型，先确认稳定入口在哪里"}
+      ],
+      "platform_copy": {
+        "xhs_title": "百度合并文心入口，普通人别再找错 AI",
+        "douyin_title": "百度文心入口合并，别找错 AI"
+      }
+    }
+  ]
+}
