@@ -81,7 +81,9 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 ## Tweet Anchor Rules
 
 - The second carousel image must be the topic-confirming X/Twitter screenshot.
-- The tweet anchor should look like a bright, source-like artifact. Prefer a real tweet screenshot with Chinese overlay, or a white tweet-style localized card that preserves account/date/engagement cues.
+- The tweet anchor should look like a bright, source-like artifact. The preferred default is the previously approved proof-card layout: a cleaned real tweet screenshot on the left, a Chinese interpretation block on the right, source metadata at the bottom-left, and a small purple note at the bottom-right explaining that this second image holds longer for reading.
+- For this proof-card layout, do not turn the frame into a new headline card. Use `中文释义` as the small purple label, then 3-5 cyan highlighted Chinese lines that summarize the tweet's core fact and viewer meaning. Keep the original tweet visible for credibility.
+- The typography should be tidy and consistent: at 1600x1000 source-card size, use roughly 34-40px bold Chinese for cyan highlighted lines, 29-34px for small labels, 23-26px for URL/source metadata, with even line height and aligned left edges. Shorten the wording before shrinking below that range.
 - Prefer direct posts by the core person in the story: founder, CEO, product lead, researcher, government official, creator of the tool, or other primary actor.
 - If no core-person post exists, use the official account for the company, product, lab, open-source project, or conference.
 - If the topic is discovered through a third-party viral post, use that post for discovery only; then find a primary-source tweet, official page, or reputable report before making the final topic.
@@ -92,6 +94,14 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - Do not use screenshots that show login walls, Cloudflare checks, cookie walls, `403`, `429`, "Something went wrong", blank pages, or unrelated search results.
 - If a clean tweet screenshot cannot be captured, choose another tweet or another topic.
 - Store the source tweet URL next to the image path in the working notes or topic history so the screenshot can be traced.
+- Use `scripts/render_tweet_proof_card.py` when turning a raw tweet screenshot into the preferred Chinese proof card:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_tweet_proof_card.py \
+  --config configs/tweet-proof-card.json \
+  --project-dir . \
+  --output assets/images/event/02-核心推文中文卡.jpg
+```
 
 ## One-Event Video Logic
 
@@ -157,8 +167,9 @@ Cover and card text rule:
 - The cover headline can be larger, heavier, and arranged around the real person/company/product visual, but the words should remain the same as the video title unless the user asks to rewrite them.
 - Do not draw topic serial numbers such as `01`, `02`, `03`, or `04` on the cover image itself or on cover overview tiles. Numbering is allowed in folder/file names only.
 - Cover visuals should prefer event people first, then representative company people, then company identity/mascot/logo, then product screenshots. For example, Google-related covers can use Sundar Pichai or a strong Google identity image; Claude/Anthropic covers can use Dario Amodei or a strong Anthropic/Claude identity image before falling back to product UI.
-- Any generated source card, real-visual card, explanation card, or overview card inside the video should also use this same three-line hook for its top title when it needs a title. Do not write those card titles as neutral news summaries such as `Google Finance 开始做 AI 研究工具`; use the three-line hook style instead.
-- Cards may add body copy, source notes, or cyan-highlight explanation below, but their top title should stay aligned with the animated title and cover title.
+- Do not force the tweet proof card or middle carousel source cards to repeat the full three-line hook. The three-line hook belongs to the animated title and cover; the middle carousel should remain evidence-like.
+- Image 2 should use the tweet proof-card layout above: left real tweet screenshot, right Chinese cyan-highlight interpretation, bottom source metadata, optional purple hold-note.
+- Other middle carousel cards should stay visually simple: one real visual focus plus at most 1-2 short Chinese caption lines. Avoid stuffing the top title, bottom rows, and long explanation into the image itself because those layers already exist in the video template.
 
 ## Paper Card Explainer Mode
 

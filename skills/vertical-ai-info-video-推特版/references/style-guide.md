@@ -161,7 +161,10 @@ Daily execution rules:
 For the 推特版 workflow, the tweet anchor is not optional.
 
 - `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic.
-- The tweet anchor should remain a bright source artifact, not a dark explainer slide. Prefer a real tweet screenshot with Chinese overlay, or a white tweet-style localized card that preserves account/date/engagement cues.
+- The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, bottom-left keeps source metadata, and bottom-right can show a purple note that image 2 stays longer for reading.
+- The right-side Chinese interpretation should use a small purple `中文释义` label followed by 3-5 cyan highlighted lines. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
+- Keep the raw tweet visible for credibility. Crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card.
+- Typography for the proof card should be orderly: for a 1600x1000 card, cyan-highlight Chinese text should usually be 34-40px bold, labels around 29-34px, URL/source metadata around 23-26px. Use consistent line height, aligned left edges, and shorter wording rather than tiny text.
 - The screenshot should be captured from the public post page or an authenticated browser session when available.
 - Crop to the post body. Preserve author, handle, post text, date/time, and visible engagement when possible.
 - Hold `images[1]` about twice as long as the other carousel images because it is the proof frame and usually contains readable text. For a 5-image, 7-second video, prefer `image_hold_weights: [1, 2, 1, 1, 1]`; this produces cuts around `[1.17, 3.50, 4.67, 5.83]`.
@@ -169,6 +172,35 @@ For the 推特版 workflow, the tweet anchor is not optional.
 - If the page shows login wall, Cloudflare check, blank loading state, `403`, `429`, or "Something went wrong", do not use that screenshot.
 - If the anchor post includes a video or image that is central to the story, the screenshot may include that media preview as long as the post text and author remain visible.
 - Store the source URL, author, screenshot path, and observed engagement in `tweet_anchor`.
+
+Render the preferred proof card with:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_tweet_proof_card.py \
+  --config configs/tweet-proof-card.json \
+  --project-dir . \
+  --output assets/images/event/02-核心推文中文卡.jpg
+```
+
+Example proof-card config:
+
+```json
+{
+  "raw_screenshot": "assets/raw/openai-tweet.png",
+  "crop_box": [110, 0, 710, 740],
+  "output": "assets/images/event/02-核心推文中文卡.jpg",
+  "summary_lines": [
+    "OpenAI 预览 GPT-5.6 Sol",
+    "Terra、Luna 同时出现",
+    "这是分层模型信号",
+    "普通人还不能马上用"
+  ],
+  "source_title": "来源：OpenAI @OpenAI",
+  "source_meta": "2026年6月26日 · 约1610.1万 Views · 3.3K回复 / 5.5K转发",
+  "source_url": "https://x.com/OpenAI/status/2070555272230384038",
+  "hold_note": "第二张图停留加长，方便读推文"
+}
+```
 
 ## Chinese Final Output Rule
 
@@ -237,7 +269,7 @@ Relationship to other title modes:
 
 - Normal videos: use the three-line animated title above.
 - Normal covers: reuse the same three lines as the cover headline.
-- Normal generated cards inside the video: when a source card, real-visual card, explanation card, or overview card needs a top title, reuse the same three-line hook. The card can include extra body copy below, but the title should not become a separate neutral news sentence.
+- Normal middle carousel images: do not repeat the full three-line hook by default. The title is already animated above the image area. Use real visuals with minimal captions, and use the tweet proof-card layout for image 2.
 - Paper-card previews: use the separate paper-card title plus purple ribbon logic below.
 
 ## Paper Card Title Logic
