@@ -35,9 +35,11 @@ Use a JSON file with these top-level keys:
   ],
   "beat_cuts": [0.90, 1.99, 3.87, 5.83],
   "bgm": {
-    "path": "assets/audio/bgm.mp3",
+    "path": "assets/audio/bba进行曲.mp3",
     "start": 3,
-    "volume": 0.55
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
   }
 }
 ```
@@ -257,6 +259,29 @@ Rules:
 - File names should start with `视频-` or `封面-`, then repeat the topic name.
 - Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
 - Also create a zip package with the same Chinese top-level name when handing off a batch.
+
+## BGM Selection
+
+Use local BGM for all final videos unless the user asks for silence. The current default pool is:
+
+| Track | Local path | Best fit | Weight |
+| --- | --- | --- | --- |
+| `bba进行曲.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3` | heavy, urgent, strategic, big-company, policy, safety, infrastructure | 3 |
+| `时尚动感.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/时尚动感.mp3` | stylish tech, product launches, consumer apps, creator tools | 1 |
+| `时尚热情绽放.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/时尚热情绽放.mp3` | upbeat launches, opportunity, creator economy, positive momentum | 1 |
+| `do it.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/do it.mp3` | action, workflow, practical tools, "what to do now" | 1 |
+| `drink.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/drink.mp3` | light consumer topics, lifestyle/service AI, casual app features | 1 |
+| `moment.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3` | reflective explainers, business shifts, slower strategic stories | 1 |
+| `say no cry.mp3` | `/Users/xieyahao/Desktop/我自己/小红/半奏/say no cry.mp3` | controversy, risk, security, compliance, dispute | 1 |
+
+Selection algorithm:
+
+1. Classify the topic mood: heavy/urgent, controversy/risk, creator/product, consumer/lifestyle, practical/workflow, or reflective/business.
+2. Build a candidate set from the mood. Include `bba进行曲.mp3` in serious/high-energy candidate sets with weight `3`; matched alternatives usually use weight `1`.
+3. Randomly choose from the candidate set using the weights. This gives the batch variety without ignoring topic fit.
+4. In a 5-video batch, do not force all videos to use different tracks, but avoid one track taking every video unless the user asks for a single unified BGM.
+5. Copy the selected track into `assets/audio/` in the project and set `bgm.path` to the copied relative path. Keep `bgm.start` around `3` by default, `volume` around `0.55`, and tiny fade-in/out.
+6. If the track has a more suitable downbeat later, adjust `bgm.start` while keeping the final video duration at 7 seconds unless the user says otherwise.
 
 ## Topic History And GitHub Sync
 
