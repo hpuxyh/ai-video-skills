@@ -95,7 +95,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
 
 ## Paper Card Video Config Schema
 
-Use this schema only after the paper-card preview style is approved and the user asks for MP4 output. This keeps the paper-card frame language while preserving the one-event five-real-image carousel inside the middle media frame.
+Use this schema for the current default daily/news-video MP4 output. This keeps the paper-card frame language while preserving the one-event five-real-image carousel inside the middle media frame. Use the older dark vertical video schema only when the user explicitly asks for that style.
 
 ```json
 {
@@ -123,12 +123,12 @@ Use this schema only after the paper-card preview style is approved and the user
   ],
   "image_hold_weights": [1, 2, 1, 1, 1],
   "media_h": 720,
-  "body_style": "structured",
+  "body_style": "editorial_lines",
   "body_rows": [
-    {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
     {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-    {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-    {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+    {"label": "机会", "text": "会拆任务、会验收的人先升级"},
     {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
   ],
   "bgm": {
@@ -156,10 +156,11 @@ Paper-card video rules:
 - `images` must contain the same real one-event media set used by the normal video, usually 5 images.
 - Do not pass the already-rendered paper-card JPG as the only image.
 - Preserve the title entrance rhythm: the purple title panel expands in, title lines pop in one by one, then the normal action line appears. The title should not be static from the first frame in MP4 output.
-- In the current structured paper-card style, use `title_on_purple: true`, `show_ribbon: false`, `action_text`, and `body_rows`.
+- In the current structured paper-card style, use `title_on_purple: true`, `show_ribbon: false`, `action_text`, `body_style: "editorial_lines"`, and `body_rows`.
 - If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
 - Use the purple border only as a media frame. Do not add carousel dots or extra footer strips.
+- Daily scheduled videos default to the white paper-card video style. The bottom copy should appear as a full set of thin-line rows, not animated row-by-row, unless the user explicitly asks for row animation.
 
 ## Request Routing
 
@@ -225,7 +226,7 @@ Before rendering, present the proposed list in this format:
 
 ## Paper Card Title Logic
 
-For the paper-card explainer style, the title area is not the same as the normal three-line video title.
+For the paper-card explainer style, the title area is not the same as the normal three-line video title. This paper-card style is the current default for daily scheduled AI news videos.
 
 - In the current structured default, use a purple title panel instead of the older black headline plus purple ribbon.
 - Prefer two title lines inside the purple panel: line 1 gives the actor/source plus a concrete fact, number, product, policy, or event; line 2 gives the plain-language consequence, surprise, or conflict.
@@ -262,7 +263,7 @@ For the paper-card explainer style, the title area is not the same as the normal
 
 ## Paper Card Layout Defaults
 
-Use these defaults for static paper-card previews and for future paper-card video variants:
+Use these defaults for static paper-card previews and for the current daily paper-card video variant:
 
 - Canvas: `1080x1920`.
 - Background: dark phone-like backdrop.
@@ -271,19 +272,19 @@ Use these defaults for static paper-card previews and for future paper-card vide
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
 - Action line: normal black text under the purple title panel. Use it for the viewer takeaway or action hook.
 - Media: real image or screenshot in a purple rounded frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
-- Copy: bottom structured rows with cyan backgrounds by default. Use labels such as `发生`, `跟你有关`, `背后机制`, `风险机会`, `信息差`.
+- Copy: bottom structured thin-line rows by default. Use numbered rows, purple labels, thin dividers, and black explanatory text. Prefer labels such as `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
 
-The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows`:
+The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows` rendered with `body_style: "editorial_lines"`:
 
 ```json
 [
-  {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+  {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+  {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
   {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-  {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-  {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+  {"label": "机会", "text": "会拆任务、会验收的人先升级"},
   {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
 ]
 ```
@@ -293,7 +294,7 @@ Write rows in this order:
 1. Fact: what happened, in plain language. Include the source, actor, number, product, date/context, or action when available.
 2. Viewer meaning: why a normal viewer should care. Translate it into work, learning, creation, cost, access, opportunity, or risk.
 3. Mechanism: what changed in the product, business model, policy, workflow, access path, or industry structure.
-4. Boundary: risk, dispute, limitation, opportunity, or who is affected first.
+4. Boundary or opportunity: risk, dispute, limitation, opportunity, or who is affected first.
 5. Information gap: end with the `信息差` row.
 
 Write short rows that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should not require voiceover to understand.
@@ -583,6 +584,7 @@ Selection algorithm:
 
 For recurring daily batches:
 
+- Use the white paper-card video style by default: purple title panel, black action line, five-image carousel, structured thin-line bottom rows, and body rows visible as a full set.
 - Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
 - Record date, topic title, company/product, source URLs, selected angle, and final output folder.
 - Before every auto-scout run, compare candidates against previous records and dated export folders.

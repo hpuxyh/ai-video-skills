@@ -7,9 +7,9 @@ description: "Generate 9:16 Chinese AI information-gap short videos and platform
 
 ## Overview
 
-Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
+Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow. The current default for daily/news-video production is the confirmed white paper-card video: a white textured 9:16 card, purple hook-title panel, normal black action line, real five-image carousel in the middle, structured thin-line explainer rows at the bottom, no voiceover, and 7-second BGM from a local audio file.
 
-It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong hook title area, real news media in the middle, and an explanatory bottom area. The current approved paper-card default is the structured version: the concrete fact and direct consequence sit inside a purple title panel, the viewer action line is normal black text underneath, the middle media area keeps the five-real-image carousel, and the bottom uses structured cyan rows. This is a triggerable 图文卡解释器模式, not a replacement for the normal vertical fast-news video template. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", "图文卡", "先做一张预览图", "结构化显示", or wants a static rendered image before video production. Otherwise, keep the normal title + middle image carousel + bottom info-row video workflow.
+It also preserves the older dark vertical fast-news template: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM. Use the older dark template only when the user explicitly asks for the previous dark/normal fast-news style. For daily scheduled production and normal AI news-video output, use the white paper-card video workflow.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -22,7 +22,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py` when the user asks to see a screenshot. If the user asks for a video, render the video variant with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time.
+6. Build a JSON config using the schema in `references/style-guide.md`. For daily/news-video output, build a white paper-card video JSON by default and render with `scripts/render_paper_card_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the title entrance animation, and keep core tweet screenshots at about double hold time. Render a static preview first with `scripts/render_paper_card_preview.py` only when the user asks to see a screenshot. Use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
 7. Run the image-sequence preflight before rendering. The first carousel image must identify the protagonist/company/product; source screenshots and auxiliary context images should appear later. If the check fails, reorder or replace the image set before rendering:
 
 ```bash
@@ -34,15 +34,17 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/check_image
 ```
 
 8. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
-9. Run `scripts/render_vertical_info_video.py` from a project directory:
+9. For the default daily/news-video workflow, run `scripts/render_paper_card_video.py` from a project directory:
 
 ```bash
-python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vertical_info_video.py \
-  --config configs/video.json \
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_paper_card_video.py \
+  --config configs/paper-card-video.json \
   --project-dir . \
   --output renders/output.mp4 \
   --contact-sheet renders/output-contact-sheet.jpg
 ```
+
+If the user explicitly requests the legacy dark fast-news template, render with `scripts/render_vertical_info_video.py` instead.
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
 11. Export every finished topic into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频`, including the final video, cover image, and platform publishing copy.
@@ -102,6 +104,7 @@ Default daily automation:
 - The standing daily job is `AI信息差新闻视频-每日8点`.
 - It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
 - The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid historical repeats, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
+- Daily scheduled videos must use the confirmed white paper-card video logic by default: purple title panel, normal black action line, real five-image carousel, structured thin-line explainer rows, bottom rows visible as a full set, no dark ordinary template unless the user explicitly requests it.
 
 ## Topic Selection Modes
 
@@ -123,7 +126,7 @@ Default daily automation:
 
 ## Paper Card Explainer Mode
 
-Use this mode when the user approves or references the white-card examples: a white paper card, strong hook title, real screenshot/photo carousel in the center, and concise explanatory copy below. Treat it as a static preview and explainer style first when requested. After the user confirms the look, use the same visual language for the video variant.
+Use this mode for daily scheduled news videos and when the user approves or references the white-card examples: a white paper card, strong hook title, real screenshot/photo carousel in the center, and concise explanatory copy below. Treat it as the default creator-delivery video style unless the user explicitly asks for the older dark template.
 
 For the video variant, do not flatten the preview into one static image. The outer paper card, title, action line, bottom copy, and media border become the frame language, while the middle media area still runs the normal one-event five-image carousel with real photos/screenshots and light push-pull motion.
 
@@ -139,8 +142,8 @@ Current structured paper-card flow:
 - Keep the middle media frame bright and legible. It must show real event media, not a pre-rendered full-card image.
 - Use exactly one event per video and usually five images: person/company/product recognition, core source/tweet screenshot, official report or evidence, product page, chart or supporting evidence.
 - If the second image is the core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
-- Use `body_rows` for the approved structured bottom area. Preferred labels: `发生`, `跟你有关`, `背后机制`, `风险机会`, `信息差`.
-- Keep each bottom row short enough to scan in one glance. The label tells the viewer what kind of information the row contains; the text should be a plain Chinese sentence.
+- Use `body_rows` for the approved structured bottom area. The default visual style is `editorial_lines`: numbered rows (`01`-`05`), purple labels, thin dividers, and black explanatory text on the white card. Do not use cyan highlight blocks for daily videos unless the user asks to revisit that older preview style.
+- Preferred labels: `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`. Keep each bottom row short enough to scan in one glance. The label tells the viewer what kind of information the row contains; the text should be a plain Chinese sentence.
 
 Title logic:
 
@@ -160,7 +163,7 @@ Preview card layout:
 - Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
 - Under the title: show a normal black action/interpretation line when `title_on_purple: true`. Use a purple rounded ribbon only in the older fallback layout.
 - Middle area: one real topic-matched news asset inside a thin purple rounded border. Use real news material, screenshots, people, product images, official pages, or company/product visuals. Do not use abstract placeholders as the main media.
-- Bottom area: use structured cyan rows by default. Each row has a short label on the left and one concise explanation on the right. Paragraph-style cyan highlights are a fallback, not the current preferred style.
+- Bottom area: use the structured thin-line rows by default. Each row has a number, short purple label, thin divider, and one concise explanation. Cyan highlight blocks and paragraph-style highlights are older preview styles, not the current daily-video default.
 - Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
 
 Paper-card copy logic:
@@ -175,7 +178,7 @@ The bottom copy is not a second title and not a list of industry slogans. In the
 
 Every bottom line should be able to stand alone on screen. Avoid abstract phrasing such as `能力边界变化`, `工作流适配`, or `产业范式迁移` unless immediately translated into a concrete ordinary-life meaning.
 
-Do not use paper-card mode as a generic alternate template. It is specifically for static explainer previews and reference-style 图文卡 output. The ordinary vertical AI news video keeps its existing large title, real middle carousel, and one-by-one bottom information rows.
+The paper-card video mode is now the normal daily scheduled AI news-video template. The ordinary dark vertical template remains available only for explicit style requests.
 
 Use `scripts/render_paper_card_preview.py` for a single static check before video rendering:
 
