@@ -46,6 +46,39 @@ Use a JSON file with these top-level keys:
 
 All relative paths resolve from `--project-dir`.
 
+## Paper Card Preview Config Schema
+
+Use this schema when the user asks for the approved white-card reference style or wants a rendered image before full video production:
+
+```json
+{
+  "output": "renders/paper-card-preview.jpg",
+  "badge": "AI 信息差快报",
+  "title": [
+    "SpaceX 开始出租 AI 算力",
+    "开源模型公司抢 GPU 入口"
+  ],
+  "strap": "真正稀缺的不是模型，是算力",
+  "image": "assets/images/event/source-screenshot.jpg",
+  "body": [
+    "重磅！Reflection AI 签下 SpaceX 的计算资源，开源模型公司开始租顶级 GPU。",
+    "这说明 AI 竞争不只是谁模型更强，更是谁能拿到更便宜、更稳定的算力。",
+    "对普通人来说，AI 服务变贵、变慢、限量开放，背后常常不是产品问题，而是 GPU 不够。",
+    "小团队如果能租到巨头机房，就有机会用更低成本挑战闭源大模型。",
+    "信息差：未来 AI 入口可能不在 App，而在谁掌握芯片和机房。"
+  ]
+}
+```
+
+Render it with:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_paper_card_preview.py \
+  --config configs/paper-card.json \
+  --project-dir . \
+  --output renders/paper-card-preview.jpg
+```
+
 ## Request Routing
 
 Use two modes:
@@ -108,6 +141,19 @@ Before rendering, present the proposed list in this format:
 - No glow, no black offset shadow, no highlight.
 - Keep the title large enough for mobile viewing; reduce text length before shrinking too much.
 
+## Paper Card Title Logic
+
+For the paper-card explainer style, the title area is not the same as the normal three-line video title.
+
+- Use a short, high-impact black headline at the top of the white card.
+- Prefer two lines: line 1 names the event or actor, line 2 names the surprising change or conflict.
+- Use the purple ribbon for the strongest information-gap sentence, not for a generic category.
+- Good pattern: `事件/主角` + `反常识变化` + purple `真正关键点`.
+- Examples:
+  - Headline: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `并不是真正意义上的“免费”`.
+  - Headline: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `直接击穿大模型 API 商业模式`.
+  - Headline: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
+
 ## Layout Defaults
 
 - `photo_box`: `[0, 515, 1080, 1235]`
@@ -116,6 +162,31 @@ Before rendering, present the proposed list in this format:
 - Info rows start at `y=1288`, row height `64`.
 - Top brand pill stays at the top-right.
 - Do not draw carousel dots, footer labels, or decorative title bands.
+
+## Paper Card Layout Defaults
+
+Use these defaults for static paper-card previews and for future paper-card video variants:
+
+- Canvas: `1080x1920`.
+- Background: dark phone-like backdrop.
+- Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
+- Top: black, very bold headline, centered, usually 2 lines.
+- Ribbon: purple rounded bar under the headline, white bold text, one sentence only.
+- Media: real image or screenshot in a purple rounded frame. Use `contain` so screenshots and portraits stay complete.
+- Copy: bottom paragraph copy with cyan highlight blocks per wrapped line. This replaces the six numbered info rows.
+- Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
+
+## Paper Card Copy Logic
+
+The bottom copy should read like a compact short-video explanation, not a bullet table:
+
+1. Event: what happened, in plain language.
+2. Viewer meaning: why a normal viewer should care.
+3. Mechanism: what changed in the product, business model, policy, or industry structure.
+4. Boundary: risk, dispute, limitation, opportunity, or who is affected first.
+5. Information gap: end with `信息差：...`.
+
+Write short paragraphs that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should be suitable for cyan highlighted lines and should not require voiceover to understand.
 
 ## One News Event Pattern
 

@@ -1,6 +1,6 @@
 ---
 name: vertical-ai-info-video
-description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
+description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, paper-card explainer previews, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
 ---
 
 # Vertical AI Info Video
@@ -8,6 +8,8 @@ description: "Generate 9:16 Chinese AI information-gap short videos and platform
 ## Overview
 
 Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
+
+It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong black headline, purple information-gap ribbon, real news media in the middle, and cyan-highlighted explanatory copy at the bottom. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", or wants a static rendered image before video production.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -20,7 +22,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-6. Build a JSON config using the schema in `references/style-guide.md`.
+6. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
 7. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
 8. Run `scripts/render_vertical_info_video.py` from a project directory:
 
@@ -52,6 +54,45 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_vert
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
 - Use one event-specific info-row set from the viewer's path: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
 - The target look is the previously approved White House safety-review sample: large top headline, real images in the middle, structured text rows below, beat-synced image cuts, no voiceover.
+
+## Paper Card Explainer Mode
+
+Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below.
+
+Title logic:
+
+- Use a strong two-part hook instead of a neutral news title.
+- Line 1-2: black, heavy, high-contrast headline that names the surprising event or actor.
+- Purple ribbon: the sharp conclusion, information gap, or counterintuitive takeaway.
+- The headline should answer why a normal viewer should stop and watch: "what changed", "why it matters", or "what most people missed".
+- Keep titles honest and specific. Avoid vague wording such as "AI 又有大事" unless the next line immediately names the event.
+
+Preview card layout:
+
+- Canvas stays `1080x1920`.
+- Put one rounded white textured paper card inside a dark phone-like background.
+- Top area: bold black title, usually 2 lines.
+- Under the title: a purple rounded ribbon with white bold text.
+- Middle area: one real topic-matched screenshot/photo/product image, inside a thin purple rounded border. Prefer a source/report screenshot, official page, real person, product screenshot, or company/product image over an abstract placeholder.
+- Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This is not the six-row info table.
+- Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
+
+Paper-card copy logic:
+
+1. Start with the event in plain language.
+2. Explain what a normal viewer should understand.
+3. Explain the mechanism or business change behind it.
+4. Name the risk, controversy, limitation, or opportunity.
+5. End with `信息差：...` as the short takeaway.
+
+Use `scripts/render_paper_card_preview.py` for a single static check before video rendering:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_paper_card_preview.py \
+  --config configs/paper-card.json \
+  --project-dir . \
+  --output renders/paper-card-preview.jpg
+```
 
 ## Default Creative Rules
 
