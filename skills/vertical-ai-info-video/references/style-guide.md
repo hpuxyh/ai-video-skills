@@ -1,8 +1,8 @@
 # Style Guide
 
-## Config Schema
+## Legacy Dark Video Config Schema
 
-Use a JSON file with these top-level keys:
+This schema is for the older dark vertical fast-news renderer only. Do not use it for daily scheduled news videos unless the user explicitly requests the legacy dark template. The current default daily/news-video schema is `Paper Card Video Config Schema` below.
 
 ```json
 {
@@ -75,12 +75,12 @@ Use this schema when the user asks for the approved white-card reference style o
   "strap": "别只问会不会被替代，先学会分配任务",
   "strap_color": [255, 255, 255],
   "image": "assets/images/event/tweet-anchor-cn.png",
-  "body_style": "structured",
+  "body_style": "editorial_lines",
   "body_rows": [
-    {"label": "发生", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
+    {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
     {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-    {"label": "背后机制", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-    {"label": "风险机会", "text": "只等答案的人更被动；会拆任务、会验收的人先升级"},
+    {"label": "机会", "text": "会拆任务、会验收的人先升级"},
     {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
   ]
 }
@@ -192,7 +192,7 @@ In auto-scout mode:
 - Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and row order: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
+- Each topic must still follow the one-event pattern and the default paper-card row order: `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`. Use the older `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差` order only for explicitly requested legacy dark-template videos.
 
 Reject candidates when:
 
@@ -322,7 +322,7 @@ Use this skill for one event at a time. For example, "GPT-5.6 enters limited pre
 - media report screenshot
 - related company or product scene
 
-The title and `info_rows` explain the event. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
+The title, purple ribbon, and `body_rows` explain the event in the default paper-card workflow. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
 
 ## Image Sourcing Priority
 
@@ -385,20 +385,21 @@ real, official-screenshot, product-screenshot, source-card, clean-card, fallback
 
 If the checker fails, do not weaken the rule just to pass. Reorder the images, replace weak assets, rename assets descriptively, or add explicit roles only when the visual source truly matches that role.
 
-## Recommended Row Logic
+## Default Paper-Card Row Logic
 
-Use this order for news explainers:
+Use this 5-row order for the default white paper-card news explainers:
 
-1. `结论`: the one-sentence takeaway.
-2. `跟你有关`: what this means for a normal viewer right now.
-3. `发生`: what happened.
-4. `谁先用`: who gets access first, or where the real entry point is.
-5. `影响`: the user or industry impact.
-6. `信息差`: what most viewers may not have noticed.
+1. `事件`: what happened, stated plainly with the actor/source/product/date when possible.
+2. `关键`: what changed behind the surface headline.
+3. `跟你有关`: what this means for a normal viewer right now.
+4. `机会`, `风险`, or `变化`: who benefits, who is affected, or what boundary changed.
+5. `信息差`: the final usable takeaway most viewers may not have noticed.
 
 Use `跟你有关` as the default second row because it directly answers the viewer's hidden question: "what does this have to do with me?" Use `普通人机会` only when the row is about a concrete personal opportunity, job direction, workflow, or action.
 
 Keep each row short. If a row wraps visually, rewrite it rather than shrinking all rows.
+
+The older 6-row order `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差` belongs to the legacy dark fast-news template. Do not use it for daily scheduled white paper-card videos unless the user explicitly asks for that style.
 
 For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
 
@@ -414,12 +415,11 @@ For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflo
 For a GPT-5.6 limited-preview story, prefer rows like:
 
 ```text
-01 结论：GPT-5.6 已预览，但普通用户还不能直接用
-02 跟你有关：别等新模型，先用现有 AI 整理资料、写方案
-03 发生：OpenAI 先测试 Sol、Terra、Luna 三个版本
-04 谁先用：先给合作客户、开发者和 Codex/API 场景
-05 影响：ChatGPT 里的全面开放，还要再等一段时间
-06 信息差：发布不等于人人可用，入口才是关键
+01 事件：GPT-5.6 已预览，但普通用户还不能直接用
+02 关键：入口先给合作客户、开发者和 Codex/API 场景
+03 跟你有关：别等新模型，先用现有 AI 整理资料、写方案
+04 变化：ChatGPT 里的全面开放，还要再等一段时间
+05 信息差：发布不等于人人可用，入口才是关键
 ```
 
 ## Cover Generation Logic

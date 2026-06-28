@@ -1,6 +1,6 @@
 ---
 name: vertical-ai-info-video
-description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, one-by-one info rows, paper-card explainer previews, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
+description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, full-set structured info rows, paper-card explainer previews, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
 ---
 
 # Vertical AI Info Video
@@ -132,10 +132,10 @@ Default daily automation:
 
 - Treat each video as one news event, not a multi-card slideshow of separate text panels.
 - Attach multiple real images to that single event. Use them as the middle carousel only.
-- Keep all explanatory text in the template: the top title and the bottom one-by-one info rows.
+- Keep all explanatory text in the template: the top title/ribbon and the bottom structured rows. For the default paper-card workflow, show the bottom rows as a full set.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific info-row set from the viewer's path: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
-- The target look is the previously approved White House safety-review sample: large top headline, real images in the middle, structured text rows below, beat-synced image cuts, no voiceover.
+- Use one event-specific row set from the viewer's path. The default paper-card row labels are `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`.
+- The target look for daily/news output is the approved white paper-card sample: black hook title, purple information-gap ribbon, real images in the middle, structured text rows below, beat-synced image cuts, no voiceover.
 
 ## Paper Card Explainer Mode
 
@@ -215,20 +215,23 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_pape
 ## Default Creative Rules
 
 - Canvas: `1080x1920`, 30 fps, default duration 7 seconds.
-- Layout: title area on top, full-width image area in the middle, text rows in the lower area.
-- Title style: 3 centered lines, heavy body weight `0.9`, oblique slant, pure fill colors, no drop shadow, no black offset, no glow, no highlight layer.
+- Default template: white paper-card video. Use the legacy dark fast-news template only when the user explicitly requests it.
+- Layout: white textured card on a dark phone-like background; black title and purple ribbon on top, real image carousel in the middle, structured rows in the lower area.
+- Title style: 1-2 centered black hook-title lines, very bold, pure fill, no drop shadow, no black offset, no glow, no highlight layer. Keep the approved title entrance animation for MP4 output.
+- Ribbon style: one purple horizontal information-gap ribbon under the black title. It should explain the viewer-facing takeaway and must not repeat the title.
 - Image motion: strong push-pull plus pan, no fade-flashing at cut points.
 - Image count: prefer 5 images for a 7-second video.
 - Image sourcing priority: real people/company/product photos first; official announcement/help/docs screenshots second; product entry/API/Codex screenshots third; media report screenshots fourth; auxiliary context images last.
 - Image sequence preflight: the first image must be a recognizable protagonist/company/product or official/product evidence image. Media screenshots should usually be slot 4-5, and auxiliary context images should not lead the carousel. Use `scripts/check_image_sequence.py --strict` before rendering.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
-- Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
+- Text rows: use `body_style: "editorial_lines"` and show all bottom rows as a full set by default. Preferred labels are `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`. Do not animate rows one by one unless the user explicitly asks.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export naming: final deliverables must use Chinese folder and file names. Use project-level topic folders, one folder per video topic, and keep only `视频.mp4`, `封面.jpg`, and `文案.md` in each topic folder. Put validation and source evidence under `_记录`.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
+- Legacy dark template note: if explicitly requested, the older dark vertical template may still use three centered title lines and row-by-row reveal. Do not let those legacy rules override the daily white paper-card workflow.
 
 ## Iteration Rules
 
