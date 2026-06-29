@@ -24,6 +24,18 @@ records/twitter-ai-info-video/
       来源记录.md
       config.json
       output-index.md
+    final-delivery/
+      01-中文话题名/
+        视频.mp4
+        封面.jpg
+        文案.md
+      整体描述.md
+      _记录/
+        contact sheets
+        渲染校验
+        素材与来源/
 ```
 
 每条历史至少记录：日期、话题、公司/产品/人物、核心推文 URL、推文作者、热度信号、信息差角度、最终导出目录。
+
+每日任务完成后要把最终导出的成片、封面、文案、整体描述和最终素材复查包同步到 GitHub 的当日 `final-delivery/` 目录。不要上传本地 BGM 原文件、失败下载图、浏览器缓存、临时目录或重复中间产物。

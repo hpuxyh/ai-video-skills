@@ -58,7 +58,7 @@ If the user explicitly requests the legacy dark fast-news template, render with 
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
 11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the project-level delivery structure below. Each topic folder must contain only three core publishing files: `视频.mp4`, `封面.jpg`, and `文案.md`.
-12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, then sync reusable skill/workflow updates to the user's GitHub repository when the skill or workflow rules changed.
+12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
 
 ## Delivery Output Contract
 
@@ -94,6 +94,33 @@ Each topic must include three user-facing outputs before it is considered comple
 - `封面.jpg`: 9:16 cover image using the people/company-first cover rules.
 - `文案.md`: platform-ready 小红书 and 抖音 title, short description, tags, and one-line posting note.
 
+Every daily run must also create a GitHub archive in the skill repository after validation succeeds:
+
+```text
+/Users/xieyahao/Documents/别人好项目/ai-video-skills/
+  records/ai-info-video/YYYY-MM-DD/final-delivery/
+    01-主题名/
+      视频.mp4
+      封面.jpg
+      文案.md
+    ...
+    整体描述.md or 项目总览.md
+    _记录/
+      视频总览*.jpg
+      封面总览*.jpg
+      contact sheets
+      渲染校验*.md
+      选题记录.md
+      configs/
+      bgm-selection-plan.json
+      素材与来源/
+        主题名/
+          图片素材/
+          来源说明*
+```
+
+This GitHub archive should include the final videos, covers, publishing copy, overall document, validation records, contact sheets, configs, BGM selection metadata, and the final source/material review package. Do not upload local BGM original files, failed downloads, browser caches, temporary render caches, or duplicate intermediate files.
+
 Do not make the publishing surface category-first (`01-视频`, `02-封面`, `03-发布文案`) for new daily outputs. That older shape is only a temporary legacy/intermediate layout. If a renderer still emits the older layout, run `scripts/package_project_delivery.py` to create the clean project-level delivery folder before reporting completion.
 
 Publishing copy defaults:
@@ -118,7 +145,7 @@ Default daily automation:
 
 - The standing daily job is `AI信息差新闻视频-每日8点`.
 - It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
-- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid exact duplicate topics across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
+- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid exact duplicate topics across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, copy the final delivery plus source-review materials into the GitHub `records/ai-info-video/YYYY-MM-DD/final-delivery/` archive, commit it, and push it to `origin/main`.
 - Daily scheduled videos must use the confirmed clean white paper-card video logic by default: red `重磅` metadata row, large three-line headline on the white card, blue third-line emphasis, no large purple title/ribbon block, real five-image carousel with soft fade transitions, screenshot/text-card media preserved in full, label-free cyan-highlight bottom lines revealing one by one at a readable pace, no dark ordinary template unless the user explicitly requests it.
 
 ## Topic Selection Modes
@@ -237,6 +264,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export naming: final deliverables must use Chinese folder and file names. Use project-level topic folders, one folder per video topic, and keep only `视频.mp4`, `封面.jpg`, and `文案.md` in each topic folder. Put validation and source evidence under `_记录`.
+- GitHub archive: after daily validation, upload the final exported topic folders plus `_记录` source-review materials to the GitHub records archive. Keep the archive traceable enough for review and future duplicate prevention, but exclude BGM original files and noisy caches.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 - Legacy template note: if explicitly requested, the older dark vertical template or older purple-ribbon white-card template may still be used. Do not let those legacy rules override the daily clean white paper-card workflow.
 

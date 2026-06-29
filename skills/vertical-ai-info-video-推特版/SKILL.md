@@ -72,7 +72,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
 16. Record the finished topics, 抖音标题, video-bottom copy, tags, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, cover source asset, cover config path, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep Chrome/source screenshots, configs, contact sheets, source records, and detailed production notes in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
-17. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, cover configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
+17. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, cover configs, deliverable index, final media assets, and final source-review materials. The user's current rule is to upload the final exported package after each daily run; do not treat MP4/JPG deliverables as optional unless GitHub rejects the push or the user explicitly changes the rule. Never upload local BGM original files, browser caches, failed downloads, temporary render caches, or duplicate intermediate files.
 
 ## Topic Selection Modes
 
@@ -370,6 +370,16 @@ records/twitter-ai-info-video/
       来源记录.md
       config.json
       output-index.md
+    final-delivery/
+      01-中文话题名/
+        视频.mp4
+        封面.jpg
+        文案.md
+      整体描述.md
+      _记录/
+        contact sheets
+        渲染校验*.md
+        素材与来源/
 ```
 
 Sync rules:
@@ -378,7 +388,7 @@ Sync rules:
 - After a successful run, append the selected topics to `topic-history.md`.
 - Record enough fields to block duplicates later: date, topic title, company/product/person, source tweet URL, source tweet author, observed heat signal, supporting source URLs, information-gap angle, final export folder, and output filenames.
 - Commit and push after each successful invocation. Do not report the run as fully complete until the GitHub sync succeeds or the sync failure is clearly reported.
-- If final MP4 files are too large or unsuitable for the skill repository, still sync topic history, source records, configs, output index, and local export paths so future runs can avoid duplicate topics.
+- For daily runs, upload the final exported videos, covers, publishing copy, overall document, validation/contact-sheet records, configs, source notes, and final material-review package into `records/twitter-ai-info-video/YYYY-MM-DD/final-delivery/`. Do not upload local BGM original files, failed screenshots, browser caches, temporary render caches, or duplicated intermediate assets. If GitHub rejects the media upload, keep a local commit or clearly explain the blocked file size/path and the recovery step.
 
 ## BGM Pool And Selection
 
