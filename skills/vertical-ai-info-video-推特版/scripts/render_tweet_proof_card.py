@@ -85,6 +85,30 @@ def draw_wrapped_text(draw, xy, text, fnt, fill, max_width, line_gap=6):
     return y
 
 
+def draw_source_media_chinese_overlay(draw, box, title, subtitle=None):
+    x, y, w, h = box
+    title_size = 34
+    title_font = font(title_size, True)
+    while title_size > 22 and text_len(draw, title, title_font) > w - 48:
+        title_size -= 2
+        title_font = font(title_size, True)
+    subtitle_font = font(23, True)
+    subtitle_lines = wrap_text(draw, subtitle or "", subtitle_font, w - 56)[:2] if subtitle else []
+    panel_h = title_size + 46 + len(subtitle_lines) * (subtitle_font.size + 5)
+    px0 = x + 18
+    py0 = y + max(18, (h - panel_h) // 2)
+    px1 = x + w - 18
+    py1 = py0 + panel_h
+    draw.rounded_rectangle((px0, py0, px1, py1), radius=16, fill=(255, 255, 255, 236), outline=(32, 213, 222, 210), width=2)
+    tx = px0 + 22
+    ty = py0 + 16
+    draw.text((tx, ty), title, font=title_font, fill=(10, 18, 24, 255))
+    ty += title_size + 12
+    for line in subtitle_lines:
+        draw.text((tx, ty), line, font=subtitle_font, fill=(48, 62, 78, 255))
+        ty += subtitle_font.size + 5
+
+
 def render_card(cfg, project_dir, output):
     width = int(cfg.get("width", 1600))
     height = int(cfg.get("height", 1000))
@@ -122,6 +146,14 @@ def render_card(cfg, project_dir, output):
         raw.paste(media_fit, (mx, my))
         media_draw = ImageDraw.Draw(raw, "RGBA")
         media_draw.rounded_rectangle((mx, my, mx + mw, my + mh), radius=14, outline=(210, 219, 230, 255), width=2)
+        cn_title = cfg.get("source_media_cn_title")
+        if cn_title:
+            draw_source_media_chinese_overlay(
+                media_draw,
+                (mx, my, mw, mh),
+                cn_title,
+                cfg.get("source_media_cn_subtitle"),
+            )
         label = cfg.get("source_media_label")
         if label:
             label_font = font(int(cfg.get("source_media_label_font_size", 20)), True)

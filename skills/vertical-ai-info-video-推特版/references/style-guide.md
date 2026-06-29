@@ -211,6 +211,8 @@ Example proof-card config:
   "source_media_crop_box": [0, 80, 1900, 620],
   "source_media_box": [12, 210, 560, 290],
   "source_media_label": "Chrome 截图：OpenAI 官方页面",
+  "source_media_cn_title": "GPT-5.6 Sol 限量预览",
+  "source_media_cn_subtitle": "官方页面确认：Sol / Terra / Luna 分层模型",
   "output": "assets/images/event/02-核心推文中文卡.jpg",
   "summary_lines": [
     "OpenAI 限量预览 GPT-5.6 Sol",
@@ -238,6 +240,7 @@ Final audience-facing output should be Chinese-first.
 - Preserve source credibility cues: author, handle, date/time, visible engagement, and source URL in the project record.
 - Translate or summarize the tweet body into natural Chinese. Keep company/product names such as `Anthropic`, `Claude`, `OpenAI`, `ChatGPT`, and model names in English when they help recognition.
 - If the tweet contains a chart, table, or UI image with English labels, add a Chinese caption or localized chart summary so viewers do not need to read the English.
+- If a Chrome-captured official page, product UI, or link preview is embedded into the tweet proof card and the visible text is English, add `source_media_cn_title` plus optional `source_media_cn_subtitle` so the embedded image area itself has a Chinese headline. Do not rely only on the right-side interpretation block to explain an English source screenshot.
 - Do not leave an English tweet screenshot as the only explanation in the final video, cover, paper-card preview, or overview image.
 - For paper-card mode, the middle media can be the localized tweet card, while the raw screenshot remains in `assets/raw/` or project notes for traceability.
 
