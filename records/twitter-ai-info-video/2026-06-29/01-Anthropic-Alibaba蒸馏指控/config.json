@@ -1,0 +1,136 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-Anthropic-Alibaba蒸馏指控.mp4",
+  "contact_sheet": "renders/01-Anthropic-Alibaba蒸馏指控-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "安全争议",
+    "source": "X · 2026.06.29"
+  },
+  "title": [
+    {
+      "text": "Anthropic 指控 Alibaba",
+      "y": 126,
+      "size": 86,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "偷学 Claude 能力",
+      "y": 226,
+      "size": 94,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "AI 冷战开始公开化",
+      "y": 346,
+      "size": 88,
+      "color": [
+        216,
+        97,
+        67
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "模型竞争开始进入取证和合规战"
+    },
+    {
+      "label": "跟你有关",
+      "text": "别只看谁模型强，还要看数据和来源能否被信任"
+    },
+    {
+      "label": "发生",
+      "text": "报道称 Anthropic 指控大规模蒸馏 Claude"
+    },
+    {
+      "label": "谁先用",
+      "text": "企业和监管方会先收紧模型访问"
+    },
+    {
+      "label": "影响",
+      "text": "便宜模型背后，可能多一层来源审查"
+    },
+    {
+      "label": "信息差",
+      "text": "AI 竞争不只拼能力，也拼训练来源"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/01-Anthropic-Alibaba蒸馏指控/01-真实视觉.jpg",
+    "assets/images/01-Anthropic-Alibaba蒸馏指控/02-核心推文中文卡.jpg",
+    "assets/images/01-Anthropic-Alibaba蒸馏指控/03-来源截图.jpg",
+    "assets/images/01-Anthropic-Alibaba蒸馏指控/04-信息差解释.jpg",
+    "assets/images/01-Anthropic-Alibaba蒸馏指控/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/S0N_IA/status/2069893802802745673",
+    "author": "SONIA @S0N_IA",
+    "screenshot": "assets/images/01-Anthropic-Alibaba蒸馏指控/02-核心推文中文卡.jpg",
+    "observed_signal": "2026年6月26日 AI 热点线索；CNBC 报道作为确认来源"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "high_luma_brightness": 0.95,
+    "normal_brightness": 1.02,
+    "normal_contrast": 1.02,
+    "low_brightness": 1.18,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.12
+  },
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 26,
+    "pan_y": 22
+  },
+  "bgm": {
+    "path": "assets/audio/say no cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/02-OpenAI-GPT55-Instant更新.mp4",
+  "contact_sheet": "renders/02-OpenAI-GPT55-Instant更新-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "模型更新",
+    "source": "X · 2026.06.29"
+  },
+  "title": [
+    {
+      "text": "OpenAI 没发旗舰",
+      "y": 126,
+      "size": 86,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "先更新 GPT-5.5",
+      "y": 226,
+      "size": 94,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "快模型才是日常入口",
+      "y": 346,
+      "size": 88,
+      "color": [
+        255,
+        112,
+        92
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "这次重点不是最强模型，而是日常速度"
+    },
+    {
+      "label": "跟你有关",
+      "text": "写东西、查资料，先选快入口更省时间"
+    },
+    {
+      "label": "发生",
+      "text": "OpenAI 推出 GPT-5.5 Instant 更新"
+    },
+    {
+      "label": "谁先用",
+      "text": "ChatGPT 和开发者入口会先感受到变化"
+    },
+    {
+      "label": "影响",
+      "text": "普通任务会更依赖低延迟模型"
+    },
+    {
+      "label": "信息差",
+      "text": "入口速度，比参数名更影响真实使用"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/02-OpenAI-GPT55-Instant更新/01-真实视觉.jpg",
+    "assets/images/02-OpenAI-GPT55-Instant更新/02-核心推文中文卡.jpg",
+    "assets/images/02-OpenAI-GPT55-Instant更新/03-来源截图.jpg",
+    "assets/images/02-OpenAI-GPT55-Instant更新/04-信息差解释.jpg",
+    "assets/images/02-OpenAI-GPT55-Instant更新/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAI/status/2069843083701915755",
+    "author": "OpenAI @OpenAI",
+    "screenshot": "assets/images/02-OpenAI-GPT55-Instant更新/02-核心推文中文卡.jpg",
+    "observed_signal": "oEmbed 可解析；2026年6月26日热点整理收录"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "high_luma_brightness": 0.95,
+    "normal_brightness": 1.02,
+    "normal_contrast": 1.02,
+    "low_brightness": 1.18,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.12
+  },
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 26,
+    "pan_y": 22
+  },
+  "bgm": {
+    "path": "assets/audio/bba进行曲.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

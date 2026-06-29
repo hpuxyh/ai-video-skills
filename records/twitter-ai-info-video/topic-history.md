@@ -87,3 +87,71 @@
 最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-背后公司逻辑版
 输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月28日-推特版AI信息差快报-背后公司逻辑版/05-A24回应Google-AI合作/视频.mp4
 备注：未给定具体选题，按默认 X/Twitter 热点模式生成；成片保留本地，GitHub 保存记录、来源和配置用于避重。
+
+### 2026-06-29 推特版 AI 信息差快报
+
+#### 2026-06-29 01 01-Anthropic-Alibaba蒸馏指控
+
+日期：2026-06-29
+话题：01-Anthropic-Alibaba蒸馏指控
+公司/产品/人物：Anthropic
+核心推文：https://x.com/S0N_IA/status/2069893802802745673
+推文作者：SONIA @S0N_IA
+热度信号：2026年6月26日 AI 热点线索；CNBC 报道作为确认来源
+信息差角度：普通人看到的是模型价格，企业先看的会是能力来源和合规风险
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/01-Anthropic-Alibaba蒸馏指控/视频.mp4
+备注：第三方 X 贴作为发现线索，确认依据是 CNBC 对 Anthropic 指控的报道。
+
+#### 2026-06-29 02 02-OpenAI-GPT55-Instant更新
+
+日期：2026-06-29
+话题：02-OpenAI-GPT55-Instant更新
+公司/产品/人物：OpenAI
+核心推文：https://x.com/OpenAI/status/2069843083701915755
+推文作者：OpenAI @OpenAI
+热度信号：oEmbed 可解析；2026年6月26日热点整理收录
+信息差角度：不要只等旗舰名号，真正高频的是低延迟日常入口
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/02-OpenAI-GPT55-Instant更新/视频.mp4
+备注：核心推文为 OpenAI 官方状态 URL。
+
+#### 2026-06-29 03 03-OpenAI-Jalapeno自研芯片
+
+日期：2026-06-29
+话题：03-OpenAI-Jalapeno自研芯片
+公司/产品/人物：OpenAI × Broadcom
+核心推文：https://openai.com/index/openai-broadcom-jalapeno-inference-chip/
+推文作者：OpenAI official page
+热度信号：2026年6月26日热点整理收录；官方页面作为主来源
+信息差角度：AI 成本和开放速度，越来越取决于谁掌握芯片和推理成本
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/03-OpenAI-Jalapeno自研芯片/视频.mp4
+备注：未抓到可解析的官方 X status；本条用 OpenAI 官方页面做来源卡。
+
+#### 2026-06-29 04 04-fal-Seed-Audio-10
+
+日期：2026-06-29
+话题：04-fal-Seed-Audio-10
+公司/产品/人物：fal
+核心推文：https://x.com/fal/status/2070138257891791237
+推文作者：fal @fal
+热度信号：2026年6月26日热点整理收录；公开 oEmbed 当前返回 404
+信息差角度：普通人会先从短视频配乐、广告样片、游戏音效感受到 AI 音频变化
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/04-fal-Seed-Audio-10/视频.mp4
+备注：Apple Podcasts show notes 提供 fal X 链接；当前 X oEmbed 未返回可嵌入内容。
+
+#### 2026-06-29 05 05-Seedance-Blender可控工作流
+
+日期：2026-06-29
+话题：05-Seedance-Blender可控工作流
+公司/产品/人物：Seedance workflow
+核心推文：https://x.com/venturetwins/status/2069809200788799582
+推文作者：Justine Moore @venturetwins
+热度信号：oEmbed 可解析；AI Warper 原始工作流同步扩散
+信息差角度：不是重复 Seedance 2.0 发布，而是创作者用 Blender 让 AI 视频更可控
+最终导出目录：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报
+输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/05-Seedance-Blender可控工作流/视频.mp4
+备注：核心推文为 Justine Moore 分享；AI Warper 链接作为原始工作流支撑。
+

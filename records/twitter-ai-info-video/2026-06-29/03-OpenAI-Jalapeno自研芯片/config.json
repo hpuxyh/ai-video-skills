@@ -1,0 +1,136 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-OpenAI-Jalapeno自研芯片.mp4",
+  "contact_sheet": "renders/03-OpenAI-Jalapeno自研芯片-contact-sheet.jpg",
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "算力芯片",
+    "source": "X · 2026.06.29"
+  },
+  "title": [
+    {
+      "text": "OpenAI 做自研芯片",
+      "y": 126,
+      "size": 86,
+      "color": [
+        236,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "Jalapeño 联手 Broadcom",
+      "y": 226,
+      "size": 94,
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "模型公司开始抢算力底座",
+      "y": 346,
+      "size": 88,
+      "color": [
+        84,
+        190,
+        255
+      ]
+    }
+  ],
+  "title_starts": [
+    0.02,
+    0.2,
+    0.4
+  ],
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "info_rows": [
+    {
+      "label": "结论",
+      "text": "模型公司开始把芯片也握在手里"
+    },
+    {
+      "label": "跟你有关",
+      "text": "AI 变贵或变快，背后常常是算力问题"
+    },
+    {
+      "label": "发生",
+      "text": "OpenAI 公布 Jalapeño 推理芯片项目"
+    },
+    {
+      "label": "谁先用",
+      "text": "先服务推理负载和核心产品成本"
+    },
+    {
+      "label": "影响",
+      "text": "模型竞争会继续向芯片和供应链下沉"
+    },
+    {
+      "label": "信息差",
+      "text": "未来 AI 入口背后，拼的是整条算力栈"
+    }
+  ],
+  "info_style": {
+    "y": 1288,
+    "row_h": 64,
+    "start": 0.56,
+    "step": 0.56,
+    "reveal": 0.22,
+    "hot_labels": [
+      "结论",
+      "信息差",
+      "跟你有关"
+    ]
+  },
+  "images": [
+    "assets/images/03-OpenAI-Jalapeno自研芯片/01-真实视觉.jpg",
+    "assets/images/03-OpenAI-Jalapeno自研芯片/02-核心推文中文卡.jpg",
+    "assets/images/03-OpenAI-Jalapeno自研芯片/03-来源截图.jpg",
+    "assets/images/03-OpenAI-Jalapeno自研芯片/04-信息差解释.jpg",
+    "assets/images/03-OpenAI-Jalapeno自研芯片/05-补充素材.jpg"
+  ],
+  "tweet_anchor": {
+    "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+    "author": "OpenAI official page",
+    "screenshot": "assets/images/03-OpenAI-Jalapeno自研芯片/02-核心推文中文卡.jpg",
+    "observed_signal": "2026年6月26日热点整理收录；官方页面作为主来源"
+  },
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_fit": "contain",
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "image_grade": {
+    "high_luma_brightness": 0.95,
+    "normal_brightness": 1.02,
+    "normal_contrast": 1.02,
+    "low_brightness": 1.18,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.12
+  },
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 26,
+    "pan_y": 22
+  },
+  "bgm": {
+    "path": "assets/audio/bba进行曲.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}
