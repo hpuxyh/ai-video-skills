@@ -108,7 +108,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
   --wait 8
 ```
 
-- For the same topic, also capture at least two, preferably three, additional high-signal screenshots from below the core tweet when available. Run these commands sequentially because they operate on the same visible Chrome window:
+- For the same topic, also capture raw lower-thread evidence from below the core tweet when available. Run these commands sequentially because they operate on the same visible Chrome window:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/capture_chrome_source.py \
@@ -130,7 +130,11 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
   --scroll-y 4400
 ```
 
-- Treat these lower-thread screenshots as supporting context or image 4/5 candidates. They do not replace the core tweet anchor in `images[1]`. If they are English, add Chinese captions/overlays before placing them in final frames. If they are already mainly Chinese and readable, do not add a redundant Chinese interpretation layer.
+- Do not place those full-height raw timeline screenshots directly into the final video or overview. From the raw captures, crop two compact blocks by default:
+  - `assets/raw/chrome/topic-reply-01-compact.png`
+  - `assets/raw/chrome/topic-reply-02-compact.png`
+- Each compact block should look like one small X post card: author row, readable text, and either one complete key image/chart or no media at all. Avoid full-height timeline columns, right-side X panels, browser chrome, unrelated posts, and half-visible media at the bottom.
+- Treat these compact lower-thread crops as supporting context or image 4/5 candidates. They do not replace the core tweet anchor in `images[1]`. If they are English, add Chinese captions/overlays before placing them in final frames. If they are already mainly Chinese and readable, do not add a redundant Chinese interpretation layer.
 - Inspect the saved Chrome screenshot before rendering. If it shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or an unrelated page, recapture in Chrome or reject the topic. Do not silently replace it with a generated source card.
 - Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, and GitHub-synced history under `records/twitter-ai-info-video/`. Treat these as the duplicate-prevention source of truth.
 - Prefer China/US/global AI stories with clear X/Twitter discussion value: model releases, product demos, policy/regulation, safety/security, AI hardware, agent/tools, major company moves, open-source releases, and consumer/workflow impact.
