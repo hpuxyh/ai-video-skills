@@ -109,16 +109,16 @@ Daily-history rule:
 
 - Before any auto-scout or daily batch, read `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` plus any current batch `选题记录.md` files.
 - Also read the 推特版 AI 信息差 history, especially `records/twitter-ai-info-video/topic-history.md` in the GitHub-synced skill repo when available.
-- Do not repeat topics across ordinary AI 信息差新闻视频 and 推特版 AI 信息差新闻视频 when they are nearly identical. Similar company/theme is allowed, but if the event object, factual anchor, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
-- Do not repeat the same or nearly same news event, title angle, and viewer takeaway from history.
-- A company may repeat only when the event is materially new and the `信息差` angle is different.
+- Do not repeat exact duplicates across ordinary AI 信息差新闻视频 and 推特版 AI 信息差新闻视频. Exact duplicate means the same company/person/product, the same event/development, the same core source tweet or factual source, and the same information-gap angle/viewer takeaway.
+- Similar company/theme is allowed. A company may repeat when the event, development, source, or `信息差` angle is materially different.
+- Do not repeat the exact same news event, title angle, and viewer takeaway from history.
 - After rendering, append each topic with date, topic name, companies/people, source links, information-gap angle, output paths, and whether it was manually requested or auto-scouted.
 
 Default daily automation:
 
 - The standing daily job is `AI信息差新闻视频-每日8点`.
 - It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
-- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid historical repeats across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
+- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid exact duplicate topics across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
 - Daily scheduled videos must use the confirmed clean white paper-card video logic by default: red `重磅` metadata row, large three-line headline on the white card, blue third-line emphasis, no large purple title/ribbon block, real five-image carousel with soft fade transitions, screenshot/text-card media preserved in full, label-free cyan-highlight bottom lines revealing one by one at a readable pace, no dark ordinary template unless the user explicitly requests it.
 
 ## Topic Selection Modes
@@ -126,7 +126,7 @@ Default daily automation:
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
 - Auto-scout mode: when no concrete topic is provided, search the latest 7 days of AI news across US and China, then select 5 topics before rendering.
 - Auto-scout selection criteria: do not simply pick the top 5 headlines. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
-- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files from both `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` and the GitHub-synced 推特版 history. Do not choose the same or nearly same event/topic as an earlier batch unless the user explicitly asks for a follow-up angle. Similar is acceptable; nearly identical is not. If a company repeats, the event and information-gap angle must be materially different.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files from both `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` and the GitHub-synced 推特版 history. Do not choose an exact duplicate from either workflow unless the user explicitly asks for a follow-up. Similar company/theme is acceptable when the event, development, source, or information-gap angle is materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 

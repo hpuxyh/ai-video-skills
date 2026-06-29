@@ -27,7 +27,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
    - If the user gives a concrete news topic, company, event, URL, tweet URL, or instruction, use the given topic directly and generate one video for that event using the confirmed workflow.
    - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool from viral/media/source accounts, score candidates with the viral topic screening logic, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
 2. Confirm or infer each video's topic, three-line animated title, bottom description lines, image set, cover, BGM, and tweet anchor.
-3. Before choosing or rendering topics, read the GitHub-synced screening project under `projects/twitter-viral-topic-screening/`, plus history records and local `选题记录.md` / `topic-history.md`. Also read the ordinary AI 信息差 news-video history under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`. Do not produce a duplicate or near-duplicate topic that has already been successfully rendered in either workflow. Similar company/theme is allowed, but if the event object, factual anchor/source tweet, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
+3. Before choosing or rendering topics, read the GitHub-synced screening project under `projects/twitter-viral-topic-screening/`, plus history records and local `选题记录.md` / `topic-history.md`. Also read the ordinary AI 信息差 news-video history under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`. Do not produce an already-rendered exact duplicate across either workflow. Exact duplicate means the same company/person/product, the same event/development, the same core source tweet or factual source, and the same information-gap angle/viewer takeaway. Similar company/theme is allowed; reuse the company only when there is a new event, new development, new source tweet, or clearly different information-gap angle.
 4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary or viral-media amplification exists, use it only as a discovery signal, not as the anchor.
 5. Capture source material in the user's local Google Chrome first. Open the chosen X/Twitter post and supporting official/news/product pages in the user's Chrome profile, using its existing login/session state, then save raw browser screenshots under the working project's `assets/raw/chrome/` directory. The tweet proof card and source evidence images should be derived from these Chrome screenshots by default. Do not replace Chrome capture with web search thumbnails, generated source cards, or guessed screenshots unless Chrome capture fails; if it fails, record the exact blocked URL and reason in the source notes before using any fallback. Use the provided Chrome capture command:
 
@@ -39,7 +39,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 ```
 
 6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, preferably the most recognizable person in the story when there is one. Image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
-7. For each X/Twitter topic, capture more than the single core tweet when useful: after saving the core tweet screenshot, scroll the same Chrome thread and capture raw lower-thread evidence using `--scroll-y`, then derive two compact crops from the best replies, quote/repost embeds, or related posts. Save final compact crops as `assets/raw/chrome/<topic-id>-reply-01-compact.png` and `assets/raw/chrome/<topic-id>-reply-02-compact.png`; keep any third raw screenshot only as backup unless the user asks for more. Run Chrome captures sequentially because they control the same visible browser window. These screenshots are supporting context only; they do not replace the primary tweet anchor. If the visible text is English, add Chinese captions or overlays before using them in final video frames.
+7. For each X/Twitter topic, capture more than the single core tweet when useful: after saving the core tweet screenshot, scroll the same Chrome thread and capture raw lower-thread evidence using `--scroll-y`, then derive one or two compact crops from the best replies, official follow-up comments, quote/repost embeds, or related posts. The normal final video should use two X screenshots total: one core tweet screenshot and one best supporting/comment screenshot. A second compact reply crop can be kept as backup or used only when the story genuinely needs it. Save final compact crops as `assets/raw/chrome/<topic-id>-reply-01-compact.png` and `assets/raw/chrome/<topic-id>-reply-02-compact.png`; keep any third raw screenshot only as backup unless the user asks for more. Run Chrome captures sequentially because they control the same visible browser window. These screenshots are supporting context only; they do not replace the primary tweet anchor. If the visible text is English, translate the key opinion or add a short Chinese caption/overlay before using it in final video frames; if the screenshot is already mainly Chinese and readable, do not add redundant Chinese interpretation.
 8. For social publishing, generate a separate cover preview using the cover rules in `references/style-guide.md`: recognizable person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available. Use `scripts/render_full_bleed_cover.py` or an equivalent dedicated cover renderer. Never create the final `封面.jpg` by extracting the first frame of the MP4.
 9. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
 10. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
@@ -56,24 +56,22 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 
 13. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
 14. Validate each cover before export. The cover must be a standalone 9:16 image generated from a cover config or explicit cover asset, not `ffmpeg -frames:v 1`, not the video first frame, not the tweet proof card, and not a paper-card screenshot. Reject a cover if it does not visibly follow the people/company-first logic.
-15. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with the final MP4, cover image, and a small title/copy document; the batch root gets one overall copy file:
+15. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first and minimal: each topic gets one folder with only the final MP4 and cover image; the batch root gets one `整体描述.md` containing all five topics' cover/video paths, 抖音标题, video-bottom copy, and tags:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
-  导出-YYYY年MM月DD日-推特版AI信息差快报/
+  导出-YYYY年MM月DD日-HH点MM分-推特版AI信息差快报/
     01-中文话题名/
       视频.mp4
       封面.jpg
-      标题和内容描述.md
     02-中文话题名/
       视频.mp4
       封面.jpg
-      标题和内容描述.md
     整体描述.md
 ```
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
-16. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, cover source asset, cover config path, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
+16. Record the finished topics, 抖音标题, video-bottom copy, tags, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, cover source asset, cover config path, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep Chrome/source screenshots, configs, contact sheets, source records, and detailed production notes in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
 17. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, cover configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
 
 ## Topic Selection Modes
@@ -82,7 +80,7 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select 5 topics with strong AI 信息差信号 and strong viral-topic scores.
 - X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first from viral/media/source accounts, then pick the stories most suitable for AI 信息差短视频: public emotion trigger, viral source signal, information-gap strength, normal-viewer relevance, credible anchor, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor. Familiar protagonists and familiar public issues are preferred; obscure companies/products must have a very clear public conflict to survive.
 - Heat judgment: treat X/Twitter engagement as a signal, not the only proof. Consider views, reposts, likes, replies, account authority, quote-post spread, whether AI builders are discussing it, whether viral media or prediction-market accounts have amplified it, and whether official/news sources can verify the underlying event.
-- Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, the GitHub-synced 推特版 history records, and the ordinary AI 信息差 news-video history. Do not choose the same or nearly same event/topic as an earlier successful batch unless the user explicitly asks for a follow-up angle. Similar is acceptable; nearly identical is not. If a company repeats, the event and information-gap angle must be materially different.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, the GitHub-synced 推特版 history records, and the ordinary AI 信息差 news-video history. Do not choose an exact duplicate from either workflow: same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway. Similar company/theme is acceptable when the event, development, source, or information-gap angle is materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, tweet anchor, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 
@@ -92,7 +90,7 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - If the user does not provide a topic, default to finding 5 hot X/Twitter AI topics from the latest 2-3 days using the viral topic screening project.
 - "Hot" does not mean likes-only. Rank candidates by public emotion trigger, viral account signal, tweet heat, account authority, quote/reply spread, source credibility, viewer relevance, information-gap strength, and available real assets.
 - Use the scoring model from `twitter-ai-viral-topic-selection`: controversy strength, emotional spread, source priority, public familiarity, information gap, comment/spread signal, and visual assets. Do not select topics below 70 unless the user explicitly asks; prefer 80+ for a daily batch and 90+ for priority output.
-- Before finalizing the 5 topics, check GitHub-synced 推特版 history, local topic history, and ordinary AI 信息差 news-video history. Reject exact repeats and near-duplicates across both ordinary and 推特版 workflows.
+- Before finalizing the 5 topics, check GitHub-synced 推特版 history, local topic history, and ordinary AI 信息差 news-video history. Reject exact duplicates across both ordinary and 推特版 workflows, using the same-company/person/product + same-event/development + same-source + same-information-gap-angle definition.
 - A non-duplicate follow-up is allowed only when there is a materially new development, a new source tweet, or a different information-gap angle.
 - After each successful run, update the history records and sync them to GitHub before telling the user the run is complete.
 
@@ -302,7 +300,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Cover rendering: build a cover config and run `scripts/render_full_bleed_cover.py`. A video frame, paper-card frame, or tweet screenshot cannot substitute for the cover.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export destination: final 推特版 deliverables must be organized under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`. Temporary render files can stay in the project folder during iteration, but the handoff-ready batch must be copied or rendered into this dedicated folder.
-- Export naming: final user-facing deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`; inside it, create one numbered topic folder per project. Each topic folder contains `视频.mp4`, `封面.jpg`, and `标题和内容描述.md`. Put the batch-level summary, five titles, five descriptions, and file index in one root `整体描述.md`. Keep source screenshots, configs, and detailed history in the working project or GitHub records. Contact sheets or `渲染总览.jpg` may be included only when the user is reviewing visual quality.
+- Export naming: final user-facing deliverables must use Chinese folder and file names. The top-level batch folder should include date, run time, and `推特版` or `推特专用`; inside it, create one numbered topic folder per project. Each topic folder contains only `视频.mp4` and `封面.jpg`. Put the batch-level summary, five video/cover paths, five 抖音 titles, five video-bottom descriptions, and tags in one root `整体描述.md`. Keep source screenshots, configs, contact sheets, and detailed history in the working project or GitHub records. Contact sheets or `渲染总览.jpg` may be copied only when the user is reviewing visual quality.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 
 ## Iteration Rules
@@ -324,19 +322,16 @@ All handoff-ready videos produced by this 推特版 skill should be placed under
 Use this batch structure:
 
 ```text
-导出-YYYY年MM月DD日-推特版AI信息差快报/
+导出-YYYY年MM月DD日-HH点MM分-推特版AI信息差快报/
   01-中文话题名/
     视频.mp4
     封面.jpg
-    标题和内容描述.md
   02-中文话题名/
     视频.mp4
     封面.jpg
-    标题和内容描述.md
   03-中文话题名/
     视频.mp4
     封面.jpg
-    标题和内容描述.md
   整体描述.md
 ```
 
@@ -344,7 +339,7 @@ Rules:
 
 - Do not leave final deliverables only inside a temporary project `renders/` directory.
 - Do not split the user-facing export into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源` unless the user explicitly requests the old structure.
-- Keep iteration previews, contact sheets, configs, and detailed source notes in the working project while tuning. For the handoff-ready Xiaohongshu export folder, copy the approved MP4, cover, per-topic `标题和内容描述.md`, and one root `整体描述.md`; include visual overview images only when the user asks to inspect them.
+- Keep iteration previews, contact sheets, configs, and detailed source notes in the working project while tuning. For the handoff-ready Xiaohongshu export folder, copy only the approved MP4 and cover into each topic folder, plus one root `整体描述.md` containing the publishing copy for all topics; include visual overview images only when the user asks to inspect them.
 - GitHub/local source records should include the source tweet URL, tweet author, observed heat signal, screenshot filename, supporting source URLs, and why this topic is suitable for a 推特版 AI 信息差 video.
 - The folder or file name must clearly say `推特版` or `推特专用`.
 
