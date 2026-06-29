@@ -2,10 +2,14 @@
 
 这里存放 `vertical-ai-info-video-推特版` 每次成功产出的同步记录。
 
+选题筛选逻辑维护在：
+
+- `projects/twitter-viral-topic-screening/`
+
 使用规则：
 
 - 有用户给定选题时，只记录该选题产出。
-- 没有给定选题时，默认记录当天 5 个 X/Twitter AI 热点选题。
+- 没有给定选题时，默认按 `projects/twitter-viral-topic-screening/` 的爆款主题筛选逻辑，记录当天 5 个 X/Twitter AI 信息差选题。
 - 每次成功调用后，都要同步 GitHub。
 - 新一次选题前，先检查这里的历史，避免产生完全重复的选题。
 

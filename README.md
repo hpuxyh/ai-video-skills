@@ -21,6 +21,12 @@
 | 简笔画动画视频 | 线稿风 + 短画面字；**主动网络搜参考图临摹**；逼真非抽象；GSAP 主时间线 + 可选 Anime.js；抽检闭环 | `skills/sketch-animation-video/SKILL.md` |
 | Anime.js（HyperFrames） | seek 驱动适配、`window.__hfAnime` 注册、与 GSAP 分工 | `skills/animejs/SKILL.md` |
 
+## Projects
+
+| Project | 说明 | 路径 |
+|---|---|---|
+| 推特版爆款主题筛选 | 从爆款账号、可信媒体、预测市场和官方锚点里筛选更可能爆火/引发争议的 AI 信息差素材 | `projects/twitter-viral-topic-screening/` |
+
 ## 预览
 
 ### ai-tech-news-video

@@ -7,9 +7,9 @@ description: "Generate 9:16 Chinese AI information-gap short videos from recent 
 
 ## Overview
 
-Use this skill to produce the X/Twitter-first version of the fixed 9:16 AI 信息差短视频 workflow: find recent AI hotspots on X/Twitter, confirm the topic with a core tweet from the relevant person or official account, place that tweet screenshot as the second carousel image, then keep the original video system: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
+Use this skill to produce the X/Twitter-first version of the fixed 9:16 AI 信息差短视频 workflow: find recent AI hotspots on X/Twitter, filter them through the GitHub-synced viral topic screening project, confirm the topic with a core tweet from the relevant person or official account, place that tweet screenshot as the second carousel image, then keep the original video system: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
 
-The defining rule of this version is: every auto-scouted topic must have a verified tweet anchor. The second image in the video carousel must be a clean screenshot of the core tweet that confirms why this topic exists. Because viewers need time to read it, image 2 should hold for roughly twice as long as the other carousel images.
+The defining rule of this version is: every auto-scouted topic must have a verified tweet anchor and a viral-topic rationale. The second image in the video carousel must be a clean screenshot of the core tweet that confirms why this topic exists. Because viewers need time to read it, image 2 should hold for roughly twice as long as the other carousel images.
 
 The final audience-facing output must be Chinese-first. If the source tweet, chart, UI, or screenshot is in English, keep the original asset for traceability, then create a Chinese-localized tweet card or overlay so the final image/video can be understood without reading English. If the source screenshot is already mainly Chinese and readable, do not add a redundant `中文释义` block; use a clean crop or a lightly framed source card instead. Product names, company names, handles, and short technical terms may remain in English when they help recognition.
 
@@ -23,10 +23,10 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, tweet URL, or instruction, use the given topic directly and generate one video for that event using the confirmed workflow.
-   - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
+   - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool from viral/media/source accounts, score candidates with the viral topic screening logic, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
 2. Confirm or infer each video's topic, three-line animated title, info rows, image set, cover, BGM, and tweet anchor.
-3. Before choosing or rendering topics, check the GitHub-synced history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
-4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary exists, use it only as a discovery signal, not as the anchor.
+3. Before choosing or rendering topics, read the GitHub-synced screening project under `projects/twitter-viral-topic-screening/`, plus history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
+4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary or viral-media amplification exists, use it only as a discovery signal, not as the anchor.
 5. Capture source material in the user's local Google Chrome first. Open the chosen X/Twitter post and supporting official/news/product pages in the user's Chrome profile, using its existing login/session state, then save raw browser screenshots under the working project's `assets/raw/chrome/` directory. The tweet proof card and source evidence images should be derived from these Chrome screenshots by default. Do not replace Chrome capture with web search thumbnails, generated source cards, or guessed screenshots unless Chrome capture fails; if it fails, record the exact blocked URL and reason in the source notes before using any fallback. Use the provided Chrome capture command:
 
 ```bash
@@ -74,9 +74,9 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 ## Topic Selection Modes
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
-- X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select 5 topics with strong AI 信息差信号.
-- X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first, then pick the stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor.
-- Heat judgment: treat X/Twitter engagement as a signal, not the only proof. Consider views, reposts, likes, replies, account authority, quote-post spread, whether AI builders are discussing it, and whether official/news sources can verify the underlying event.
+- X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select 5 topics with strong AI 信息差信号 and strong viral-topic scores.
+- X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first from viral/media/source accounts, then pick the stories most suitable for AI 信息差短视频: public emotion trigger, viral source signal, information-gap strength, normal-viewer relevance, credible anchor, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor.
+- Heat judgment: treat X/Twitter engagement as a signal, not the only proof. Consider views, reposts, likes, replies, account authority, quote-post spread, whether AI builders are discussing it, whether viral media or prediction-market accounts have amplified it, and whether official/news sources can verify the underlying event.
 - Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, and the GitHub-synced history records. Do not choose the exact same event/topic as an earlier successful batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, tweet anchor, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
@@ -84,11 +84,44 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 ## Daily Execution Logic
 
 - If the user provides a topic, tweet URL, company, event, or concrete instruction, do not auto-scout a new batch. Produce the requested topic only.
-- If the user does not provide a topic, default to finding 5 hot X/Twitter AI topics from the latest 2-3 days.
-- "Hot" does not mean likes-only. Rank candidates by tweet heat, account authority, quote/reply spread, source credibility, viewer relevance, information-gap strength, and available real assets.
+- If the user does not provide a topic, default to finding 5 hot X/Twitter AI topics from the latest 2-3 days using the viral topic screening project.
+- "Hot" does not mean likes-only. Rank candidates by public emotion trigger, viral account signal, tweet heat, account authority, quote/reply spread, source credibility, viewer relevance, information-gap strength, and available real assets.
+- Use the default scoring model from `projects/twitter-viral-topic-screening/README.md`: public emotion trigger 25, viral account signal 20, information-gap strength 20, normal-viewer relevance 15, credible anchor 10, visual assets 10. Do not select topics below 70 unless the user explicitly asks; prefer 80+ for a daily batch and 90+ for priority output.
 - Before finalizing the 5 topics, check GitHub-synced history and local topic history. Reject exact repeats.
 - A non-duplicate follow-up is allowed only when there is a materially new development, a new source tweet, or a different information-gap angle.
 - After each successful run, update the history records and sync them to GitHub before telling the user the run is complete.
+
+## Viral Topic Screening Logic
+
+For auto-scouted 推特版 videos, AI relevance is only the entry gate. The strongest topics should look like:
+
+```text
+viral/media account signal + public emotion theme + clear information gap + credible source anchor + real visual assets
+```
+
+Source-account roles:
+
+- Viral radar: `@Polymarket`, `@Kalshi`, `@ManifoldMarkets`, `@unusual_whales`, `@WatcherGuru`.
+- AI digest/packaging: `@TheRundownAI`, `@rowancheung`, `@ArtificialAnlys`, `@AiBreakfast`, `@tldrnewsletter`.
+- Credible media: `@ReutersTech`, `@technology`, `@theinformation`, `@TechCrunch`, `@verge`, `@WIRED`, `@VentureBeat`.
+- Official/source anchor: the company, product, founder, CEO, product lead, researcher, creator, government official, or other primary actor.
+
+Use viral/media accounts as discovery and packaging signals, not final proof. If a topic starts from a third-party viral account, find a primary-source tweet, official page, or reputable report before selecting it.
+
+Prioritize public themes in this order:
+
+1. 饭碗变化: replacement, layoffs, skill devaluation, work automation.
+2. 钱和市场: prediction-market movement, stock reaction, chip orders, AI investment direction.
+3. 造假和安全: deepfakes, scams, fake videos, voice cloning, data leaks, model misuse.
+4. 版权和创作者冲突: film, music, writing, illustration, gaming, short-video creators.
+5. 大厂战争: OpenAI, Google, Meta, Anthropic, xAI, Apple, Microsoft competition.
+6. 普通人马上能用的新工具: slides, video, spreadsheets, websites, apps, investment research, office automation.
+7. 孩子和教育: homework, cheating, tutoring, teacher replacement, child development.
+8. 规则变化: regulation, courts, government procurement, safety reviews, platform bans.
+
+Low-priority topics are pure benchmark posts, pure fundraising, pure papers, or pure developer tools unless they can be translated into a normal-viewer change in cost, access, risk, work, money, creativity, or daily tools.
+
+Before rendering 5 videos, show the chosen 5 topics with one-line rationale, tweet anchor, likely cover assets, information-gap angle, public theme, viral-source signal, and score when the user has not already approved the topic list.
 
 ## Tweet Anchor Rules
 
