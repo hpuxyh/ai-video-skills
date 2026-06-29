@@ -1,4 +1,4 @@
 interface:
   display_name: "推特版 AI 爆款标题"
-  short_description: "为推特版 AI 视频爆款选题生成大众情绪传播三行标题"
+  short_description: "为推特版 AI 图文截图生成大众情绪传播三行标题"
   default_prompt: "Use $twitter-ai-viral-title-writing to write three-line titles for Twitter-version AI video topics."

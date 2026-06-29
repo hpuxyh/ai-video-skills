@@ -1,31 +1,35 @@
 ---
 name: twitter-ai-viral-title-writing
-description: "Twitter-version AI video viral title-writing workflow. Use when turning approved X/Twitter-version AI video topics into Chinese three-line short-video titles, especially after controversy-first topic screening, with rules for public familiarity, emotional hooks, familiar issue first, obscure protagonist later, and honest information-gap packaging."
+description: "Twitter-version AI video viral title-writing workflow. Use when turning approved X/Twitter-version AI video topics into Chinese three-line short-video titles for Douyin/Xiaohongshu screenshot-card layouts with top three-line headline, middle screenshot, and lower explainer copy; especially after controversy-first topic screening, with rules for public familiarity, emotional hooks, familiar issue first, obscure protagonist later, numbers/contrast/reversal, and honest information-gap packaging."
 ---
 
 # Twitter AI Viral Title Writing
 
 ## Overview
 
-Use this skill to write Chinese titles for **推特版 AI 信息差视频** after topics have been screened. The title must make ordinary viewers understand the conflict in one second, then reveal the event and consequence.
+Use this skill to write Chinese titles for **推特版 AI 信息差视频** after topics have been screened. It is optimized for Douyin/Xiaohongshu screenshot-card layouts: a top three-line large headline, a middle source screenshot, and lower explainer copy.
+
+The title is not a neutral news headline. It is the large hook that makes ordinary viewers stop, understand the public conflict in one second, then see the event and consequence.
 
 ## Title Structure
 
-Use three short lines:
+Use exactly three short lines. Each line should usually be about 8-16 Chinese characters when possible:
 
 ```text
 Line 1: public conflict or familiar protagonist
-Line 2: concrete event or change
-Line 3: ordinary-viewer consequence, controversy, or information gap
+Line 2: concrete event/change
+Line 3: ordinary-viewer consequence/information gap
 ```
 
-Line 1 should stop the viewer. Line 2 should prove what happened. Line 3 should answer why it matters.
+Line 1 must have conflict. Line 2 must have change. Line 3 must have consequence.
+
+Prefer numbers, comparison, and reversal when the source supports them. Avoid long lines that only work as body copy.
 
 ## Familiarity Rule
 
 Do not lead with obscure names.
 
-Lead with the protagonist only when it is broadly recognizable: OpenAI, ChatGPT, Google, Meta, Apple, Microsoft, Anthropic/Claude, xAI/Grok, Elon Musk, TikTok, major celebrities, major schools, government, courts, or famous media brands.
+Lead with the protagonist only when it is broadly recognizable: OpenAI, ChatGPT, Google, Meta, Apple, Microsoft, Anthropic/Claude, xAI/Grok, Elon Musk, NVIDIA, Tencent, ByteDance, TikTok, major celebrities, major schools, government, courts, or famous media brands.
 
 When the protagonist is obscure, lead with the familiar public issue:
 
@@ -54,12 +58,49 @@ Pick one dominant hook per title:
 ## Writing Rules
 
 - Write like a short-video hook, not a neutral news headline.
+- Use exactly three lines for screenshot-card titles.
+- Keep each line roughly 8-16 Chinese characters when possible.
+- Make line 1 feel like conflict, line 2 like change, and line 3 like consequence.
 - Use Chinese-first wording; keep English product names only when recognition helps.
 - Prefer concrete words over abstractions such as `范式`, `生态`, `能力边界`, `产业迁移`.
-- Keep each line short enough for a mobile cover.
+- Prefer numbers, comparison, contrast, and reversal when they are true.
 - Do not exaggerate beyond the verified source.
 - Do not hide the real event: the viewer should understand what happened from the three lines alone.
 - If the title needs a long explanation to make sense, rewrite or reject the topic.
+
+## Common Templates
+
+Use these templates as starting points, then rewrite them into natural Chinese:
+
+```text
+[familiar protagonist] 这次被骂惨了
+[cost/ability/rule] 只变了 [number]
+普通人却要多付 [cost]
+```
+
+```text
+[public issue] 开始变了
+[concrete change] 正在发生
+普通人可能还没意识到
+```
+
+```text
+[work/privacy/content/money] 出问题了
+[AI/big tech/platform] 正在改规则
+以后不能再这么用了
+```
+
+```text
+[old belief] 可能错了
+[new fact] 直接反转
+AI 不是越大越强
+```
+
+```text
+[big tech company] 开始算账了
+AI 预算被直接砍掉
+会用 AI 不等于有产出
+```
 
 ## Strong Patterns
 
@@ -95,6 +136,18 @@ AI 翻唱越像本人
 以后嗓子也要注册
 ```
 
+```text
+机器人不用听指令了
+看一眼就能自己走
+小模型开始挑战大模型
+```
+
+```text
+苹果这次被骂惨了
+成本涨 45 却加价 250
+消费者成了转嫁对象
+```
+
 ## Rewrite Checklist
 
 Before finalizing, check:
@@ -102,6 +155,8 @@ Before finalizing, check:
 - Does line 1 use a familiar conflict or recognizable protagonist?
 - Does line 2 state a concrete event?
 - Does line 3 create consequence, tension, or information gap?
+- Is each line short enough to sit as a top screenshot-card headline?
+- Is there a number, contrast, or reversal when the source supports one?
 - Could a non-AI viewer understand the issue without prior context?
 - Is the emotional hook supported by the source?
 - Are obscure names moved out of line 1 unless they are necessary?
