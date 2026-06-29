@@ -30,6 +30,7 @@ def main():
     parser.add_argument("--url", required=True, help="X/Twitter, official, product, or news URL to open in local Chrome.")
     parser.add_argument("--output", required=True, help="PNG output path, usually assets/raw/chrome/<topic>-tweet.png.")
     parser.add_argument("--wait", type=float, default=8.0, help="Seconds to wait after opening the URL.")
+    parser.add_argument("--scroll-y", type=int, default=0, help="Optional page scroll offset in CSS pixels before capture.")
     parser.add_argument(
         "--bounds",
         default="80,60,1400,980",
@@ -54,11 +55,15 @@ tell application "Google Chrome"
   activate
   if (count of windows) = 0 then make new window
   set bounds of front window to {{{bounds_list}}}
-  set URL of active tab of front window to "{args.url}"
+set URL of active tab of front window to "{args.url}"
 end tell
 delay {args.wait}
 tell application "Google Chrome"
   activate
+  if {args.scroll_y} is not 0 then
+    execute active tab of front window javascript "window.scrollTo(0, {args.scroll_y});"
+    delay 2
+  end if
   return bounds of front window
 end tell
 '''
@@ -75,6 +80,7 @@ end tell
                 "output": str(output),
                 "captured_at": datetime.now().isoformat(timespec="seconds"),
                 "chrome_bounds": {"left": left, "top": top, "width": width, "height": height},
+                "scroll_y": args.scroll_y,
                 "capture_method": "local Google Chrome + screencapture",
             },
             ensure_ascii=False,

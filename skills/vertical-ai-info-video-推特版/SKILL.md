@@ -37,11 +37,12 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 ```
 
 6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
-7. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
-8. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-9. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
-10. Before rendering, inspect Chrome screenshots, derived source cards, and a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, reopen or recapture it in Chrome before rendering. Never ship a video with an asset-error card visible.
-11. Run `scripts/render_vertical_info_video.py` from a project directory:
+7. For each X/Twitter topic, capture more than the single core tweet when useful: after saving the core tweet screenshot, scroll the same Chrome thread and capture at least two, preferably three, additional high-signal replies, quote/repost embeds, or related posts under the thread using `--scroll-y`. Save them as `assets/raw/chrome/<topic-id>-reply-01.png`, `assets/raw/chrome/<topic-id>-reply-02.png`, and when available `assets/raw/chrome/<topic-id>-reply-03.png`. Run these Chrome captures sequentially because they control the same visible browser window. These screenshots are supporting context only; they do not replace the primary tweet anchor. If the visible text is English, add Chinese captions or overlays before using them in final video frames.
+8. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
+9. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
+10. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
+11. Before rendering, inspect Chrome screenshots, derived source cards, and a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, reopen or recapture it in Chrome before rendering. Never ship a video with an asset-error card visible.
+12. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_vertical_info_video.py \
@@ -51,8 +52,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-12. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-13. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
+13. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+14. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
@@ -67,8 +68,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
-14. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
-15. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
+15. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
+16. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
 
 ## Topic Selection Modes
 
