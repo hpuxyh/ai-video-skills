@@ -15,7 +15,7 @@ Middle: source screenshot, for proof
 Bottom: description, for explaining the news
 ```
 
-The description is not a press release, long article, or source transcript. It should explain the title in 3-5 short Chinese sentences.
+The description is not a press release, long article, or source transcript. It should explain the title in 3-5 compact Chinese sentences, with a length close to the reference competitor accounts.
 
 ## What To Extract
 
@@ -43,6 +43,19 @@ Sentence 5: Optional natural closing judgment.
 ```
 
 Do not end with a fixed phrase such as `真正的信息差是...`. Say the conclusion directly.
+
+## Length Rules
+
+Match the reference-account density:
+
+- Default length: **140-220 Chinese characters**.
+- Short simple news: **100-140 Chinese characters** is acceptable only when the conflict is already obvious.
+- Complex product, model, or market-reversal stories: **180-260 Chinese characters** is acceptable, but do not exceed 260 unless the user asks for a long version.
+- Keep it as one compact paragraph for screenshot-card publishing. Do not use bullets in the bottom description.
+- If the first draft is under 100 characters, it usually lacks mechanism or consequence.
+- If the first draft is over 260 characters, cut secondary facts, repeated adjectives, and extra product features first.
+
+The target feel is: enough detail to explain the screenshot, but still readable as a lower-card caption.
 
 ## Match The Title
 

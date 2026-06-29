@@ -15,6 +15,8 @@ The strongest competitor descriptions share the same underlying rhythm:
 
 Before writing, clean OCR noise, repeated fragments, and overpacked phrases. Keep the competitive pacing, but make the final copy more readable than the raw sample.
 
+Length should also follow the reference accounts. Most bottom descriptions should feel like a dense 140-220 Chinese-character paragraph. Use 180-260 characters only when the story needs both technical mechanism and public consequence. Do not reduce the description to a short one-line caption unless the user explicitly asks for a brief version.
+
 ## Sample-To-Pattern Map
 
 - Tencent AI budget cut -> Budget cut / ROI disappointment.
