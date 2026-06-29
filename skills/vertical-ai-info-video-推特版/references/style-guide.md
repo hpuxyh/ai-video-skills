@@ -191,7 +191,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 - Avoid exact repeats from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered an exact duplicate only when the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway were already rendered. Similar company/theme is allowed; reusing the same company is allowed when the event, development, source tweet/source, or information-gap angle is materially different.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. Final text must be pure content lines and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
+- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, defaulting to 6 for daily 推特版 videos. Final text must be pure content lines and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
 - Each topic must include `tweet_anchor` metadata, and the screenshot in `tweet_anchor.screenshot` must also be `images[1]`.
 
 Reject candidates when:
@@ -413,7 +413,7 @@ Use these defaults for static paper-card previews and for future paper-card vide
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
 - Ribbon: no purple ribbon by default. Use the blue third title line for the information-gap sentence.
 - Media: real image or screenshot in a clean no-color-border frame. Use `contain` when screenshots and portraits must stay complete.
-- Copy: bottom 4-6 pure content sentences, usually 5, with cyan highlight blocks per line. No visible labels or numbers.
+- Copy: bottom 4-6 pure content sentences, defaulting to 6 for daily 推特版 videos, with cyan highlight blocks per line. No visible labels or numbers.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
@@ -474,7 +474,7 @@ Reject generated fallback/error cards that say `图片源不可用`, `403`, `429
 
 ## Recommended Bottom Copy Logic
 
-Write the bottom copy as direct Chinese content, not as a labeled structure. Use 4-6 short lines, usually 5. The writer may think through event, facts, conflict, affected people, and takeaway while drafting, but those role names must never appear in the output.
+Write the bottom copy as direct Chinese content, not as a labeled structure. Use 4-6 short lines, defaulting to 6 for daily 推特版 videos. The writer may think through event, facts, conflict, affected people, and takeaway while drafting, but those role names must never appear in the output.
 
 At least one line should answer the viewer's hidden question: "what does this have to do with me?" Use concrete opportunity, risk, job direction, workflow, or action language when relevant.
 
