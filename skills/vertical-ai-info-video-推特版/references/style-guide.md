@@ -130,7 +130,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
   --scroll-y 4400
 ```
 
-- Treat these lower-thread screenshots as supporting context or image 4/5 candidates. They do not replace the core tweet anchor in `images[1]`. If they are English, add Chinese captions/overlays before placing them in final frames.
+- Treat these lower-thread screenshots as supporting context or image 4/5 candidates. They do not replace the core tweet anchor in `images[1]`. If they are English, add Chinese captions/overlays before placing them in final frames. If they are already mainly Chinese and readable, do not add a redundant Chinese interpretation layer.
 - Inspect the saved Chrome screenshot before rendering. If it shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or an unrelated page, recapture in Chrome or reject the topic. Do not silently replace it with a generated source card.
 - Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, and GitHub-synced history under `records/twitter-ai-info-video/`. Treat these as the duplicate-prevention source of truth.
 - Prefer China/US/global AI stories with clear X/Twitter discussion value: model releases, product demos, policy/regulation, safety/security, AI hardware, agent/tools, major company moves, open-source releases, and consumer/workflow impact.
@@ -195,8 +195,8 @@ Daily execution rules:
 For the 推特版 workflow, the tweet anchor is not optional.
 
 - `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic, derived from the user's local Google Chrome capture by default.
-- The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, and bottom-left keeps source metadata. Do not show internal timing notes such as `第二张图停留加长` in the final card.
-- The right-side Chinese interpretation should use a small purple `中文释义` label followed by 3-5 cyan highlighted lines. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and `信息差：...`. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
+- The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default for English/non-Chinese sources is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, and bottom-left keeps source metadata. If the tweet screenshot is already mainly Chinese and readable, use the clean Chrome crop or a lightly framed source card instead of forcing a right-side `中文释义` block. Do not show internal timing notes such as `第二张图停留加长` in the final card.
+- The right-side Chinese interpretation should be used only when localization is needed. When used, it should have a small purple `中文释义` label followed by 3-5 cyan highlighted lines. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and `信息差：...`. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
 - Keep the raw tweet visible for credibility. Capture the tweet in the user's Chrome first, then crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card. When the source screenshot is a sparse/mobile/raw page, use a wider crop that preserves the avatar/author, key text, and main media/logo instead of a narrow crop that cuts the subject.
 - Typography for the proof card should be orderly: for a 1600x1000 card, cyan-highlight Chinese text should usually be 34-40px bold, labels around 29-34px, URL/source metadata around 23-26px. Use consistent line height, aligned left edges, and shorter wording rather than tiny text. In video-oriented proof cards, prefer uniform full-width cyan highlight bars on the right side. If wrapping creates a single-character or orphan-word line, shorten the copy before reducing the font size.
 - The screenshot should be captured from the user's local Google Chrome authenticated browser session whenever available. This is the default path for both X/Twitter posts and official/news/product source pages.
@@ -260,6 +260,7 @@ Example proof-card config:
 Final audience-facing output should be Chinese-first.
 
 - If the source tweet is English, keep the raw screenshot in the project as evidence, but make the final visible image a Chinese-localized tweet card or a screenshot with a Chinese translation overlay.
+- If the source tweet or lower-thread screenshot is already mainly Chinese, do not add a separate `中文释义` block. Preserve readability with a clean crop, optional source metadata, and no redundant explanation layer.
 - Preserve source credibility cues: author, handle, date/time, visible engagement, and source URL in the project record.
 - Translate or summarize the tweet body into natural Chinese. Keep company/product names such as `Anthropic`, `Claude`, `OpenAI`, `ChatGPT`, and model names in English when they help recognition.
 - If the tweet contains a chart, table, or UI image with English labels, add a Chinese caption or localized chart summary so viewers do not need to read the English.
