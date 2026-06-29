@@ -60,6 +60,15 @@ def fit_contain(img, box):
     return img.resize(new_size, Image.Resampling.LANCZOS)
 
 
+def fit_cover(img, box):
+    box_w, box_h = box
+    scale = max(box_w / img.width, box_h / img.height)
+    resized = img.resize((int(img.width * scale + 0.5), int(img.height * scale + 0.5)), Image.Resampling.LANCZOS)
+    left = max(0, (resized.width - box_w) // 2)
+    top = max(0, (resized.height - box_h) // 2)
+    return resized.crop((left, top, left + box_w, top + box_h))
+
+
 def rounded_paste(canvas, img, xy, radius=24):
     mask = Image.new("L", img.size, 0)
     md = ImageDraw.Draw(mask)
@@ -96,6 +105,29 @@ def render_card(cfg, project_dir, output):
     crop_box = cfg.get("crop_box")
     if crop_box:
         raw = raw.crop(tuple(int(v) for v in crop_box))
+
+    source_media_image = cfg.get("source_media_image")
+    source_media_box = cfg.get("source_media_box")
+    if source_media_image and source_media_box:
+        mx, my, mw, mh = [int(v) for v in source_media_box]
+        media = Image.open(resolve_path(project_dir, source_media_image)).convert("RGB")
+        media_crop = cfg.get("source_media_crop_box")
+        if media_crop:
+            media = media.crop(tuple(int(v) for v in media_crop))
+        media_fit = fit_cover(media, (mw, mh)) if cfg.get("source_media_fit", "cover") == "cover" else fit_contain(media, (mw, mh))
+        if media_fit.size != (mw, mh):
+            bg = Image.new("RGB", (mw, mh), (248, 250, 252))
+            bg.paste(media_fit, ((mw - media_fit.width) // 2, (mh - media_fit.height) // 2))
+            media_fit = bg
+        raw.paste(media_fit, (mx, my))
+        media_draw = ImageDraw.Draw(raw, "RGBA")
+        media_draw.rounded_rectangle((mx, my, mx + mw, my + mh), radius=14, outline=(210, 219, 230, 255), width=2)
+        label = cfg.get("source_media_label")
+        if label:
+            label_font = font(int(cfg.get("source_media_label_font_size", 20)), True)
+            label_w = int(text_len(media_draw, label, label_font)) + 24
+            media_draw.rounded_rectangle((mx + 10, my + mh - 42, mx + 10 + label_w, my + mh - 10), radius=8, fill=(8, 18, 34, 210))
+            media_draw.text((mx + 22, my + mh - 37), label, font=label_font, fill=(255, 255, 255, 255))
 
     left_box = cfg.get("left_box", [120, 82, 760, 682])
     lx, ly, lw, lh = [int(v) for v in left_box]

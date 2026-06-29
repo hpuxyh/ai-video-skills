@@ -190,6 +190,7 @@ Chrome capture requirements:
 - Save raw captures to `assets/raw/chrome/<topic-id>-tweet.png` and `assets/raw/chrome/<topic-id>-source-*.png` before rendering derived cards.
 - If Chrome shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or unrelated search results, try a reload, narrower/mobile viewport, or a different primary-source URL before accepting the topic.
 - If Chrome still cannot produce a usable capture, reject the topic unless an official source page can verify the same event and the exception is recorded in `来源记录.md`.
+- If the tweet screenshot itself is valid but its embedded media/link preview is a blank white box, do not ship the blank box. Capture the linked official/source page in Chrome and pass it to `render_tweet_proof_card.py` with `source_media_image`, `source_media_box`, and optional `source_media_crop_box` so the blank preview area is filled with a real source-page crop while the author, tweet text, timestamp, and engagement remain visible.
 
 Render the preferred proof card with:
 
@@ -206,6 +207,10 @@ Example proof-card config:
 {
   "raw_screenshot": "assets/raw/openai-tweet.png",
   "crop_box": [110, 0, 710, 740],
+  "source_media_image": "assets/raw/chrome/openai-source-page.png",
+  "source_media_crop_box": [0, 80, 1900, 620],
+  "source_media_box": [12, 210, 560, 290],
+  "source_media_label": "Chrome 截图：OpenAI 官方页面",
   "output": "assets/images/event/02-核心推文中文卡.jpg",
   "summary_lines": [
     "OpenAI 限量预览 GPT-5.6 Sol",
