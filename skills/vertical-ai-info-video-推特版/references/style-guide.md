@@ -175,7 +175,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 - Each compact block should look like one small X post card: author row, readable text, and either one complete key image/chart or no media at all. Avoid full-height timeline columns, right-side X panels, browser chrome, unrelated posts, and half-visible media at the bottom.
 - Treat these compact lower-thread crops as supporting context or image 4/5 candidates. They do not replace the core tweet anchor in `images[1]`. If they are English, add Chinese captions/overlays before placing them in final frames. If they are already mainly Chinese and readable, do not add a redundant Chinese interpretation layer.
 - Inspect the saved Chrome screenshot before rendering. If it shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or an unrelated page, recapture in Chrome or reject the topic. Do not silently replace it with a generated source card.
-- Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, and GitHub-synced history under `records/twitter-ai-info-video/`. Treat these as the duplicate-prevention source of truth.
+- Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, GitHub-synced history under `records/twitter-ai-info-video/`, and the ordinary AI 信息差 history under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` when available. Treat both workflows as the duplicate-prevention source of truth.
 - Prefer China/US/global AI stories with clear X/Twitter discussion value: model releases, product demos, policy/regulation, safety/security, AI hardware, agent/tools, major company moves, open-source releases, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent X/Twitter signals when possible, then narrow down to 5. The goal is not "the top 5 posts by engagement"; the goal is "the 5 tweet-anchored stories most suitable for AI 信息差短视频".
 - Score candidates by:
@@ -188,16 +188,15 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover.
-- Avoid exact repeats from previous days. A topic is considered a repeat when the same company/person/product, same event, same source tweet, and same information-gap angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
-- Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
+- Avoid exact repeats from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered an exact duplicate only when the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway were already rendered. Similar company/theme is allowed; reusing the same company is allowed when the event, development, source tweet/source, or information-gap angle is materially different.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, defaulting to 6 for daily batches. Final text must be pure content lines and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
+- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. Final text must be pure content lines and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
 - Each topic must include `tweet_anchor` metadata, and the screenshot in `tweet_anchor.screenshot` must also be `images[1]`.
 
 Reject candidates when:
 
-- The same event/topic has already been generated in a previous daily batch.
+- The same company/person/product + same event/development + same core source tweet or factual source + same information-gap angle/viewer takeaway has already been generated in either ordinary AI 信息差 or 推特版 history.
 - The source tweet URL and information-gap angle are the same as an item already recorded in GitHub history.
 - The story is only a funding amount with weak viewer relevance.
 - The item is mostly opinion or prediction without a concrete event.
@@ -475,7 +474,7 @@ Reject generated fallback/error cards that say `图片源不可用`, `403`, `429
 
 ## Recommended Bottom Copy Logic
 
-Write the bottom copy as direct Chinese content, not as a labeled structure. Default to 6 short lines for daily 推特版 videos, with 4-6 allowed when the story is simple or the screen would become crowded. The writer may think through event, facts, conflict, affected people, and takeaway while drafting, but those role names must never appear in the output.
+Write the bottom copy as direct Chinese content, not as a labeled structure. Use 4-6 short lines, usually 5. The writer may think through event, facts, conflict, affected people, and takeaway while drafting, but those role names must never appear in the output.
 
 At least one line should answer the viewer's hidden question: "what does this have to do with me?" Use concrete opportunity, risk, job direction, workflow, or action language when relevant.
 
@@ -589,26 +588,24 @@ Use Chinese names rather than raw English slugs. The dated top-level folder must
 
 ```text
 推特专用-AI信息差视频/
-  导出-2026年06月28日-推特版AI信息差快报/
+  导出-2026年06月28日-09点00分-推特版AI信息差快报/
     01-新模型先过安审-OpenAI与Anthropic/
       视频.mp4
       封面.jpg
-      标题和内容描述.md
     02-Google-Finance-AI研究工具/
       视频.mp4
       封面.jpg
-      标题和内容描述.md
     整体描述.md
 ```
 
 Rules:
 
-- The top-level export folder should include the date and batch theme.
+- The top-level export folder should include the date, run time, and batch theme so same-day reruns do not overwrite each other.
 - The top-level export folder should live under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`.
 - The folder name must include `推特版` or `推特专用`.
 - Use one numbered Chinese topic folder per project in the user-facing handoff.
-- Each topic folder should contain `视频.mp4`, `封面.jpg`, and `标题和内容描述.md`.
-- Put the batch-level summary, five covers/videos index, five titles, and five content descriptions into one root `整体描述.md`. Repeat each topic's title and content description in its own `标题和内容描述.md` for easier publishing.
+- Each topic folder should contain only the two publishing media files: `视频.mp4` and `封面.jpg`.
+- Put the batch-level summary, five covers/videos index, five 抖音 titles, five video-bottom descriptions, and tags into one root `整体描述.md`. Do not require per-topic `标题和内容描述.md` in the user-facing export; keep any expanded copy notes in the working project or GitHub records.
 - Keep source screenshots, configs, and detailed production notes out of the user-facing topic folders. Visual overview images such as `渲染总览.jpg` may be copied only when the user asks to inspect rendering quality.
 - Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
 - The working project or GitHub records should preserve the core tweet screenshot/localized tweet card plus source notes with tweet URL, tweet author, observed heat signal, screenshot path, supporting source URLs, and information-gap angle.
@@ -659,7 +656,7 @@ records/twitter-ai-info-video/
 
 - Record date, topic title, company/product/person, source tweet URL, source tweet author, observed X/Twitter heat signal, supporting source URLs, selected angle, final export folder, and output filenames.
 - Before every auto-scout run, compare candidates against GitHub history, previous local records, and dated export folders.
-- Do not repeat the exact same event from a previous day. Prefer a follow-up only when there is a new development, and label it clearly as a follow-up angle.
+- Do not repeat an exact duplicate from either ordinary AI 信息差 history or 推特版 history. Exact duplicate means the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway. Similar topics are allowed when there is a new development, new source, or clearly different information-gap angle.
 - After every successful invocation, commit and push the updated history records to GitHub. Do not report full completion until sync succeeds or the sync failure is explicitly reported.
 - Sync final deliverable indexes, configs, source notes, and topic history every time. Include final media assets when practical for the target repo; if MP4 files are too large or unsuitable, at minimum sync enough metadata and local export paths to prevent duplicate topics later.
 - If the workflow rules, scripts, or skill documentation change, copy the skill into the user's GitHub skill repository and push the commit after validation.

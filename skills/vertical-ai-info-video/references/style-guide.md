@@ -288,8 +288,8 @@ In auto-scout mode:
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover. Favor familiar companies, people, products, and public issues; obscure companies/products should only survive when the public conflict is extremely clear.
-- Avoid exact repeats from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered a repeat when the same company/person/product and the same event angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
-- Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
+- Avoid exact duplicates from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered an exact duplicate only when the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway were already rendered.
+- Reusing the same company is allowed when the event, development, source, viewer takeaway, or information-gap angle is materially different.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
 - Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. The internal writing order is event, key fact, conflict/mechanism, affected group, and final takeaway, but final text must not show labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
@@ -709,6 +709,6 @@ For recurring daily batches:
 - Maintain a per-batch `选题记录.md` in the project folder, or update an existing `topic-history.md` when the project already has one.
 - Record date, topic title, company/product, source URLs, selected angle, and final output folder.
 - Before every auto-scout run, compare candidates against previous records and dated export folders.
-- Do not repeat the exact same event from a previous day. Prefer a follow-up only when there is a new development, and label it clearly as a follow-up angle.
+- Do not repeat an exact duplicate from either ordinary AI 信息差 history or 推特版 history. Exact duplicate means the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway. Similar topics are allowed when there is a new development, new source, or clearly different information-gap angle.
 - If the workflow rules, scripts, or skill documentation change, copy the skill into the user's GitHub skill repository and push the commit after validation.
 - Generated video assets do not need to be pushed to the skill repository unless the user explicitly asks; only reusable skill/workflow updates should be pushed.
