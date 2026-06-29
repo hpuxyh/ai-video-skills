@@ -27,12 +27,21 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 2. Confirm or infer each video's topic, three-line animated title, info rows, image set, cover, BGM, and tweet anchor.
 3. Before choosing or rendering topics, check the GitHub-synced history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
 4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary exists, use it only as a discovery signal, not as the anchor.
-5. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from it, and later images should add official/news/product evidence. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
-6. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
-7. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
-8. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
-9. Before rendering, inspect downloaded assets or a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, replace it before rendering. Never ship a video with an asset-error card visible.
-10. Run `scripts/render_vertical_info_video.py` from a project directory:
+5. Capture source material in the user's local Google Chrome first. Open the chosen X/Twitter post and supporting official/news/product pages in the user's Chrome profile, using its existing login/session state, then save raw browser screenshots under the working project's `assets/raw/chrome/` directory. The tweet proof card and source evidence images should be derived from these Chrome screenshots by default. Do not replace Chrome capture with web search thumbnails, generated source cards, or guessed screenshots unless Chrome capture fails; if it fails, record the exact blocked URL and reason in the source notes before using any fallback. Use the provided Chrome capture command:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/capture_chrome_source.py \
+  --url "https://x.com/example/status/123" \
+  --output assets/raw/chrome/topic-tweet.png \
+  --wait 8
+```
+
+6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
+7. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
+8. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
+9. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
+10. Before rendering, inspect Chrome screenshots, derived source cards, and a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, reopen or recapture it in Chrome before rendering. Never ship a video with an asset-error card visible.
+11. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_vertical_info_video.py \
@@ -42,8 +51,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
   --contact-sheet renders/output-contact-sheet.jpg
 ```
 
-11. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-12. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
+12. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
+13. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
@@ -58,8 +67,8 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 The folder name must clearly include `推特版` or `推特专用` so it is not confused with ordinary AI 信息差 videos.
-13. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, source URLs, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
-14. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
+14. Record the finished topics, source tweet URL, source tweet author, observed engagement signal, Chrome screenshot paths, source URLs, information-gap angle, and final export folder in `整体描述.md`, local history records, and the GitHub-synced history records. Keep detailed source screenshots/configs in the working project or GitHub records, not mixed into the user-facing project folders unless the user asks for them.
+15. Every successful invocation must sync to GitHub before reporting completion. Commit and push the history records, source notes, configs, and deliverable index. Include final media assets when practical for the target repo; at minimum, the GitHub history must contain enough metadata to prevent future duplicate topics and trace each output.
 
 ## Topic Selection Modes
 
@@ -89,13 +98,14 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - Prefer direct posts by the core person in the story: founder, CEO, product lead, researcher, government official, creator of the tool, or other primary actor.
 - If no core-person post exists, use the official account for the company, product, lab, open-source project, or conference.
 - If the topic is discovered through a third-party viral post, use that post for discovery only; then find a primary-source tweet, official page, or reputable report before making the final topic.
+- Capture the raw tweet screenshot from the user's local Google Chrome first. Use Chrome because it carries the user's actual X/Twitter login state, cookies, locale, and extensions; this is more reliable than unauthenticated fetches, web search previews, or guessed screenshots. Save the raw capture as evidence before rendering the Chinese proof card.
 - The screenshot should show the author, handle, post text, timestamp/date, and visible engagement when available.
 - Crop the screenshot to the tweet body or post card. Preserve the author/avatar, handle, key tweet text, timestamp or visible engagement when available, and the main attached image/video/logo. Avoid narrow crops that cut off faces, avatars, company logos, product names, or the main media. Avoid showing right-side sign-up panels, bottom login banners, unrelated replies, blank loading areas, or browser chrome unless they are unavoidable and do not distract.
 - In a 5-image, 7-second video, give the tweet-anchor image about twice the hold time of other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]`, which yields cuts around `[1.17, 3.50, 4.67, 5.83]`.
 - If the tweet is not in Chinese, produce a Chinese-localized final card: preserve author, handle, date, visible engagement, and source URL in notes; translate/summarize the tweet body in Chinese; translate important chart labels or add a Chinese caption explaining the chart. The raw English screenshot can be stored as evidence, but it should not be the only audience-facing explanation.
 - Do not use screenshots that show login walls, Cloudflare checks, cookie walls, `403`, `429`, "Something went wrong", blank pages, or unrelated search results.
-- If a clean tweet screenshot cannot be captured, choose another tweet or another topic.
-- Store the source tweet URL next to the image path in the working notes or topic history so the screenshot can be traced.
+- If a clean tweet screenshot cannot be captured in Chrome, choose another tweet or another topic. Only use a non-Chrome fallback when the user explicitly accepts it or when the fallback is an official page screenshot that still verifies the event; record that exception in `来源记录.md`.
+- Store the source tweet URL next to the Chrome screenshot path and derived proof-card path in the working notes or topic history so the screenshot can be traced.
 - Use `scripts/render_tweet_proof_card.py` when turning a raw tweet screenshot into the preferred Chinese proof card:
 
 ```bash

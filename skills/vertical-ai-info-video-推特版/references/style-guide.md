@@ -98,6 +98,17 @@ Use two modes:
 In auto-scout mode:
 
 - Search current X/Twitter sources because the 2-3 day window is time-sensitive.
+- Capture candidate tweets and source pages in the user's local Google Chrome before rendering. Use Chrome's existing login/session state, save raw screenshots under `assets/raw/chrome/`, then derive image 2 and supporting source cards from those screenshots. Do not use search-result thumbnails, generated browser mockups, or manually invented source cards as the default evidence path.
+- Use this command for the first capture attempt:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/capture_chrome_source.py \
+  --url "https://x.com/example/status/123" \
+  --output assets/raw/chrome/topic-tweet.png \
+  --wait 8
+```
+
+- Inspect the saved Chrome screenshot before rendering. If it shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or an unrelated page, recapture in Chrome or reject the topic. Do not silently replace it with a generated source card.
 - Before choosing topics, review previous generated batches in the workspace, dated export folders, any local `选题记录.md` / `topic-history.md` files, and GitHub-synced history under `records/twitter-ai-info-video/`. Treat these as the duplicate-prevention source of truth.
 - Prefer China/US/global AI stories with clear X/Twitter discussion value: model releases, product demos, policy/regulation, safety/security, AI hardware, agent/tools, major company moves, open-source releases, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent X/Twitter signals when possible, then narrow down to 5. The goal is not "the top 5 posts by engagement"; the goal is "the 5 tweet-anchored stories most suitable for AI 信息差短视频".
@@ -160,18 +171,25 @@ Daily execution rules:
 
 For the 推特版 workflow, the tweet anchor is not optional.
 
-- `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic.
+- `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic, derived from the user's local Google Chrome capture by default.
 - The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, and bottom-left keeps source metadata. Do not show internal timing notes such as `第二张图停留加长` in the final card.
 - The right-side Chinese interpretation should use a small purple `中文释义` label followed by 3-5 cyan highlighted lines. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and `信息差：...`. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
-- Keep the raw tweet visible for credibility. Crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card. When the source screenshot is a sparse/mobile/raw page, use a wider crop that preserves the avatar/author, key text, and main media/logo instead of a narrow crop that cuts the subject.
+- Keep the raw tweet visible for credibility. Capture the tweet in the user's Chrome first, then crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card. When the source screenshot is a sparse/mobile/raw page, use a wider crop that preserves the avatar/author, key text, and main media/logo instead of a narrow crop that cuts the subject.
 - Typography for the proof card should be orderly: for a 1600x1000 card, cyan-highlight Chinese text should usually be 34-40px bold, labels around 29-34px, URL/source metadata around 23-26px. Use consistent line height, aligned left edges, and shorter wording rather than tiny text. In video-oriented proof cards, prefer uniform full-width cyan highlight bars on the right side. If wrapping creates a single-character or orphan-word line, shorten the copy before reducing the font size.
-- The screenshot should be captured from the public post page or an authenticated browser session when available.
+- The screenshot should be captured from the user's local Google Chrome authenticated browser session whenever available. This is the default path for both X/Twitter posts and official/news/product source pages.
 - Crop to the post body. Preserve author, handle, post text, date/time, and visible engagement when possible.
 - Hold `images[1]` about twice as long as the other carousel images because it is the proof frame and usually contains readable text. For a 5-image, 7-second video, prefer `image_hold_weights: [1, 2, 1, 1, 1]`; this produces cuts around `[1.17, 3.50, 4.67, 5.83]`.
 - Remove or avoid right-side sign-up panels, bottom login banners, unrelated replies, browser chrome, and large blank areas.
 - If the page shows login wall, Cloudflare check, blank loading state, `403`, `429`, or "Something went wrong", do not use that screenshot.
 - If the anchor post includes a video or image that is central to the story, the screenshot may include that media preview as long as the post text and author remain visible.
-- Store the source URL, author, screenshot path, and observed engagement in `tweet_anchor`.
+- Store the source URL, author, raw Chrome screenshot path, derived proof-card screenshot path, and observed engagement in `tweet_anchor`.
+
+Chrome capture requirements:
+
+- Use the user's visible Google Chrome profile, not a headless browser, when a real source screenshot is needed.
+- Save raw captures to `assets/raw/chrome/<topic-id>-tweet.png` and `assets/raw/chrome/<topic-id>-source-*.png` before rendering derived cards.
+- If Chrome shows login wall, Cloudflare, cookie wall, blank content, `403`, `429`, or unrelated search results, try a reload, narrower/mobile viewport, or a different primary-source URL before accepting the topic.
+- If Chrome still cannot produce a usable capture, reject the topic unless an official source page can verify the same event and the exception is recorded in `来源记录.md`.
 
 Render the preferred proof card with:
 
