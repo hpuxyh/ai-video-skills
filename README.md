@@ -16,6 +16,8 @@
 | AI 信息差快报 | 新闻检索、素材匹配、口播字幕、视频渲染 | `skills/ai-tech-news-video/SKILL.md` |
 | 竖屏 AI 信息差视频 | 9:16 单事件快报、多真实图片卡点轮播、结论优先信息流、无口播 BGM 成片 | `skills/vertical-ai-info-video/SKILL.md` |
 | 竖屏 AI 信息差视频-推特版 | 近 2-3 天 X/Twitter AI 热点、核心推文锚点、第二张推文图双倍停留、成品导出到小红/视频/推特专用目录 | `skills/vertical-ai-info-video-推特版/SKILL.md` |
+| 推特版 AI 爆款选题 | 按争议、情绪、来源权重和大众熟悉度筛选推特版 AI 视频主题 | `skills/twitter-ai-viral-topic-selection/SKILL.md` |
+| 推特版 AI 爆款标题 | 为推特版 AI 视频主题生成大众可懂、争议优先的三行标题 | `skills/twitter-ai-viral-title-writing/SKILL.md` |
 | 产品介绍视频 | 官网信息提炼、叙事结构、成片节奏 | `skills/product-intro-video/SKILL.md` |
 | 视频音效工作流 | 音效搜索、下载与合成、时间线接入 | `skills/sound-fx-for-video/SKILL.md` |
 | 简笔画动画视频 | 线稿风 + 短画面字；**主动网络搜参考图临摹**；逼真非抽象；GSAP 主时间线 + 可选 Anime.js；抽检闭环 | `skills/sketch-animation-video/SKILL.md` |

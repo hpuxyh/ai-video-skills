@@ -1,0 +1,4 @@
+interface:
+  display_name: "推特版 AI 爆款选题"
+  short_description: "按争议情绪和权威来源筛选推特版 AI 视频爆款选题"
+  default_prompt: "Use $twitter-ai-viral-topic-selection to screen five Twitter-version AI video topics with controversy-first scoring."
