@@ -18,7 +18,7 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
    - If the user does not give a concrete topic, search the latest 7 days of AI news, prioritize China/US high-signal stories, choose 5 distinct topics, and generate 5 separate one-event videos.
-2. Confirm or infer each video's topic, title lines, info rows, image set, cover, and BGM.
+2. Confirm or infer each video's topic, title lines, bottom description lines, image set, cover, and BGM.
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using `scripts/select_bgm_for_batch.py`. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored, and validate that the batch is not accidentally inheriting the same BGM for every video.
@@ -108,7 +108,9 @@ Publishing copy defaults:
 Daily-history rule:
 
 - Before any auto-scout or daily batch, read `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` plus any current batch `选题记录.md` files.
-- Do not repeat the exact same news event, title angle, and viewer takeaway from history.
+- Also read the 推特版 AI 信息差 history, especially `records/twitter-ai-info-video/topic-history.md` in the GitHub-synced skill repo when available.
+- Do not repeat topics across ordinary AI 信息差新闻视频 and 推特版 AI 信息差新闻视频 when they are nearly identical. Similar company/theme is allowed, but if the event object, factual anchor, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
+- Do not repeat the same or nearly same news event, title angle, and viewer takeaway from history.
 - A company may repeat only when the event is materially new and the `信息差` angle is different.
 - After rendering, append each topic with date, topic name, companies/people, source links, information-gap angle, output paths, and whether it was manually requested or auto-scouted.
 
@@ -116,15 +118,15 @@ Default daily automation:
 
 - The standing daily job is `AI信息差新闻视频-每日8点`.
 - It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
-- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid historical repeats, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
-- Daily scheduled videos must use the confirmed clean white paper-card video logic by default: red `重磅` metadata row, large three-line headline on the white card, blue third-line emphasis, no large purple title/ribbon block, real five-image carousel with soft fade transitions, screenshot/text-card media preserved in full, structured white explainer rows revealing one by one at a readable pace, no dark ordinary template unless the user explicitly requests it.
+- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid historical repeats across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, and sync skill/workflow changes to GitHub when the rules changed.
+- Daily scheduled videos must use the confirmed clean white paper-card video logic by default: red `重磅` metadata row, large three-line headline on the white card, blue third-line emphasis, no large purple title/ribbon block, real five-image carousel with soft fade transitions, screenshot/text-card media preserved in full, label-free cyan-highlight bottom lines revealing one by one at a readable pace, no dark ordinary template unless the user explicitly requests it.
 
 ## Topic Selection Modes
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
 - Auto-scout mode: when no concrete topic is provided, search the latest 7 days of AI news across US and China, then select 5 topics before rendering.
-- Auto-scout selection criteria: do not simply pick the top 5 headlines. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
-- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files. Do not choose the exact same event/topic as an earlier batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
+- Auto-scout selection criteria: do not simply pick the top 5 headlines. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files from both `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` and the GitHub-synced 推特版 history. Do not choose the same or nearly same event/topic as an earlier batch unless the user explicitly asks for a follow-up angle. Similar is acceptable; nearly identical is not. If a company repeats, the event and information-gap angle must be materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 
@@ -134,7 +136,7 @@ Default daily automation:
 - Attach multiple real images to that single event. Use them as the middle carousel only.
 - Keep all explanatory text in the template: the top three-line title and the bottom structured rows. For the default paper-card workflow, reveal the bottom rows one by one, slowly enough to read, then keep them visible through the end.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific row set from the viewer's path. The default paper-card row labels are `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`.
+- Use one event-specific bottom set from the viewer's path. Write 4-6 pure content lines, usually 5, with no visible labels. Internally the lines should still cover event, key fact, conflict/mechanism, affected group, and takeaway.
 - The target look for daily/news output is the approved clean white paper-card sample: red metadata tag, black/blue three-line hook title, real images in the middle, structured white text rows below, beat-synced image cuts with soft fade, no voiceover.
 
 ## Paper Card Explainer Mode
@@ -156,8 +158,9 @@ Current structured paper-card flow:
 - Keep the middle media frame bright and legible. It must show real event media, not a pre-rendered full-card image. Real people/product images may fill the frame. Source screenshots, tweet cards, product UI, and other text-bearing images should use safe-fill behavior: enlarge as much as possible and crop only background/empty edges, but never crop, hide, or partially cut text or key UI.
 - Use exactly one event per video and usually five images: person/company/product recognition, core source/tweet screenshot, official report or evidence, product page, chart or supporting evidence.
 - If the second image is the core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
-- Use `body_rows` for the approved structured bottom area. The default visual style is unnumbered cyan-highlight reading lines: each row shows `标签：内容` with a cyan text highlight behind the whole line, no `01`-`05` number pills, and concise explanatory text on the white card. In MP4 output the rows reveal one by one at a readable pace, usually starting around 1 second and finishing around 3.5 seconds.
-- Preferred labels: `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`. Keep each bottom row short enough to scan in one glance. The label tells the viewer what kind of information the row contains; the text should be a plain Chinese sentence.
+   - Use `body_rows` for the approved bottom area. The default visual style is unnumbered, label-free cyan-highlight reading lines: each row is a normal Chinese sentence with a cyan highlight behind the whole line, no `01`-`05` number pills, and no visible labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
+   - Default to 5 bottom lines. Use 4 lines only for very simple stories and 6 lines only when the event needs one extra mechanism or consequence line. Configure `body_show_labels: false`, `body_show_numbers: false`, and `body_max_rows: 6`; keep each line short enough to scan in one glance.
+   - The hidden internal structure is still useful when writing: event, key fact, conflict/mechanism, affected group, final takeaway. Do not expose those internal names on screen. Write the final line as a natural conclusion, not as `这个选题的信息差是...`.
 
 Title logic:
 
@@ -177,18 +180,20 @@ Preview card layout:
 - Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
 - Under the title: do not show a purple rounded ribbon in the current default. Use the blue third title line as the information-gap sentence. Use the older purple title-panel or purple ribbon layout only when the user explicitly asks for that old variant.
 - Middle area: one real topic-matched news asset area. Use real news material, screenshots, people, product images, official pages, or company/product visuals. Do not use abstract placeholders as the main media. For the current no-border white-card variant, set `media_outline_width: 0`; use a visible border only when explicitly requested by the style. Text-bearing media should occupy the frame as fully as possible, but text completeness is the hard constraint.
-- Bottom area: use structured cyan-highlight reading lines by default. Each row is a single readable sentence with `标签：内容`, cyan highlight behind the text, and no `01`-`05` number pill. Large white table rows, purple label blocks, and paragraph dumps are older preview styles, not the current daily-video default.
+- Spacing: keep the title, middle media area, and bottom description visually tight like the approved reference. Avoid large blank gaps above or below the media. As a practical default, keep only about half-to-one line of text height between the media and nearby text blocks after readability is protected.
+- Media fill: fill the middle image area horizontally whenever safe. People/company/product photos can cover the full media area; screenshots, tweet cards, report pages, and product UI should use safe-fill/contain behavior that enlarges the asset as much as possible while preserving all important text and UI.
+- Bottom area: use structured cyan-highlight reading lines by default. Each row is a single readable sentence with cyan highlight behind the text, no visible label, and no `01`-`05` number pill. Large white table rows, purple label blocks, visible `标签：内容`, and paragraph dumps are older preview styles, not the current daily-video default.
 - Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
 
 Paper-card copy logic:
 
-The bottom copy is not a second title and not a list of industry slogans. In the current structured default, it should be `body_rows` with labels and one-sentence explanations. It should explain the story in the order a normal viewer thinks:
+The bottom copy is not a second title and not a list of industry slogans. In the current structured default, it should be 4-6 label-free `body_rows`, usually 5 lines, with one complete sentence per line. It should explain the story in the order a normal viewer thinks:
 
 1. Fact: start with the verified event in plain language. Include the key actor, source, date/context, number, product, or action when available.
 2. Viewer meaning: explain what a normal viewer should understand or care about. Use concrete work, learning, creation, cost, access, or risk language.
 3. Mechanism: explain what changed behind the scenes, such as product behavior, business model, policy, access, workflow, or infrastructure.
 4. Boundary: name the risk, controversy, limitation, opportunity, or who is affected first.
-5. Information gap: end with the `信息差` row as the short takeaway. This line should be a usable conclusion, not a slogan.
+5. Information gap: end with a short takeaway. This line should be a usable conclusion, not a slogan, and it must not show an `信息差` label unless the user explicitly asks for labels.
 
 Every bottom line should be able to stand alone on screen. Avoid abstract phrasing such as `能力边界变化`, `工作流适配`, or `产业范式迁移` unless immediately translated into a concrete ordinary-life meaning.
 
@@ -227,7 +232,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 - Image sequence preflight: the first image must be a recognizable protagonist/company/product or official/product evidence image. Media screenshots should usually be slot 4-5, and auxiliary context images should not lead the carousel. Use `scripts/check_image_sequence.py --strict` before rendering.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
-- Text rows: use unnumbered cyan-highlight reading lines and reveal bottom rows one by one by default. Preferred labels are `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`. Recommended timing: `body_rows_animate: true`, `body_row_start: 1.05`, `body_row_interval: 0.52`, `body_row_duration: 0.42`.
+- Text rows: use unnumbered, label-free cyan-highlight reading lines and reveal bottom rows one by one by default. Default to 5 pure content sentences, with 4-6 allowed when the story needs it. Recommended timing: `body_rows_animate: true`, `body_row_start: 1.05`, `body_row_interval: 0.52`, `body_row_duration: 0.42`, `body_show_labels: false`, `body_show_numbers: false`, `body_max_rows: 6`.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.

@@ -17,6 +17,8 @@ Before writing, clean OCR noise, repeated fragments, and overpacked phrases. Kee
 
 Length should also follow the reference accounts. Most bottom descriptions should feel like a dense 140-220 Chinese-character paragraph. Use 180-260 characters only when the story needs both technical mechanism and public consequence. Do not reduce the description to a short one-line caption unless the user explicitly asks for a brief version.
 
+For video bottom copy, split the paragraph into 4-6 pure content lines, usually 5. The internal roles are event, key fact, conflict/mechanism, affected group, and takeaway, but the rendered text must not show labels such as `事件：`, `关键：`, `冲突：`, `影响：`, `信息差：`, `结论：`, or `跟你有关：`. The line should read like normal speech, for example `近 400 家地方报纸起诉 OpenAI 和 Microsoft`, not `事件：近 400 家地方报纸起诉 OpenAI 和 Microsoft`.
+
 ## Sample-To-Pattern Map
 
 - Tencent AI budget cut -> Budget cut / ROI disappointment.
@@ -172,3 +174,5 @@ Key ingredients:
 - Do not use fake certainty for rumor-like claims.
 - Do not write every case as `重磅发布`.
 - Do not let technical product names dominate the first sentence when the public issue is more important.
+- Do not use meta phrasing such as `这个选题的信息差是...`; end with the conclusion directly.
+- Do not expose writing labels in video bottom lines. Use labels only as private drafting scaffolding.

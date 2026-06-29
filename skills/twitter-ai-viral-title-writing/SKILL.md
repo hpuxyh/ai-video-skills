@@ -25,6 +25,8 @@ Line 1 must have conflict. Line 2 must have change. Line 3 must have consequence
 
 Prefer numbers, comparison, and reversal when the source supports them. Avoid long lines that only work as body copy.
 
+The three-line title should align with the first carousel image and cover subject. If the title leads with OpenAI, Meta, Google, Apple, Microsoft, Anthropic, xAI, Elon Musk, or another familiar protagonist, the first image and cover should also make that protagonist or parent-company identity immediately visible rather than leading with a text card or obscure product screenshot.
+
 ## Familiarity Rule
 
 Do not lead with obscure names.

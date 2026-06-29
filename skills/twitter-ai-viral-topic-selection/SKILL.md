@@ -30,18 +30,21 @@ Delete or downgrade candidates when any of these are true:
 - There is no visible controversy, comment debate, quote-post spread, or obvious public emotion.
 - The story is pure funding, pure benchmark, pure paper, or minor product update.
 - The claim cannot be verified by an official source or trusted media.
-- The topic repeats an already-produced event and information-gap angle in `records/twitter-ai-info-video/topic-history.md`.
+- The topic repeats or nearly repeats an already-produced event and information-gap angle in either `records/twitter-ai-info-video/topic-history.md` or the ordinary AI 信息差 news-video history at `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`.
 
 If the protagonist is obscure but the public issue is familiar, keep it only when the title can lead with the familiar issue instead of the obscure name.
 
 ## Selection Workflow
 
 1. Read recent topic history when available and remove exact repeats.
-2. Build a candidate pool from the approved sources, with Polymarket and official OpenAI/Anthropic updates checked first.
-3. For each candidate, capture the factual anchor: official post/page, trusted media story, or source tweet.
-4. Judge controversy with replies, quote-posts, comment count, and visible disagreement. Likes alone are not enough.
-5. Score the remaining candidates using the table below.
-6. Keep the strongest 5, but avoid choosing five stories with the same company, theme, or emotional hook.
+2. Read both 推特版 history and ordinary AI 信息差 news-video history. Remove exact repeats and near-duplicates across both workflows before scoring. Similar company/theme is allowed, but if the event object, factual anchor/source tweet, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
+3. Build a candidate pool from the approved sources, with Polymarket and official OpenAI/Anthropic updates checked first.
+4. For each candidate, capture the factual anchor: official post/page, trusted media story, or source tweet.
+5. Judge controversy with replies, quote-posts, comment count, and visible disagreement. Likes alone are not enough.
+6. Score the remaining candidates using the table below.
+7. Keep the strongest 5, but avoid choosing five stories with the same company, theme, or emotional hook.
+
+Familiarity is a practical priority, not a decorative score. Prefer stories led by familiar companies, people, products, or public issues. Cold protagonists such as niche enterprise suppliers, component vendors, or unknown startups should be downgraded unless the public conflict is so clear that the title can lead with the familiar issue instead of the obscure name.
 
 ## Scoring
 

@@ -107,7 +107,7 @@ def rounded_mask(size, radius):
 
 
 def draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y):
-    rows = cfg.get("body_rows", [])
+    rows = cfg.get("body_rows", [])[: int(cfg.get("body_max_rows", 6))]
     body_font = font(int(cfg.get("body_size", 29)), True)
     label_font = font(int(cfg.get("body_label_size", 25)), True)
     row_x = card_x + int(cfg.get("body_row_x_offset", 30))
@@ -124,11 +124,17 @@ def draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y):
     text_fill = tuple(cfg.get("body_text_color", [0, 0, 0]))
     label_fill = tuple(cfg.get("body_label_color", [8, 14, 18]))
     bottom_limit = card_y + card_h - int(cfg.get("body_bottom_margin", 78))
+    show_labels = bool(cfg.get("body_show_labels", True))
 
     for row in rows:
-        label = row.get("label", "")
-        text = row.get("text", "")
-        text_x = row_x + label_w + row_pad_x + 14
+        if isinstance(row, str):
+            label = ""
+            text = row
+        else:
+            label = row.get("label", "")
+            text = row.get("text", "")
+        use_label = show_labels and bool(label)
+        text_x = row_x + (label_w + row_pad_x + 14 if use_label else row_pad_x + 14)
         text_max_w = row_x + row_w - text_x - row_pad_x
         lines = wrap_text(draw, text, body_font, text_max_w)
         row_h = max(min_h, len(lines) * line_h + row_pad_y * 2)
@@ -142,24 +148,25 @@ def draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y):
             outline=row_outline,
             width=1,
         )
-        label_y = text_y + 9
-        draw.rounded_rectangle(
-            (row_x + 10, label_y, row_x + label_w, text_y + row_h - 9),
-            radius=8,
-            fill=label_bg,
-        )
-        label_box = draw.textbbox((0, 0), label, font=label_font)
-        label_text_h = label_box[3] - label_box[1]
-        label_text_w = text_len(draw, label, label_font)
-        draw.text(
-            (
-                row_x + 10 + (label_w - 10 - label_text_w) / 2,
-                text_y + (row_h - label_text_h) / 2 - label_box[1],
-            ),
-            label,
-            font=label_font,
-            fill=label_fill,
-        )
+        if use_label:
+            label_y = text_y + 9
+            draw.rounded_rectangle(
+                (row_x + 10, label_y, row_x + label_w, text_y + row_h - 9),
+                radius=8,
+                fill=label_bg,
+            )
+            label_box = draw.textbbox((0, 0), label, font=label_font)
+            label_text_h = label_box[3] - label_box[1]
+            label_text_w = text_len(draw, label, label_font)
+            draw.text(
+                (
+                    row_x + 10 + (label_w - 10 - label_text_w) / 2,
+                    text_y + (row_h - label_text_h) / 2 - label_box[1],
+                ),
+                label,
+                font=label_font,
+                fill=label_fill,
+            )
 
         line_y = text_y + row_pad_y + 1
         if len(lines) == 1:
@@ -340,6 +347,8 @@ def render_card(cfg, project_dir, output):
     if cfg.get("body_rows") or body_style == "structured":
         draw_structured_body(draw, cfg, card_x, card_y, card_w, card_h, text_y)
     elif body_items and body_style == "editorial_lines":
+        show_labels = bool(cfg.get("body_show_labels", True))
+        show_numbers = bool(cfg.get("body_show_numbers", True))
         row_x = card_x + int(cfg.get("body_row_x_offset", 54))
         row_w = card_w - int(cfg.get("body_row_x_offset", 54)) * 2
         label_fill = tuple(cfg.get("body_label_color", [126, 51, 163]))
@@ -354,7 +363,8 @@ def render_card(cfg, project_dir, output):
         for index, item in enumerate(body_items, start=1):
             label = item.get("label", "")
             text = item.get("text", "")
-            text_x = row_x + label_w + 40
+            left_extra = (52 if show_numbers else 0) + (label_w if show_labels and label else 0)
+            text_x = row_x + left_extra + 40
             text_max_w = row_x + row_w - text_x
             lines = wrap_text(draw, text, body_font, text_max_w)
             use_body_font = body_font
@@ -365,8 +375,10 @@ def render_card(cfg, project_dir, output):
             if text_y + row_h > card_y + card_h - 62:
                 break
             num = f"{index:02d}"
-            draw.text((row_x, text_y + 12), num, font=number_font, fill=number_fill)
-            draw.text((row_x + 52, text_y + 14), label, font=label_font, fill=label_fill)
+            if show_numbers:
+                draw.text((row_x, text_y + 12), num, font=number_font, fill=number_fill)
+            if show_labels and label:
+                draw.text((row_x + (52 if show_numbers else 0), text_y + 14), label, font=label_font, fill=label_fill)
             current_y = text_y + max(10, (row_h - len(lines) * line_h) // 2 - 1)
             for line in lines:
                 draw.text((text_x, current_y), line, font=use_body_font, fill=text_fill)
@@ -375,6 +387,8 @@ def render_card(cfg, project_dir, output):
                 draw.line((row_x, text_y + row_h, row_x + row_w, text_y + row_h), fill=divider, width=1)
             text_y += row_h + row_gap
     elif body_items and body_style == "clean_rows":
+        show_labels = bool(cfg.get("body_show_labels", True))
+        show_numbers = bool(cfg.get("body_show_numbers", True))
         row_x = card_x + int(cfg.get("body_row_x_offset", 38))
         row_w = card_w - int(cfg.get("body_row_x_offset", 38)) * 2
         row_fill = tuple(cfg.get("body_row_fill", [239, 253, 254, 188]))
@@ -390,7 +404,8 @@ def render_card(cfg, project_dir, output):
         for index, item in enumerate(body_items, start=1):
             label = item.get("label", "")
             text = item.get("text", "")
-            text_x = row_x + label_w + 22
+            left_extra = (58 if show_numbers else 0) + (label_w if show_labels and label else 0)
+            text_x = row_x + left_extra + 22
             text_max_w = row_x + row_w - text_x - 24
             lines = wrap_text(draw, text, body_font, text_max_w)
             if len(lines) > 1:
@@ -409,21 +424,24 @@ def render_card(cfg, project_dir, output):
                 outline=row_outline,
                 width=1,
             )
-            draw.rounded_rectangle(
-                (row_x + 13, text_y + 13, row_x + 45, text_y + 45),
-                radius=8,
-                fill=number_fill,
-            )
-            number = f"{index:02d}"
-            num_w = text_len(draw, number, number_font)
-            draw.text((row_x + 29 - num_w / 2, text_y + 18), number, font=number_font, fill=(255, 255, 255))
-            draw.text((row_x + 58, text_y + 15), label, font=label_font, fill=label_fill)
+            if show_numbers:
+                draw.rounded_rectangle(
+                    (row_x + 13, text_y + 13, row_x + 45, text_y + 45),
+                    radius=8,
+                    fill=number_fill,
+                )
+                number = f"{index:02d}"
+                num_w = text_len(draw, number, number_font)
+                draw.text((row_x + 29 - num_w / 2, text_y + 18), number, font=number_font, fill=(255, 255, 255))
+            if show_labels and label:
+                draw.text((row_x + (58 if show_numbers else 0), text_y + 15), label, font=label_font, fill=label_fill)
             current_y = text_y + max(11, (row_h - len(lines) * line_h) // 2 - 1)
             for line in lines:
                 draw.text((text_x, current_y), line, font=use_body_font, fill=text_fill)
                 current_y += line_h
             text_y += row_h + row_gap
     elif body_items:
+        show_labels = bool(cfg.get("body_show_labels", True))
         label_bg = tuple(cfg.get("body_label_bg", [180, 59, 205, 238]))
         label_fill = tuple(cfg.get("body_label_color", [255, 255, 255]))
         text_fill = tuple(cfg.get("body_text_color", [0, 0, 0]))
@@ -433,22 +451,24 @@ def render_card(cfg, project_dir, output):
                 break
             label = item.get("label", "")
             text = item.get("text", "")
-            label_w = int(text_len(draw, label, label_font)) + 30
+            use_label = show_labels and bool(label)
+            label_w = int(text_len(draw, label, label_font)) + 30 if use_label else 0
             label_h = max(34, int(cfg.get("body_label_h", line_h - 8)))
             label_x = card_x + 30
             label_y = text_y + max(0, (line_h - label_h) // 2) - 2
-            first_text_x = label_x + label_w + 12
+            first_text_x = label_x + label_w + (12 if use_label else 0)
             first_max_w = card_x + 30 + max_w - first_text_x - 8
             first_lines = wrap_text(draw, text, body_font, max(120, first_max_w))
             if first_lines:
                 line = first_lines[0]
                 line_w = text_len(draw, line, body_font)
-                draw.rounded_rectangle(
-                    (label_x, label_y, label_x + label_w, label_y + label_h),
-                    radius=8,
-                    fill=label_bg,
-                )
-                draw.text((label_x + 15, label_y + 4), label, font=label_font, fill=label_fill)
+                if use_label:
+                    draw.rounded_rectangle(
+                        (label_x, label_y, label_x + label_w, label_y + label_h),
+                        radius=8,
+                        fill=label_bg,
+                    )
+                    draw.text((label_x + 15, label_y + 4), label, font=label_font, fill=label_fill)
                 draw.rounded_rectangle(
                     (first_text_x - 8, text_y - 4, first_text_x + line_w + 10, text_y + line_h - 4),
                     radius=6,

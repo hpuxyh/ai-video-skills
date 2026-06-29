@@ -7,15 +7,17 @@ description: "Generate 9:16 Chinese AI information-gap short videos from recent 
 
 ## Overview
 
-Use this skill to produce the X/Twitter-first version of the fixed 9:16 AI 信息差短视频 workflow: find recent AI hotspots on X/Twitter, filter them through the GitHub-synced viral topic screening project, confirm the topic with a core tweet from the relevant person or official account, place that tweet screenshot as the second carousel image, then keep the original video system: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, bottom information rows revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
+Use this skill to produce the X/Twitter-first version of the fixed 9:16 AI 信息差短视频 workflow: find recent AI hotspots on X/Twitter, filter them through the GitHub-synced viral topic screening project, confirm the topic with a core tweet from the relevant person or official account, place that tweet screenshot as the second carousel image, then keep the original video system: people-first cover image, top positioning label, bold three-line title, real image carousel in the middle, label-free bottom description lines revealed one by one, strong push-pull image motion, no voiceover, and 7-second BGM from a local audio file.
 
 The defining rule of this version is: every auto-scouted topic must have a verified tweet anchor and a viral-topic rationale. The second image in the video carousel must be a clean screenshot of the core tweet that confirms why this topic exists. Because viewers need time to read it, image 2 should hold for roughly twice as long as the other carousel images.
 
 The final audience-facing output must be Chinese-first. If the source tweet, chart, UI, or screenshot is in English, keep the original asset for traceability, then create a Chinese-localized tweet card or overlay so the final image/video can be understood without reading English. If the source screenshot is already mainly Chinese and readable, do not add a redundant `中文释义` block; use a clean crop or a lightly framed source card instead. Product names, company names, handles, and short technical terms may remain in English when they help recognition.
 
+When selecting topics, writing the three-line title, and writing the bottom description, use the GitHub-synced writing skills as hard gates: `twitter-ai-viral-topic-selection`, `twitter-ai-viral-title-writing`, and `twitter-ai-viral-description-writing`. Do not start image capture or rendering until the topic, title, and bottom description pass those three skills.
+
 This version must preserve the original real-visual carousel logic. X/Twitter changes the topic discovery and proof chain only; it must not turn the video into a deck of self-made explainer cards. The middle image area should stay bright, real, and evidence-like: people, company/product photos, official pages, product UI, news screenshots, and one tweet anchor.
 
-It also supports the confirmed paper-card explainer mode: a white textured 9:16 card with a strong black headline, purple information-gap ribbon, real news media in the middle, and cyan-highlighted explanatory copy at the bottom. Use this mode when the user references the white card examples, asks for "参考这种图文卡样式", or wants a static rendered image before video production.
+It also supports the confirmed clean white paper-card explainer mode: a white textured 9:16 card with a red `重磅` tag, small `AI 信息差快报` positioning label, three oversized black/blue title lines, real news media in the middle, and label-free cyan-highlighted explanatory lines at the bottom. Do not use the older purple title/ribbon style unless the user explicitly asks for that legacy variant.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -24,8 +26,8 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, tweet URL, or instruction, use the given topic directly and generate one video for that event using the confirmed workflow.
    - If the user does not give a concrete topic, default to daily auto-scout: search X/Twitter for AI-related hotspots from the latest 2-3 days, build a candidate pool from viral/media/source accounts, score candidates with the viral topic screening logic, verify the strongest candidates with official/news sources when needed, and generate 5 one-event videos.
-2. Confirm or infer each video's topic, three-line animated title, info rows, image set, cover, BGM, and tweet anchor.
-3. Before choosing or rendering topics, read the GitHub-synced screening project under `projects/twitter-viral-topic-screening/`, plus history records and local `选题记录.md` / `topic-history.md`. Do not produce a duplicate, identical topic that has already been successfully rendered. A topic is duplicate if the same company/person/product, same event, same source tweet, and same information-gap angle already exist in history.
+2. Confirm or infer each video's topic, three-line animated title, bottom description lines, image set, cover, BGM, and tweet anchor.
+3. Before choosing or rendering topics, read the GitHub-synced screening project under `projects/twitter-viral-topic-screening/`, plus history records and local `选题记录.md` / `topic-history.md`. Also read the ordinary AI 信息差 news-video history under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`. Do not produce a duplicate or near-duplicate topic that has already been successfully rendered in either workflow. Similar company/theme is allowed, but if the event object, factual anchor/source tweet, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
 4. Require one verified tweet anchor for every topic. Prefer the direct X/Twitter post from the core person involved in the event; if no person tweet exists, use an official company/product/research account. If only third-party commentary or viral-media amplification exists, use it only as a discovery signal, not as the anchor.
 5. Capture source material in the user's local Google Chrome first. Open the chosen X/Twitter post and supporting official/news/product pages in the user's Chrome profile, using its existing login/session state, then save raw browser screenshots under the working project's `assets/raw/chrome/` directory. The tweet proof card and source evidence images should be derived from these Chrome screenshots by default. Do not replace Chrome capture with web search thumbnails, generated source cards, or guessed screenshots unless Chrome capture fails; if it fails, record the exact blocked URL and reason in the source notes before using any fallback. Use the provided Chrome capture command:
 
@@ -36,9 +38,9 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
   --wait 8
 ```
 
-6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
+6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, preferably the most recognizable person in the story when there is one. Image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
 7. For each X/Twitter topic, capture more than the single core tweet when useful: after saving the core tweet screenshot, scroll the same Chrome thread and capture raw lower-thread evidence using `--scroll-y`, then derive two compact crops from the best replies, quote/repost embeds, or related posts. Save final compact crops as `assets/raw/chrome/<topic-id>-reply-01-compact.png` and `assets/raw/chrome/<topic-id>-reply-02-compact.png`; keep any third raw screenshot only as backup unless the user asks for more. Run Chrome captures sequentially because they control the same visible browser window. These screenshots are supporting context only; they do not replace the primary tweet anchor. If the visible text is English, add Chinese captions or overlays before using them in final video frames.
-8. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
+8. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: recognizable person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available.
 9. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
 10. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
 11. Before rendering, inspect Chrome screenshots, derived source cards, and a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, reopen or recapture it in Chrome before rendering. Never ship a video with an asset-error card visible.
@@ -75,9 +77,9 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
 - X/Twitter auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion on X/Twitter first, then select 5 topics with strong AI 信息差信号 and strong viral-topic scores.
-- X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first from viral/media/source accounts, then pick the stories most suitable for AI 信息差短视频: public emotion trigger, viral source signal, information-gap strength, normal-viewer relevance, credible anchor, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor.
+- X/Twitter selection criteria: do not simply pick posts with the largest number. Build a candidate pool first from viral/media/source accounts, then pick the stories most suitable for AI 信息差短视频: public emotion trigger, viral source signal, information-gap strength, normal-viewer relevance, credible anchor, recognizable people/companies, available real imagery, platform-friendly tension, and a clean tweet anchor. Familiar protagonists and familiar public issues are preferred; obscure companies/products must have a very clear public conflict to survive.
 - Heat judgment: treat X/Twitter engagement as a signal, not the only proof. Consider views, reposts, likes, replies, account authority, quote-post spread, whether AI builders are discussing it, whether viral media or prediction-market accounts have amplified it, and whether official/news sources can verify the underlying event.
-- Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, and the GitHub-synced history records. Do not choose the exact same event/topic as an earlier successful batch unless the user explicitly asks for a follow-up angle. If a company repeats, the event and information-gap angle must be materially different.
+- Daily freshness: before selecting auto-scout topics, check previous generated batches, local topic-history files, the GitHub-synced 推特版 history records, and the ordinary AI 信息差 news-video history. Do not choose the same or nearly same event/topic as an earlier successful batch unless the user explicitly asks for a follow-up angle. Similar is acceptable; nearly identical is not. If a company repeats, the event and information-gap angle must be materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, tweet anchor, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 
@@ -86,8 +88,8 @@ The folder name must clearly include `推特版` or `推特专用` so it is not 
 - If the user provides a topic, tweet URL, company, event, or concrete instruction, do not auto-scout a new batch. Produce the requested topic only.
 - If the user does not provide a topic, default to finding 5 hot X/Twitter AI topics from the latest 2-3 days using the viral topic screening project.
 - "Hot" does not mean likes-only. Rank candidates by public emotion trigger, viral account signal, tweet heat, account authority, quote/reply spread, source credibility, viewer relevance, information-gap strength, and available real assets.
-- Use the default scoring model from `projects/twitter-viral-topic-screening/README.md`: public emotion trigger 25, viral account signal 20, information-gap strength 20, normal-viewer relevance 15, credible anchor 10, visual assets 10. Do not select topics below 70 unless the user explicitly asks; prefer 80+ for a daily batch and 90+ for priority output.
-- Before finalizing the 5 topics, check GitHub-synced history and local topic history. Reject exact repeats.
+- Use the scoring model from `twitter-ai-viral-topic-selection`: controversy strength, emotional spread, source priority, public familiarity, information gap, comment/spread signal, and visual assets. Do not select topics below 70 unless the user explicitly asks; prefer 80+ for a daily batch and 90+ for priority output.
+- Before finalizing the 5 topics, check GitHub-synced 推特版 history, local topic history, and ordinary AI 信息差 news-video history. Reject exact repeats and near-duplicates across both ordinary and 推特版 workflows.
 - A non-duplicate follow-up is allowed only when there is a materially new development, a new source tweet, or a different information-gap angle.
 - After each successful run, update the history records and sync them to GitHub before telling the user the run is complete.
 
@@ -127,7 +129,7 @@ Before rendering 5 videos, show the chosen 5 topics with one-line rationale, twe
 
 - The second carousel image must be the topic-confirming X/Twitter screenshot.
 - The tweet anchor should look like a bright, source-like artifact. The preferred default is the previously approved proof-card layout: a cleaned real tweet screenshot on the left, a Chinese interpretation block on the right, and source metadata at the bottom-left. Do not show internal timing notes such as "第二张图停留加长" in the final audience-facing card.
-- For this proof-card layout, do not turn the frame into a new headline card. Use `中文释义` only when the source tweet, chart, or UI is not already Chinese-readable and needs localization. For English/non-Chinese sources, use `中文释义` as the small purple label, then 3-5 cyan highlighted Chinese lines that summarize the tweet's core fact and viewer meaning. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and `信息差：...`. If the source screenshot is mainly Chinese, skip the right-side interpretation block and keep the clean Chrome crop as the proof image unless extra context is truly needed.
+- For this proof-card layout, do not turn the frame into a new headline card. Use `中文释义` only when the source tweet, chart, or UI is not already Chinese-readable and needs localization. For English/non-Chinese sources, use `中文释义` as the small source-localization label, then 3-5 cyan highlighted Chinese lines that summarize the tweet's core fact and viewer meaning. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and final takeaway. Do not write visible internal labels such as `事件：`, `关键：`, `冲突：`, `影响：`, or `信息差：` in those lines. If the source screenshot is mainly Chinese, skip the right-side interpretation block and keep the clean Chrome crop as the proof image unless extra context is truly needed.
 - The typography should be tidy and consistent: at 1600x1000 source-card size, use roughly 34-40px bold Chinese for cyan highlighted lines, 29-34px for small labels, 23-26px for URL/source metadata, with even line height and aligned left edges. Prefer uniform full-width cyan highlight bars on the right side for cleaner video readability. If a line wraps into a single character or orphan word, rewrite the sentence shorter before shrinking below the normal font range.
 - Prefer direct posts by the core person in the story: founder, CEO, product lead, researcher, government official, creator of the tool, or other primary actor.
 - If no core-person post exists, use the official account for the company, product, lab, open-source project, or conference.
@@ -165,7 +167,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
   5. Related person, company, product, office, event, or real-world context image.
 - Keep all explanatory text in the template: the top title and the bottom one-by-one info rows.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific info-row set from the viewer's path: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
+- Use one event-specific bottom-description set from the viewer's path. Default to 5 pure content sentences, with 4-6 allowed when needed. The internal writing order is event, key fact, conflict/mechanism, affected group, final takeaway, but do not show labels such as `结论`, `跟你有关`, `发生`, `影响`, or `信息差` on screen.
 - The target look is the previously approved White House safety-review sample, with one important change: the second image is always the clean X/Twitter source screenshot or Chinese-localized tweet card that confirms the topic.
 
 ## Animated Title And Cover Text Logic
@@ -227,13 +229,13 @@ Cover and card text rule:
 
 ## Paper Card Explainer Mode
 
-Use this mode when the user approves or references the white-card examples: bold black headline, purple ribbon, a real screenshot/photo in the center, and cyan-highlighted explanatory copy below.
+Use this mode when the user approves or references the white-card examples: red `重磅` metadata, bold black/blue three-line headline, a real screenshot/photo in the center, and label-free cyan-highlighted explanatory copy below. The older purple ribbon version is legacy-only.
 
 Title logic:
 
-- Use a strong two-part hook instead of a neutral news title.
-- Line 1-2: black, heavy, high-contrast headline that names the surprising event or actor.
-- Purple ribbon: the sharp conclusion, information gap, or counterintuitive takeaway.
+- Use a strong three-line hook instead of a neutral news title.
+- Line 1-2: black, heavy, high-contrast headline that names the familiar protagonist, public conflict, and concrete event/change.
+- Line 3: the sharp conclusion, information gap, or counterintuitive takeaway, usually in blue emphasis.
 - The headline should answer why a normal viewer should stop and watch: "what changed", "why it matters", or "what most people missed".
 - Keep titles honest and specific. Avoid vague wording such as "AI 又有大事" unless the next line immediately names the event.
 
@@ -243,9 +245,11 @@ Preview card layout:
 - Put one rounded white textured paper card inside a dark phone-like background.
 - Top area: bold black title, usually 2 lines.
 - Show the latest verified news date on the card, preferably as a small top-right `最新：YYYY.MM.DD` marker. Do not rely only on a tiny date inside the embedded screenshot.
-- Under the title: a purple rounded ribbon with white bold text.
-- Middle area: one real topic-matched screenshot/photo/product image, inside a thin purple rounded border. Prefer a source/report screenshot, official page, real person, product screenshot, or company/product image over an abstract placeholder.
-- Bottom area: paragraph-style explanatory copy, each wrapped line highlighted with cyan blocks. This is not the six-row info table.
+- Under the title: do not use a purple rounded ribbon in the current default. Use the blue third title line for the information-gap sentence.
+- Middle area: one real topic-matched screenshot/photo/product image, with clean no-color-border handling by default. Prefer a source/report screenshot, official page, real person, product screenshot, or company/product image over an abstract placeholder.
+- Spacing: keep the title, middle media area, and bottom description visually tight like the approved reference. Avoid large blank gaps above or below the media. As a practical default, keep only about half-to-one line of text height between the media and nearby text blocks after readability is protected.
+- Media fill: fill the middle image area horizontally whenever safe. People/company/product photos can cover the full media area; screenshots, tweet cards, report pages, and product UI should use safe-fill/contain behavior that enlarges the asset as much as possible while preserving all important text and UI.
+- Bottom area: 4-6 pure content sentences, usually 5, each line highlighted with cyan blocks. Do not show internal labels.
 - Add only a small `AI 信息差快报` positioning label. Do not add carousel dots, footer labels, decorative divider lines, or empty title bands.
 
 Paper-card copy logic:
@@ -254,7 +258,7 @@ Paper-card copy logic:
 2. Explain what a normal viewer should understand.
 3. Explain the mechanism or business change behind it.
 4. Name the risk, controversy, limitation, or opportunity.
-5. End with `信息差：...` as the short takeaway.
+5. End with a natural short takeaway. Do not render `信息差：...` or other internal labels unless the user explicitly asks for visible labels.
 
 Use `scripts/render_paper_card_preview.py` for a single static check before video rendering:
 
@@ -281,7 +285,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Language handling: final visible titles, labels, rows, captions, chart explanations, and tweet-summary text should be Chinese. Do not leave an English tweet screenshot as the only readable explanation in the final artifact.
 - Timing: for tweet-anchored videos, keep total duration at 7 seconds but hold image 2 for about 2x the other images by setting `image_hold_weights: [1, 2, 1, 1, 1]`. Use manual `beat_cuts` only when the user asks for a music-specific exception.
-- Text rows: reveal one row at a time; put `结论` first to lower comprehension cost, then `跟你有关` to answer "what does this mean for me?" from a normal viewer's angle. Use `普通人机会` only when the row is explicitly about a concrete personal opportunity.
+- Text rows: reveal one row at a time. Default to 5 pure content sentences with no visible labels or numbers; use 4-6 only when the story needs it. The hidden writing order is event, key fact, conflict/mechanism, affected group, and final takeaway.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Use the approved full-bleed quick-report style by default: bright full-screen person/company visual, top-left `重磅` tag, top-right `AI 信息差快报` pill, white classic-logo badge near the title, the same three animated title lines as a large lower-third headline, and one bottom conclusion strip. The cover title should use clean heavy typography: white first line, flat accent-color second/third lines, white stroke/rim for readability, and no black thick outline or glow. Protect the face and full representative subject. The conclusion strip may use a small `01`-style badge, but do not add big standalone topic numbers. If there is no suitable product/event person, check the parent company or backing company for a more recognizable representative person or brand asset before using a product page screenshot. If no person is suitable, use the company's logo/product page/official visual and preserve the complete brand/product identity.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.

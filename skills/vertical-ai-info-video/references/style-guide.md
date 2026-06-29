@@ -56,7 +56,7 @@ All relative paths resolve from `--project-dir`.
 
 ## Clean White Paper Card Video Config Schema
 
-Use this schema for the current default daily/news-video MP4 output. It uses the approved no-purple white-card style: red metadata tag, three-line title with blue third line, five-image carousel, and clean numbered rows.
+Use this schema for the current default daily/news-video MP4 output. It uses the approved no-purple white-card style: red metadata tag, three-line title with blue third line, five-image carousel, and label-free cyan-highlight bottom lines.
 
 ```json
 {
@@ -89,17 +89,19 @@ Use this schema for the current default daily/news-video MP4 output. It uses the
   "media_transition_duration": 0.34,
   "body_y": 1298,
   "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
   "body_highlight_fill": [53, 214, 226, 232],
   "body_rows_animate": true,
   "body_row_start": 1.05,
   "body_row_interval": 0.52,
   "body_row_duration": 0.42,
   "body_rows": [
-    {"label": "事件", "text": "用一句话说清楚发生了什么"},
-    {"label": "关键", "text": "说清楚表面新闻背后的变化"},
-    {"label": "跟你有关", "text": "翻译成普通用户会遇到的影响"},
-    {"label": "变化", "text": "谁的流程、入口、资格或成本变了"},
-    {"label": "信息差", "text": "最后给一个能带走的判断"}
+    {"text": "用一句话说清楚发生了什么"},
+    {"text": "补一个最强数字、事实或直接变化"},
+    {"text": "解释为什么这件事会引发争议"},
+    {"text": "落到普通用户、员工或创作者会遇到的影响"},
+    {"text": "最后给一个能直接带走的判断"}
   ],
   "bgm": {
     "path": "assets/audio/bba进行曲.mp3",
@@ -146,14 +148,17 @@ Use this schema when the user asks for the approved white-card reference style o
   "strap": "别只问会不会被替代，先学会分配任务",
   "strap_color": [255, 255, 255],
   "image": "assets/images/event/tweet-anchor-cn.png",
-  "body_style": "editorial_lines",
-  "body_rows": [
-    {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
-    {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-    {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-    {"label": "机会", "text": "会拆任务、会验收的人先升级"},
-    {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
-  ]
+      "body_style": "editorial_lines",
+      "body_show_labels": false,
+      "body_show_numbers": false,
+      "body_max_rows": 6,
+      "body_rows": [
+        {"text": "官方报告称，超 1/3 Claude 用户预计 AI 一年内能完成多数任务"},
+        {"text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+        {"text": "别只问会不会被替代，先练习把工作拆给 AI"},
+        {"text": "会拆任务、会验收的人会更早升级"},
+        {"text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
+      ]
 }
 ```
 
@@ -214,16 +219,19 @@ Use this schema for the current default daily/news-video MP4 output. This keeps 
     "screenshot"
   ],
   "body_style": "editorial_lines",
+  "body_show_labels": false,
+  "body_show_numbers": false,
+  "body_max_rows": 6,
   "animate_body_rows": true,
   "body_anim_start": 1.05,
   "body_anim_step": 0.52,
   "body_anim_duration": 0.42,
   "body_rows": [
-    {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
-    {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-    {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-    {"label": "机会", "text": "会拆任务、会验收的人先升级"},
-    {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
+    {"text": "官方报告称，超 1/3 Claude 用户预计 AI 一年内能完成多数任务"},
+    {"text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+    {"text": "别只问会不会被替代，先练习把工作拆给 AI"},
+    {"text": "会拆任务、会验收的人会更早升级"},
+    {"text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
   ],
   "bgm": {
     "path": "assets/audio/moment.mp3",
@@ -256,7 +264,7 @@ Paper-card video rules:
 - Default to `media_outline_width: 0` for the current clean white-card variant. Use a visible purple border only when a specific style asks for it. Do not add carousel dots or extra footer strips.
 - Use `media_fit: "cover"` for real people/product images, but preserve text-bearing screenshots/cards via `image_roles`, `image_quality`, and `media_preserve_roles` so their text is not cropped.
 - Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` so image changes have a soft cross-fade without white flashing or fast left-right slide motion.
-- Daily scheduled videos default to the white paper-card video style. The bottom copy should reveal row by row at a readable pace, then remain visible.
+- Daily scheduled videos default to the white paper-card video style. The bottom copy should reveal row by row at a readable pace, then remain visible. Use 4-6 pure content lines, usually 5; keep internal labels out of the rendered video by setting `body_show_labels: false`.
 
 ## Request Routing
 
@@ -268,7 +276,7 @@ Use two modes:
 In auto-scout mode:
 
 - Search current sources because the 7-day window is time-sensitive.
-- Before choosing topics, review previous generated batches in the workspace, dated export folders, and any `选题记录.md` / `topic-history.md` files. Treat these as a local topic history.
+- Before choosing topics, review previous generated batches in the workspace, dated export folders, `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, and the GitHub-synced 推特版 `topic-history.md` when available. Treat both ordinary news-video history and 推特版 history as duplicate-prevention sources.
 - Prefer China/US AI stories with clear platform appeal: model releases, policy/regulation, major product launches, safety/security, AI hardware, agent/tools, major company moves, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent stories when possible, then narrow down to 5. The goal is not "news ranking top 5"; the goal is "the 5 stories most suitable for AI 信息差短视频".
 - Score candidates by:
@@ -279,12 +287,12 @@ In auto-scout mode:
   - Title tension: can it become a strong, honest, click-worthy short-video headline?
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
-- Choose topics that can support real images and a people-first or company-recognition cover.
-- Avoid exact repeats from previous days. A topic is considered a repeat when the same company/person/product and the same event angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
+- Choose topics that can support real images and a people-first or company-recognition cover. Favor familiar companies, people, products, and public issues; obscure companies/products should only survive when the public conflict is extremely clear.
+- Avoid exact repeats from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered a repeat when the same company/person/product and the same event angle were already rendered, such as "OpenAI makes an AI chip" appearing again with no new development.
 - Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and the default paper-card row order: `事件` / `关键` / `跟你有关` / `机会` or `风险/变化` / `信息差`. Use the older `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差` order only for explicitly requested legacy dark-template videos.
+- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. The internal writing order is event, key fact, conflict/mechanism, affected group, and final takeaway, but final text must not show labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
 
 Reject candidates when:
 
@@ -364,24 +372,24 @@ Use these defaults for static paper-card previews and for the current daily pape
 - Canvas: `1080x1920`.
 - Background: dark phone-like backdrop.
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
-- Top: current default is a very bold black headline, centered, usually 2 lines.
+- Top: current default is a very bold three-line headline, centered. The first two lines are black and the third line is blue emphasis.
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
 - No purple ribbon by default: use the blue third title line for the viewer takeaway, information gap, or action hook.
 - Media: real image or screenshot in a clean full-width frame. Use bright, legible media. For video, this frame must contain the five-image carousel.
-- Copy: bottom structured cyan-highlight reading lines by default. Use `标签：内容` on a cyan highlight strip, no `01`-`05` number pills, and concise explanatory text. Prefer labels such as `事件`, `关键`, `跟你有关`, `机会` or `风险/变化`, `信息差`.
+- Copy: bottom structured cyan-highlight reading lines by default. Use 4-6 pure content sentences, usually 5, with no visible labels and no `01`-`05` number pills. Keep the internal event/key/conflict/impact/takeaway logic for writing only.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
 
-The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows` rendered as unnumbered cyan-highlight reading lines:
+The bottom copy should read like a compact short-video explanation, not a loose paragraph dump. The current preferred form is `body_rows` rendered as unnumbered, label-free cyan-highlight reading lines:
 
 ```json
 [
-  {"label": "事件", "text": "官方报告：超 1/3 Claude 用户预计，AI 一年内能完成多数任务"},
-  {"label": "关键", "text": "Claude 正从聊天助手，变成能长期接任务的工具"},
-  {"label": "跟你有关", "text": "别只问会不会被替代，先练习把工作拆给 AI"},
-  {"label": "机会", "text": "会拆任务、会验收的人先升级"},
-  {"label": "信息差", "text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
+  {"text": "官方报告称，超 1/3 Claude 用户预计 AI 一年内能完成多数任务"},
+  {"text": "Claude 正从聊天助手，变成能长期接任务的工具"},
+  {"text": "别只问会不会被替代，先练习把工作拆给 AI"},
+  {"text": "会拆任务、会验收的人会更早升级"},
+  {"text": "拉开差距的不是有没有 AI，而是谁先会指挥 AI"}
 ]
 ```
 
@@ -391,7 +399,7 @@ Write rows in this order:
 2. Viewer meaning: why a normal viewer should care. Translate it into work, learning, creation, cost, access, opportunity, or risk.
 3. Mechanism: what changed in the product, business model, policy, workflow, access path, or industry structure.
 4. Boundary or opportunity: risk, dispute, limitation, opportunity, or who is affected first.
-5. Information gap: end with the `信息差` row.
+5. Information gap: end with a natural short takeaway. Do not render an `信息差` label unless the user explicitly asks for visible labels.
 
 Write short rows that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should not require voiceover to understand.
 
@@ -402,7 +410,7 @@ Bottom copy quality rules:
 - Use everyday verbs: `接走`, `分配`, `验收`, `变贵`, `变慢`, `先开放`, `先用上`, `拿不到`, `抢入口`.
 - Prefer `普通人...`, `对你来说...`, or direct action language when the line is about viewer meaning.
 - Avoid jargon-only phrasing such as `能力边界变化`, `工作流适配`, `产业范式迁移`, `组织效率重构`, unless immediately translated into a concrete consequence.
-- The final `信息差：...` line should be a sharp conclusion the viewer can remember, for example `信息差：拉开差距的不是有没有 AI，而是谁先学会指挥 AI`.
+- The final line should be a sharp conclusion the viewer can remember, for example `拉开差距的不是有没有 AI，而是谁先学会指挥 AI`. Do not write `这个选题的信息差是...`.
 
 ## One News Event Pattern
 
@@ -479,21 +487,21 @@ If the checker fails, do not weaken the rule just to pass. Reorder the images, r
 
 ## Default Paper-Card Row Logic
 
-Use this 5-row order for the default white paper-card news explainers:
+Use this 5-line logic for the default white paper-card news explainers. These are writing roles only; do not render the role names on screen:
 
-1. `事件`: what happened, stated plainly with the actor/source/product/date when possible.
-2. `关键`: what changed behind the surface headline.
-3. `跟你有关`: what this means for a normal viewer right now.
-4. `机会`, `风险`, or `变化`: who benefits, who is affected, or what boundary changed.
-5. `信息差`: the final usable takeaway most viewers may not have noticed.
+1. Event: what happened, stated plainly with the actor/source/product/date when possible.
+2. Key fact: what changed behind the surface headline.
+3. Conflict/mechanism: why this is controversial or what changed behind the scenes.
+4. Affected group: who benefits, who is affected, or what boundary changed.
+5. Takeaway: the final usable conclusion most viewers may not have noticed.
 
-Use `跟你有关` as the default second row because it directly answers the viewer's hidden question: "what does this have to do with me?" Use `普通人机会` only when the row is about a concrete personal opportunity, job direction, workflow, or action.
+Land one of the lines on normal viewers because it directly answers the hidden question: "what does this have to do with me?" Use concrete personal opportunity, risk, job direction, workflow, or action language when relevant.
 
 Keep each row short. If a row wraps visually, rewrite it rather than shrinking all rows.
 
-The older 6-row order `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差` belongs to the legacy dark fast-news template. Do not use it for daily scheduled white paper-card videos unless the user explicitly asks for that style.
+The older visible-label orders such as `事件` / `关键` / `跟你有关` / `信息差` and `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差` belong to legacy templates. Do not use visible labels for daily scheduled white paper-card videos unless the user explicitly asks for that style.
 
-For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
+For viewer-impact lines, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
 
 - Good: `别等新模型，先用现有 AI 整理资料、写方案`
 - Good: `不用等内测，先用现有 AI 整理资料、写方案`
@@ -507,11 +515,11 @@ For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflo
 For a GPT-5.6 limited-preview story, prefer rows like:
 
 ```text
-01 事件：GPT-5.6 已预览，但普通用户还不能直接用
-02 关键：入口先给合作客户、开发者和 Codex/API 场景
-03 跟你有关：别等新模型，先用现有 AI 整理资料、写方案
-04 变化：ChatGPT 里的全面开放，还要再等一段时间
-05 信息差：发布不等于人人可用，入口才是关键
+GPT-5.6 已经预览，但普通用户还不能直接用
+入口先给合作客户、开发者和 Codex/API 场景
+别等新模型，先用现有 AI 整理资料、写方案
+ChatGPT 里的全面开放，还要再等一段时间
+发布不等于人人可用，入口才是关键
 ```
 
 ## Cover Generation Logic
@@ -551,7 +559,7 @@ For a GPT-5.6 limited-preview cover, use:
 Person: Sam Altman portrait
 Company badge: OpenAI logo, preferably white background and larger than a tiny corner mark
 Headline: GPT-5.6 要来了？ / 但普通人 / 还不能直接用
-Bottom row: 结论：预览中，普通用户还不能直接用
+Bottom row: 预览中，普通用户还不能直接用
 ```
 
 ## Verification

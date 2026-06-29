@@ -15,7 +15,7 @@ Middle: source screenshot, for proof
 Bottom: description, for explaining the news
 ```
 
-The description is not a press release, long article, or source transcript. It should explain the title in 3-5 compact Chinese sentences, with a length close to the reference competitor accounts.
+The description is not a press release, long article, or source transcript. It should explain the title in compact Chinese, with a length close to the reference competitor accounts. For video bottom copy, split the same logic into 4-6 short on-screen lines, usually 5.
 
 ## What To Extract
 
@@ -44,6 +44,18 @@ Sentence 5: Optional natural closing judgment.
 
 Do not end with a fixed phrase such as `真正的信息差是...`. Say the conclusion directly.
 
+For the on-screen bottom area, convert the same structure into 4-6 pure content lines, usually 5:
+
+```text
+Line 1: What happened.
+Line 2: Strongest number, source fact, or concrete change.
+Line 3: Cause, conflict, or mechanism.
+Line 4: Who is affected and how.
+Line 5: Final takeaway.
+```
+
+These line roles are internal only. Do not render visible prefixes such as `事件：`, `关键：`, `冲突：`, `影响：`, `信息差：`, `结论：`, or `跟你有关：`. Each on-screen line should read like a normal sentence.
+
 ## Length Rules
 
 Match the reference-account density:
@@ -51,7 +63,8 @@ Match the reference-account density:
 - Default length: **140-220 Chinese characters**.
 - Short simple news: **100-140 Chinese characters** is acceptable only when the conflict is already obvious.
 - Complex product, model, or market-reversal stories: **180-260 Chinese characters** is acceptable, but do not exceed 260 unless the user asks for a long version.
-- Keep it as one compact paragraph for screenshot-card publishing. Do not use bullets in the bottom description.
+- For platform publishing, keep it as one compact paragraph unless the user asks for line breaks.
+- For video bottom copy, output 4-6 short lines, usually 5, with no visible labels. This is not a bullet table; it is the same description broken into readable on-screen sentences.
 - If the first draft is under 100 characters, it usually lacks mechanism or consequence.
 - If the first draft is over 260 characters, cut secondary facts, repeated adjectives, and extra product features first.
 
@@ -77,6 +90,7 @@ If the description introduces a totally different angle from the title, rewrite 
 - For negative company stories, use careful wording such as `据报道`, `被曝`, `引发争议`, `可能`, or `外界质疑` when appropriate.
 - Do not repeat the screenshot text verbatim; explain what the screenshot proves.
 - Do not overstate legal, financial, medical, or safety claims beyond the source.
+- Do not write `这个选题的信息差是...` or any similar meta sentence. State the takeaway directly.
 
 ## Competitor Pattern Library
 
@@ -97,6 +111,7 @@ Return:
 topic:
 three-line title:
 bottom description:
+bottom lines:
 source facts used:
 notes:
 ```

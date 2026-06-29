@@ -22,13 +22,16 @@ Use a JSON file with these top-level keys:
     {"text": "获批客户才可提前试用", "y": 344, "size": 94, "color": [255, 145, 118]}
   ],
   "info_rows": [
-    {"label": "结论", "text": "顶级 AI 发布前，先过安全审查"},
-    {"label": "跟你有关", "text": "别只等新模型，先用现有 AI 整理资料、写方案"},
-    {"label": "发生", "text": "OpenAI 与 Anthropic 被纳入审查"},
-    {"label": "谁先用", "text": "获批客户才可提前试用"},
-    {"label": "影响", "text": "最强模型开放节奏会变慢"},
-    {"label": "信息差", "text": "发布不等于人人可用，入口才是关键"}
+    {"text": "顶级 AI 发布前，先过安全审查"},
+    {"text": "获批客户才可提前试用"},
+    {"text": "普通人看到发布，不代表马上能用"},
+    {"text": "最强模型开放节奏会变慢"},
+    {"text": "发布不等于人人可用，入口才是关键"}
   ],
+  "info_style": {
+    "show_labels": false,
+    "show_numbers": false
+  },
   "images": [
     "assets/images/event1/event1-01.jpg",
     "assets/images/event1/event1-02-tweet.jpg",
@@ -70,11 +73,11 @@ Use this schema when the user asks for the approved white-card reference style o
   "strap": "真正稀缺的不是模型，是算力",
   "image": "assets/images/event/source-screenshot.jpg",
   "body": [
-    "重磅！Reflection AI 签下 SpaceX 的计算资源，开源模型公司开始租顶级 GPU。",
+    "Reflection AI 签下 SpaceX 的计算资源，开源模型公司开始租顶级 GPU。",
     "这说明 AI 竞争不只是谁模型更强，更是谁能拿到更便宜、更稳定的算力。",
     "对普通人来说，AI 服务变贵、变慢、限量开放，背后常常不是产品问题，而是 GPU 不够。",
     "小团队如果能租到巨头机房，就有机会用更低成本挑战闭源大模型。",
-    "信息差：未来 AI 入口可能不在 App，而在谁掌握芯片和机房。"
+    "未来 AI 入口可能不在 App，而在谁掌握芯片和机房。"
   ]
 }
 ```
@@ -153,7 +156,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 - Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and row order: `结论` / `跟你有关` / `发生` / `谁先用` / `影响` / `信息差`.
+- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. The internal writing order is event, key fact, conflict/mechanism, affected group, and final takeaway, but final text must not show labels such as `结论`, `跟你有关`, `发生`, `谁先用`, `影响`, or `信息差`.
 - Each topic must include `tweet_anchor` metadata, and the screenshot in `tweet_anchor.screenshot` must also be `images[1]`.
 
 Reject candidates when:
@@ -200,7 +203,7 @@ For the 推特版 workflow, the tweet anchor is not optional.
 
 - `images[1]` must be the clean X/Twitter screenshot or Chinese-localized tweet card for the selected topic, derived from the user's local Google Chrome capture by default.
 - The tweet anchor should remain a bright source artifact, not a dark explainer slide. The preferred default for English/non-Chinese sources is the approved tweet proof card: left side shows a cleaned real tweet screenshot, right side shows a concise Chinese interpretation, and bottom-left keeps source metadata. If the tweet screenshot is already mainly Chinese and readable, use the clean Chrome crop or a lightly framed source card instead of forcing a right-side `中文释义` block. Do not show internal timing notes such as `第二张图停留加长` in the final card.
-- The right-side Chinese interpretation should be used only when localization is needed. When used, it should have a small purple `中文释义` label followed by 3-5 cyan highlighted lines. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and `信息差：...`. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title.
+- The right-side Chinese interpretation should be used only when localization is needed. When used, it should have a small `中文释义` source-localization label followed by 3-5 cyan highlighted lines. For daily batch videos, prefer 5 lines: concrete fact, direct change, normal-viewer meaning, mechanism/boundary, and final takeaway. These lines translate the tweet's concrete fact and viewer meaning; they are not a new three-line title. Do not show internal labels such as `事件：`, `关键：`, `冲突：`, `影响：`, or `信息差：`.
 - Keep the raw tweet visible for credibility. Capture the tweet in the user's Chrome first, then crop out X sidebars, sign-up panels, bottom login banners, unrelated replies, browser chrome, and blank areas before placing it into the card. When the source screenshot is a sparse/mobile/raw page, use a wider crop that preserves the avatar/author, key text, and main media/logo instead of a narrow crop that cuts the subject.
 - Typography for the proof card should be orderly: for a 1600x1000 card, cyan-highlight Chinese text should usually be 34-40px bold, labels around 29-34px, URL/source metadata around 23-26px. Use consistent line height, aligned left edges, and shorter wording rather than tiny text. In video-oriented proof cards, prefer uniform full-width cyan highlight bars on the right side. If wrapping creates a single-character or orphan-word line, shorten the copy before reducing the font size.
 - The screenshot should be captured from the user's local Google Chrome authenticated browser session whenever available. This is the default path for both X/Twitter posts and official/news/product source pages.
@@ -246,7 +249,7 @@ Example proof-card config:
     "同时给出 Terra、Luna 两个分层模型",
     "普通用户看到发布，不代表马上能用",
     "真正变化是模型开始按场景分配入口",
-    "信息差：先看谁能用，再看模型多强"
+    "先看谁能用，再看模型多强"
   ],
   "right_w": 560,
   "summary_font_size": 36,
@@ -330,20 +333,21 @@ Relationship to other title modes:
 - Normal videos: use the three-line animated title above.
 - Normal covers: reuse the same three lines as the cover headline.
 - Normal middle carousel images: do not repeat the full three-line hook by default. The title is already animated above the image area. Use real visuals with minimal captions, and use the tweet proof-card layout for image 2.
-- Paper-card previews: use the separate paper-card title plus purple ribbon logic below.
+- Paper-card previews: use the current clean white-card title logic below. Purple ribbon logic is legacy-only and should not be used unless the user explicitly asks for the old style.
 
 ## Paper Card Title Logic
 
-For the paper-card explainer style, the title area is not the same as the normal three-line video title.
+For the paper-card explainer style, use the current clean white-card headline system.
 
-- Use a short, high-impact black headline at the top of the white card.
-- Prefer two lines: line 1 names the event or actor, line 2 names the surprising change or conflict.
-- Use the purple ribbon for the strongest information-gap sentence, not for a generic category.
-- Good pattern: `事件/主角` + `反常识变化` + purple `真正关键点`.
+- Use three high-impact lines at the top of the white card.
+- Line 1 names the familiar protagonist or public conflict.
+- Line 2 states the concrete event or direct change.
+- Line 3 gives the normal-viewer consequence or information gap, usually in blue.
+- Good pattern: `熟悉主角/公共冲突` + `具体事件/变化` + `普通人后果/关键点`.
 - Examples:
-  - Headline: `Anthropic CEO 炮轰开源 AI` / `开放权重也不算真自由`; ribbon: `并不是真正意义上的“免费”`.
-  - Headline: `19 岁少年改写 AI 付费` / `零成本接入 ChatGPT`; ribbon: `直接击穿大模型 API 商业模式`.
-  - Headline: `SpaceX 开始出租 AI 算力` / `开源模型公司抢 GPU 入口`; ribbon: `真正稀缺的不是模型，是算力`.
+  - Title: `400 家报纸起诉 AI` / `ChatGPT 被指偷内容` / `凭什么不给钱`.
+  - Title: `Meta 员工也被 AI 盯上` / `键盘鼠标都被记录` / `打工人隐私先变样`.
+  - Title: `马斯克想把 AI 搬上天` / `孙正义当场泼冷水` / `算力故事也要算账`.
 
 ## Paper Card Date Rule
 
@@ -351,7 +355,7 @@ For the paper-card explainer style, the title area is not the same as the normal
 - Use the newest date from the verified source set for that story. If sources disagree, use the newest publication/update date and keep source notes in the project record.
 - Preferred display: a small top-right marker such as `最新：2026.06.28`.
 - Do not rely only on the embedded screenshot's tiny source date, because it may be cropped or unreadable on mobile.
-- Keep the date marker secondary to the headline: visible enough to prove freshness, but smaller than title and purple ribbon.
+- Keep the date marker secondary to the headline: visible enough to prove freshness, but smaller than the title.
 - When a date marker is present, leave enough top padding so it does not overlap the headline.
 
 ## Layout Defaults
@@ -370,22 +374,22 @@ Use these defaults for static paper-card previews and for future paper-card vide
 - Canvas: `1080x1920`.
 - Background: dark phone-like backdrop.
 - Card: one centered rounded white paper card with subtle texture. Keep the card dominant and avoid nested cards.
-- Top: black, very bold headline, centered, usually 2 lines.
+- Top: black/blue, very bold headline, centered, exactly 3 lines when using the current title-writing skill.
 - Date: small top-right `最新：YYYY.MM.DD` marker when `date` is provided.
-- Ribbon: purple rounded bar under the headline, white bold text, one sentence only.
-- Media: real image or screenshot in a purple rounded frame. Use `contain` so screenshots and portraits stay complete.
-- Copy: bottom paragraph copy with cyan highlight blocks per wrapped line. This replaces the six numbered info rows.
+- Ribbon: no purple ribbon by default. Use the blue third title line for the information-gap sentence.
+- Media: real image or screenshot in a clean no-color-border frame. Use `contain` when screenshots and portraits must stay complete.
+- Copy: bottom 4-6 pure content sentences, usually 5, with cyan highlight blocks per line. No visible labels or numbers.
 - Label: a small `AI 信息差快报` label can appear in a corner; no footer strips, carousel dots, or decorative divider lines.
 
 ## Paper Card Copy Logic
 
-The bottom copy should read like a compact short-video explanation, not a bullet table:
+The bottom copy should read like a compact short-video explanation, not a bullet table. Use these roles internally, but do not render the role names:
 
 1. Event: what happened, in plain language.
 2. Viewer meaning: why a normal viewer should care.
 3. Mechanism: what changed in the product, business model, policy, or industry structure.
 4. Boundary: risk, dispute, limitation, opportunity, or who is affected first.
-5. Information gap: end with `信息差：...`.
+5. Information gap: end with a natural short takeaway, without `信息差：...`.
 
 Write short paragraphs that can wrap cleanly. Avoid abstract words that a casual viewer cannot immediately picture. The copy should be suitable for cyan highlighted lines and should not require voiceover to understand.
 
@@ -435,20 +439,19 @@ Reject generated fallback/error cards that say `图片源不可用`, `403`, `429
 
 ## Recommended Row Logic
 
-Use this order for news explainers:
+Use this order for news explainers. These are internal writing roles only; final on-screen lines should be pure content sentences:
 
-1. `结论`: the one-sentence takeaway.
-2. `跟你有关`: what this means for a normal viewer right now.
-3. `发生`: what happened.
-4. `谁先用`: who gets access first, or where the real entry point is.
-5. `影响`: the user or industry impact.
-6. `信息差`: what most viewers may not have noticed.
+1. Event: what happened.
+2. Key fact: the strongest number, source fact, or direct change.
+3. Conflict/mechanism: why it is controversial or what changed behind the scenes.
+4. Affected group: what this means for ordinary viewers, employees, creators, users, or companies.
+5. Takeaway: what most viewers may not have noticed.
 
-Use `跟你有关` as the default second row because it directly answers the viewer's hidden question: "what does this have to do with me?" Use `普通人机会` only when the row is about a concrete personal opportunity, job direction, workflow, or action.
+At least one line should answer the viewer's hidden question: "what does this have to do with me?" Use concrete opportunity, risk, job direction, workflow, or action language when relevant.
 
 Keep each row short. If a row wraps visually, rewrite it rather than shrinking all rows.
 
-For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
+For viewer-impact lines, avoid abstract phrasing such as "workflow adaptation" or "capability boundary". Make it concrete and actionable for a casual viewer:
 
 - Good: `别等新模型，先用现有 AI 整理资料、写方案`
 - Good: `不用等内测，先用现有 AI 整理资料、写方案`
@@ -462,12 +465,11 @@ For `跟你有关` / `普通人机会`, avoid abstract phrasing such as "workflo
 For a GPT-5.6 limited-preview story, prefer rows like:
 
 ```text
-01 结论：GPT-5.6 已预览，但普通用户还不能直接用
-02 跟你有关：别等新模型，先用现有 AI 整理资料、写方案
-03 发生：OpenAI 先测试 Sol、Terra、Luna 三个版本
-04 谁先用：先给合作客户、开发者和 Codex/API 场景
-05 影响：ChatGPT 里的全面开放，还要再等一段时间
-06 信息差：发布不等于人人可用，入口才是关键
+GPT-5.6 已经预览，但普通用户还不能直接用
+OpenAI 先测试 Sol、Terra、Luna 三个版本
+入口先给合作客户、开发者和 Codex/API 场景
+ChatGPT 里的全面开放，还要再等一段时间
+发布不等于人人可用，入口才是关键
 ```
 
 ## Cover Generation Logic
@@ -521,7 +523,7 @@ For a GPT-5.6 limited-preview cover, use:
 Person: Sam Altman portrait
 Company badge: OpenAI logo, preferably white background and larger than a tiny corner mark
 Headline: GPT-5.6 要来了？ / 但普通人 / 还不能直接用
-Bottom row: 结论：预览中，普通用户还不能直接用
+Bottom row: 预览中，普通用户还不能直接用
 ```
 
 ## Verification

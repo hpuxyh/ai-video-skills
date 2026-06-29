@@ -479,7 +479,8 @@ def draw_rows(draw, rows, cfg=None):
     y = int(cfg.get("body_y", 1308))
     row_h = 58
     gap = 13
-    for i, row in enumerate(rows[:5], 1):
+    max_rows = int(cfg.get("body_max_rows", 6))
+    for i, row in enumerate(rows[:max_rows], 1):
         draw_one_row(draw, row, i, y, row_x, row_w, row_h)
         y += row_h + gap
 
@@ -488,8 +489,13 @@ def draw_one_row(draw, row, i, y, row_x=52, row_w=976, row_h=58):
     label_font = font(33)
     text_base_size = 32
 
-    label = row.get("label", "")
-    text = row.get("text", "")
+    if isinstance(row, str):
+        label = ""
+        text = row
+    else:
+        label = row.get("label", "")
+        text = row.get("text", "")
+    show_labels = getattr(draw_one_row, "show_labels", True) and bool(label)
     if getattr(draw_one_row, "show_numbers", False):
         num_font = font(24)
         draw.rounded_rectangle((row_x + 12, y + 8, row_x + 58, y + 50), radius=8, fill=(190, 226, 252))
@@ -498,8 +504,8 @@ def draw_one_row(draw, row, i, y, row_x=52, row_w=976, row_h=58):
     else:
         label_x = row_x + 32
     label_text = f"{label}："
-    label_w = int(text_len(draw, label_text, label_font))
-    text_x = label_x + label_w + 16
+    label_w = int(text_len(draw, label_text, label_font)) if show_labels else 0
+    text_x = label_x + label_w + (16 if show_labels else 0)
     max_w = row_x + row_w - text_x - 18
     text_font = fit_font(draw, text, text_base_size, max_w)
     text_fill = (202, 72, 92) if i in (1, 5) else (18, 22, 30)
@@ -519,7 +525,8 @@ def draw_one_row(draw, row, i, y, row_x=52, row_w=976, row_h=58):
         radius=5,
         fill=highlight_fill,
     )
-    draw.text((label_x, y + 11), label_text, font=label_font, fill=(12, 18, 26))
+    if show_labels:
+        draw.text((label_x, y + 11), label_text, font=label_font, fill=(12, 18, 26))
     draw.text((text_x, text_y), text, font=text_font, fill=text_fill)
 
 
@@ -533,7 +540,8 @@ def make_row_layers(rows, cfg=None):
     start = float(cfg.get("body_row_start", 1.05))
     interval = float(cfg.get("body_row_interval", 0.52))
     layers = []
-    for i, row in enumerate(rows[:5], 1):
+    max_rows = int(cfg.get("body_max_rows", 6))
+    for i, row in enumerate(rows[:max_rows], 1):
         layer = Image.new("RGBA", (W, row_h + 4), (0, 0, 0, 0))
         draw = ImageDraw.Draw(layer, "RGBA")
         draw_one_row(draw, row, i, 2, row_x, row_w, row_h)
@@ -587,8 +595,9 @@ def make_frames(cfg, project_dir, frames_dir, output_name):
         old.unlink()
 
     images = [Image.open(resolve(project_dir, p)).convert("RGB") for p in cfg["images"][:5]]
-    rows = cfg.get("body_rows", [])[:5]
+    rows = cfg.get("body_rows", [])[: int(cfg.get("body_max_rows", 6))]
     draw_one_row.show_numbers = bool(cfg.get("body_show_numbers", False))
+    draw_one_row.show_labels = bool(cfg.get("body_show_labels", True))
     draw_one_row.highlight_fill = tuple(cfg.get("body_highlight_fill", [53, 214, 226, 232]))
     base = make_base(cfg, rows)
     title_layers = make_title_layer(make_title_lines(cfg), cfg)

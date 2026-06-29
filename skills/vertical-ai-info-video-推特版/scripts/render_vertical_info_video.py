@@ -239,8 +239,12 @@ def draw_info_rows(canvas, t, cfg):
     reveal = float(style.get("reveal", 0.22))
     max_width = W - margin * 2
     hot_labels = set(style.get("hot_labels", ["普通人机会", "结论", "变化", "信息差"]))
+    show_labels = bool(style.get("show_labels", True))
+    show_numbers = bool(style.get("show_numbers", True))
 
     for i, row_data in enumerate(rows):
+        if isinstance(row_data, str):
+            row_data = {"text": row_data}
         p = (t - (start + i * step)) / reveal
         if p <= 0:
             continue
@@ -249,15 +253,18 @@ def draw_info_rows(canvas, t, cfg):
         rd = ImageDraw.Draw(row, "RGBA")
         y = y0 + i * row_h + int((1 - a) * 18)
         num = row_data.get("num", f"{i + 1:02d}")
-        label = row_data["label"]
-        text = row_data["text"]
+        label = row_data.get("label", "")
+        text = row_data.get("text", "")
         rd.rounded_rectangle((margin, y, margin + max_width, y + 52), radius=12, fill=(9, 14, 28, 148), outline=(255, 255, 255, 28), width=1)
-        rd.rounded_rectangle((margin + 10, y + 10, margin + 48, y + 42), radius=8, fill=(166, 203, 238, 235))
-        rd.text((margin + 17, y + 10), num, font=font(21, True), fill=(12, 18, 30))
-        x = margin + 68
+        x = margin + 18
+        if show_numbers:
+            rd.rounded_rectangle((margin + 10, y + 10, margin + 48, y + 42), radius=8, fill=(166, 203, 238, 235))
+            rd.text((margin + 17, y + 10), num, font=font(21, True), fill=(12, 18, 30))
+            x = margin + 68
         label_font = font(34, True)
-        rd.text((x, y + 8), f"{label}：", font=label_font, fill=(243, 248, 255))
-        x += int(rd.textlength(f"{label}：", font=label_font))
+        if show_labels and label:
+            rd.text((x, y + 8), f"{label}：", font=label_font, fill=(243, 248, 255))
+            x += int(rd.textlength(f"{label}：", font=label_font))
         color = rgb(row_data.get("color"), (255, 101, 101) if label in hot_labels else (235, 242, 255))
         text_font_size = 33 if rd.textlength(text, font=font(34, True)) < W - x - margin else 29
         rd.text((x, y + 8), text, font=font(text_font_size, True), fill=color)
