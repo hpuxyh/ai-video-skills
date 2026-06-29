@@ -1,0 +1,129 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-05-马斯克太空数据中心被质疑-paper-card-v2.mp4",
+  "contact_sheet": "renders/05-05-马斯克太空数据中心被质疑-paper-card-v2-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "SoftBank · AI算力",
+  "header_source": "BI · 06.30",
+  "title": [
+    "马斯克想把 AI 搬上天",
+    "孙正义当场泼冷水"
+  ],
+  "title_line3": "算力故事也要算账",
+  "title_base_size": 70,
+  "title_min_size": 54,
+  "title_line_gap": 24,
+  "title_y": 150,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.24,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "media_zoom_extra": 0.02,
+  "body_y": 1212,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 5,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "马斯克提出过把 AI 数据中心放到太空的设想",
+    "孙正义质疑这笔账，认为短期落地并不现实",
+    "太空有太阳能，但芯片、维护、网络和延迟更难解决",
+    "普通人别只被太空 AI 概念吸引",
+    "AI 基建最后拼的是更快、更便宜、更稳定的算力"
+  ],
+  "images": [
+    "assets/images/05-马斯克太空数据中心被质疑/01-真实视觉.jpg",
+    "assets/images/05-马斯克太空数据中心被质疑/02-核心来源中文卡.jpg",
+    "assets/images/05-马斯克太空数据中心被质疑/03-来源截图.jpg",
+    "assets/images/05-马斯克太空数据中心被质疑/04-信息差解释.jpg",
+    "assets/images/05-马斯克太空数据中心被质疑/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "source-card",
+    "media",
+    "clean-card",
+    "media"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://www.businessinsider.com/softbank-ceo-masayoshi-son-elon-musk-ai-space-data-centers-2026-6",
+    "author": "Business Insider / TechCrunch",
+    "screenshot": "assets/images/05-马斯克太空数据中心被质疑/02-核心来源中文卡.jpg",
+    "observed_signal": "主题已确认；来源页/可信媒体作为证据锚点"
+  },
+  "publishing": {
+    "title": "孙正义质疑马斯克太空AI",
+    "description": "马斯克设想把 AI 数据中心搬到太空，孙正义的质疑很直接：概念够酷，但商业账不一定成立。普通人要看的不是太空感，而是芯片、维护、网络、延迟和成本谁能解决。",
+    "tags": [
+      "AI",
+      "马斯克",
+      "孙正义",
+      "SoftBank",
+      "SpaceX",
+      "数据中心",
+      "算力",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "马斯克想把 AI 搬上天",
+      "孙正义当场泼冷水",
+      "算力故事也要算账"
+    ],
+    "conclusion": "太空 AI 概念也要算成本",
+    "badge": "SoftBank",
+    "bg_image": "assets/cover-bg/cover-bg-05.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "heavy_infrastructure"
+  }
+}

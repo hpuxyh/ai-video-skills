@@ -1,0 +1,147 @@
+{
+  "schema": "vertical-ai-info-video.bgm-plan.v1",
+  "project_dir": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30",
+  "dry_run": false,
+  "tracks": [
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30/configs/01-01-报纸起诉OpenAI微软-paper-card-v2.json",
+      "output": "renders/01-01-报纸起诉OpenAI微软-paper-card-v2.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30/configs/02-02-Meta员工追踪训练AI-paper-card-v2.json",
+      "output": "renders/02-02-Meta员工追踪训练AI-paper-card-v2.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30/configs/03-03-Google限制Meta用Gemini-paper-card-v2.json",
+      "output": "renders/03-03-Google限制Meta用Gemini-paper-card-v2.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30/configs/04-04-苹果高管跳槽OpenAI-paper-card-v2.json",
+      "output": "renders/04-04-苹果高管跳槽OpenAI-paper-card-v2.mp4",
+      "mood": "default",
+      "track": "do it.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/do it.mp3",
+      "project_path": "assets/audio/bgm-do-it.mp3",
+      "best_fit": "action-oriented tools, workflow tips, what-to-do-now topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/twitter-ai-info-video-2026-06-30/configs/05-05-马斯克太空数据中心被质疑-paper-card-v2.json",
+      "output": "renders/05-05-马斯克太空数据中心被质疑-paper-card-v2.mp4",
+      "mood": "heavy_infrastructure",
+      "track": "moment.mp3",
+      "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率；批量去重：单首最多 3 条",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 3,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        },
+        {
+          "name": "say no cry.mp3",
+          "weight": 1,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    }
+  ],
+  "summary": {
+    "bba进行曲.mp3": 3,
+    "do it.mp3": 1,
+    "moment.mp3": 1
+  }
+}

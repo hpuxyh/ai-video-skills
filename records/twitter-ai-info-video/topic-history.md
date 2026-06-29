@@ -155,3 +155,10 @@
 输出文件：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月29日-推特版AI信息差快报/05-Seedance-Blender可控工作流/视频.mp4
 备注：核心推文为 Justine Moore 分享；AI Warper 链接作为原始工作流支撑。
 
+## 2026-06-30 推特版AI信息差快报 paper-card-v2
+
+- 01-报纸起诉OpenAI微软 | OpenAI / Microsoft / 地方报纸 | Courthouse News | https://www.courthousenews.com/newspapers-sue-openai-microsoft-for-mass-copyright-infringement/ | 标题：400 家报纸起诉 AI / ChatGPT 被指偷内容 / 凭什么不给钱 | 信息差：内容价值正在重新定价
+- 02-Meta员工追踪训练AI | Meta / 员工隐私 / AI 训练 | The Guardian | https://www.theguardian.com/technology/2026/jun/24/meta-pauses-employee-tracker-for-ai-training-amid-privacy-concerns | 标题：Meta 员工也被 AI 盯上 / 键盘鼠标都被记录 / 打工人隐私先变样 | 信息差：公司电脑变成数据入口
+- 03-Google限制Meta用Gemini | Google / Meta / Gemini | Cybernews / TNW | https://cybernews.com/ai-news/google-meta-gemini-constraints/ | 标题：连 Meta 都被限量 / Google 卡住 Gemini / AI 算力也要排队 | 信息差：强模型也要拼容量入口
+- 04-苹果高管跳槽OpenAI | Apple / OpenAI / Vision Pro | TechCrunch | https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/ | 标题：苹果硬件高管跳槽 / OpenAI 抢走设备人才 / AI 入口要离开屏幕 | 信息差：OpenAI 在补硬件入口
+- 05-马斯克太空数据中心被质疑 | Elon Musk / Masayoshi Son / SoftBank / SpaceX | Business Insider / TechCrunch | https://www.businessinsider.com/softbank-ceo-masayoshi-son-elon-musk-ai-space-data-centers-2026-6 | 标题：马斯克想把 AI 搬上天 / 孙正义当场泼冷水 / 算力故事也要算账 | 信息差：太空 AI 概念也要算成本

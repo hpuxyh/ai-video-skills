@@ -156,7 +156,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/c
 - Reusing the same company is allowed only when the event is materially different, the viewer takeaway is different, and the title/rows are not just a rewrite of a previous video.
 - Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
-- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. The internal writing order is event, key fact, conflict/mechanism, affected group, and final takeaway, but final text must not show labels such as `结论`, `跟你有关`, `发生`, `谁先用`, `影响`, or `信息差`.
+- Each topic must still follow the one-event pattern and use 4-6 bottom description lines, defaulting to 6 for daily batches. Final text must be pure content lines and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
 - Each topic must include `tweet_anchor` metadata, and the screenshot in `tweet_anchor.screenshot` must also be `images[1]`.
 
 Reject candidates when:
@@ -437,15 +437,9 @@ Reject X/Twitter screenshots that are mostly login prompts, sign-up panels, unre
 
 Reject generated fallback/error cards that say `图片源不可用`, `403`, `429`, `Too Many Requests`, `Forbidden`, or similar downloader errors. These cards are only temporary diagnostics. If they appear in assets, configs, contact sheets, or covers, replace them with a real local cached asset, official/product screenshot, usable media screenshot, or a clean source card that summarizes the source without exposing the fetch error.
 
-## Recommended Row Logic
+## Recommended Bottom Copy Logic
 
-Use this order for news explainers. These are internal writing roles only; final on-screen lines should be pure content sentences:
-
-1. Event: what happened.
-2. Key fact: the strongest number, source fact, or direct change.
-3. Conflict/mechanism: why it is controversial or what changed behind the scenes.
-4. Affected group: what this means for ordinary viewers, employees, creators, users, or companies.
-5. Takeaway: what most viewers may not have noticed.
+Write the bottom copy as direct Chinese content, not as a labeled structure. Default to 6 short lines for daily 推特版 videos, with 4-6 allowed when the story is simple or the screen would become crowded. The writer may think through event, facts, conflict, affected people, and takeaway while drafting, but those role names must never appear in the output.
 
 At least one line should answer the viewer's hidden question: "what does this have to do with me?" Use concrete opportunity, risk, job direction, workflow, or action language when relevant.
 
@@ -556,9 +550,11 @@ Use Chinese names rather than raw English slugs. The dated top-level folder must
     01-新模型先过安审-OpenAI与Anthropic/
       视频.mp4
       封面.jpg
+      标题和内容描述.md
     02-Google-Finance-AI研究工具/
       视频.mp4
       封面.jpg
+      标题和内容描述.md
     整体描述.md
 ```
 
@@ -568,8 +564,9 @@ Rules:
 - The top-level export folder should live under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`.
 - The folder name must include `推特版` or `推特专用`.
 - Use one numbered Chinese topic folder per project in the user-facing handoff.
-- Each topic folder should contain only `视频.mp4` and `封面.jpg`.
-- Put all titles, captions, publishing copy, source summaries, and topic descriptions into one root `整体描述.md`.
+- Each topic folder should contain `视频.mp4`, `封面.jpg`, and `标题和内容描述.md`.
+- Put the batch-level summary, five covers/videos index, five titles, and five content descriptions into one root `整体描述.md`. Repeat each topic's title and content description in its own `标题和内容描述.md` for easier publishing.
+- Keep source screenshots, configs, and detailed production notes out of the user-facing topic folders. Visual overview images such as `渲染总览.jpg` may be copied only when the user asks to inspect rendering quality.
 - Keep English product/company names only where they help recognition, such as `OpenAI`, `DeepSeek`, `GLM-5.2`, or `Google`.
 - The working project or GitHub records should preserve the core tweet screenshot/localized tweet card plus source notes with tweet URL, tweet author, observed heat signal, screenshot path, supporting source URLs, and information-gap angle.
 - Temporary preview renders may remain in the working project during iteration, but approved final deliverables must be copied or rendered into this dedicated export folder.

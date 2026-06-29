@@ -55,7 +55,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 13. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-14. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with only the final MP4 and cover image, and the batch root gets one overall copy file:
+14. After validation, organize final deliverables under the dedicated Xiaohongshu video export folder. The user-facing handoff should be project-first: each topic gets one folder with the final MP4, cover image, and a small title/copy document; the batch root gets one overall copy file:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/
@@ -63,9 +63,11 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
     01-中文话题名/
       视频.mp4
       封面.jpg
+      标题和内容描述.md
     02-中文话题名/
       视频.mp4
       封面.jpg
+      标题和内容描述.md
     整体描述.md
 ```
 
@@ -167,7 +169,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
   5. Related person, company, product, office, event, or real-world context image.
 - Keep all explanatory text in the template: the top title and the bottom one-by-one info rows.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific bottom-description set from the viewer's path. Default to 5 pure content sentences, with 4-6 allowed when needed. The internal writing order is event, key fact, conflict/mechanism, affected group, final takeaway, but do not show labels such as `结论`, `跟你有关`, `发生`, `影响`, or `信息差` on screen.
+- Use one event-specific bottom-description set from the viewer's path. Default to 6 pure content lines, with 4-6 allowed when the story is very simple. Do not present or output a labeled structure. The lines should read naturally as short Chinese sentences and must not show labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, `跟你有关`, or `信息差`.
 - The target look is the previously approved White House safety-review sample, with one important change: the second image is always the clean X/Twitter source screenshot or Chinese-localized tweet card that confirms the topic.
 
 ## Animated Title And Cover Text Logic
@@ -285,12 +287,12 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Language handling: final visible titles, labels, rows, captions, chart explanations, and tweet-summary text should be Chinese. Do not leave an English tweet screenshot as the only readable explanation in the final artifact.
 - Timing: for tweet-anchored videos, keep total duration at 7 seconds but hold image 2 for about 2x the other images by setting `image_hold_weights: [1, 2, 1, 1, 1]`. Use manual `beat_cuts` only when the user asks for a music-specific exception.
-- Text rows: reveal one row at a time. Default to 5 pure content sentences with no visible labels or numbers; use 4-6 only when the story needs it. The hidden writing order is event, key fact, conflict/mechanism, affected group, and final takeaway.
+- Text rows: reveal one row at a time. Default to 6 pure content lines with no visible labels or numbers; use 4-6 only when the story is simple or the screen would become crowded. Do not expose any structure names such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, or `信息差判断`.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Use the approved full-bleed quick-report style by default: bright full-screen person/company visual, top-left `重磅` tag, top-right `AI 信息差快报` pill, white classic-logo badge near the title, the same three animated title lines as a large lower-third headline, and one bottom conclusion strip. The cover title should use clean heavy typography: white first line, flat accent-color second/third lines, white stroke/rim for readability, and no black thick outline or glow. Protect the face and full representative subject. The conclusion strip may use a small `01`-style badge, but do not add big standalone topic numbers. If there is no suitable product/event person, check the parent company or backing company for a more recognizable representative person or brand asset before using a product page screenshot. If no person is suitable, use the company's logo/product page/official visual and preserve the complete brand/product identity.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
 - Export destination: final 推特版 deliverables must be organized under `/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/`. Temporary render files can stay in the project folder during iteration, but the handoff-ready batch must be copied or rendered into this dedicated folder.
-- Export naming: final user-facing deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`; inside it, create one numbered topic folder per project. Each topic folder contains only `视频.mp4` and `封面.jpg`. Put the batch title/copy/description for all topics in one root `整体描述.md`. Keep source screenshots, configs, overviews, and detailed history in the working project or GitHub records.
+- Export naming: final user-facing deliverables must use Chinese folder and file names. The top-level batch folder should include `推特版` or `推特专用`; inside it, create one numbered topic folder per project. Each topic folder contains `视频.mp4`, `封面.jpg`, and `标题和内容描述.md`. Put the batch-level summary, five titles, five descriptions, and file index in one root `整体描述.md`. Keep source screenshots, configs, and detailed history in the working project or GitHub records. Contact sheets or `渲染总览.jpg` may be included only when the user is reviewing visual quality.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 
 ## Iteration Rules
@@ -316,12 +318,15 @@ Use this batch structure:
   01-中文话题名/
     视频.mp4
     封面.jpg
+    标题和内容描述.md
   02-中文话题名/
     视频.mp4
     封面.jpg
+    标题和内容描述.md
   03-中文话题名/
     视频.mp4
     封面.jpg
+    标题和内容描述.md
   整体描述.md
 ```
 
@@ -329,7 +334,7 @@ Rules:
 
 - Do not leave final deliverables only inside a temporary project `renders/` directory.
 - Do not split the user-facing export into `01-视频`, `02-封面`, `03-总览`, and `04-素材与来源` unless the user explicitly requests the old structure.
-- Keep iteration previews, contact sheets, overviews, configs, and detailed source notes in the working project while tuning; copy only the approved MP4, cover, and one root `整体描述.md` into the handoff-ready Xiaohongshu export folder.
+- Keep iteration previews, contact sheets, configs, and detailed source notes in the working project while tuning. For the handoff-ready Xiaohongshu export folder, copy the approved MP4, cover, per-topic `标题和内容描述.md`, and one root `整体描述.md`; include visual overview images only when the user asks to inspect them.
 - GitHub/local source records should include the source tweet URL, tweet author, observed heat signal, screenshot filename, supporting source URLs, and why this topic is suitable for a 推特版 AI 信息差 video.
 - The folder or file name must clearly say `推特版` or `推特专用`.
 

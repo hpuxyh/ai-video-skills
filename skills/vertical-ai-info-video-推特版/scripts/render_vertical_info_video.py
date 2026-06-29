@@ -271,6 +271,86 @@ def draw_info_rows(canvas, t, cfg):
         alpha_composite_with_opacity(canvas, row, min(1.0, a))
 
 
+def wrap_description_line(draw, text, fnt, max_width):
+    lines, cur = [], ""
+    for ch in str(text):
+        test = cur + ch
+        if cur and draw.textlength(test, font=fnt) > max_width:
+            lines.append(cur)
+            cur = ch
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def draw_bottom_description(canvas, t, cfg):
+    desc = cfg.get("bottom_description")
+    if not desc:
+        return False
+
+    style = cfg.get("description_style", {})
+    margin = int(style.get("margin", 38))
+    y0 = int(style.get("y", 1282))
+    row_h = int(style.get("row_h", 58))
+    start = float(style.get("start", 0.52))
+    step = float(style.get("step", 0.48))
+    reveal = float(style.get("reveal", 0.22))
+    text_size = int(style.get("text_size", 32))
+    min_text_size = int(style.get("min_text_size", 26))
+    max_lines = int(style.get("max_lines", 6))
+    max_width = W - margin * 2 - 38
+
+    tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    td = ImageDraw.Draw(tmp, "RGBA")
+    fnt = font(text_size, True)
+    if isinstance(desc, list):
+        lines = [str(line).strip() for line in desc if str(line).strip()]
+    else:
+        lines = []
+        for para in str(desc).split("\n"):
+            para = para.strip()
+            if para:
+                lines.extend(wrap_description_line(td, para, fnt, max_width))
+
+    while len(lines) > max_lines and text_size > min_text_size:
+        text_size -= 2
+        fnt = font(text_size, True)
+        if isinstance(desc, list):
+            lines = [str(line).strip() for line in desc if str(line).strip()]
+        else:
+            lines = []
+            for para in str(desc).split("\n"):
+                para = para.strip()
+                if para:
+                    lines.extend(wrap_description_line(td, para, fnt, max_width))
+
+    lines = lines[:max_lines]
+    for i, text in enumerate(lines):
+        p = (t - (start + i * step)) / reveal
+        if p <= 0:
+            continue
+        a = ease(p)
+        row = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        rd = ImageDraw.Draw(row, "RGBA")
+        y = y0 + i * row_h + int((1 - a) * 16)
+        rd.rounded_rectangle(
+            (margin, y, W - margin, y + 48),
+            radius=12,
+            fill=(9, 14, 28, 150),
+            outline=(255, 255, 255, 26),
+            width=1,
+        )
+        color = rgb(style.get("color"), (235, 242, 255))
+        if i == len(lines) - 1 and style.get("last_line_color"):
+            color = rgb(style.get("last_line_color"), color)
+        rd.text((margin + 18, y + 7), text, font=fnt, fill=color)
+        alpha_composite_with_opacity(canvas, row, min(1.0, a))
+
+    return True
+
+
 def photo_layer(img, progress, idx, total, cfg):
     box = tuple(cfg.get("photo_box", [0, 515, W, 1235]))
     motion = cfg.get("motion", {"zoom": 0.13, "pan_x": 54, "pan_y": 46})
@@ -475,7 +555,8 @@ def main():
         canvas = base.copy()
         draw_title_popup(canvas, t, cfg)
         canvas.alpha_composite(photo_layer(images[idx], progress, idx, len(images), cfg))
-        draw_info_rows(canvas, t, cfg)
+        if not draw_bottom_description(canvas, t, cfg):
+            draw_info_rows(canvas, t, cfg)
         canvas.convert("RGB").save(frames_dir / f"frame-{n:04d}.jpg", quality=92)
 
     run_ffmpeg_frames(frames_dir, fps, silent_output)

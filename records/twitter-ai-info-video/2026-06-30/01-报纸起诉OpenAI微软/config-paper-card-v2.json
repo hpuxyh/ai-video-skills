@@ -1,0 +1,129 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-01-报纸起诉OpenAI微软-paper-card-v2.mp4",
+  "contact_sheet": "renders/01-01-报纸起诉OpenAI微软-paper-card-v2-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "OpenAI · 版权诉讼",
+  "header_source": "Courthouse · 06.30",
+  "title": [
+    "400 家报纸起诉 AI",
+    "ChatGPT 被指偷内容"
+  ],
+  "title_line3": "凭什么不给钱",
+  "title_base_size": 70,
+  "title_min_size": 54,
+  "title_line_gap": 24,
+  "title_y": 150,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.24,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "media_zoom_extra": 0.02,
+  "body_y": 1212,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 5,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "近 400 家地方报纸起诉 OpenAI 和 Microsoft",
+    "他们指控 ChatGPT 训练用了新闻内容却没付费",
+    "AI 公司说是合理使用，媒体认为这是白拿劳动成果",
+    "创作者和媒体的内容价值，正在被重新定价",
+    "AI 不只是生成内容，也在改写谁该拿钱"
+  ],
+  "images": [
+    "assets/images/01-报纸起诉OpenAI微软/01-真实视觉.jpg",
+    "assets/images/01-报纸起诉OpenAI微软/02-核心来源中文卡.jpg",
+    "assets/images/01-报纸起诉OpenAI微软/03-来源截图.jpg",
+    "assets/images/01-报纸起诉OpenAI微软/04-信息差解释.jpg",
+    "assets/images/01-报纸起诉OpenAI微软/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "source-card",
+    "media",
+    "clean-card",
+    "media"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://www.courthousenews.com/newspapers-sue-openai-microsoft-for-mass-copyright-infringement/",
+    "author": "Courthouse News",
+    "screenshot": "assets/images/01-报纸起诉OpenAI微软/02-核心来源中文卡.jpg",
+    "observed_signal": "主题已确认；来源页/可信媒体作为证据锚点"
+  },
+  "publishing": {
+    "title": "400家报纸把OpenAI告了",
+    "description": "近 400 家地方报纸起诉 OpenAI 和 Microsoft，核心不是模型会不会写新闻，而是训练和回答里用到的新闻内容该不该付钱。普通人要看的信息差是：AI 内容的免费时代，可能先从版权账单开始结束。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "ChatGPT",
+      "微软",
+      "版权",
+      "新闻媒体",
+      "信息差",
+      "人工智能"
+    ]
+  },
+  "cover": {
+    "title": [
+      "400 家报纸起诉 AI",
+      "ChatGPT 被指偷内容",
+      "凭什么不给钱"
+    ],
+    "conclusion": "内容价值正在重新定价",
+    "badge": "OpenAI",
+    "bg_image": "assets/cover-bg/cover-bg-01.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  }
+}

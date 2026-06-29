@@ -30,31 +30,13 @@ Extract only the facts that help viewers understand the conflict:
 
 Do not copy all details from the source. Prefer one sharp number and one clear conflict over many technical facts.
 
-## Description Structure
+## Description Writing
 
-Use 3-5 short sentences:
+Write compact Chinese that reads like a person explaining the news. The final output should not expose a structure. Do not write or return visible labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `信息差判断`, `事件：`, `关键：`, `冲突：`, `影响：`, `信息差：`, `结论：`, or `跟你有关：`.
 
-```text
-Sentence 1: Say what happened directly.
-Sentence 2: Add the strongest number, comparison, or concrete fact.
-Sentence 3: Explain the cause, conflict, or mechanism.
-Sentence 4: Say who is affected and how.
-Sentence 5: Optional natural closing judgment.
-```
+For platform publishing, the description can be one compact paragraph. For the video bottom area, split the same meaning into 4-6 pure content lines, defaulting to 6 lines for daily 推特版 videos unless the story is too simple. Each line should be a normal sentence or natural phrase, not a table row or labeled bullet.
 
-Do not end with a fixed phrase such as `真正的信息差是...`. Say the conclusion directly.
-
-For the on-screen bottom area, convert the same structure into 4-6 pure content lines, usually 5:
-
-```text
-Line 1: What happened.
-Line 2: Strongest number, source fact, or concrete change.
-Line 3: Cause, conflict, or mechanism.
-Line 4: Who is affected and how.
-Line 5: Final takeaway.
-```
-
-These line roles are internal only. Do not render visible prefixes such as `事件：`, `关键：`, `冲突：`, `影响：`, `信息差：`, `结论：`, or `跟你有关：`. Each on-screen line should read like a normal sentence.
+While drafting, make sure the copy contains the concrete event, one strong fact or number when available, the conflict or mechanism, the affected people, and a clear takeaway. These are checks for the writer, not headings for the viewer.
 
 ## Length Rules
 
@@ -64,7 +46,7 @@ Match the reference-account density:
 - Short simple news: **100-140 Chinese characters** is acceptable only when the conflict is already obvious.
 - Complex product, model, or market-reversal stories: **180-260 Chinese characters** is acceptable, but do not exceed 260 unless the user asks for a long version.
 - For platform publishing, keep it as one compact paragraph unless the user asks for line breaks.
-- For video bottom copy, output 4-6 short lines, usually 5, with no visible labels. This is not a bullet table; it is the same description broken into readable on-screen sentences.
+- For video bottom copy, output 4-6 short lines, defaulting to 6 for daily 推特版 videos, with no visible labels. This is not a bullet table; it is the same description broken into readable on-screen sentences.
 - If the first draft is under 100 characters, it usually lacks mechanism or consequence.
 - If the first draft is over 260 characters, cut secondary facts, repeated adjectives, and extra product features first.
 
@@ -115,5 +97,7 @@ bottom lines:
 source facts used:
 notes:
 ```
+
+`bottom lines` must contain only the viewer-facing lines. Do not include structure labels or role names in those lines.
 
 When asked for multiple options, keep the same topic and title, then vary the description angle: factual, sharper, more ordinary-viewer, or more business-focused.

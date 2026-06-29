@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "01-01-报纸起诉OpenAI微软",
+    "folder": "01-报纸起诉OpenAI微软",
+    "config": "configs/01-01-报纸起诉OpenAI微软-paper-card-v2.json",
+    "video": "renders/01-01-报纸起诉OpenAI微软-paper-card-v2.mp4",
+    "contact_sheet": "renders/01-01-报纸起诉OpenAI微软-paper-card-v2-contact-sheet.jpg",
+    "cover": "covers/封面-01-01-报纸起诉OpenAI微软-paper-card-v2.jpg",
+    "title": [
+      "400 家报纸起诉 AI",
+      "ChatGPT 被指偷内容",
+      "凭什么不给钱"
+    ],
+    "copy_title": "400家报纸把OpenAI告了",
+    "copy_desc": "近 400 家地方报纸起诉 OpenAI 和 Microsoft，核心不是模型会不会写新闻，而是训练和回答里用到的新闻内容该不该付钱。普通人要看的信息差是：AI 内容的免费时代，可能先从版权账单开始结束。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "ChatGPT",
+      "微软",
+      "版权",
+      "新闻媒体",
+      "信息差",
+      "人工智能"
+    ],
+    "source": "https://www.courthousenews.com/newspapers-sue-openai-microsoft-for-mass-copyright-infringement/",
+    "angle": "内容价值正在重新定价"
+  },
+  {
+    "slug": "02-02-Meta员工追踪训练AI",
+    "folder": "02-Meta员工追踪训练AI",
+    "config": "configs/02-02-Meta员工追踪训练AI-paper-card-v2.json",
+    "video": "renders/02-02-Meta员工追踪训练AI-paper-card-v2.mp4",
+    "contact_sheet": "renders/02-02-Meta员工追踪训练AI-paper-card-v2-contact-sheet.jpg",
+    "cover": "covers/封面-02-02-Meta员工追踪训练AI-paper-card-v2.jpg",
+    "title": [
+      "Meta 员工也被 AI 盯上",
+      "键盘鼠标都被记录",
+      "打工人隐私先变样"
+    ],
+    "copy_title": "Meta员工也被AI盯上了",
+    "copy_desc": "Meta 暂停员工行为数据训练项目，争议点不是 AI 能不能办公，而是键盘、鼠标、点击和屏幕内容能不能拿去训练。普通人要注意：AI 进入公司以后，工作过程本身也可能变成数据资产。",
+    "tags": [
+      "AI",
+      "Meta",
+      "员工隐私",
+      "人工智能",
+      "职场",
+      "数据安全",
+      "信息差"
+    ],
+    "source": "https://www.theguardian.com/technology/2026/jun/24/meta-pauses-employee-tracker-for-ai-training-amid-privacy-concerns",
+    "angle": "公司电脑变成数据入口"
+  },
+  {
+    "slug": "03-03-Google限制Meta用Gemini",
+    "folder": "03-Google限制Meta用Gemini",
+    "config": "configs/03-03-Google限制Meta用Gemini-paper-card-v2.json",
+    "video": "renders/03-03-Google限制Meta用Gemini-paper-card-v2.mp4",
+    "contact_sheet": "renders/03-03-Google限制Meta用Gemini-paper-card-v2-contact-sheet.jpg",
+    "cover": "covers/封面-03-03-Google限制Meta用Gemini-paper-card-v2.jpg",
+    "title": [
+      "连 Meta 都被限量",
+      "Google 卡住 Gemini",
+      "AI 算力也要排队"
+    ],
+    "copy_title": "连Meta用Gemini都被限量",
+    "copy_desc": "Google 被曝限制 Meta 使用 Gemini，重点不是两家大厂吵架，而是好模型背后的容量、配额和算力开始变成门票。普通人看到的是模型升级，企业先感受到的是额度不够用。",
+    "tags": [
+      "AI",
+      "Google",
+      "Meta",
+      "Gemini",
+      "算力",
+      "大模型",
+      "信息差"
+    ],
+    "source": "https://cybernews.com/ai-news/google-meta-gemini-constraints/",
+    "angle": "强模型也要拼容量入口"
+  },
+  {
+    "slug": "04-04-苹果高管跳槽OpenAI",
+    "folder": "04-苹果高管跳槽OpenAI",
+    "config": "configs/04-04-苹果高管跳槽OpenAI-paper-card-v2.json",
+    "video": "renders/04-04-苹果高管跳槽OpenAI-paper-card-v2.mp4",
+    "contact_sheet": "renders/04-04-苹果高管跳槽OpenAI-paper-card-v2-contact-sheet.jpg",
+    "cover": "covers/封面-04-04-苹果高管跳槽OpenAI-paper-card-v2.jpg",
+    "title": [
+      "苹果硬件高管跳槽",
+      "OpenAI 抢走设备人才",
+      "AI 入口要离开屏幕"
+    ],
+    "copy_title": "OpenAI开始抢苹果硬件人",
+    "copy_desc": "苹果 Vision Pro 相关高管 Paul Meade 据报道将加入 OpenAI。信息差在于：OpenAI 不只是做聊天框，它正在补硬件和设备能力。下一代 AI 入口，可能会离手机屏幕更近。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "Apple",
+      "VisionPro",
+      "硬件",
+      "智能眼镜",
+      "信息差"
+    ],
+    "source": "https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/",
+    "angle": "OpenAI 在补硬件入口"
+  },
+  {
+    "slug": "05-05-马斯克太空数据中心被质疑",
+    "folder": "05-马斯克太空数据中心被质疑",
+    "config": "configs/05-05-马斯克太空数据中心被质疑-paper-card-v2.json",
+    "video": "renders/05-05-马斯克太空数据中心被质疑-paper-card-v2.mp4",
+    "contact_sheet": "renders/05-05-马斯克太空数据中心被质疑-paper-card-v2-contact-sheet.jpg",
+    "cover": "covers/封面-05-05-马斯克太空数据中心被质疑-paper-card-v2.jpg",
+    "title": [
+      "马斯克想把 AI 搬上天",
+      "孙正义当场泼冷水",
+      "算力故事也要算账"
+    ],
+    "copy_title": "孙正义质疑马斯克太空AI",
+    "copy_desc": "马斯克设想把 AI 数据中心搬到太空，孙正义的质疑很直接：概念够酷，但商业账不一定成立。普通人要看的不是太空感，而是芯片、维护、网络、延迟和成本谁能解决。",
+    "tags": [
+      "AI",
+      "马斯克",
+      "孙正义",
+      "SoftBank",
+      "SpaceX",
+      "数据中心",
+      "算力",
+      "信息差"
+    ],
+    "source": "https://www.businessinsider.com/softbank-ceo-masayoshi-son-elon-musk-ai-space-data-centers-2026-6",
+    "angle": "太空 AI 概念也要算成本"
+  }
+]
