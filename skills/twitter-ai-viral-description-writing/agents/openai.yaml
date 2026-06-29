@@ -1,0 +1,4 @@
+interface:
+  display_name: "推特版 AI 内容描述"
+  short_description: "为推特版 AI 图文截图生成下方新闻解释型描述文案"
+  default_prompt: "Use $twitter-ai-viral-description-writing to write bottom explainer descriptions for Twitter-version AI screenshot-card videos."
