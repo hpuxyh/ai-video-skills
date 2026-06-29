@@ -56,6 +56,42 @@ Use a JSON file with these top-level keys:
 
 All relative paths resolve from `--project-dir`.
 
+## Cover Config Schema
+
+Generate a standalone publishing cover from real people/company assets. This is separate from the MP4 render config and must not be replaced by extracting a video frame.
+
+```json
+{
+  "output": "renders/01-cover.jpg",
+  "background_image": "assets/images/event/01-person.jpg",
+  "logo_image": "assets/images/event/company-logo.png",
+  "badge_text": "OpenAI",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "400 家报纸起诉 AI",
+    "内容被拿去训练",
+    "凭什么不给钱"
+  ],
+  "bottom_text": "媒体看到的是原始内容也该重新分钱",
+  "index_badge": "01",
+  "focus": [0.48, 0.35],
+  "title_y": 1060,
+  "logo_badge_y": 928
+}
+```
+
+Render with:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_full_bleed_cover.py \
+  --config configs/01-cover.json \
+  --project-dir . \
+  --output renders/01-cover.jpg
+```
+
+Cover configs must be kept in the working project and synced to GitHub history. The final user-facing `封面.jpg` should be copied from this rendered cover.
+
 ## Paper Card Preview Config Schema
 
 Use this schema when the user asks for the approved white-card reference style or wants a rendered image before full video production:
@@ -469,6 +505,13 @@ ChatGPT 里的全面开放，还要再等一段时间
 ## Cover Generation Logic
 
 For 小红书 / 抖音 publishing, generate a separate 9:16 cover image when useful. The cover is not a text card; it is a click-entry frame built from real event assets.
+
+Hard rule:
+
+- Do not create `封面.jpg` by extracting the first frame of `视频.mp4`.
+- Do not use `ffmpeg -ss ... -frames:v 1` as a cover-generation shortcut.
+- Do not use a paper-card still, tweet proof card, or ordinary video frame as the cover unless it was intentionally designed and rendered through the cover path.
+- If a batch folder contains `封面.jpg` whose only source is `视频.mp4`, treat the cover as missing and regenerate it.
 
 Visual priority:
 
