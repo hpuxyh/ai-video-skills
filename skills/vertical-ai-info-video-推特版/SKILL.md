@@ -35,15 +35,33 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/capture_chrome_source.py \
   --url "https://x.com/example/status/123" \
   --output assets/raw/chrome/topic-tweet.png \
-  --wait 8
+  --wait 8 \
+  --tweet-only
 ```
+
+For X/Twitter anchors, `--tweet-only` is the default requirement. It captures the visible `article[data-testid="tweet"]` card instead of the whole page, so the final proof image does not include the left navigation, right sidebar, empty browser area, unrelated replies, or half-visible surrounding posts. Use full-page screenshots only as raw evidence or when debugging, not as final carousel assets.
 
 6. Require bright, real, topic-matched images. For news videos, image 1 should be a real person/company/product visual, preferably the most recognizable person in the story when there is one. Image 2 must be the verified core tweet screenshot or Chinese-localized tweet card derived from the local Chrome capture, and later images should add official/news/product evidence from Chrome-captured pages when possible. Do not use fake UI, abstract placeholders, dark information cards, or pure text cards as primary carousel images.
 7. For each X/Twitter topic, capture more than the single core tweet when useful: after saving the core tweet screenshot, scroll the same Chrome thread and capture raw lower-thread evidence using `--scroll-y`, then derive one or two compact crops from the best replies, official follow-up comments, quote/repost embeds, or related posts. The normal final video should use two X screenshots total: one core tweet screenshot and one best supporting/comment screenshot. A second compact reply crop can be kept as backup or used only when the story genuinely needs it. Save final compact crops as `assets/raw/chrome/<topic-id>-reply-01-compact.png` and `assets/raw/chrome/<topic-id>-reply-02-compact.png`; keep any third raw screenshot only as backup unless the user asks for more. Run Chrome captures sequentially because they control the same visible browser window. These screenshots are supporting context only; they do not replace the primary tweet anchor. If the visible text is English, translate the key opinion or add a short Chinese caption/overlay before using it in final video frames; if the screenshot is already mainly Chinese and readable, do not add redundant Chinese interpretation.
 8. For social publishing, generate a separate cover preview using the cover rules in `references/style-guide.md`: recognizable person first, company/product identity second, the same three animated title lines as the main cover headline, and one conclusion row only. If the visible product is backed by a larger parent company, trace that lineage before choosing the cover visual; do not stop at a narrow product-page screenshot when a stronger parent-company person or identity is available. Use `scripts/render_full_bleed_cover.py` or an equivalent dedicated cover renderer. Never create the final `封面.jpg` by extracting the first frame of the MP4.
 9. Select background music from the local BGM pool using the BGM rules below. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored.
 10. Build a JSON config using the schema in `references/style-guide.md`. For paper-card explainer mode, build a paper-card JSON and render a static preview first with `scripts/render_paper_card_preview.py`.
-11. Before rendering, inspect Chrome screenshots, derived source cards, and a contact sheet. If the tweet screenshot, image source, or fallback card shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, or unrelated search results, reopen or recapture it in Chrome before rendering. Never ship a video with an asset-error card visible.
+11. Before rendering, run the visual review gate on every topic config, then inspect the generated report/contact sheet. The review target is strict:
+   - Image quality: screenshots are clear enough, high-resolution, not blank, not over-smoothed, and cropped to the useful source area.
+   - Screenshot space: tweet screenshots show the core post card only; no side navigation, right sidebar, unrelated replies, bottom login bars, huge blank margins, or browser chrome unless explicitly kept as evidence outside the final video.
+   - Text layout: title, middle image, and bottom description do not overlap; bottom rows stay inside the safe area; text lines are aligned, readable, and not squeezed into awkward one-character wraps.
+   - Description discipline: bottom copy must follow `twitter-ai-viral-description-writing`: 4-6 pure viewer-facing Chinese lines, no visible labels such as `发生了什么`, `关键事实`, `背后冲突`, `影响谁`, `结论`, or `信息差`.
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/review_visual_quality.py \
+  --config configs/video.json \
+  --project-dir . \
+  --report renders/video-review.json \
+  --contact-sheet renders/video-review-contact-sheet.jpg \
+  --strict
+```
+
+If the review fails or the contact sheet shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, unrelated search results, sidebars around the tweet, awkward crop, text overlap, or uneven/blocked typography, stop. Reopen the source in Chrome, recapture with `--tweet-only` or a tighter element/crop, rewrite long bottom rows, and rerun the review. Never ship a video with an asset-error card, cluttered tweet screenshot, or visibly messy text layout.
 12. Run `scripts/render_vertical_info_video.py` from a project directory:
 
 ```bash
@@ -147,7 +165,17 @@ Before rendering 5 videos, show the chosen 5 topics with one-line rationale, twe
 - If the tweet screenshot itself is valid but the embedded media/link preview is blank or not rendered, do not ship the blank white box. Capture the linked official/source page in Chrome and fill that preview area via `render_tweet_proof_card.py` using `source_media_image`, `source_media_box`, and optional `source_media_crop_box`, while preserving the original tweet author, text, time, and engagement.
 - If a clean tweet screenshot cannot be captured in Chrome, choose another tweet or another topic. Only use a non-Chrome fallback when the user explicitly accepts it or when the fallback is an official page screenshot that still verifies the event; record that exception in `来源记录.md`.
 - Store the source tweet URL next to the Chrome screenshot path and derived proof-card path in the working notes or topic history so the screenshot can be traced.
-- Use `scripts/render_tweet_proof_card.py` when turning a raw tweet screenshot into the preferred Chinese proof card:
+- Before rendering the proof card, run the visual review gate against the proof-card config. This catches the specific failure mode where a full X/Twitter page screenshot gets embedded inside the card instead of the core post. The raw screenshot must either come from `capture_chrome_source.py --tweet-only` metadata or have an explicit `crop_box`.
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/review_visual_quality.py \
+  --config configs/tweet-proof-card.json \
+  --project-dir . \
+  --report renders/tweet-proof-card-review.json \
+  --strict
+```
+
+- Use `scripts/render_tweet_proof_card.py` when turning a reviewed raw tweet screenshot into the preferred Chinese proof card:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_tweet_proof_card.py \
