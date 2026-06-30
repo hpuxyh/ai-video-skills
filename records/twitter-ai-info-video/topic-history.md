@@ -170,3 +170,7 @@
 - 03-Gemini上线学习笔记 | Google | Google X · 06.25 | https://x.com/Google/status/2070188803340353693 | 标题：Gemini 做学习笔记 / 资料变成复习本 / 学习方法先变 | 信息差：学习入口从搜索变成资料整理 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/03-Gemini上线学习笔记
 - 04-OpenAI研究有益特质 | OpenAI | OpenAI X · 06.19 | https://x.com/OpenAI/status/2067722696759329125 | 标题：OpenAI 研究模型性格 / 好行为能迁移 / 安全不是只刷题 | 信息差：安全评估要看行为泛化 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/04-OpenAI研究有益特质
 - 05-OpenAI生命科学基准 | OpenAI | OpenAI X · 06.18 | https://x.com/OpenAI/status/2067346916929937827 | 标题：OpenAI 测生命科学 AI / GPT-Rosalind 做实验题 / 科研也要换工具 | 信息差：AI 正进入高门槛科研决策 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/05-OpenAI生命科学基准
+
+### 2026-06-30 普通人反应版样片
+
+- 01-Ford又请回人类 | Ford / Jim Farley / Polymarket | Polymarket X · 06.29 | https://x.com/Polymarket/status/2071594650838716651 | 高情绪评论：Token420Pulse，“这必须是有史以来最尴尬的重新录用信了。” | 中文确认：https://36kr.com/p/3874054450172929 | 官方人物补充：https://x.com/jimfarley98/status/2070250160010182668 | 标题：Ford 又请回人类 / AI 质检没顶住 / 经验被重新定价 | 信息差：关键质量岗位不能只看自动化，经验和现场判断被重新定价 | 导出：/Users/xieyahao/Desktop/我自己/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-23点01分-普通人反应版样片/01-Ford又请回人类 | GitHub：records/twitter-ai-info-video/2026-06-30/final-delivery-ford-human-reaction-sample-2301/

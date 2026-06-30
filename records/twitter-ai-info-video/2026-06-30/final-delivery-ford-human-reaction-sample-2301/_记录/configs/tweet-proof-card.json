@@ -1,0 +1,23 @@
+{
+  "raw_screenshot": "assets/raw/chrome/ford-polymarket-core-tweetonly-clean.png",
+  "left_box": [90, 90, 835, 610],
+  "right_x": 980,
+  "right_w": 520,
+  "right_y": 105,
+  "label": "核心 X 证据",
+  "summary_lines": [
+    "Polymarket 热帖引爆讨论",
+    "Ford 被指重新请回人类工程师",
+    "争议点不是 AI 能不能用",
+    "而是关键质量判断谁负责",
+    "经验岗位被重新定价"
+  ],
+  "summary_font_size": 37,
+  "min_summary_font_size": 31,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "source_title": "来源：Polymarket @Polymarket",
+  "source_meta": "2026年6月29日 · 约982.2万查看 · 1155回复 / 1万转发 / 5.4万赞",
+  "source_url": "https://x.com/Polymarket/status/2071594650838716651",
+  "output": "assets/images/event/02-Polymarket核心X证据卡.jpg"
+}

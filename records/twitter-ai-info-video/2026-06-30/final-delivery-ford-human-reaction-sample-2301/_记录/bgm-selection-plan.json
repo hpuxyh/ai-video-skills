@@ -1,0 +1,13 @@
+{
+  "selected": "say no cry.mp3",
+  "local_source": "/Users/xieyahao/Desktop/我自己/小红/半奏/say no cry.mp3",
+  "reason": "Ford 主题属于 AI 替代、质量风险、岗位争议和普通人情绪反应，适合偏争议和风险感的本地 BGM。",
+  "render_config": {
+    "path": "assets/audio/say-no-cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  },
+  "github_sync_note": "GitHub final-delivery 不上传本地 BGM 原文件，只保留本选择记录。"
+}
