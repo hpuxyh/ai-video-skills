@@ -54,6 +54,27 @@ Every topic-selection update and every production run must be synced to GitHub b
 - Very similar topics are allowed only when at least one material element is new: new event, new development, new source/anchor, new affected group, or a clearly different information-gap angle.
 - If a duplicate is discovered after screenshots or rendering, replace the topic and rebuild its assets, title, bottom copy, cover, records, and history instead of publishing it.
 
+## GitHub Final Delivery Upload Contract
+
+After all production work is finished, the GitHub project must receive the complete publish-ready package, not only metadata.
+
+Required GitHub archive content for each successful rendered batch:
+
+- Per-topic final video: `视频.mp4`.
+- Per-topic final cover: `封面.jpg`.
+- Root publishing summary: `整体描述.md`.
+- Douyin publishing copy for every topic: paste-ready 抖音标题 and the video-bottom/description text that will be used when posting.
+- Source and quality records under `_记录/`: final quality check, source notes, configs, cover configs, contact sheets/overview images, render validation, BGM selection plan, and material/source review assets.
+
+Before upload, verify the package against the current rules: title rules, description rules, screenshot quality, cover quality, MP4 stream/audio/duration, and duplicate-prevention history.
+
+After upload, verify the push:
+
+- `git push` must succeed.
+- The final response must include the GitHub commit hash and push status.
+- Do not report full success if the GitHub push failed, if final `视频.mp4`/`封面.jpg` is missing, or if `整体描述.md` lacks the Douyin title and description for any topic.
+- If sync fails, report the local export path, whether a local commit exists, the failing command/error, and the recovery step.
+
 ## Workflow
 
 1. Route the request:
