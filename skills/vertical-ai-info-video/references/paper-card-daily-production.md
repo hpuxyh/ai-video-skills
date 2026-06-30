@@ -48,6 +48,35 @@ Avoid:
 - The blue third title line should feel like a takeaway, not a news subtitle.
 - Do not exaggerate unverifiable claims for clicks.
 
+## Official-First Topic Sourcing
+
+The ordinary daily video now uses a 2-3 day, official-first X/Twitter hotspot workflow. It is not a broad 7-day news digest.
+
+Scouting sequence:
+
+1. Check major model-company official accounts, product/research official accounts, and founder/CEO/core-person accounts first.
+2. For each official or core-person signal, check whether selected AI digest, media, market, and viral accounts amplified or debated the same event.
+3. Open the core post in the user's logged-in local Google Chrome X/Twitter session when available. Record visible replies, reposts, likes, views, and quote/spread signals. These are visible-page signals, not API totals.
+4. Scroll the core post and collect a small visible comment/reply sample. A practical default is the post first screen plus 2-4 downward scrolls, enough to review roughly 20-50 visible comments/replies when X loads them.
+5. Select topics with obvious public tension: privacy, jobs, money, children, medical safety, copyright, government usage, model access, compute bottlenecks, or company power.
+6. Confirm the facts with an official page, media report, data chart, product page, filing, or research page before rendering.
+
+The source notes for every selected topic should include:
+
+```text
+discovery account/source:
+core X/Twitter URL:
+visible engagement signal:
+typical controversy comment 1:
+typical controversy comment 2:
+confirmation source:
+final screenshot source:
+information-gap angle:
+duplicate check:
+```
+
+Do not describe comment sentiment as full-platform sentiment. Use wording such as `可见评论样本显示`. Do not select only generic praise such as `wow`, `cool`, or `amazing` as controversy evidence.
+
 ## Bottom Row Structure
 
 Use unnumbered cyan-highlight reading lines and 5 rows by default:
@@ -74,14 +103,16 @@ Each video is one news event with multiple real images, not five text cards.
 Image priority:
 
 1. Real person, company, or product image.
-2. Official page, announcement, docs, product entry, API, or app screenshot.
-3. Media report screenshot.
-4. Clean explanatory source card only when it supports the story.
-5. Auxiliary context image last.
+2. Core evidence screenshot: the clearest official page, media report, data chart, product page, filing, research page, or X/Twitter post for the event.
+3. Official page, announcement, docs, product entry, API, or app screenshot.
+4. Media report screenshot or data/chart screenshot.
+5. Clean explanatory source card only when it supports the story.
+6. Auxiliary context image last.
 
 Sequence rules:
 
 - First image must identify the protagonist/company/product whenever possible.
+- The second image should usually be the core evidence screenshot. It does not have to be a tweet. For ordinary videos, prefer the screenshot that explains the fact most clearly to a normal Chinese viewer: media page, official page, data chart, product page, research page, filing, or tweet/X screenshot.
 - Core source screenshots can stay longer with `image_hold_weights`, commonly `[1, 2, 1, 1, 1]`.
 - Use `image_roles` and `image_quality` to mark screenshots/cards/products so the renderer can preserve them with safe-fill. Roles/qualities such as `media`, `source-card`, `official-screenshot`, `clean-card`, `product`, `tweet`, and `screenshot` should be enlarged as much as possible but must not crop text or key UI.
 - Use `media_transition_mode: "fade"` and `media_transition_duration` around `0.30`-`0.36` for readable image transitions. The renderer must avoid direct overlap between two text-bearing media frames.
@@ -169,6 +200,7 @@ Before reporting completion:
 - Confirm carousel image transitions have soft fade motion without white flashes, empty side gaps, distracting rapid left-right slides, or overlapping text from two screenshots.
 - Confirm there are no carousel dots or old dark-template remnants.
 - Confirm publishing copy exists for 小红书 and 抖音.
+- Confirm `选题记录.md` includes discovery source, visible engagement signal, two typical controversy/comment samples or paraphrases, confirmation source, final screenshot source, and duplicate check for every selected topic.
 - Update `选题历史.md` so future daily runs avoid exact repeats.
 
 ## GitHub Sync Rule

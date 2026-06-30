@@ -196,13 +196,13 @@ Use this schema for the current default daily/news-video MP4 output. This keeps 
   "strap_color": [255, 255, 255],
   "images": [
     "assets/images/event/person.png",
-    "assets/images/event/tweet-anchor-cn.png",
+    "assets/images/event/core-evidence.png",
     "assets/images/event/official-report.png",
     "assets/images/event/product.png",
     "assets/images/event/chart.png"
   ],
-  "image_roles": ["hero", "tweet", "official", "product", "media"],
-  "image_quality": ["real", "tweet", "official-screenshot", "product", "source-card"],
+  "image_roles": ["hero", "core-evidence", "official", "product", "media"],
+  "image_quality": ["real", "source-card", "official-screenshot", "product", "source-card"],
   "image_hold_weights": [1, 2, 1, 1, 1],
   "media_h": 720,
   "media_outline_width": 0,
@@ -216,6 +216,7 @@ Use this schema for the current default daily/news-video MP4 output. This keeps 
     "clean-card",
     "product",
     "tweet",
+    "core-evidence",
     "screenshot"
   ],
   "body_style": "editorial_lines",
@@ -259,7 +260,7 @@ Paper-card video rules:
 - Do not pass the already-rendered paper-card JPG as the only image.
 - Preserve the title entrance rhythm: three title lines pop in one by one, with the third line in blue as the information-gap sentence. The title should not be static from the first frame in MP4 output.
 - In the current structured paper-card style, use `scripts/render_clean_white_video.py`, `title_line3`, `body_rows`, `body_rows_animate: true`, and no purple ribbon.
-- If the middle carousel's second image is a core tweet screenshot or localized tweet card, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
+- The middle carousel's second image should usually be the core evidence screenshot. In the ordinary version this can be a media report, official page, data chart, product page, research page, filing, or X/Twitter screenshot. If the second image is text-bearing evidence, hold it about twice as long as the other images. Prefer `image_hold_weights: [1, 2, 1, 1, 1]` for a 5-image, 7-second video.
 - Keep screenshots bright and legible; avoid dark overlays in the middle media frame.
 - Default to `media_outline_width: 0` for the current clean white-card variant. Use a visible purple border only when a specific style asks for it. Do not add carousel dots or extra footer strips.
 - Use `media_fit: "cover"` for real people/product images, but preserve text-bearing screenshots/cards via `image_roles`, `image_quality`, and `media_preserve_roles` so their text is not cropped.
@@ -271,26 +272,31 @@ Paper-card video rules:
 Use two modes:
 
 1. Specific-topic mode: if the user gives a concrete topic, event, company, URL, or direct instruction, create one video for that event.
-2. Auto-scout mode: if the user asks for an AI information-gap video but does not provide a concrete topic, search the latest 7 days of AI news and choose 5 topics across China and the US.
+2. Auto-scout mode: if the user asks for an AI information-gap video but does not provide a concrete topic, search the latest 2-3 days of AI hotspots and choose 5 high-conflict topics across China, the US, and global AI sources.
 
 In auto-scout mode:
 
-- Search current sources because the 7-day window is time-sensitive.
+- Search current sources because the 2-3 day window is time-sensitive.
+- Start with major model-company official accounts, product/research official accounts, and founder/CEO/core-person accounts on X/Twitter. Then use selected AI digest, media, market, and viral accounts to validate visible repost/quote/comment spread and comment emotion.
+- Use the user's logged-in local Google Chrome X/Twitter session for visible signals when possible. Record visible replies, reposts, likes, views, quote/spread signals, and a small comment/reply sample. Do not claim API-level totals or full-platform sentiment.
 - Before choosing topics, review previous generated batches in the workspace, dated export folders, `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, and the GitHub-synced 推特版 `topic-history.md` when available. Treat both ordinary news-video history and 推特版 history as duplicate-prevention sources.
 - Prefer China/US AI stories with clear platform appeal: model releases, policy/regulation, major product launches, safety/security, AI hardware, agent/tools, major company moves, and consumer/workflow impact.
 - Start from a candidate pool of roughly 15-30 recent stories when possible, then narrow down to 5. The goal is not "news ranking top 5"; the goal is "the 5 stories most suitable for AI 信息差短视频".
 - Score candidates by:
+  - Official/source credibility: does the event start from or get confirmed by an official account, founder/core-person account, official page, or trusted media source?
+  - Visible controversy: do visible replies/quotes show disagreement, fear, sarcasm, privacy/safety concern, job anxiety, budget dispute, or public pushback?
+  - Visible spread: is the event reposted, quoted, or amplified by selected official, digest, media, market, or viral accounts?
   - Normal-viewer relevance: can a casual viewer understand why it matters to work, creation, tools, learning, business, or daily AI use?
   - Information-gap strength: is there a non-obvious takeaway beyond the surface headline?
-  - Heat and authority: is it from an official source, reputable media, or clearly discussed by the industry?
-  - Visual asset quality: are there usable real people, company logos, product screenshots, launch images, official pages, or media screenshots?
+  - Media/data evidence quality: are there readable official pages, media reports, charts, filings, product pages, or research pages for screenshots?
+  - Visual asset quality: are there usable real people, company logos, product screenshots, launch images, official pages, charts, or media screenshots?
   - Title tension: can it become a strong, honest, click-worthy short-video headline?
   - Topic diversity: does it add a different angle from the other selected stories?
 - Select 5 distinct one-event topics. Avoid five variations of the same model launch or the same company.
 - Choose topics that can support real images and a people-first or company-recognition cover. Favor familiar companies, people, products, and public issues; obscure companies/products should only survive when the public conflict is extremely clear.
 - Avoid exact duplicates from previous days across both ordinary AI 信息差 videos and 推特版 videos. A topic is considered an exact duplicate only when the same company/person/product, same event/development, same core source tweet or factual source, and same information-gap angle/viewer takeaway were already rendered.
 - Reusing the same company is allowed when the event, development, source, viewer takeaway, or information-gap angle is materially different.
-- Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation.
+- Show the 5 selected topics with one-line rationale before rendering if the user has not explicitly approved batch generation. Include discovery account/source, visible engagement or spread signal, two typical controversy/comment samples or paraphrases when available, likely cover assets, and information-gap angle.
 - Generate 5 separate videos and covers. Do not merge the topics into one compilation video.
 - Each topic must still follow the one-event pattern and use 4-6 bottom description lines, usually 5. The internal writing order is event, key fact, conflict/mechanism, affected group, and final takeaway, but final text must not show labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
 
@@ -317,6 +323,9 @@ Before rendering, present the proposed list in this format:
 ```text
 01 话题：...
 为什么选：普通人能看懂的变化是 ...
+发现来源：官方号 / 创始人号 / 热点账号 / 媒体账号
+可见信号：回复 / 转发 / 引用 / 浏览 / 二次传播
+典型评论：两条可见评论样本或简短意译
 封面素材：人物 / 公司 logo / 产品截图 / 官方页面
 信息差角度：...
 ```
@@ -417,9 +426,9 @@ Bottom copy quality rules:
 Use this skill for one event at a time. For example, "GPT-5.6 enters limited preview" is one event. The five images should all support that same event from different angles:
 
 - person/company/product photo
-- official evidence screenshot
+- core evidence screenshot
+- official/media/data evidence screenshot
 - product/API/Codex entry screenshot
-- media report screenshot
 - related company or product scene
 
 The title and `body_rows` explain the event in the default clean white workflow. The images should not be five separate text cards repeating the explanation. If a source page is unusable, replace it with another real image source instead of making an all-text substitute.
@@ -429,9 +438,9 @@ The title and `body_rows` explain the event in the default clean white workflow.
 Use multiple images for one news event. The middle image carousel should feel like real news footage, not a deck of text cards.
 
 1. Real people/company/product photos: founders, executives, company offices, product launch scenes, real product screenshots, or official brand/product images.
-2. Official evidence screenshots: announcement pages, Help Center pages, docs, API pages, safety cards, or release notes.
-3. Product entry screenshots: ChatGPT, OpenAI Platform, Codex, model selector, API console, pricing page, or developer docs.
-4. Media report screenshots: reputable news pages only when official/product imagery is insufficient or useful for news context.
+2. Core evidence screenshots: the clearest proof for the event, chosen from official pages, media reports, data charts, product pages, filings, research pages, or X/Twitter screenshots.
+3. Official/product screenshots: announcement pages, Help Center pages, docs, API pages, safety cards, release notes, app UI, model selector, Codex, console, or pricing pages.
+4. Media/data screenshots: reputable news pages, source articles, charts, filings, reports, and data visuals that explain the conflict or mechanism.
 5. Auxiliary context images: developer scenes, data centers, laptops, or abstract tech imagery only as a last supplement.
 
 Reject screenshots that show Cloudflare verification, loading spinners, blank pages, cookie walls, or unrelated search results. Replace them with another source before making a video.
@@ -465,22 +474,22 @@ Recommended 5-image order:
 
 ```text
 01 hero: real person / company / product / recognizable place
-02 official: announcement, docs, release notes, official page, or direct evidence
-03 product: app, API, model selector, Codex, console, or product-entry screenshot
-04 media: reputable news/source screenshot
+02 core-evidence: clearest proof screenshot, usually official/media/data/product/source page
+03 official/product: announcement, docs, release notes, official page, app, API, model selector, Codex, console, or product-entry screenshot
+04 media/data: reputable news/source screenshot, report, filing, or chart
 05 auxiliary: related context scene, hardware, infrastructure, or supporting background
 ```
 
 Allowed `image_roles` values:
 
 ```text
-hero, official, product, media, auxiliary
+hero, core-evidence, official, product, media, data, auxiliary, tweet
 ```
 
 Recommended `image_quality` values:
 
 ```text
-real, official-screenshot, product-screenshot, source-card, clean-card, fallback, error
+real, official-screenshot, product-screenshot, media-screenshot, data-chart, tweet, source-card, clean-card, fallback, error
 ```
 
 If the checker fails, do not weaken the rule just to pass. Reorder the images, replace weak assets, rename assets descriptively, or add explicit roles only when the visual source truly matches that role.

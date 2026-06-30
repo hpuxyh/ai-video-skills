@@ -1,6 +1,6 @@
 ---
 name: vertical-ai-info-video
-description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images with real news images, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, full-set structured info rows, paper-card explainer previews, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 最近7天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
+description: "Generate 9:16 Chinese AI information-gap short videos and platform cover images from the latest 2-3 days of official-first X/Twitter AI hotspots, with real news/media/data screenshots, people-first cover thumbnails, bold no-glow headline typography, beat-synced multi-photo motion, full-set structured info rows, paper-card explainer previews, no voiceover, and local BGM mixing. Use when the user asks to make, iterate, or standardize vertical AI news/info-gap videos, 抖音/视频号/小红书竖屏快报, 封面图, 近2-3天AI热点, 中美AI新闻, or says to use this short-video workflow skill."
 ---
 
 # Vertical AI Info Video
@@ -17,9 +17,9 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
-   - If the user does not give a concrete topic, search the latest 7 days of AI news, prioritize China/US high-signal stories, choose 5 distinct topics, and generate 5 separate one-event videos.
-2. Confirm or infer each video's topic, title lines, bottom description lines, image set, cover, and BGM.
-3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/product screenshots as supporting evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
+   - If the user does not give a concrete topic, search the latest 2-3 days of AI hotspots using the official-first X/Twitter scouting logic below: start with major model-company official accounts and founder/core-person accounts, then validate spread through selected AI digest, media, and market/viral accounts. Choose 5 distinct high-conflict topics and generate 5 separate one-event videos.
+2. Confirm or infer each video's topic, X/Twitter discovery source, visible engagement/controversy signal, title lines, bottom description lines, image set, cover, and BGM.
+3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/media/data/product screenshots as supporting evidence. The second carousel image should usually be the clearest core evidence screenshot: official page, media report, data chart, product page, or a tweet screenshot when the tweet is the strongest evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using `scripts/select_bgm_for_batch.py`. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored, and validate that the batch is not accidentally inheriting the same BGM for every video.
 6. Build a JSON config using the schema in `references/style-guide.md` and the production checklist in `references/paper-card-daily-production.md`. For daily/news-video output, build a clean white paper-card video JSON by default and render with `scripts/render_clean_white_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the three-line title entrance animation, use soft cross-fade image transitions, preserve full screenshots/text cards without cropping their text, and keep core source screenshots at about double hold time. Use `scripts/render_paper_card_video.py` only when the user explicitly asks for the older purple-ribbon white-card variant, and use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
@@ -58,7 +58,7 @@ If the user explicitly requests the legacy dark fast-news template, render with 
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
 11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the project-level delivery structure below. Each topic folder must contain only three core publishing files: `视频.mp4`, `封面.jpg`, and `文案.md`.
-12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
+12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, including discovery account, core X/Twitter URL when available, visible reply/repost/quote/view signal, two typical controversy/emotion comments, confirmation source, final screenshot source, and information-gap angle. Then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
 
 ## Delivery Output Contract
 
@@ -145,17 +145,85 @@ Default daily automation:
 
 - The standing daily job is `AI信息差新闻视频-每日8点`.
 - It runs every day at 08:00 Asia/Shanghai from `/Users/xieyahao/Documents/别人好项目`.
-- The job should use this skill, search the latest 7 days when no concrete topic is provided, avoid exact duplicate topics across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, copy the final delivery plus source-review materials into the GitHub `records/ai-info-video/YYYY-MM-DD/final-delivery/` archive, commit it, and push it to `origin/main`.
+- The job should use this skill, search the latest 2-3 days when no concrete topic is provided, use the official-first X/Twitter hotspot logic below, avoid exact duplicate topics across the ordinary AI 信息差 history and the 推特版 history, generate the final cover/video/publishing-copy package under `小红/视频/新闻视频`, update `选题历史.md`, copy the final delivery plus source-review materials into the GitHub `records/ai-info-video/YYYY-MM-DD/final-delivery/` archive, commit it, and push it to `origin/main`.
 - Daily scheduled videos must use the confirmed clean white paper-card video logic by default: red `重磅` metadata row, large three-line headline on the white card, blue third-line emphasis, no large purple title/ribbon block, real five-image carousel with soft fade transitions, screenshot/text-card media preserved in full, label-free cyan-highlight bottom lines revealing one by one at a readable pace, no dark ordinary template unless the user explicitly requests it.
+
+## Official-First X/Twitter Hotspot Logic
+
+The ordinary AI 信息差 video is no longer a broad 7-day news digest. It should use the same high-conflict topic logic as the 推特版 workflow, while keeping the ordinary version's media/official/data screenshot style.
+
+Core principle:
+
+```text
+official/core-person source first
++ visible repost/quote/comment spread
++ strong comment emotion or controversy
++ official/media/data confirmation
++ ordinary-viewer information gap
+```
+
+Scouting order:
+
+1. Major model-company official accounts and product/research official accounts.
+2. Founders, CEOs, product leads, and core researchers.
+3. AI digest/packaging accounts that show spread and title angle.
+4. Tech/business media accounts that confirm facts and add context.
+5. Market/viral accounts that show finance, labor, regulation, controversy, and broad public emotion.
+
+Use X/Twitter as a discovery and heat surface, not always as the final video screenshot. The final ordinary-version carousel can prefer media reports, official pages, data charts, product pages, and company screenshots when they explain the topic better than the tweet.
+
+Data availability rule:
+
+- Use the user's logged-in local Google Chrome X/Twitter session when checking X. Do not assume API access or full engagement analytics.
+- Record only visible evidence: visible replies, reposts, likes, views, quote/secondary-spread signals, and comment samples from the loaded page.
+- For controversy, inspect the core post and visible replies/quotes by scrolling the page. A typical sampling pass is the post first screen plus 2-4 downward scrolls, enough to collect roughly 20-50 visible comments/replies when the page allows it.
+- Do not claim full-platform sentiment. Say `可见评论样本` or equivalent in source notes.
+- Keep screenshots or notes for the core post, comment/reply samples, quote/spread samples, and final confirmation source in `_记录/`.
+
+Selection weights for ordinary daily batches:
+
+| Dimension | Points | Practical evidence |
+| --- | ---: | --- |
+| Official/source credibility | 25 | Official/founder/core-person post, official page, product page, or trusted media confirmation. |
+| Visible comment/quote controversy | 20 | Visible replies/quotes show disagreement, anxiety, sarcasm, anger, privacy/safety concern, job anxiety, budget dispute, or public pushback. |
+| Visible repost/quote spread | 15 | The topic is reposted/quoted by official accounts, AI digest accounts, media accounts, or market/viral accounts, or the core post is visibly above normal account engagement. |
+| Ordinary-viewer relevance | 15 | The story maps to jobs, money, privacy, safety, children, copyright, healthcare, daily tools, or work/creation. |
+| Information-gap strength | 10 | There is a clear "people think A, but actually B" angle. |
+| Media/data evidence quality | 10 | There is a readable official page, media report, data chart, product page, filing, or research page for screenshots. |
+| Visual asset quality | 5 | There are recognizable people, company/product assets, source screenshots, charts, or other real visuals. |
+
+Decision bands:
+
+- `85+`: priority daily topic.
+- `75-84`: viable daily topic.
+- `65-74`: backup only.
+- `<65`: reject unless the user explicitly asks.
+
+Tie-breakers:
+
+1. Official/founder/core-person source beats third-party discovery.
+2. Stronger visible comment controversy beats raw likes.
+3. Direct ordinary-person impact beats niche technical importance.
+4. Better media/data screenshot quality beats weak visual proof.
+5. More diverse daily theme beats another variation of the same company/event.
+
+Typical strong comment-emotion patterns:
+
+- Fear or distrust: brain privacy, medical safety, government procurement, children in school, surveillance, data use.
+- Fairness and money: copyright, creator payment, layoffs, AI bubbles, compute cost, price increases.
+- Job anxiety and reversal: AI replacing workers, companies rehiring humans, junior roles, skill devaluation.
+- Power/control: big model companies limiting access, government adoption, platform lock-in, capacity bottlenecks.
+
+For each selected topic, include at least two short typical comment samples or paraphrases in `选题记录.md` and source notes. These samples should explain why the topic is controversial. Do not select only `wow/cool/amazing` comments as controversy evidence.
 
 ## Topic Selection Modes
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
-- Auto-scout mode: when no concrete topic is provided, search the latest 7 days of AI news across US and China, then select 5 topics before rendering.
-- Auto-scout selection criteria: do not simply pick the top 5 headlines. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: viewer relevance, clear information gap, recognizable people/companies, available real imagery, and platform-friendly tension. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, and stories without usable real images.
+- Auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion and news across US/China/global sources, starting from official X/Twitter accounts and founder/core-person accounts, then select 5 topics before rendering.
+- Auto-scout selection criteria: do not simply pick the top 5 headlines or the most-liked posts. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: official/source credibility, visible comment/quote controversy, visible repost/quote spread, viewer relevance, clear information gap, recognizable people/companies, media/data screenshot quality, and platform-friendly tension. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, low-emotion product updates, and stories without usable real images.
 - Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files from both `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` and the GitHub-synced 推特版 history. Do not choose an exact duplicate from either workflow unless the user explicitly asks for a follow-up. Similar company/theme is acceptable when the event, development, source, or information-gap angle is materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
-- Before rendering 5 videos, show the chosen 5 topics with one-line rationale, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
+- Before rendering 5 videos, show the chosen 5 topics with one-line rationale, discovery account/source, visible controversy or spread signal, two typical comment samples or paraphrases when available, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
 
 ## One-Event Video Logic
 
@@ -183,8 +251,8 @@ Current structured paper-card flow:
 - Use `title_color: [0, 0, 0]`, a large `title_size`, and short title lines before shrinking the font. Avoid glow, shadow, or colored title effects in this paper-card style.
 - Use `title_line3` or the third title line for the normal-viewer interpretation, action hook, or information-gap sentence. It should not merely repeat the first two title lines.
 - Keep the middle media frame bright and legible. It must show real event media, not a pre-rendered full-card image. Real people/product images may fill the frame. Source screenshots, tweet cards, product UI, and other text-bearing images should use safe-fill behavior: enlarge as much as possible and crop only background/empty edges, but never crop, hide, or partially cut text or key UI.
-- Use exactly one event per video and usually five images: person/company/product recognition, core source/tweet screenshot, official report or evidence, product page, chart or supporting evidence.
-- If the second image is the core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
+- Use exactly one event per video and usually five images: person/company/product recognition, core evidence screenshot, official/media/data report or evidence, product page, chart or supporting evidence.
+- The second image should usually be the core evidence screenshot. For the ordinary version, this can be a media report, official page, data chart, product page, filing, research page, or tweet/X screenshot. Prefer the source that is easiest for a normal viewer to understand. If the second image is a core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
    - Use `body_rows` for the approved bottom area. The default visual style is unnumbered, label-free cyan-highlight reading lines: each row is a normal Chinese sentence with a cyan highlight behind the whole line, no `01`-`05` number pills, and no visible labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
    - Default to 5 bottom lines. Use 4 lines only for very simple stories and 6 lines only when the event needs one extra mechanism or consequence line. Configure `body_show_labels: false`, `body_show_numbers: false`, and `body_max_rows: 6`; keep each line short enough to scan in one glance.
    - The hidden internal structure is still useful when writing: event, key fact, conflict/mechanism, affected group, final takeaway. Do not expose those internal names on screen. Write the final line as a natural conclusion, not as `这个选题的信息差是...`.
@@ -255,7 +323,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 - Ribbon style: no large purple ribbon by default. Purple ribbon/panel is a legacy option only for explicit requests.
 - Image motion: strong push-pull plus pan for people/product images, safe-fill for text-bearing screenshots, and a short soft fade transition at cut points. Normal photos can cross-fade directly; text-bearing screenshots/source cards/product UI must use a split fade-out/fade-in so two text layers never overlap. Avoid fast left-right slide transitions, white flashes, empty side gaps, text-on-text overlap, or any cropped/partial text.
 - Image count: prefer 5 images for a 7-second video.
-- Image sourcing priority: real people/company/product photos first; official announcement/help/docs screenshots second; product entry/API/Codex screenshots third; media report screenshots fourth; auxiliary context images last.
+- Image sourcing priority: real people/company/product photos first; core evidence screenshot second; official announcement/help/docs screenshots and media/data screenshots third; product entry/API/Codex screenshots fourth; auxiliary context images last. X/Twitter screenshots can be used when they are the clearest evidence, but ordinary-version videos may prefer media, official, data, or product screenshots for readability.
 - Image sequence preflight: the first image must be a recognizable protagonist/company/product or official/product evidence image. Media screenshots should usually be slot 4-5, and auxiliary context images should not lead the carousel. Use `scripts/check_image_sequence.py --strict` before rendering.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
