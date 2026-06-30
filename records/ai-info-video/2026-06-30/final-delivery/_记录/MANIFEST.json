@@ -1,0 +1,360 @@
+{
+  "date": "2026年06月30日",
+  "topics": [
+    {
+      "slug": "california-claude-discount",
+      "folder": "01-加州Claude半价开放",
+      "title": [
+        "加州把 Claude 半价开放",
+        "政府 AI 采购先集中入口"
+      ],
+      "line3": "公共服务也要选模型",
+      "category": "Anthropic · 政府采购",
+      "source_name": "Business Insider · 2026.06.29",
+      "topic": "加州与 Anthropic 达成 Claude 政府折扣协议",
+      "people": "Gavin Newsom / Anthropic / Claude",
+      "angle": "AI 工具开始进入公共服务采购，普通人以后接触的政府流程可能先换工具。",
+      "body": [
+        "加州把 Claude 以 50% 折扣开放给州机构和地方政府",
+        "这不是一个试用账号，而是统一采购、培训和技术支持",
+        "文件摘要、信息分析、DMV 和医保流程会先被接入",
+        "公共服务用 AI 的速度，取决于采购入口和责任边界",
+        "以后办事体验变快或变慢，背后可能先换了模型"
+      ],
+      "xhs_title": "加州把Claude半价开放给政府",
+      "xhs_desc": [
+        "加州这次不是简单试用 AI，而是把 Claude 放进政府统一采购入口。",
+        "普通人要看懂的是：公共服务、医保、车管和网络安全流程，可能先被 AI 改造。",
+        "以后别只问模型强不强，还要看它进了哪些真实办事系统。"
+      ],
+      "dy_title": "加州政府半价用Claude",
+      "dy_desc": "Claude 进入加州政府统一采购入口，公共服务里的 AI 可能比你想得更快落地。",
+      "tags": [
+        "AI",
+        "人工智能",
+        "Claude",
+        "Anthropic",
+        "加州",
+        "政府采购",
+        "公共服务",
+        "AI工具",
+        "信息差",
+        "小白看AI"
+      ],
+      "urls": [
+        [
+          "hero",
+          "official-screenshot",
+          "https://www.anthropic.com/claude"
+        ],
+        [
+          "product",
+          "product-screenshot",
+          "https://www.anthropic.com/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://www.gov.ca.gov/"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://www.businessinsider.com/newsom-anthropic-ink-deal-expand-government-use-2026-6"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://www.theverge.com/ai-artificial-intelligence/959031/california-partnered-with-anthropic-to-make-claude-available-to-all-state-agencies-and-local-governments"
+        ]
+      ],
+      "cover_asset": "Anthropic Claude",
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/01-california-claude-discount-paper-card.json",
+      "output_dir": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/导出-2026年06月30日AI信息差快报/01-加州Claude半价开放"
+    },
+    {
+      "slug": "google-ai-talent-exodus",
+      "folder": "02-Google研究员出走",
+      "title": [
+        "Google 顶级研究员出走",
+        "Anthropic 和 OpenAI 抢人"
+      ],
+      "line3": "别只看公司名，看谁在做模型",
+      "category": "Google · AI 人才",
+      "source_name": "TechCrunch · 2026.06.24",
+      "topic": "Google AI 研究员继续流向 Anthropic 和 OpenAI",
+      "people": "Google DeepMind / Anthropic / OpenAI",
+      "angle": "模型竞争不只看公司品牌，核心研究员和团队流动会改变下一代工具能力。",
+      "body": [
+        "TechCrunch 报道多名 Google AI 研究员转向竞争对手",
+        "Jonas Adler 和 Alexander Pritzel 被指将加入 Anthropic",
+        "此前 Noam Shazeer 与 John Jumper 也已离开 Google 系统",
+        "顶级模型背后拼的不只是算力，还有谁在训练它",
+        "选 AI 工具别只信老品牌，要看能力和团队是否还在变"
+      ],
+      "xhs_title": "Google顶级AI人才继续出走",
+      "xhs_desc": [
+        "这条新闻的重点不是八卦跳槽，而是 AI 能力背后的核心人正在流动。",
+        "当研究员从 Google 去 Anthropic、OpenAI，模型路线和产品节奏都可能变。",
+        "普通人选工具，也要学会看能力变化，而不是只认公司名。"
+      ],
+      "dy_title": "Google AI人才又被抢",
+      "dy_desc": "顶级模型背后拼的是人、数据和算力。AI 工具强弱可能会随着团队流动改变。",
+      "tags": [
+        "AI",
+        "人工智能",
+        "Google",
+        "DeepMind",
+        "Anthropic",
+        "OpenAI",
+        "AI人才",
+        "大模型",
+        "信息差",
+        "科技新闻"
+      ],
+      "urls": [
+        [
+          "hero",
+          "official-screenshot",
+          "https://deepmind.google/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://www.anthropic.com/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://openai.com/"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://www.linkedin.com/posts/techcrunch_ai-researchers-continue-to-leave-google-for-activity-7475666630790922240-o3n7"
+        ]
+      ],
+      "cover_asset": "Google DeepMind",
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/02-google-ai-talent-exodus-paper-card.json",
+      "output_dir": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/导出-2026年06月30日AI信息差快报/02-Google研究员出走"
+    },
+    {
+      "slug": "zai-glm-cybersecurity",
+      "folder": "03-Zai追上安全模型",
+      "title": [
+        "Z.ai 被曝追上 Mythos",
+        "开源模型也能找漏洞"
+      ],
+      "line3": "安全门槛正在变低",
+      "category": "Z.ai · 网络安全",
+      "source_name": "The Verge / WSJ · 2026.06.29",
+      "topic": "Z.ai GLM-5.2 在部分网络安全漏洞测试中接近 Anthropic Mythos",
+      "people": "Z.ai / Zhipu AI / GLM-5.2 / Anthropic Mythos",
+      "angle": "开源权重模型降低了漏洞发现门槛，防守方和攻击方都会更快。",
+      "body": [
+        "The Verge 称 Z.ai 的 GLM-5.2 在部分找漏洞任务追上 Mythos",
+        "它是开源权重模型，开发者可以下载、运行和改造",
+        "这会让安全团队更便宜地发现问题，也让滥用风险变大",
+        "做网站、插件和小程序的人，不能再把安全检查放最后",
+        "AI 安全竞争的关键，开始从谁最强变成谁最容易被用上"
+      ],
+      "xhs_title": "Z.ai开源模型追上安全强模",
+      "xhs_desc": [
+        "GLM-5.2 被报道在部分漏洞发现任务上接近 Anthropic Mythos。",
+        "真正的信息差是：开源权重让“找漏洞”这件事更容易普及。",
+        "做产品的人要更早把安全检查放进日常流程。"
+      ],
+      "dy_title": "开源AI也会找漏洞了",
+      "dy_desc": "Z.ai 的 GLM-5.2 被指在部分安全测试追上 Mythos。安全检查会变得更便宜也更危险。",
+      "tags": [
+        "AI",
+        "人工智能",
+        "Zai",
+        "智谱",
+        "GLM52",
+        "网络安全",
+        "开源模型",
+        "大模型",
+        "信息差",
+        "AI安全"
+      ],
+      "urls": [
+        [
+          "hero",
+          "official-screenshot",
+          "https://z.ai/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://z.ai/blog/glm-5.2"
+        ],
+        [
+          "product",
+          "official-screenshot",
+          "https://www.graphistry.com/blog/glm-5-2-cybersecurity-open-model"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://www.theverge.com/ai-artificial-intelligence/958804/chinas-z-ai-glm-52-mythos-cybersecurity"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://www.wsj.com/tech/ai/china-resets-the-ai-race-572f6e07"
+        ]
+      ],
+      "cover_asset": "Z.ai GLM-5.2",
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/03-zai-glm-cybersecurity-paper-card.json",
+      "output_dir": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/导出-2026年06月30日AI信息差快报/03-Zai追上安全模型"
+    },
+    {
+      "slug": "deepseek-image-recognition",
+      "folder": "04-DeepSeek识图模式",
+      "title": [
+        "DeepSeek 推出识图模式",
+        "聊天框开始能看图片"
+      ],
+      "line3": "截图也会变成入口",
+      "category": "DeepSeek · 多模态",
+      "source_name": "Pandaily · 2026.06.27",
+      "topic": "DeepSeek 在 Web 和移动端上线/灰测图像识别模式",
+      "people": "DeepSeek / 图像识别模式 / 多模态",
+      "angle": "DeepSeek 从文本问答走向看图理解，普通人的截图、表格和资料图会变成新输入。",
+      "body": [
+        "Pandaily 称 DeepSeek 已在 Web 和移动端推出图像识别模式",
+        "用户可以上传图片，让 AI 描述、读取和分析内容",
+        "它目前重点是看图理解，不是直接生成图片",
+        "对普通人来说，截图、表格、海报和资料图都能被拿来提问",
+        "下一个入口不只是打字，而是把你看到的东西交给 AI"
+      ],
+      "xhs_title": "DeepSeek开始让聊天框看图片",
+      "xhs_desc": [
+        "DeepSeek 的新变化不是又发一个名字，而是入口从文字变成图片。",
+        "截图、表格、海报、资料图都可能直接变成 AI 的输入。",
+        "普通人先学会把图片资料交给 AI，比等大模型名字更实用。"
+      ],
+      "dy_title": "DeepSeek能看图片了",
+      "dy_desc": "DeepSeek 识图模式上线/灰测后，截图和资料图都能成为提问入口。",
+      "tags": [
+        "AI",
+        "人工智能",
+        "DeepSeek",
+        "多模态",
+        "识图模式",
+        "AI工具",
+        "截图分析",
+        "大模型",
+        "信息差",
+        "小白看AI"
+      ],
+      "urls": [
+        [
+          "hero",
+          "official-screenshot",
+          "https://www.deepseek.com/"
+        ],
+        [
+          "product",
+          "product-screenshot",
+          "https://chat.deepseek.com/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://api-docs.deepseek.com/"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://pandaily.com/deepseek-funding-expansion-hiring-harness"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://finance.biggo.com/news/ZDEJ2Z0BtCxy99G54XQv"
+        ]
+      ],
+      "cover_asset": "DeepSeek",
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/04-deepseek-image-recognition-paper-card.json",
+      "output_dir": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/导出-2026年06月30日AI信息差快报/04-DeepSeek识图模式"
+    },
+    {
+      "slug": "india-china-ai-alternatives",
+      "folder": "05-印度转向中国AI替代",
+      "title": [
+        "印度企业转向中国 AI",
+        "美国模型受限后改找替代"
+      ],
+      "line3": "别把工作绑死一个入口",
+      "category": "印度 · 模型替代",
+      "source_name": "Economic Times · 2026.06.29",
+      "topic": "美国前沿模型访问收紧后，印度企业转向中国/亚洲 AI 替代方案",
+      "people": "India / OpenAI / Anthropic / Chinese AI models",
+      "angle": "真正影响项目连续性的不是榜单第一，而是能不能稳定、可迁移地用。",
+      "body": [
+        "Economic Times 称美国模型收紧后，印度企业开始寻找亚洲替代",
+        "原因不是单纯便宜，而是项目不能被一个入口突然卡住",
+        "中国开源和亚洲模型的性能差距正在缩小",
+        "企业会更重视可迁移的提示词、数据和工作流",
+        "普通人也一样，重要资料别只放在一个 AI 工具里"
+      ],
+      "xhs_title": "印度企业开始找中国AI替代",
+      "xhs_desc": [
+        "美国前沿模型访问收紧后，印度企业开始把目光转向亚洲和中国 AI。",
+        "这不是谁输谁赢，而是项目不能被单一入口卡死。",
+        "普通人用 AI 也要记住：提示词、资料和工作流要能迁移。"
+      ],
+      "dy_title": "印度企业改找中国AI",
+      "dy_desc": "当美国前沿模型访问受限，企业会优先保证项目不断线。别把工作绑死一个入口。",
+      "tags": [
+        "AI",
+        "人工智能",
+        "印度",
+        "中国AI",
+        "OpenAI",
+        "Anthropic",
+        "DeepSeek",
+        "Qwen",
+        "大模型",
+        "信息差"
+      ],
+      "urls": [
+        [
+          "hero",
+          "official-screenshot",
+          "https://www.deepseek.com/"
+        ],
+        [
+          "product",
+          "official-screenshot",
+          "https://qwen.ai/"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://www.anthropic.com/claude"
+        ],
+        [
+          "media",
+          "source-card",
+          "https://economictimes.indiatimes.com/tech/artificial-intelligence/alternatives-to-openai-anthropic-with-us-prime-ai-off-the-table-india-opts-for-fine-china/articleshow/132057030.cms?UTM_Campaign=RSS_Feed&UTM_Medium=Referral&UTM_Source=Google_Newsstand"
+        ],
+        [
+          "official",
+          "official-screenshot",
+          "https://openai.com/"
+        ]
+      ],
+      "cover_asset": "OpenAI / Anthropic / 中国 AI",
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/05-india-china-ai-alternatives-paper-card.json",
+      "output_dir": "/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/导出-2026年06月30日AI信息差快报/05-印度转向中国AI替代"
+    }
+  ]
+}

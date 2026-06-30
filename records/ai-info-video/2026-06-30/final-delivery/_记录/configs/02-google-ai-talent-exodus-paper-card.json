@@ -1,0 +1,107 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/google-ai-talent-exodus.mp4",
+  "contact_sheet": "renders/google-ai-talent-exodus-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "Google · AI 人才",
+  "header_source": "TechCrunch · 2026.06.24",
+  "title": [
+    "Google 顶级研究员出走",
+    "Anthropic 和 OpenAI 抢人"
+  ],
+  "title_line3": "别只看公司名，看谁在做模型",
+  "title_base_size": 68,
+  "title_min_size": 50,
+  "title_line_gap": 25,
+  "media_box": [
+    52,
+    620,
+    1028,
+    1188
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.32,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "body_y": 1304,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    {
+      "text": "TechCrunch 报道多名 Google AI 研究员转向竞争对手"
+    },
+    {
+      "text": "Jonas Adler 和 Alexander Pritzel 被指将加入 Anthropic"
+    },
+    {
+      "text": "此前 Noam Shazeer 与 John Jumper 也已离开 Google 系统"
+    },
+    {
+      "text": "顶级模型背后拼的不只是算力，还有谁在训练它"
+    },
+    {
+      "text": "选 AI 工具别只信老品牌，要看能力和团队是否还在变"
+    }
+  ],
+  "images": [
+    "assets/images/google-ai-talent-exodus/01-hero-official-screenshot.jpg",
+    "assets/images/google-ai-talent-exodus/02-official-official-screenshot.jpg",
+    "assets/images/google-ai-talent-exodus/03-official-official-screenshot.jpg",
+    "assets/images/google-ai-talent-exodus/04-media-source-card.jpg",
+    "assets/images/google-ai-talent-exodus/05-media-source-card.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "official",
+    "official",
+    "media",
+    "media"
+  ],
+  "image_quality": [
+    "official-screenshot",
+    "official-screenshot",
+    "official-screenshot",
+    "source-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    0.92,
+    2.08,
+    3.46,
+    4.94
+  ],
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "heavy_infrastructure"
+  }
+}

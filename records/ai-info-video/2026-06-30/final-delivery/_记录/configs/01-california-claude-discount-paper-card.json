@@ -1,0 +1,107 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/california-claude-discount.mp4",
+  "contact_sheet": "renders/california-claude-discount-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "Anthropic · 政府采购",
+  "header_source": "Business Insider · 2026.06.29",
+  "title": [
+    "加州把 Claude 半价开放",
+    "政府 AI 采购先集中入口"
+  ],
+  "title_line3": "公共服务也要选模型",
+  "title_base_size": 68,
+  "title_min_size": 50,
+  "title_line_gap": 25,
+  "media_box": [
+    52,
+    620,
+    1028,
+    1188
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.32,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "body_y": 1304,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    {
+      "text": "加州把 Claude 以 50% 折扣开放给州机构和地方政府"
+    },
+    {
+      "text": "这不是一个试用账号，而是统一采购、培训和技术支持"
+    },
+    {
+      "text": "文件摘要、信息分析、DMV 和医保流程会先被接入"
+    },
+    {
+      "text": "公共服务用 AI 的速度，取决于采购入口和责任边界"
+    },
+    {
+      "text": "以后办事体验变快或变慢，背后可能先换了模型"
+    }
+  ],
+  "images": [
+    "assets/images/california-claude-discount/01-hero-official-screenshot.jpg",
+    "assets/images/california-claude-discount/02-product-product-screenshot.jpg",
+    "assets/images/california-claude-discount/03-official-official-screenshot.jpg",
+    "assets/images/california-claude-discount/04-media-source-card.jpg",
+    "assets/images/california-claude-discount/05-media-source-card.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "product",
+    "official",
+    "media",
+    "media"
+  ],
+  "image_quality": [
+    "official-screenshot",
+    "product-screenshot",
+    "official-screenshot",
+    "source-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    0.92,
+    2.08,
+    3.46,
+    4.94
+  ],
+  "bgm": {
+    "path": "assets/audio/bgm-say-no-cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "say no cry.mp3",
+    "mood": "controversy_risk"
+  }
+}

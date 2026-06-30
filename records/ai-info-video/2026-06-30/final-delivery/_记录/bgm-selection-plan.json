@@ -1,0 +1,147 @@
+{
+  "schema": "vertical-ai-info-video.bgm-plan.v1",
+  "project_dir": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30",
+  "dry_run": false,
+  "tracks": [
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/01-california-claude-discount-paper-card.json",
+      "output": "renders/california-claude-discount.mp4",
+      "mood": "controversy_risk",
+      "track": "say no cry.mp3",
+      "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐",
+      "candidates": [
+        {
+          "name": "say no cry.mp3",
+          "weight": 3,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        },
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/say no cry.mp3",
+      "project_path": "assets/audio/bgm-say-no-cry.mp3",
+      "best_fit": "controversy, risk, tension, dispute, security and compliance topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/02-google-ai-talent-exodus-paper-card.json",
+      "output": "renders/google-ai-talent-exodus.mp4",
+      "mood": "heavy_infrastructure",
+      "track": "moment.mp3",
+      "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 3,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        },
+        {
+          "name": "say no cry.mp3",
+          "weight": 1,
+          "reason": "算力、芯片、政策、基础设施类新闻优先使用厚重音乐，bba 提高概率"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/03-zai-glm-cybersecurity-paper-card.json",
+      "output": "renders/zai-glm-cybersecurity.mp4",
+      "mood": "controversy_risk",
+      "track": "say no cry.mp3",
+      "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐",
+      "candidates": [
+        {
+          "name": "say no cry.mp3",
+          "weight": 3,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        },
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "争议、风险、安全、合规类新闻优先使用紧张或厚重音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/say no cry.mp3",
+      "project_path": "assets/audio/bgm-say-no-cry.mp3",
+      "best_fit": "controversy, risk, tension, dispute, security and compliance topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/04-deepseek-image-recognition-paper-card.json",
+      "output": "renders/deepseek-image-recognition.mp4",
+      "mood": "consumer_lifestyle",
+      "track": "时尚动感.mp3",
+      "reason": "消费应用和生活服务类新闻优先使用轻松、行动感音乐",
+      "candidates": [
+        {
+          "name": "drink.mp3",
+          "weight": 2,
+          "reason": "消费应用和生活服务类新闻优先使用轻松、行动感音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "消费应用和生活服务类新闻优先使用轻松、行动感音乐"
+        },
+        {
+          "name": "时尚动感.mp3",
+          "weight": 1,
+          "reason": "消费应用和生活服务类新闻优先使用轻松、行动感音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/时尚动感.mp3",
+      "project_path": "assets/audio/bgm-fashion-motion.mp3",
+      "best_fit": "product launches, consumer apps, creator tools, stylish tech topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-info-video-build-2026-06-30/configs/05-india-china-ai-alternatives-paper-card.json",
+      "output": "renders/india-china-ai-alternatives.mp4",
+      "mood": "workflow_action",
+      "track": "moment.mp3",
+      "reason": "工具、工作流、行动建议类新闻优先使用行动感音乐",
+      "candidates": [
+        {
+          "name": "do it.mp3",
+          "weight": 2,
+          "reason": "工具、工作流、行动建议类新闻优先使用行动感音乐"
+        },
+        {
+          "name": "时尚热情绽放.mp3",
+          "weight": 1,
+          "reason": "工具、工作流、行动建议类新闻优先使用行动感音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "工具、工作流、行动建议类新闻优先使用行动感音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    }
+  ],
+  "summary": {
+    "say no cry.mp3": 2,
+    "moment.mp3": 2,
+    "时尚动感.mp3": 1
+  }
+}

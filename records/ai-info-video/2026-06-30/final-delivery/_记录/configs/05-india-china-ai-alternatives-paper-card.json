@@ -1,0 +1,107 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/india-china-ai-alternatives.mp4",
+  "contact_sheet": "renders/india-china-ai-alternatives-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "印度 · 模型替代",
+  "header_source": "Economic Times · 2026.06.29",
+  "title": [
+    "印度企业转向中国 AI",
+    "美国模型受限后改找替代"
+  ],
+  "title_line3": "别把工作绑死一个入口",
+  "title_base_size": 68,
+  "title_min_size": 50,
+  "title_line_gap": 25,
+  "media_box": [
+    52,
+    620,
+    1028,
+    1188
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.32,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "body_y": 1304,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    {
+      "text": "Economic Times 称美国模型收紧后，印度企业开始寻找亚洲替代"
+    },
+    {
+      "text": "原因不是单纯便宜，而是项目不能被一个入口突然卡住"
+    },
+    {
+      "text": "中国开源和亚洲模型的性能差距正在缩小"
+    },
+    {
+      "text": "企业会更重视可迁移的提示词、数据和工作流"
+    },
+    {
+      "text": "普通人也一样，重要资料别只放在一个 AI 工具里"
+    }
+  ],
+  "images": [
+    "assets/images/india-china-ai-alternatives/01-hero-official-screenshot.jpg",
+    "assets/images/india-china-ai-alternatives/02-product-official-screenshot.jpg",
+    "assets/images/india-china-ai-alternatives/03-official-official-screenshot.jpg",
+    "assets/images/india-china-ai-alternatives/04-media-source-card.jpg",
+    "assets/images/india-china-ai-alternatives/05-official-official-screenshot.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "product",
+    "official",
+    "media",
+    "official"
+  ],
+  "image_quality": [
+    "official-screenshot",
+    "official-screenshot",
+    "official-screenshot",
+    "source-card",
+    "official-screenshot"
+  ],
+  "beat_cuts": [
+    0.92,
+    2.08,
+    3.46,
+    4.94
+  ],
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "workflow_action"
+  }
+}

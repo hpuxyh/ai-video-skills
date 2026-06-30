@@ -1,0 +1,107 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/zai-glm-cybersecurity.mp4",
+  "contact_sheet": "renders/zai-glm-cybersecurity-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "Z.ai · 网络安全",
+  "header_source": "The Verge / WSJ · 2026.06.29",
+  "title": [
+    "Z.ai 被曝追上 Mythos",
+    "开源模型也能找漏洞"
+  ],
+  "title_line3": "安全门槛正在变低",
+  "title_base_size": 68,
+  "title_min_size": 50,
+  "title_line_gap": 25,
+  "media_box": [
+    52,
+    620,
+    1028,
+    1188
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.32,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "body_y": 1304,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    {
+      "text": "The Verge 称 Z.ai 的 GLM-5.2 在部分找漏洞任务追上 Mythos"
+    },
+    {
+      "text": "它是开源权重模型，开发者可以下载、运行和改造"
+    },
+    {
+      "text": "这会让安全团队更便宜地发现问题，也让滥用风险变大"
+    },
+    {
+      "text": "做网站、插件和小程序的人，不能再把安全检查放最后"
+    },
+    {
+      "text": "AI 安全竞争的关键，开始从谁最强变成谁最容易被用上"
+    }
+  ],
+  "images": [
+    "assets/images/zai-glm-cybersecurity/01-hero-official-screenshot.jpg",
+    "assets/images/zai-glm-cybersecurity/02-official-official-screenshot.jpg",
+    "assets/images/zai-glm-cybersecurity/03-product-official-screenshot.jpg",
+    "assets/images/zai-glm-cybersecurity/04-media-source-card.jpg",
+    "assets/images/zai-glm-cybersecurity/05-media-source-card.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "official",
+    "product",
+    "media",
+    "media"
+  ],
+  "image_quality": [
+    "official-screenshot",
+    "official-screenshot",
+    "official-screenshot",
+    "source-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    0.92,
+    2.08,
+    3.46,
+    4.94
+  ],
+  "bgm": {
+    "path": "assets/audio/bgm-say-no-cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "say no cry.mp3",
+    "mood": "controversy_risk"
+  }
+}
