@@ -7,9 +7,11 @@ description: "Generate 9:16 Chinese AI information-gap short videos and platform
 
 ## Overview
 
-Use this skill to produce the fixed 9:16 AI 信息差短视频 workflow. The current default for daily/news-video production is the confirmed clean white paper-card video: a white textured 9:16 card, top metadata row with a red `重磅` tag and small `AI 信息差快报` label, a large three-line headline where the third line is blue emphasis, no large purple title/ribbon block, real five-image carousel in the middle with soft cross-fade transitions, structured white explainer rows at the bottom that reveal one by one at a readable pace, no voiceover, and 7-second BGM from a local audio file.
+Use this skill to produce the ordinary, non-tweet-forced version of the fixed 9:16 AI 信息差短视频 workflow. It shares the same controversy-first topic selection, three-line hook title, cover-title logic, bottom-description density, and project delivery structure as the 推特版 workflow. The key difference is evidence-source freedom: X/Twitter is used for discovery, heat, and controversy signals, but the final video can use the clearest media report, official page, data chart, product page, research page, filing, or X/Twitter screenshot as its core evidence image.
 
-It also preserves the older dark vertical fast-news template and the older purple-ribbon paper-card variant. Use those older templates only when the user explicitly asks for them. For daily scheduled production and normal AI news-video output, use the clean white no-purple paper-card video workflow.
+The current default visual style is the confirmed clean white paper-card video: a white textured 9:16 card, top metadata row with a red `重磅` tag and small `AI 信息差快报` label, a large three-line headline where the third line is blue emphasis, no large purple title/ribbon block, real five-image carousel in the middle with soft cross-fade transitions, structured cyan-highlight explainer rows at the bottom that reveal one by one at a readable pace, no voiceover, and 7-second BGM from a local audio file.
+
+It also preserves the older dark vertical fast-news template and the older purple-ribbon paper-card variant. Use those older templates only when the user explicitly asks for them. For daily scheduled production and ordinary AI 信息差 output, use the clean white no-purple paper-card video workflow.
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
@@ -18,11 +20,11 @@ This skill is optimized for fast iteration. When the user asks for visual tuning
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
    - If the user does not give a concrete topic, search the latest 2-3 days of AI hotspots using the official-first X/Twitter scouting logic below: start with major model-company official accounts and founder/core-person accounts, then validate spread through selected AI digest, media, and market/viral accounts. Choose 5 distinct high-conflict topics and generate 5 separate one-event videos.
-2. Confirm or infer each video's topic, X/Twitter discovery source, visible engagement/controversy signal, title lines, bottom description lines, image set, cover, and BGM.
+2. Confirm or infer each video's topic, X/Twitter discovery source, visible engagement/controversy signal, tweet/core-source URL when available, three-line animated title, bottom description lines, image set, cover, and BGM.
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/media/data/product screenshots as supporting evidence. The second carousel image should usually be the clearest core evidence screenshot: official page, media report, data chart, product page, or a tweet screenshot when the tweet is the strongest evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
 5. Select background music from the local BGM pool using `scripts/select_bgm_for_batch.py`. For a 5-video batch, choose one track per video by theme fit plus weighted randomness, with `bba进行曲.mp3` favored, and validate that the batch is not accidentally inheriting the same BGM for every video.
-6. Build a JSON config using the schema in `references/style-guide.md` and the production checklist in `references/paper-card-daily-production.md`. For daily/news-video output, build a clean white paper-card video JSON by default and render with `scripts/render_clean_white_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the three-line title entrance animation, use soft cross-fade image transitions, preserve full screenshots/text cards without cropping their text, and keep core source screenshots at about double hold time. Use `scripts/render_paper_card_video.py` only when the user explicitly asks for the older purple-ribbon white-card variant, and use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
+6. Build a JSON config using the schema in `references/style-guide.md` and the production checklist in `references/paper-card-daily-production.md`. For daily ordinary output, build a clean white paper-card video JSON by default and render with `scripts/render_clean_white_video.py`; keep the same five-real-image carousel logic inside the middle media frame, keep the three-line title entrance animation, use soft cross-fade image transitions, preserve full screenshots/text cards without cropping their text, and keep core source screenshots at about double hold time. Use `scripts/render_paper_card_video.py` only when the user explicitly asks for the older purple-ribbon white-card variant, and use `scripts/render_vertical_info_video.py` only when the user explicitly asks for the older dark fast-news template.
    - After writing all batch configs and before rendering, run the BGM selector:
 
 ```bash
@@ -44,7 +46,7 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/check_image
 ```
 
 8. Before rendering, inspect downloaded assets or a contact sheet. If an image source fails and produces an error/fallback card such as `图片源不可用`, `429`, `403`, a blank page, or a blocked page, replace it with a verified real image, local cached asset, official screenshot, or clean source card. Never ship a video with an asset-error card visible.
-9. For the default daily/news-video workflow, run `scripts/render_clean_white_video.py` from a project directory:
+9. For the default daily ordinary workflow, run `scripts/render_clean_white_video.py` from a project directory:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clean_white_video.py \
@@ -57,12 +59,12 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 If the user explicitly requests the legacy dark fast-news template, render with `scripts/render_vertical_info_video.py` instead.
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the project-level delivery structure below. Each topic folder must contain only three core publishing files: `视频.mp4`, `封面.jpg`, and `文案.md`.
+11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the same project-level delivery structure as the 推特版 workflow. Each topic folder contains only `视频.mp4` and `封面.jpg`; the batch root `整体描述.md` contains all topics' video/cover paths, 抖音 titles, video-bottom copy, tags, and source summaries. If publishing copy is also split into `文案.md` for compatibility, keep it out of the core topic folder unless the user explicitly asks for that older shape.
 12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, including discovery account, core X/Twitter URL when available, visible reply/repost/quote/view signal, two typical controversy/emotion comments, confirmation source, final screenshot source, and information-gap angle. Then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
 
 ## Delivery Output Contract
 
-All finished news-video deliverables must live under the dedicated 小红书 creator directory:
+All finished ordinary-version AI 信息差 deliverables must live under the dedicated 小红书 creator directory:
 
 ```text
 /Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/
@@ -72,13 +74,11 @@ All finished news-video deliverables must live under the dedicated 小红书 cre
     01-主题名/
       视频.mp4
       封面.jpg
-      文案.md
     02-主题名/
       视频.mp4
       封面.jpg
-      文案.md
     ...
-    项目总览.md
+    整体描述.md
     _记录/
       视频总览-YYYY年MM月DD日AI信息差快报.jpg
       封面总览-YYYY年MM月DD日AI信息差快报.jpg
@@ -88,11 +88,12 @@ All finished news-video deliverables must live under the dedicated 小红书 cre
       素材与来源/
 ```
 
-Each topic must include three user-facing outputs before it is considered complete:
+Each topic folder must include two user-facing outputs before it is considered complete:
 
 - `视频.mp4`: final 9:16 video with BGM unless the user asked for silence.
 - `封面.jpg`: 9:16 cover image using the people/company-first cover rules.
-- `文案.md`: platform-ready 小红书 and 抖音 title, short description, tags, and one-line posting note.
+
+The batch root must include `整体描述.md`, matching the 推特版 handoff style. It should contain each topic's cover path, video path, 抖音 title, video-bottom copy, related tags, and necessary source summary. If an older script produces `文案.md`, keep it as a compatibility copy in `_记录/` or regenerate the project delivery so the core topic folders stay clean.
 
 Every daily run must also create a GitHub archive in the skill repository after validation succeeds:
 
@@ -102,9 +103,8 @@ Every daily run must also create a GitHub archive in the skill repository after 
     01-主题名/
       视频.mp4
       封面.jpg
-      文案.md
     ...
-    整体描述.md or 项目总览.md
+    整体描述.md
     _记录/
       视频总览*.jpg
       封面总览*.jpg
@@ -119,17 +119,16 @@ Every daily run must also create a GitHub archive in the skill repository after 
           来源说明*
 ```
 
-This GitHub archive should include the final videos, covers, publishing copy, overall document, validation records, contact sheets, configs, BGM selection metadata, and the final source/material review package. Do not upload local BGM original files, failed downloads, browser caches, temporary render caches, or duplicate intermediate files.
+This GitHub archive should include the final videos, covers, `整体描述.md`, validation records, contact sheets, configs, BGM selection metadata, and the final source/material review package. Do not upload local BGM original files, failed downloads, browser caches, temporary render caches, or duplicate intermediate files.
 
-Do not make the publishing surface category-first (`01-视频`, `02-封面`, `03-发布文案`) for new daily outputs. That older shape is only a temporary legacy/intermediate layout. If a renderer still emits the older layout, run `scripts/package_project_delivery.py` to create the clean project-level delivery folder before reporting completion.
+Do not make the publishing surface category-first (`01-视频`, `02-封面`, `03-发布文案`) or copy-heavy topic folders for new daily outputs. That older shape is only a temporary legacy/intermediate layout. If a renderer still emits the older layout, run `scripts/package_project_delivery.py` or manually create the clean 推特版-style project delivery folder before reporting completion.
 
-Publishing copy defaults:
+`整体描述.md` publishing copy defaults:
 
-- 小红书标题: punchy, specific, 18-28 Chinese characters when possible, with the product/company name near the front.
-- 小红书描述: 3-5 short lines. Start with the conclusion, then explain why it matters to a normal viewer, then end with a question or save-worthy takeaway.
-- 小红书标签: 8-12 tags, mixing broad tags (`AI`, `人工智能`, `AI工具`) with topic-specific tags (`OpenAI`, `算力`, `大模型`, company/product names).
-- 抖音标题: shorter and more direct than 小红书, usually 12-22 Chinese characters.
-- 抖音描述: 1-3 compact lines; keep the strongest contrast and the viewer takeaway.
+- 抖音标题: use the same three-line-title logic as the 推特版 workflow, compressed into a paste-ready title when needed. It should preserve familiar protagonist/conflict, concrete change, and ordinary-viewer consequence.
+- 视频下方内容: output the final 4-6 Chinese bottom lines, defaulting to 6 for daily controversy-first batches, without visible structure labels.
+- 相关标签: 8-12 tags, mixing broad AI tags (`AI`, `人工智能`, `AI工具`) with topic-specific company/product/event tags.
+- 核心来源摘要: include discovery account/source, core X/Twitter URL when available, official/media confirmation source, visible controversy signal, and final screenshot source.
 - Do not invent exaggerated claims just for a clickable title. The title can be sharp, but it must be supported by the verified source.
 
 Daily-history rule:
@@ -150,15 +149,16 @@ Default daily automation:
 
 ## Official-First X/Twitter Hotspot Logic
 
-The ordinary AI 信息差 video is no longer a broad 7-day news digest. It should use the same high-conflict topic logic as the 推特版 workflow, while keeping the ordinary version's media/official/data screenshot style.
+The ordinary AI 信息差 video is no longer a broad news digest or a softer ordinary-news format. It should use the same controversy-first topic logic as the 推特版 workflow, while keeping one difference: the final evidence screenshot can be the clearest media, official, data, product, research, filing, or X/Twitter source instead of being forced to a core tweet card.
 
 Core principle:
 
 ```text
 official/core-person source first
-+ visible repost/quote/comment spread
-+ strong comment emotion or controversy
-+ official/media/data confirmation
++ controversy strength
++ emotional spread
++ visible comment/quote/repost signal
++ credible anchor and confirmation
 + ordinary-viewer information gap
 ```
 
@@ -170,7 +170,7 @@ Scouting order:
 4. Tech/business media accounts that confirm facts and add context.
 5. Market/viral accounts that show finance, labor, regulation, controversy, and broad public emotion.
 
-Use X/Twitter as a discovery and heat surface, not always as the final video screenshot. The final ordinary-version carousel can prefer media reports, official pages, data charts, product pages, and company screenshots when they explain the topic better than the tweet.
+Use X/Twitter as a discovery, heat, and controversy surface, not always as the final video screenshot. The final ordinary-version carousel can prefer media reports, official pages, data charts, product pages, filings, research pages, and company screenshots when they explain the topic better than the tweet.
 
 Data availability rule:
 
@@ -180,29 +180,29 @@ Data availability rule:
 - Do not claim full-platform sentiment. Say `可见评论样本` or equivalent in source notes.
 - Keep screenshots or notes for the core post, comment/reply samples, quote/spread samples, and final confirmation source in `_记录/`.
 
-Selection weights for ordinary daily batches:
+Selection weights for ordinary daily batches must match the 推特版 controversy-first model:
 
 | Dimension | Points | Practical evidence |
 | --- | ---: | --- |
-| Official/source credibility | 25 | Official/founder/core-person post, official page, product page, or trusted media confirmation. |
-| Visible comment/quote controversy | 20 | Visible replies/quotes show disagreement, anxiety, sarcasm, anger, privacy/safety concern, job anxiety, budget dispute, or public pushback. |
-| Visible repost/quote spread | 15 | The topic is reposted/quoted by official accounts, AI digest accounts, media accounts, or market/viral accounts, or the core post is visibly above normal account engagement. |
-| Ordinary-viewer relevance | 15 | The story maps to jobs, money, privacy, safety, children, copyright, healthcare, daily tools, or work/creation. |
-| Information-gap strength | 10 | There is a clear "people think A, but actually B" angle. |
-| Media/data evidence quality | 10 | There is a readable official page, media report, data chart, product page, filing, or research page for screenshots. |
-| Visual asset quality | 5 | There are recognizable people, company/product assets, source screenshots, charts, or other real visuals. |
+| Controversy strength | 30 | Ordinary viewers can argue, take sides, object, worry, or push back. |
+| Emotional spread | 25 | Visible replies/quotes show anxiety, anger, fear, excitement, curiosity, fairness instinct, distrust, sarcasm, or strong disagreement. |
+| Source priority | 15 | The event starts from or is confirmed by an official account, founder/core-person account, official page, trusted media, or approved AI/market signal account. |
+| Public familiarity | 10 | The protagonist is known, or the public issue is immediately familiar. |
+| Information gap | 10 | There is a clear "people think A, but actually B" angle. |
+| Comment/spread signal | 5 | Replies, quotes, reposts, or secondary spread are visibly active. |
+| Visual assets | 5 | There are usable people, product, chart, article, tweet, official-page, media, or data visuals. |
 
 Decision bands:
 
-- `85+`: priority daily topic.
-- `75-84`: viable daily topic.
-- `65-74`: backup only.
-- `<65`: reject unless the user explicitly asks.
+- `90+`: lead topic for the day.
+- `80-89`: good daily candidate.
+- `70-79`: backup only.
+- `<70`: delete unless the user explicitly asks.
 
 Tie-breakers:
 
-1. Official/founder/core-person source beats third-party discovery.
-2. Stronger visible comment controversy beats raw likes.
+1. Stronger controversy/emotion beats raw likes.
+2. Official/founder/core-person source beats third-party discovery when controversy is comparable.
 3. Direct ordinary-person impact beats niche technical importance.
 4. Better media/data screenshot quality beats weak visual proof.
 5. More diverse daily theme beats another variation of the same company/event.
@@ -220,7 +220,7 @@ For each selected topic, include at least two short typical comment samples or p
 
 - Specific-topic mode: use the user's topic directly. Verify current facts when the topic is recent or time-sensitive, then create one cover and one video.
 - Auto-scout mode: when no concrete topic is provided, search the latest 2-3 days of AI discussion and news across US/China/global sources, starting from official X/Twitter accounts and founder/core-person accounts, then select 5 topics before rendering.
-- Auto-scout selection criteria: do not simply pick the top 5 headlines or the most-liked posts. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频: official/source credibility, visible comment/quote controversy, visible repost/quote spread, viewer relevance, clear information gap, recognizable people/companies, media/data screenshot quality, and platform-friendly tension. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, low-emotion product updates, and stories without usable real images.
+- Auto-scout selection criteria: do not simply pick the top 5 headlines or the most-liked posts. Build a candidate pool first, then pick the 5 stories most suitable for AI 信息差短视频 using the same controversy-first logic as 推特版: controversy strength, emotional spread, source priority, public familiarity, information gap, comment/spread signal, and visual assets. Prefer familiar protagonists and familiar public issues over obscure companies/products; an obscure company should only survive when the public conflict is very easy to understand. Avoid duplicates, low-signal funding-only items, vague opinion pieces, low-emotion product updates, and stories without usable real images.
 - Daily freshness: before selecting auto-scout topics, check previous generated batches and topic-history files from both `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md` and the GitHub-synced 推特版 history. Do not choose an exact duplicate from either workflow unless the user explicitly asks for a follow-up. Similar company/theme is acceptable when the event, development, source, or information-gap angle is materially different.
 - Auto-scout output: generate 5 independent videos, not one compilation. Each video keeps the same row logic, image logic, cover logic, and verification steps.
 - Before rendering 5 videos, show the chosen 5 topics with one-line rationale, discovery account/source, visible controversy or spread signal, two typical comment samples or paraphrases when available, likely cover assets, and the information-gap angle when the user has not already approved the topic list.
@@ -231,12 +231,12 @@ For each selected topic, include at least two short typical comment samples or p
 - Attach multiple real images to that single event. Use them as the middle carousel only.
 - Keep all explanatory text in the template: the top three-line title and the bottom structured rows. For the default paper-card workflow, reveal the bottom rows one by one, slowly enough to read, then keep them visible through the end.
 - Do not create five standalone text cards as the five images. Text cards may only be minor overlays or fallback references, never the primary carousel.
-- Use one event-specific bottom set from the viewer's path. Write 4-6 pure content lines, usually 5, with no visible labels. Internally the lines should still cover event, key fact, conflict/mechanism, affected group, and takeaway.
-- The target look for daily/news output is the approved clean white paper-card sample: red metadata tag, black/blue three-line hook title, real images in the middle, structured white text rows below, beat-synced image cuts with soft fade, no voiceover.
+- Use one event-specific bottom-description set from the viewer's path. Write 4-6 pure content lines, defaulting to 6 for daily controversy-first batches, with no visible labels. Internally the lines should still cover event, key fact, conflict/mechanism, affected group, and takeaway.
+- The target look for daily ordinary output is the approved clean white paper-card sample: red metadata tag, black/blue three-line hook title, real images in the middle, structured cyan-highlight rows below, beat-synced image cuts with soft fade, no voiceover.
 
 ## Paper Card Explainer Mode
 
-Use this mode for daily scheduled news videos and when the user approves or references the white-card examples: a clean white paper card, red metadata tag, strong three-line hook title with blue emphasis on the third line, real screenshot/photo carousel in the center, and concise explanatory copy below. Treat it as the default creator-delivery video style unless the user explicitly asks for the older dark template.
+Use this mode for daily scheduled ordinary videos and when the user approves or references the white-card examples: a clean white paper card, red metadata tag, strong three-line hook title with blue emphasis on the third line, real screenshot/photo carousel in the center, and concise explanatory copy below. Treat it as the default creator-delivery video style unless the user explicitly asks for the older dark template.
 
 For the video variant, do not flatten the preview into one static image. The outer paper card, top metadata, black/blue title, bottom copy, and middle media area become the frame language, while the middle media area still runs the normal one-event five-image carousel with real photos/screenshots, light push-pull motion, and soft cross-fade transitions.
 
@@ -245,23 +245,23 @@ The paper-card video variant must preserve the title entrance rhythm: three titl
 Current structured paper-card flow:
 
 - Use `title_on_purple: false` and `show_ribbon: false` for the approved default. Do not add a large purple title panel or purple horizontal ribbon unless the user explicitly asks for that old style.
-- Title line 1: who/source + a concrete fact, number, product, policy, or event.
-- Title line 2: the direct consequence, contrast, or outcome in ordinary language.
-- Title line 3: the strongest ordinary-viewer takeaway, in blue emphasis.
+- Title line 1: familiar protagonist, source, public conflict, or core event.
+- Title line 2: the concrete event/change, action, launch, entry, response, or new state.
+- Title line 3: the normal-viewer consequence, contrast, information gap, risk, or useful takeaway.
 - Use `title_color: [0, 0, 0]`, a large `title_size`, and short title lines before shrinking the font. Avoid glow, shadow, or colored title effects in this paper-card style.
 - Use `title_line3` or the third title line for the normal-viewer interpretation, action hook, or information-gap sentence. It should not merely repeat the first two title lines.
 - Keep the middle media frame bright and legible. It must show real event media, not a pre-rendered full-card image. Real people/product images may fill the frame. Source screenshots, tweet cards, product UI, and other text-bearing images should use safe-fill behavior: enlarge as much as possible and crop only background/empty edges, but never crop, hide, or partially cut text or key UI.
 - Use exactly one event per video and usually five images: person/company/product recognition, core evidence screenshot, official/media/data report or evidence, product page, chart or supporting evidence.
 - The second image should usually be the core evidence screenshot. For the ordinary version, this can be a media report, official page, data chart, product page, filing, research page, or tweet/X screenshot. Prefer the source that is easiest for a normal viewer to understand. If the second image is a core tweet/X screenshot or localized tweet card, set `image_hold_weights: [1, 2, 1, 1, 1]` so it stays about twice as long as the other images.
    - Use `body_rows` for the approved bottom area. The default visual style is unnumbered, label-free cyan-highlight reading lines: each row is a normal Chinese sentence with a cyan highlight behind the whole line, no `01`-`05` number pills, and no visible labels such as `事件`, `关键`, `冲突`, `影响`, or `信息差`.
-   - Default to 5 bottom lines. Use 4 lines only for very simple stories and 6 lines only when the event needs one extra mechanism or consequence line. Configure `body_show_labels: false`, `body_show_numbers: false`, and `body_max_rows: 6`; keep each line short enough to scan in one glance.
+   - Default to 6 bottom lines for daily controversy-first batches. Use 4-5 lines only when the story is very simple or the screen would become crowded. Configure `body_show_labels: false`, `body_show_numbers: false`, and `body_max_rows: 6`; keep each line short enough to scan in one glance.
    - The hidden internal structure is still useful when writing: event, key fact, conflict/mechanism, affected group, final takeaway. Do not expose those internal names on screen. Write the final line as a natural conclusion, not as `这个选题的信息差是...`.
 
 Title logic:
 
-- Use a strong hook structure like the approved reference images, not a neutral news title.
-- Top title: very bold and high-contrast, usually 3 lines. The first two lines are black; the third line is blue emphasis. It must first say the concrete thing that happened, then name the biggest surprise or consequence.
-- Use viewer-first headline logic: line 1 usually names the actor/source plus a concrete fact, number, product, or event; line 2 says the consequence in plain language; line 3 says the ordinary-viewer takeaway. A casual viewer should not need the body copy to understand the basic story.
+- Use the same three-line hook logic as the 推特版 workflow, not a neutral news title.
+- Top title: very bold and high-contrast, usually 3 lines. The first two lines are black; the third line is blue emphasis. It must name a familiar protagonist/conflict, then state the concrete change, then give the biggest consequence or information gap.
+- Use viewer-first headline logic: line 1 names the protagonist/source/conflict; line 2 says the direct change in plain language; line 3 says the ordinary-viewer consequence or takeaway. A casual viewer should not need the body copy to understand the basic story.
 - Blue third title line carries the information gap, counterintuitive takeaway, or action hook. It should translate the fact into "what should I notice or do?", not repeat the title.
 - The headline should make a normal viewer instantly understand "what happened?", "what does this have to do with me?", and "what is the biggest contrast here?"
 - Keep titles honest and specific. Avoid vague wording such as "AI 又有大事" unless the next line immediately names the event.
@@ -282,7 +282,7 @@ Preview card layout:
 
 Paper-card copy logic:
 
-The bottom copy is not a second title and not a list of industry slogans. In the current structured default, it should be 4-6 label-free `body_rows`, usually 5 lines, with one complete sentence per line. It should explain the story in the order a normal viewer thinks:
+The bottom copy is not a second title and not a list of industry slogans. In the current structured default, it should be 4-6 label-free `body_rows`, defaulting to 6 lines for daily controversy-first batches, with one complete sentence per line. It should explain the story in the order a normal viewer thinks:
 
 1. Fact: start with the verified event in plain language. Include the key actor, source, date/context, number, product, or action when available.
 2. Viewer meaning: explain what a normal viewer should understand or care about. Use concrete work, learning, creation, cost, access, or risk language.
@@ -292,7 +292,7 @@ The bottom copy is not a second title and not a list of industry slogans. In the
 
 Every bottom line should be able to stand alone on screen. Avoid abstract phrasing such as `能力边界变化`, `工作流适配`, or `产业范式迁移` unless immediately translated into a concrete ordinary-life meaning.
 
-The paper-card video mode is now the normal daily scheduled AI news-video template. The ordinary dark vertical template remains available only for explicit style requests.
+The paper-card video mode is now the normal daily scheduled ordinary AI 信息差 template. The ordinary dark vertical template remains available only for explicit style requests.
 
 Use `scripts/render_clean_white_video.py` and inspect a generated frame/contact sheet for a static check before final review:
 
@@ -327,11 +327,11 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 - Image sequence preflight: the first image must be a recognizable protagonist/company/product or official/product evidence image. Media screenshots should usually be slot 4-5, and auxiliary context images should not lead the carousel. Use `scripts/check_image_sequence.py --strict` before rendering.
 - Failed image handling: do not leave downloader error cards, `图片源不可用`, `403`, `429`, Cloudflare blocks, or blank screenshots in final assets. Replace failed sources before rendering the final MP4.
 - Timing: use beat cuts when known; otherwise use deterministic cuts from the config.
-- Text rows: use unnumbered, label-free cyan-highlight reading lines and reveal bottom rows one by one by default. Default to 5 pure content sentences, with 4-6 allowed when the story needs it. Recommended timing: `body_rows_animate: true`, `body_row_start: 1.05`, `body_row_interval: 0.52`, `body_row_duration: 0.42`, `body_show_labels: false`, `body_show_numbers: false`, `body_max_rows: 6`.
+- Text rows: use unnumbered, label-free cyan-highlight reading lines and reveal bottom rows one by one by default. Default to 6 pure content sentences for daily controversy-first batches, with 4-5 allowed when the story is simple or crowded. Recommended timing: `body_rows_animate: true`, `body_row_start: 1.05`, `body_row_interval: 0.52`, `body_row_duration: 0.42`, `body_show_labels: false`, `body_show_numbers: false`, `body_max_rows: 6`.
 - Audio: no voiceover by default. Use local BGM from the BGM pool, commonly `start=3`, `duration=7`, `volume=0.55`, with tiny fade-in/out.
 - Cover: for 小红书/抖音, make the cover from real people/company assets rather than a pure text card. Keep the headline dominant, protect the face, add a company logo badge, and show only one conclusion row.
 - Output: one final MP4 plus a contact sheet or preview frame. When publishing to social platforms, also output a cover image.
-- Export naming: final deliverables must use Chinese folder and file names. Use project-level topic folders, one folder per video topic, and keep only `视频.mp4`, `封面.jpg`, and `文案.md` in each topic folder. Put validation and source evidence under `_记录`.
+- Export naming: final deliverables must use Chinese folder and file names. Use project-level topic folders, one folder per video topic, and keep only `视频.mp4` and `封面.jpg` in each topic folder. Put all publishing copy in the batch-root `整体描述.md`; put validation and source evidence under `_记录`.
 - GitHub archive: after daily validation, upload the final exported topic folders plus `_记录` source-review materials to the GitHub records archive. Keep the archive traceable enough for review and future duplicate prevention, but exclude BGM original files and noisy caches.
 - Topic history: after each daily batch, write a Chinese `选题记录.md` or `topic-history.md` with date, topics, sources, and information-gap angles. Future auto-scout runs must review it before selecting topics.
 - Legacy template note: if explicitly requested, the older dark vertical template or older purple-ribbon white-card template may still be used. Do not let those legacy rules override the daily clean white paper-card workflow.
@@ -379,4 +379,4 @@ BGM selection rules:
 - Read `references/style-guide.md` when creating or editing a config.
 - Read `references/paper-card-daily-production.md` before daily batches, batch rerenders, or workflow updates. It contains the fixed white-paper-card production logic, copy rules, delivery checklist, validation checklist, and a record of the approved 2026-06-28 second-batch title pattern.
 - Use `examples/white-paper-card-batch-manifest.example.json` as the canonical manifest shape when turning selected topics into reusable configs, videos, covers, publishing copy, and source records.
-- Patch `scripts/render_clean_white_video.py` for the default daily/news-video renderer. Patch `scripts/render_paper_card_video.py` only for the legacy purple-ribbon paper-card renderer, and patch `scripts/render_vertical_info_video.py` only for the legacy dark renderer.
+- Patch `scripts/render_clean_white_video.py` for the default daily ordinary renderer. Patch `scripts/render_paper_card_video.py` only for the legacy purple-ribbon paper-card renderer, and patch `scripts/render_vertical_info_video.py` only for the legacy dark renderer.

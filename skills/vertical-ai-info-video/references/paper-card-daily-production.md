@@ -1,6 +1,6 @@
 # White Paper Card Daily Production Workflow
 
-This reference captures the confirmed production logic for the normal `vertical-ai-info-video` daily/news-video workflow. Use it for daily 08:00 batches, manual rerenders, and any request that asks to standardize or update the skill.
+This reference captures the confirmed production logic for the ordinary `vertical-ai-info-video` daily workflow. The ordinary version uses the same controversy-first topic screening, three-line title logic, cover-title logic, dense bottom copy, and delivery structure as the 推特版 workflow. It only differs in final evidence-source choice: the core evidence image can be a media report, official page, data chart, product page, research page, filing, or X/Twitter screenshot, whichever explains the topic most clearly.
 
 ## Default Visual Contract
 
@@ -48,9 +48,9 @@ Avoid:
 - The blue third title line should feel like a takeaway, not a news subtitle.
 - Do not exaggerate unverifiable claims for clicks.
 
-## Official-First Topic Sourcing
+## Controversy-First Topic Sourcing
 
-The ordinary daily video now uses a 2-3 day, official-first X/Twitter hotspot workflow. It is not a broad 7-day news digest.
+The ordinary daily video now uses a 2-3 day, official-first and controversy-first X/Twitter hotspot workflow. It is not a broad news digest and should not soften controversy judgment just because it is the ordinary version.
 
 Scouting sequence:
 
@@ -58,7 +58,7 @@ Scouting sequence:
 2. For each official or core-person signal, check whether selected AI digest, media, market, and viral accounts amplified or debated the same event.
 3. Open the core post in the user's logged-in local Google Chrome X/Twitter session when available. Record visible replies, reposts, likes, views, and quote/spread signals. These are visible-page signals, not API totals.
 4. Scroll the core post and collect a small visible comment/reply sample. A practical default is the post first screen plus 2-4 downward scrolls, enough to review roughly 20-50 visible comments/replies when X loads them.
-5. Select topics with obvious public tension: privacy, jobs, money, children, medical safety, copyright, government usage, model access, compute bottlenecks, or company power.
+5. Select topics with the same controversy and emotion standard as the 推特版 workflow: visible argument, anxiety, anger, sarcasm, distrust, fairness disputes, fear, job worry, privacy/safety concern, or strong quote/repost disagreement.
 6. Confirm the facts with an official page, media report, data chart, product page, filing, or research page before rendering.
 
 The source notes for every selected topic should include:
@@ -79,7 +79,7 @@ Do not describe comment sentiment as full-platform sentiment. Use wording such a
 
 ## Bottom Row Structure
 
-Use unnumbered cyan-highlight reading lines and 5 rows by default:
+Use unnumbered cyan-highlight reading lines and 6 rows by default for daily controversy-first batches:
 
 ```text
 01 事件：verified event in plain language
@@ -87,12 +87,14 @@ Use unnumbered cyan-highlight reading lines and 5 rows by default:
 03 跟你有关：normal-viewer meaning
 04 机会 / 风险 / 变化：who benefits, who is affected, or what boundary changed
 05 信息差：final usable conclusion
+06 结论：one memorable ordinary-viewer takeaway when the story needs it
 ```
 
 Rules:
 
 - Each row should be readable as a standalone screen sentence.
-- Use `跟你有关` unless the line is truly a concrete personal opportunity; then `普通人机会` or `机会` is acceptable.
+- The structure names above are writer-side checks only. Do not render labels such as `事件`, `关键`, `冲突`, `影响`, `信息差`, or `结论`.
+- Use `跟你有关` as a writing test unless the line is truly a concrete personal opportunity; then `普通人机会` or `机会` is acceptable internally.
 - Keep rows short enough to fit one line when possible.
 - Bottom rows reveal one by one by default in MP4 output. Recommended timing: start around `1.05s`, interval around `0.52s`, duration around `0.42s`, so all rows are stable by about `3.5s`.
 
@@ -128,7 +130,7 @@ Cover images are for 小红书/抖音 recognition:
 - The title must be more visually important than the face, but should not destroy the face.
 - Use a company badge or logo as secondary recognition.
 - Use one conclusion row only; do not turn the cover into a full explainer.
-- Reuse the same three-line title logic as the video, but shorten for cover readability.
+- Reuse the same three-line title as the video and 推特版 cover logic by default. Only shorten or rewrite the cover title when the user explicitly asks or when the exact title cannot fit after reasonable layout adjustments.
 
 ## BGM Logic
 
@@ -151,13 +153,11 @@ Every finished batch goes under:
     01-主题名/
       视频.mp4
       封面.jpg
-      文案.md
     02-主题名/
       视频.mp4
       封面.jpg
-      文案.md
     ...
-    项目总览.md
+    整体描述.md
     _记录/
       视频总览.jpg
       封面总览.jpg
@@ -167,11 +167,12 @@ Every finished batch goes under:
       素材与来源/
 ```
 
-Each topic must include:
+Each topic folder must include:
 
 - `视频.mp4`
 - `封面.jpg`
-- `文案.md`, merging 小红书 and 抖音 publishing copy
+
+The batch root must include `整体描述.md`, matching the 推特版 delivery style. It should merge all topics' cover/video paths, 抖音 titles, video-bottom copy, tags, source summaries, and posting notes. If a compatibility `文案.md` is generated, keep it under `_记录/` or mention it from `整体描述.md`; do not mix it into the core topic folders by default.
 
 The project folder should be organized by topic/video first, not by asset type. Do not make the user jump between separate `视频`, `封面`, and `文案` category folders to assemble one post.
 
@@ -194,7 +195,8 @@ Before reporting completion:
 - Confirm each MP4 contains video and audio streams.
 - Confirm each config has a selected `bgm.path` and `bgm.source_track`.
 - For multi-video batches, confirm the BGM plan did not assign one inherited track to every video.
-- Confirm the final delivery folder is topic-first: each video topic has exactly the three core files `视频.mp4`, `封面.jpg`, and `文案.md`.
+- Confirm the final delivery folder is topic-first: each video topic has exactly the two core files `视频.mp4` and `封面.jpg`.
+- Confirm root `整体描述.md` contains every topic's video path, cover path, 抖音 title, bottom copy, tags, and source summary.
 - Confirm each contact sheet shows the red metadata tag, black/blue three-line title, middle carousel, and bottom cyan-highlight reading lines without `01`-`05` number pills.
 - Confirm images occupy the media area as fully as possible, text-bearing images are not cropped or partially cut, and images are not leaking off-screen.
 - Confirm carousel image transitions have soft fade motion without white flashes, empty side gaps, distracting rapid left-right slides, or overlapping text from two screenshots.
@@ -213,13 +215,15 @@ Push:
 - style guide updates
 - scripts
 - reusable examples or manifests
+- successful daily `records/ai-info-video/YYYY-MM-DD/final-delivery/` archives, including final MP4/JPG deliverables, `整体描述.md`, configs, validation records, contact sheets, selected source screenshots, and source notes
 
-Do not push by default:
+Do not push:
 
-- generated MP4 files
-- generated cover JPG files
-- downloaded third-party news images
 - user-owned music files
+- browser caches
+- failed downloads
+- temporary render caches
+- duplicate intermediate files unrelated to the final published package
 
 ## Approved 2026-06-28 Second-Batch Title Pattern
 

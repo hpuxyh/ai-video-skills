@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Create a clean project-level delivery folder for AI news video batches.
+"""Create a clean project-level delivery folder for AI info-video batches.
 
-The clean delivery structure groups each topic's video, cover, and publishing
-copy together:
+The clean delivery structure mirrors the Twitter-version handoff: each topic
+folder contains only the final video and cover, while root 整体描述.md carries
+publishing copy and source notes for the whole batch.
 
   batch-project/
     01-topic-name/
       视频.mp4
       封面.jpg
-      文案.md
     02-topic-name/
       视频.mp4
       封面.jpg
-      文案.md
+    整体描述.md
     _记录/
 
 It can consume the earlier category-first layout used by older batches:
@@ -33,12 +33,11 @@ from pathlib import Path
 CORE_NAMES = {
     "video": "视频.mp4",
     "cover": "封面.jpg",
-    "copy": "文案.md",
 }
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Package video, cover, and copy into per-topic delivery folders.")
+    parser = argparse.ArgumentParser(description="Package video and cover into per-topic folders, with copy in root 整体描述.md.")
     parser.add_argument("--legacy-batch-dir", required=True, help="Existing batch folder with 01-视频/02-封面/03-发布文案 layout.")
     parser.add_argument("--output-dir", required=True, help="Clean project-level output folder to create/update.")
     parser.add_argument("--overwrite", action="store_true", help="Replace existing clean delivery files.")
@@ -116,19 +115,15 @@ def package_topics(legacy_dir, output_dir, overwrite=False):
         copy_file(cover, topic_dir / CORE_NAMES["cover"], overwrite=overwrite)
 
         copy_text = merge_copy(topic_name, copy_folder) if copy_folder else f"# {topic_name}\n\n待补充。\n"
-        copy_path = topic_dir / CORE_NAMES["copy"]
-        if overwrite or not copy_path.exists():
-            topic_dir.mkdir(parents=True, exist_ok=True)
-            copy_path.write_text(copy_text, encoding="utf-8")
 
-        packaged.append({"key": key, "topic": topic_name, "folder": topic_dir})
+        packaged.append({"key": key, "topic": topic_name, "folder": topic_dir, "copy": copy_text})
     return packaged
 
 
 def package_records(legacy_dir, output_dir, packaged, overwrite=False):
     record_dir = output_dir / "_记录"
     record_dir.mkdir(parents=True, exist_ok=True)
-    for source_name in ["04-总览与记录", "05-素材与来源"]:
+    for source_name in ["03-发布文案", "04-总览与记录", "05-素材与来源"]:
         source = legacy_dir / source_name
         if source.exists():
             dest = record_dir / source_name
@@ -138,13 +133,13 @@ def package_records(legacy_dir, output_dir, packaged, overwrite=False):
                 shutil.copytree(source, dest)
 
     lines = [
-        "# 项目交付总览",
+        "# 整体描述",
         "",
-        "本目录是项目维度交付版：每条视频一个文件夹，每个文件夹只放三个发布核心文件。",
+        "本目录是项目维度交付版：每条视频一个文件夹，每个文件夹只放两个发布核心文件。",
         "",
         "- `视频.mp4`：最终视频",
         "- `封面.jpg`：发布封面",
-        "- `文案.md`：小红书与抖音标题、描述、标签",
+        "- 发布标题、视频下方内容、标签和来源摘要统一写在本文档中",
         "",
         "## 条目",
         "",
@@ -158,11 +153,14 @@ def package_records(legacy_dir, output_dir, packaged, overwrite=False):
                 f"- 文件夹：`{rel}/`",
                 f"- 视频：`{rel}/视频.mp4`",
                 f"- 封面：`{rel}/封面.jpg`",
-                f"- 文案：`{rel}/文案.md`",
+                "",
+                "#### 发布文案",
+                "",
+                item["copy"].strip(),
                 "",
             ]
         )
-    (output_dir / "项目总览.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    (output_dir / "整体描述.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def main():

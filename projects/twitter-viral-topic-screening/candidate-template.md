@@ -60,12 +60,12 @@ duplicate_check:
   ordinary_ai_info_video:
   twitter_ai_info_video:
 score:
-  official_source_credibility: 0
-  visible_comment_quote_controversy: 0
-  visible_repost_quote_spread: 0
-  public_relevance: 0
+  controversy_strength: 0
+  emotional_spread: 0
+  source_priority: 0
+  public_familiarity: 0
   information_gap: 0
-  media_data_evidence_quality: 0
+  comment_spread_signal: 0
   visual_assets: 0
   total: 0
 decision:
@@ -88,23 +88,23 @@ notes:
 
 ## Scoring For Ordinary AI Info Videos
 
-普通 AI 信息差视频使用官方源优先的 100 分制：
+普通 AI 信息差视频使用和推特版一致的争议优先 100 分制。官方号、创始人号、官方页面和可信媒体仍是可信起点，但争议强度和情绪扩散是主权重，不再只是服务于“普通新闻视频”的辅助判断。
 
 | Dimension | Points | What to check |
 | --- | ---: | --- |
-| Official/source credibility | 25 | 官方号、创始人/核心人物号、官方页面、产品页、研究页或可信媒体确认。 |
-| Visible comment/quote controversy | 20 | 可见评论/引用是否有站队、质疑、恐惧、嘲讽、愤怒、预算/饭碗/隐私/安全争论。 |
-| Visible repost/quote spread | 15 | 是否被 AI 快报号、媒体号、市场号、爆点号二次传播，或核心帖可见互动明显高。 |
-| Public relevance | 15 | 是否能落到工作、钱、隐私、安全、孩子、版权、医疗、工具入口、日常使用。 |
+| Controversy strength | 30 | 普通人是否会争论、站队、质疑、反感、担心或反驳。 |
+| Emotional spread | 25 | 可见评论/引用是否触发焦虑、愤怒、恐惧、兴奋、好奇、公平感、不信任、嘲讽或强分歧。 |
+| Source priority | 15 | 是否来自或被官方号、创始人/核心人物号、官方页面、可信媒体、AI 快报号、市场号或爆点号确认/放大。 |
+| Public familiarity | 10 | 主体是否熟悉，或议题是否天然大众化。 |
 | Information gap | 10 | 是否有清晰的“大家以为 A，其实 B”。 |
-| Media/data evidence quality | 10 | 是否有清楚可读的媒体、官方、数据、产品、研究或文件截图。 |
-| Visual assets | 5 | 是否有可做封面的真人/公司/产品/图表/截图素材。 |
+| Comment/spread signal | 5 | 可见回复、引用、转发、二次传播是否活跃。 |
+| Visual assets | 5 | 是否有可做封面的真人/公司/产品/图表/截图/官方页/媒体页素材。 |
 
 Decision bands:
 
-- `85+`: 当天优先。
-- `75-84`: 可进入前 5。
-- `65-74`: 备选。
-- `<65`: 默认删除，除非用户指定。
+- `90+`: 当天主选题。
+- `80-89`: 可进入前 5。
+- `70-79`: 备选。
+- `<70`: 默认删除，除非用户指定。
 
 只有硬门槛过关并且分数达到当天前 5，才进入最终候选。不要把仅有 `wow/cool/amazing` 这类正向评论的帖子当作强争议选题。
