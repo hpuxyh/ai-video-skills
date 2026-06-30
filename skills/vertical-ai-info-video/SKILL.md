@@ -42,6 +42,18 @@ Run this gate before title writing, bottom-description writing, image capture, c
 - Final review must include topic quality, not just pixels. Contact sheets, cover review, and MP4 specs validate the asset layer only; the run is incomplete without a selected/deleted topic audit.
 - If a topic fails after render, replace it and rebuild the topic's assets, title, bottom copy, cover, records, and history. Do not patch the rendered topic in place.
 
+## Topic Sync And Duplicate Boundary
+
+Every topic-selection update and every production run must be synced to GitHub before the work is reported as complete.
+
+- If the run only updates candidate topics, scores, rankings, replacements, or the final selected 5 without rendering videos, still update the relevant GitHub records and commit/push those topic records.
+- If the run renders videos, sync both the topic records and the final delivery archive after validation succeeds.
+- Topic records must include the candidate pool size, selected topics, deleted/rejected duplicates, source anchors, title direction, information-gap angle, and whether each topic was selected, replaced, backup-only, or deleted.
+- Future runs must read both ordinary and 推特版 history before scoring. Do not rely on memory or a current chat summary as the duplicate-prevention source.
+- Exact duplicate is forbidden: same company/person/product + same event/development + same core tweet or factual source + same information-gap angle or ordinary-viewer takeaway.
+- Very similar topics are allowed only when at least one material element is new: new event, new development, new source/anchor, new affected group, or a clearly different information-gap angle.
+- If a duplicate is discovered after screenshots or rendering, replace the topic and rebuild its assets, title, bottom copy, cover, records, and history instead of publishing it.
+
 ## Workflow
 
 1. Route the request:

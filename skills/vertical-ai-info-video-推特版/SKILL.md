@@ -65,6 +65,18 @@ Every production run must begin by reading the current local requirements, workf
 9. Prepare real people/company/product/source visuals, build configs, choose BGM, render videos and covers, run `ffprobe`, inspect contact sheets, and package the final delivery.
 10. Before any GitHub upload, commit, push, or success report, run the final pre-upload quality gate below. If it finds a problem, fix that stage and rerun the relevant checks before uploading.
 
+## Topic Sync And Duplicate Boundary
+
+Every topic-selection update and every production run must be synced to GitHub before the work is reported as complete.
+
+- If the run only updates candidate topics, scores, rankings, replacements, or the final selected 5 without rendering videos, still update the relevant GitHub records and commit/push those topic records.
+- If the run renders videos, sync both the topic records and the final delivery archive after validation succeeds.
+- Topic records must include the candidate pool size, selected topics, deleted/rejected duplicates, source tweet URL, source tweet author, observed heat signal, title direction, information-gap angle, and whether each topic was selected, replaced, backup-only, or deleted.
+- Future runs must read both 推特版 and ordinary AI 信息差 history before scoring. Do not rely on memory or a current chat summary as the duplicate-prevention source.
+- Exact duplicate is forbidden: same company/person/product + same event/development + same core tweet or factual source + same information-gap angle or ordinary-viewer takeaway.
+- Very similar topics are allowed only when at least one material element is new: new event, new development, new source tweet/source anchor, new affected group, or a clearly different information-gap angle.
+- If a duplicate is discovered after screenshots or rendering, replace the topic and rebuild its screenshots, title, bottom copy, cover, records, and history instead of publishing it.
+
 ## Workflow
 
 1. Route the request:

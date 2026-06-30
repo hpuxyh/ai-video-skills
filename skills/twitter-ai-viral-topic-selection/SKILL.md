@@ -77,6 +77,17 @@ If source access, login state, or the time window prevents finding 30 credible c
 - why the pool was smaller than 30
 - whether any selected topic is below 80 and why the user accepted it
 
+## GitHub Sync And History Rule
+
+Topic selection is a persisted workflow, not a chat-only recommendation. Any time topics are updated, scored, replaced, or approved for production, sync the record to GitHub before reporting the work complete.
+
+- For topic-only work, update the relevant topic-history or selection record with the candidate pool, scores, deleted duplicates, final top 5, and reasons, then commit and push.
+- For production work, update topic-history before rendering and again after final delivery if a topic is replaced during screenshot, copy, cover, or final quality review.
+- Do not select or approve an exact duplicate from either 推特版 history or ordinary AI 信息差 history.
+- Exact duplicate means same company/person/product + same event/development + same core tweet or factual source + same information-gap angle or ordinary-viewer takeaway.
+- Very similar topics are allowed when the event, development, source/anchor, affected group, title hook, or information-gap angle is materially different.
+- If a duplicate is discovered after a topic has been scored, selected, screenshotted, or rendered, mark it as deleted/replaced in the record and choose the next qualified candidate.
+
 ## Scoring
 
 Score each candidate out of 100:
