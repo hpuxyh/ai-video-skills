@@ -535,6 +535,14 @@ Asset priority for covers:
 5. Product or official screenshot: use only when no relevant person or stronger company identity exists.
 6. Avoid pure screenshots, abstract tech backgrounds, or text-only cards as the main cover. Use a pure logo/identity visual only when no stronger person or product visual exists, and crop it cleanly so no browser/login/tweet clutter remains.
 
+Cover source metadata:
+
+- Every cover config must declare `cover_source_type` or `background_role`. Approved values are people/company/identity roles such as `event_person`, `company_person`, `parent_company_identity`, `company_identity`, `brand_identity`, `logo_identity`, `product_identity`, `product_visual`, or `official_product_visual`.
+- Screenshot fallbacks such as `product_screenshot`, `official_screenshot`, or `official_page_screenshot` are allowed only when no usable person/company/brand identity exists, and the config must include `cover_fallback_reason` / `no_person_reason`.
+- Forbidden cover background roles: `tweet`, `tweet_screenshot`, `core_tweet`, `x_screenshot`, `tweet_proof_card`, `source_card`, `paper_card`, `webpage_screenshot`, `browser_screenshot`, `video_frame`, `first_frame`, `search_result`, or `error_card`.
+- Every cover config must record `cover_source`, `cover_source_asset`, or `cover_source_url`, and each finished topic's source folder must archive the selected background as `封面背景.jpg`.
+- Run `scripts/review_visual_quality.py --strict` on the cover config before rendering and again after any source change. Missing source metadata, screenshot-like background roles, or missing provenance are blocking failures.
+
 Layout rules:
 
 - Use `1080x1920`.
