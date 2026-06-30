@@ -1,0 +1,29 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/02-tweet-proof-card.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {},
+  "source_capture": {
+    "raw_screenshot": "assets/raw/chrome/fresh-02-codex-limits-tweet.png",
+    "exists": true,
+    "width": 1260,
+    "height": 1902,
+    "mean_luma": 232.2,
+    "luma_range": 245,
+    "sharpness": 7565.2,
+    "content_ratio": 0.87,
+    "margins": {
+      "left": 0.05,
+      "top": 0.017,
+      "right": 0.05,
+      "bottom": 0.017
+    },
+    "metadata_path": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/assets/raw/chrome/fresh-02-codex-limits-tweet.png.json",
+    "element_selector": "article[data-testid=\"tweet\"]"
+  },
+  "images": [],
+  "layout": {
+    "proof_card_only": true
+  }
+}

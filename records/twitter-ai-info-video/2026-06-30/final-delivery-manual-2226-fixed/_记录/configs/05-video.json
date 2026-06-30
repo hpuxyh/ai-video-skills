@@ -1,0 +1,126 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-OKX让AI代理互相支付.mp4",
+  "contact_sheet": "renders/05-OKX让AI代理互相支付-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "AI Agent · 支付入口",
+  "header_source": "TechCrunch X · 06.30",
+  "title": [
+    "OKX 让 AI 互相雇佣",
+    "代理开始自己付款"
+  ],
+  "title_line3": "钱包变成新入口",
+  "title_base_size": 66,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "contain",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "TechCrunch 报道 OKX 想让 AI 代理互相雇佣和支付",
+    "这不是普通聊天机器人升级，而是 Agent 接入交易入口",
+    "AI 以后可能自己找服务、下任务、完成付款",
+    "机会在自动化协作，风险在身份、授权和责任",
+    "当钱包变成 AI 的入口，规则会比功能更关键",
+    "AI Agent 的下一步不是说话，而是开始办事"
+  ],
+  "images": [
+    "assets/images/05-OKX让AI代理互相支付/01-真实视觉.jpg",
+    "assets/images/05-OKX让AI代理互相支付/02-核心X中文卡.jpg",
+    "assets/images/05-OKX让AI代理互相支付/03-来源截图.jpg",
+    "assets/images/05-OKX让AI代理互相支付/04-普通人解释.jpg",
+    "assets/images/05-OKX让AI代理互相支付/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "clean-card",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/TechCrunch/status/2071882039868150040",
+    "author": "TechCrunch X · 06.30",
+    "screenshot": "assets/images/05-OKX让AI代理互相支付/02-核心X中文卡.jpg",
+    "observed_signal": "2026年6月30日 · 约2.9万查看"
+  },
+  "publishing": {
+    "title": "OKX想让AI代理自己付款",
+    "description": "TechCrunch 报道 OKX 希望 AI 代理之间可以互相雇佣并支付。这个变化不是简单加密概念，而是 AI Agent 开始接入身份、钱包和交易权限，真正的争议会落在授权和责任边界上。",
+    "tags": [
+      "AI",
+      "OKX",
+      "AI Agent",
+      "加密货币",
+      "支付",
+      "自动化",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "OKX 让 AI 互相雇佣",
+      "代理开始自己付款",
+      "钱包变成新入口"
+    ],
+    "conclusion": "AI Agent 的下一步不是说话，而是开始办事",
+    "badge": "OKX",
+    "bg_image": "assets/cover-bg/okx_product_vertical.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-fashion-motion.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "mood": "agent_payment"
+  }
+}

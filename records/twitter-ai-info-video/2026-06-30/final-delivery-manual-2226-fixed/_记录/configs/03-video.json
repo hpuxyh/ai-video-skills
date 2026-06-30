@@ -1,0 +1,126 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-Ford重新雇回老工程师.mp4",
+  "contact_sheet": "renders/03-Ford重新雇回老工程师-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "工作替代 · 质量控制",
+  "header_source": "TechCrunch X · 06.29",
+  "title": [
+    "Ford 又请回人类",
+    "AI 质检没顶住"
+  ],
+  "title_line3": "经验被重新定价",
+  "title_base_size": 66,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "contain",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "TechCrunch 报道 Ford 重新请回资深工程师",
+    "原因是 AI 没有完全顶住质量检查工作",
+    "这不是反 AI，而是反 AI 万能论",
+    "经验、责任和现场判断仍然很值钱",
+    "会用 AI 的人会更快，但关键岗位不能只看自动化",
+    "被替代的不是人，而是低质量的重复工作"
+  ],
+  "images": [
+    "assets/images/03-Ford重新雇回老工程师/01-真实视觉.jpg",
+    "assets/images/03-Ford重新雇回老工程师/02-核心X中文卡.jpg",
+    "assets/images/03-Ford重新雇回老工程师/03-来源截图.jpg",
+    "assets/images/03-Ford重新雇回老工程师/04-普通人解释.jpg",
+    "assets/images/03-Ford重新雇回老工程师/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "clean-card",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/TechCrunch/status/2071310226167578673",
+    "author": "TechCrunch X · 06.29",
+    "screenshot": "assets/images/03-Ford重新雇回老工程师/02-核心X中文卡.jpg",
+    "observed_signal": "2026年6月29日 · 约8.5万查看"
+  },
+  "publishing": {
+    "title": "Ford又把老工程师请回来了",
+    "description": "TechCrunch 报道 Ford 在 AI 自动化没能完全顶住质量工作后，重新请回有经验的工程师。这个故事不是反 AI，而是提醒大家：关键岗位拼的不只是效率，还有责任、判断和现场经验。",
+    "tags": [
+      "AI",
+      "Ford",
+      "自动化",
+      "工作替代",
+      "质量控制",
+      "工程师",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Ford 又请回人类",
+      "AI 质检没顶住",
+      "经验被重新定价"
+    ],
+    "conclusion": "被替代的不是人，而是低质量的重复工作",
+    "badge": "Ford",
+    "bg_image": "assets/cover-bg/ford_bg.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "mood": "jobs"
+  }
+}

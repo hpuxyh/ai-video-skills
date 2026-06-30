@@ -21,6 +21,21 @@ It also supports the confirmed clean white paper-card explainer mode: a white te
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
+## Recent Run Failure Guardrails
+
+These hard gates come from the 2026-06-30 manual Twitter batch failure. Treat them as production rules, not optional notes.
+
+- Freshness audit first: when the request says latest, today, daily, or latest 2-3 days, do not reuse an old manual batch or an old topic list as the source of truth. Start by writing or updating a freshness audit that lists every candidate, the real source date, the visible X/Twitter date, the source URL, and the pass/fail decision.
+- Real date beats config date: never trust only local `date`, `header_source`, folder names, or `06.30` labels in previous configs. Verify freshness from the source article/page timestamp or the visible X/Twitter timestamp captured in Chrome. If a source page is older than the 2-3 day window, reject it even if the local config says today's date.
+- Re-scout stale batches: if any topic in a 5-video batch fails freshness or duplicate checks, re-run candidate selection for the whole batch, then present the replacement 5 topics with rationale, anchor, cover direction, and information-gap angle before rendering unless the user has already explicitly approved the replacements.
+- Do not patch stale topics with better assets: better screenshots, covers, or descriptions do not fix an old topic. Replace the topic first, then rebuild screenshots, cover, config, publishing copy, records, and history for the new topic.
+- Chrome capture is the screenshot authority: public oEmbed, search snippets, or remembered links are discovery aids only. A final tweet anchor must have a local Chrome screenshot plus metadata. For X/Twitter final assets, the raw screenshot must be from `--tweet-only` / `article[data-testid="tweet"]` or have an explicit reviewed `crop_box`.
+- Inspect pixels, not just files: after source capture and again after rendering a preview/contact sheet, visually inspect the images. Reject screenshots with left navigation, right sidebar, browser chrome, unrelated replies, blank margins, half-visible cards, cropped avatars/faces/logos, blurry text, blocked pages, or source-error placeholders.
+- Text review is mandatory: before export, check that title, middle media, and bottom rows do not overlap; rows are aligned; no row is hidden, clipped, or squeezed into one-character wraps; bottom copy is 4-6 viewer-facing Chinese lines with no visible labels such as `信息差是`, `发生了什么`, `关键事实`, `结论`, or internal production notes.
+- Cover source must be revalidated: a cover cannot be a video first frame, tweet card, paper-card screenshot, old topic cover, or generic webpage crop. Re-check the cover logic before export, prefer recognizable people/company/product identity, record `cover_source_type` and source asset, archive the cover background, and run cover review.
+- Confirm skill provenance: before a production run, compare the active local skill under `~/.codex/skills` with the GitHub/repo copy under `skills/vertical-ai-info-video-推特版/`. If they differ, sync or clearly report the mismatch before running. Do not claim to be using the GitHub-synced skill without checking the actual file being executed.
+- Use the correct renderer for the approved style: clean white paper-card MP4s should be rendered with the clean white renderer (for example `/Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clean_white_video.py` when available). Use the older `render_vertical_info_video.py` only for the non-paper-card/legacy template or when the user explicitly requests that style.
+
 ## Workflow
 
 1. Route the request:
@@ -62,7 +77,17 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/r
 ```
 
 If the review fails or the contact sheet shows `图片源不可用`, `429`, `403`, login wall, a blank page, a blocked page, unrelated search results, sidebars around the tweet, awkward crop, text overlap, or uneven/blocked typography, stop. Reopen the source in Chrome, recapture with `--tweet-only` or a tighter element/crop, rewrite long bottom rows, and rerun the review. Never ship a video with an asset-error card, cluttered tweet screenshot, or visibly messy text layout.
-12. Run `scripts/render_vertical_info_video.py` from a project directory:
+12. Run the renderer that matches the approved style. For the current clean white paper-card mode, use the shared clean white renderer:
+
+```bash
+python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clean_white_video.py \
+  --config configs/video.json \
+  --project-dir . \
+  --output renders/output.mp4 \
+  --contact-sheet renders/output-contact-sheet.jpg
+```
+
+Use `scripts/render_vertical_info_video.py` only for the non-paper-card/legacy vertical template or when the user explicitly asks for that style:
 
 ```bash
 python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video-推特版/scripts/render_vertical_info_video.py \

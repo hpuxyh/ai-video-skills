@@ -1,0 +1,64 @@
+{
+  "background_image": "assets/cover-bg/okx_product_vertical.jpg",
+  "cover_source_type": "brand_identity",
+  "cover_source_asset": "assets/cover-bg/okx_product_vertical.jpg",
+  "cover_source": "https://techcrunch.com/2026/06/30/crypto-exchange-okx-wants-ai-agents-to-hire-and-pay-each-other/",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "background_brightness": 0.86,
+  "background_contrast": 1.1,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "OKX",
+  "badge_text": "OKX",
+  "logo_badge_w": 300,
+  "logo_badge_h": 92,
+  "logo_badge_x": 730,
+  "logo_badge_y": 900,
+  "title": [
+    {
+      "text": "OKX 让 AI 互相雇佣",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "代理开始自己付款",
+      "color": [
+        53,
+        214,
+        226
+      ]
+    },
+    {
+      "text": "钱包变成新入口",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "title_y": 1065,
+  "title_sizes": [
+    84,
+    88,
+    82
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "AI Agent 的下一步不是说话，而是开始办事",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "05"
+}

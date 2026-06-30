@@ -1,0 +1,41 @@
+{
+  "url": "https://x.com/WIRED/status/2071719798749446528",
+  "output": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-refresh-screenshot-description/assets/raw/chrome/fresh-01-meta-teen-test-tweet.png",
+  "captured_at": "2026-07-01T00:41:24",
+  "chrome_bounds": {
+    "left": 482,
+    "top": 193,
+    "width": 630,
+    "height": 689
+  },
+  "full_chrome_bounds": {
+    "left": 0,
+    "top": 156,
+    "width": 1710,
+    "height": 951
+  },
+  "scroll_y": 0,
+  "element_selector": "article[data-testid=\"tweet\"]",
+  "element_index": 0,
+  "element_padding": 16,
+  "element_info": {
+    "found": true,
+    "count": 9,
+    "rect": {
+      "left": 498.5,
+      "top": 53,
+      "width": 598,
+      "height": 657.78125
+    },
+    "viewport": {
+      "innerWidth": 1710,
+      "innerHeight": 951
+    },
+    "outer": {
+      "outerWidth": 1710,
+      "outerHeight": 951
+    },
+    "devicePixelRatio": 2
+  },
+  "capture_method": "local Google Chrome + screencapture"
+}

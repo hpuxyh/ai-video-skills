@@ -1,0 +1,28 @@
+{
+  "raw_screenshot": "assets/raw/chrome/fresh-05-okx-agents-tweet.png",
+  "left_box": [
+    85,
+    86,
+    820,
+    640
+  ],
+  "right_x": 960,
+  "right_w": 560,
+  "right_y": 105,
+  "label": "中文释义",
+  "summary_lines": [
+    "OKX 想让 AI 代理互相雇佣",
+    "代理之间可以发起付款",
+    "变化不只是加密交易",
+    "而是 AI 开始接入钱包身份",
+    "自动化会进入交易入口"
+  ],
+  "summary_font_size": 38,
+  "min_summary_font_size": 31,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "source_title": "来源：TechCrunch X · 06.30",
+  "source_meta": "2026年6月30日 · 约2.9万查看",
+  "source_url": "https://x.com/TechCrunch/status/2071882039868150040",
+  "output": "assets/images/05-OKX让AI代理互相支付/02-核心X中文卡.jpg"
+}

@@ -1,0 +1,64 @@
+{
+  "background_image": "assets/cover-bg/ford_bg.jpg",
+  "cover_source_type": "product_visual",
+  "cover_source_asset": "assets/cover-bg/ford_bg.jpg",
+  "cover_source": "https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "background_brightness": 0.86,
+  "background_contrast": 1.1,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "Ford",
+  "badge_text": "Ford",
+  "logo_badge_w": 300,
+  "logo_badge_h": 92,
+  "logo_badge_x": 730,
+  "logo_badge_y": 900,
+  "title": [
+    {
+      "text": "Ford 又请回人类",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "AI 质检没顶住",
+      "color": [
+        53,
+        214,
+        226
+      ]
+    },
+    {
+      "text": "经验被重新定价",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "title_y": 1065,
+  "title_sizes": [
+    84,
+    88,
+    82
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "被替代的不是人，而是低质量的重复工作",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "03"
+}

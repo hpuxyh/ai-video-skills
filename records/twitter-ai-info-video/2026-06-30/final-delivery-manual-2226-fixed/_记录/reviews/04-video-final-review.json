@@ -1,0 +1,122 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/04-video.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {},
+  "source_capture": {},
+  "images": [
+    {
+      "index": 1,
+      "path": "assets/images/04-Lumo隐私AI升级/01-真实视觉.jpg",
+      "role": "hero",
+      "quality": "real",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 233.7,
+      "luma_range": 254,
+      "sharpness": 2249.4,
+      "content_ratio": 0.712,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.081,
+        "bottom": 0.11
+      }
+    },
+    {
+      "index": 2,
+      "path": "assets/images/04-Lumo隐私AI升级/02-核心X中文卡.jpg",
+      "role": "core-evidence",
+      "quality": "source-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 235.9,
+      "luma_range": 225,
+      "sharpness": 3344.8,
+      "content_ratio": 0.711,
+      "margins": {
+        "left": 0.075,
+        "top": 0.1,
+        "right": 0.025,
+        "bottom": 0.11
+      }
+    },
+    {
+      "index": 3,
+      "path": "assets/images/04-Lumo隐私AI升级/03-来源截图.jpg",
+      "role": "media",
+      "quality": "official-screenshot",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 216.1,
+      "luma_range": 255,
+      "sharpness": 3316.9,
+      "content_ratio": 0.711,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.05,
+        "bottom": 0.14
+      }
+    },
+    {
+      "index": 4,
+      "path": "assets/images/04-Lumo隐私AI升级/04-普通人解释.jpg",
+      "role": "clean-card",
+      "quality": "clean-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 228.6,
+      "luma_range": 254,
+      "sharpness": 3205.1,
+      "content_ratio": 0.715,
+      "margins": {
+        "left": 0.044,
+        "top": 0.07,
+        "right": 0.062,
+        "bottom": 0.13
+      }
+    },
+    {
+      "index": 5,
+      "path": "assets/images/04-Lumo隐私AI升级/05-补充素材.jpg",
+      "role": "auxiliary",
+      "quality": "source-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 233.2,
+      "luma_range": 253,
+      "sharpness": 2449.2,
+      "content_ratio": 0.712,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.081,
+        "bottom": 0.11
+      }
+    }
+  ],
+  "layout": {
+    "title_lines": [
+      "Proton 升级 Lumo",
+      "隐私 AI 也要记忆",
+      "数据边界成卖点"
+    ],
+    "effective_title_size": 66,
+    "title_bottom": 384,
+    "media_box": [
+      30,
+      460,
+      1050,
+      1172
+    ],
+    "body_line_count": 6,
+    "body_bottom": 1623
+  }
+}

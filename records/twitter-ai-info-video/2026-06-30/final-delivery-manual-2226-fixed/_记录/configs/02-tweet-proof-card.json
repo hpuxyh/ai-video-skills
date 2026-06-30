@@ -1,0 +1,34 @@
+{
+  "raw_screenshot": "assets/raw/chrome/fresh-02-codex-limits-tweet.png",
+  "left_box": [
+    80,
+    72,
+    830,
+    735
+  ],
+  "right_x": 960,
+  "right_w": 560,
+  "right_y": 105,
+  "label": "中文释义",
+  "summary_lines": [
+    "Codex 团队公开解释用量异常",
+    "限额将在 24 小时内重置",
+    "问题来自后台任务消耗过快",
+    "修复后会加强监控",
+    "AI 工具也要面对容量账单"
+  ],
+  "summary_font_size": 38,
+  "min_summary_font_size": 31,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "source_title": "来源：X · 06.30",
+  "source_meta": "2026年6月30日 · 约74.3万查看",
+  "source_url": "https://x.com/thsottiaux/status/2071740419030053227",
+  "output": "assets/images/02-Codex用量限制修复/02-核心X中文卡.jpg",
+  "crop_box": [
+    0,
+    70,
+    1260,
+    1902
+  ]
+}

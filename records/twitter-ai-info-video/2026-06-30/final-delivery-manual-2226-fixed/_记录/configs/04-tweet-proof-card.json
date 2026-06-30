@@ -1,0 +1,28 @@
+{
+  "raw_screenshot": "assets/raw/chrome/fresh-04-lumo-privacy-tweet.png",
+  "left_box": [
+    85,
+    86,
+    820,
+    640
+  ],
+  "right_x": 960,
+  "right_w": 560,
+  "right_y": 105,
+  "label": "中文释义",
+  "summary_lines": [
+    "Proton 的 Lumo 隐私 AI 获得升级",
+    "AI 助手开始强调记忆能力",
+    "真正卖点不是更会聊天",
+    "而是数据不被随便训练",
+    "隐私会变成产品竞争点"
+  ],
+  "summary_font_size": 38,
+  "min_summary_font_size": 31,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "source_title": "来源：TechCrunch X · 06.30",
+  "source_meta": "2026年6月30日 · 约1.2万查看",
+  "source_url": "https://x.com/TechCrunch/status/2071957323304804748",
+  "output": "assets/images/04-Lumo隐私AI升级/02-核心X中文卡.jpg"
+}

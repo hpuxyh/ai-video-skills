@@ -1,0 +1,28 @@
+{
+  "raw_screenshot": "assets/raw/chrome/fresh-01-meta-teen-test-tweet.png",
+  "left_box": [
+    85,
+    86,
+    820,
+    640
+  ],
+  "right_x": 960,
+  "right_w": 560,
+  "right_y": 105,
+  "label": "中文释义",
+  "summary_lines": [
+    "WIRED 曝光 Meta 承包商测试竞品",
+    "测试身份被设成青少年用户",
+    "争议点不只是普通评测",
+    "儿童安全被放进商业竞争",
+    "平台责任会被重新追问"
+  ],
+  "summary_font_size": 38,
+  "min_summary_font_size": 31,
+  "highlight_full_width": true,
+  "max_summary_lines": 6,
+  "source_title": "来源：WIRED X · 06.30",
+  "source_meta": "2026年6月30日 · 约3.3万查看",
+  "source_url": "https://x.com/WIRED/status/2071719798749446528",
+  "output": "assets/images/01-Meta伪装青少年测试AI/02-核心X中文卡.jpg"
+}

@@ -1,0 +1,41 @@
+{
+  "url": "https://x.com/TechCrunch/status/2071807338328272949",
+  "output": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-refresh-screenshot-description/assets/raw/chrome/fresh-backup-ai-jobs-tweet.png",
+  "captured_at": "2026-07-01T00:42:12",
+  "chrome_bounds": {
+    "left": 482,
+    "top": 193,
+    "width": 630,
+    "height": 641
+  },
+  "full_chrome_bounds": {
+    "left": 0,
+    "top": 156,
+    "width": 1710,
+    "height": 951
+  },
+  "scroll_y": 0,
+  "element_selector": "article[data-testid=\"tweet\"]",
+  "element_index": 0,
+  "element_padding": 16,
+  "element_info": {
+    "found": true,
+    "count": 6,
+    "rect": {
+      "left": 498.5,
+      "top": 53,
+      "width": 598,
+      "height": 609.78125
+    },
+    "viewport": {
+      "innerWidth": 1710,
+      "innerHeight": 951
+    },
+    "outer": {
+      "outerWidth": 1710,
+      "outerHeight": 951
+    },
+    "devicePixelRatio": 2
+  },
+  "capture_method": "local Google Chrome + screencapture"
+}

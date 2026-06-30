@@ -1,0 +1,61 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/03-cover.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {
+    "background_key": "background_image",
+    "background_image": "assets/cover-bg/ford_bg.jpg",
+    "cover_source_type": "product_visual",
+    "cover_source": "https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/",
+    "logo_image": null,
+    "badge_text": "Ford",
+    "exists": true,
+    "width": 1080,
+    "height": 1920,
+    "mean_luma": 104.3,
+    "luma_range": 255,
+    "sharpness": 3323.2,
+    "content_ratio": 1.0,
+    "margins": {
+      "left": 0.0,
+      "top": 0.0,
+      "right": 0.0,
+      "bottom": 0.0
+    }
+  },
+  "source_capture": {},
+  "images": [],
+  "layout": {
+    "cover_only": true,
+    "title_lines": [
+      "Ford 又请回人类",
+      "AI 质检没顶住",
+      "经验被重新定价"
+    ],
+    "fitted_title": [
+      {
+        "text": "Ford 又请回人类",
+        "size": 84,
+        "width": 620.0
+      },
+      {
+        "text": "AI 质检没顶住",
+        "size": 88,
+        "width": 547.0
+      },
+      {
+        "text": "经验被重新定价",
+        "size": 82,
+        "width": 574.0
+      }
+    ],
+    "title_bottom": 1367,
+    "bottom_box": [
+      58,
+      1648,
+      1022,
+      1810
+    ]
+  }
+}

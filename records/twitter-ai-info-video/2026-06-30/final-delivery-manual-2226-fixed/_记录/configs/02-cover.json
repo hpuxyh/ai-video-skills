@@ -1,0 +1,64 @@
+{
+  "background_image": "assets/cover-bg/openai_person.jpg",
+  "cover_source_type": "company_person",
+  "cover_source_asset": "assets/cover-bg/openai_person.jpg",
+  "cover_source": "https://www.businessinsider.com/openai-codex-usage-limit-warroom-fix-issue-2026-6",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "background_brightness": 0.86,
+  "background_contrast": 1.1,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "Codex",
+  "badge_text": "Codex",
+  "logo_badge_w": 300,
+  "logo_badge_h": 92,
+  "logo_badge_x": 730,
+  "logo_badge_y": 900,
+  "title": [
+    {
+      "text": "Codex 用量被打爆",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "OpenAI 连夜修限制",
+      "color": [
+        53,
+        214,
+        226
+      ]
+    },
+    {
+      "text": "AI 工具也有额度焦虑",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "title_y": 1065,
+  "title_sizes": [
+    84,
+    88,
+    82
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "AI 工具的竞争会进入稳定性和容量管理",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "02"
+}

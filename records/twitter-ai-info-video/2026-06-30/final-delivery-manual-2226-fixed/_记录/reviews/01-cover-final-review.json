@@ -1,0 +1,61 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/01-cover.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {
+    "background_key": "background_image",
+    "background_image": "assets/cover-bg/meta_person.jpg",
+    "cover_source_type": "company_person",
+    "cover_source": "https://www.wired.com/story/meta-contractors-pretending-to-be-teens-chatbot-testing/",
+    "logo_image": null,
+    "badge_text": "Meta",
+    "exists": true,
+    "width": 1080,
+    "height": 1920,
+    "mean_luma": 41.6,
+    "luma_range": 243,
+    "sharpness": 834.7,
+    "content_ratio": 0.653,
+    "margins": {
+      "left": 0.156,
+      "top": 0.039,
+      "right": 0.144,
+      "bottom": 0.028
+    }
+  },
+  "source_capture": {},
+  "images": [],
+  "layout": {
+    "cover_only": true,
+    "title_lines": [
+      "Meta 伪装青少年",
+      "测试竞品 AI 聊天",
+      "儿童安全成硬指标"
+    ],
+    "fitted_title": [
+      {
+        "text": "Meta 伪装青少年",
+        "size": 84,
+        "width": 658.0
+      },
+      {
+        "text": "测试竞品 AI 聊天",
+        "size": 88,
+        "width": 657.0
+      },
+      {
+        "text": "儿童安全成硬指标",
+        "size": 82,
+        "width": 656.0
+      }
+    ],
+    "title_bottom": 1367,
+    "bottom_box": [
+      58,
+      1648,
+      1022,
+      1810
+    ]
+  }
+}

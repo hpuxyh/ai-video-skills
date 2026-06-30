@@ -1,0 +1,122 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/02-video.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {},
+  "source_capture": {},
+  "images": [
+    {
+      "index": 1,
+      "path": "assets/images/02-Codex用量限制修复/01-真实视觉.jpg",
+      "role": "hero",
+      "quality": "real",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 218.5,
+      "luma_range": 253,
+      "sharpness": 2042.3,
+      "content_ratio": 0.712,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.081,
+        "bottom": 0.11
+      }
+    },
+    {
+      "index": 2,
+      "path": "assets/images/02-Codex用量限制修复/02-核心X中文卡.jpg",
+      "role": "core-evidence",
+      "quality": "source-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 235.1,
+      "luma_range": 195,
+      "sharpness": 4224.4,
+      "content_ratio": 0.705,
+      "margins": {
+        "left": 0.075,
+        "top": 0.09,
+        "right": 0.044,
+        "bottom": 0.11
+      }
+    },
+    {
+      "index": 3,
+      "path": "assets/images/02-Codex用量限制修复/03-来源截图.jpg",
+      "role": "media",
+      "quality": "official-screenshot",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 240.0,
+      "luma_range": 255,
+      "sharpness": 2469.6,
+      "content_ratio": 0.711,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.05,
+        "bottom": 0.14
+      }
+    },
+    {
+      "index": 4,
+      "path": "assets/images/02-Codex用量限制修复/04-普通人解释.jpg",
+      "role": "clean-card",
+      "quality": "clean-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 218.5,
+      "luma_range": 255,
+      "sharpness": 3000.7,
+      "content_ratio": 0.715,
+      "margins": {
+        "left": 0.044,
+        "top": 0.07,
+        "right": 0.062,
+        "bottom": 0.13
+      }
+    },
+    {
+      "index": 5,
+      "path": "assets/images/02-Codex用量限制修复/05-补充素材.jpg",
+      "role": "auxiliary",
+      "quality": "source-card",
+      "exists": true,
+      "width": 1600,
+      "height": 1000,
+      "mean_luma": 218.0,
+      "luma_range": 253,
+      "sharpness": 2244.8,
+      "content_ratio": 0.712,
+      "margins": {
+        "left": 0.05,
+        "top": 0.07,
+        "right": 0.081,
+        "bottom": 0.11
+      }
+    }
+  ],
+  "layout": {
+    "title_lines": [
+      "Codex 用量被打爆",
+      "OpenAI 连夜修限制",
+      "AI 工具也有额度焦虑"
+    ],
+    "effective_title_size": 66,
+    "title_bottom": 384,
+    "media_box": [
+      30,
+      460,
+      1050,
+      1172
+    ],
+    "body_line_count": 6,
+    "body_bottom": 1623
+  }
+}

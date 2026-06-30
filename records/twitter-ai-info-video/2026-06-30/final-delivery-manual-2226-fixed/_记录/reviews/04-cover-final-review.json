@@ -1,0 +1,61 @@
+{
+  "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-fixed-visuals/configs/04-cover.json",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "cover": {
+    "background_key": "background_image",
+    "background_image": "assets/cover-bg/lumo_product_vertical.jpg",
+    "cover_source_type": "product_identity",
+    "cover_source": "https://techcrunch.com/2026/06/30/lumo-protons-privacy-focused-ai-chatbot-gets-an-upgrade/",
+    "logo_image": null,
+    "badge_text": "Proton",
+    "exists": true,
+    "width": 1080,
+    "height": 1920,
+    "mean_luma": 168.3,
+    "luma_range": 219,
+    "sharpness": 675.0,
+    "content_ratio": 1.0,
+    "margins": {
+      "left": 0.0,
+      "top": 0.0,
+      "right": 0.0,
+      "bottom": 0.0
+    }
+  },
+  "source_capture": {},
+  "images": [],
+  "layout": {
+    "cover_only": true,
+    "title_lines": [
+      "Proton 升级 Lumo",
+      "隐私 AI 也要记忆",
+      "数据边界成卖点"
+    ],
+    "fitted_title": [
+      {
+        "text": "Proton 升级 Lumo",
+        "size": 84,
+        "width": 698.0
+      },
+      {
+        "text": "隐私 AI 也要记忆",
+        "size": 88,
+        "width": 657.0
+      },
+      {
+        "text": "数据边界成卖点",
+        "size": 82,
+        "width": 574.0
+      }
+    ],
+    "title_bottom": 1367,
+    "bottom_box": [
+      58,
+      1648,
+      1022,
+      1810
+    ]
+  }
+}
