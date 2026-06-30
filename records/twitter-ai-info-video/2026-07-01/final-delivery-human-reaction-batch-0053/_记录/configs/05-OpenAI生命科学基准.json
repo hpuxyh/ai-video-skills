@@ -1,0 +1,215 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-OpenAI生命科学基准.mp4",
+  "contact_sheet": "renders/05-OpenAI生命科学基准-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "普通人反应版",
+  "header_source": "OpenAI X · 06.18",
+  "title": [
+    {
+      "text": "OpenAI 测科研 AI",
+      "y": 116,
+      "size": 82,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "实验题也让模型做",
+      "y": 214,
+      "size": 88,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "科研岗位要换工具",
+      "y": 318,
+      "size": 84,
+      "color": [
+        255,
+        146,
+        112
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "title_line3": "科研岗位要换工具",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "OpenAI 发布 LifeSciBench，用来测试模型解决生命科学问题的能力",
+    "GPT-Rosalind 指向的是科研、实验设计和生物医学推理场景",
+    "这不是普通聊天升级，而是 AI 开始进入高门槛专业工作",
+    "争议会集中在可靠性、责任归属和医疗边界上",
+    "普通人未来感受到的，可能是药物研发和医学工具速度变化",
+    "信息差是，AI 正从写文案进入实验室决策"
+  ],
+  "images": [
+    "assets/images/05-OpenAI生命科学基准/01-真实视觉.jpg",
+    "assets/images/05-OpenAI生命科学基准/02-核心来源中文卡.jpg",
+    "assets/images/05-OpenAI生命科学基准/03-来源截图.jpg",
+    "assets/images/05-OpenAI生命科学基准/04-信息差解释.jpg",
+    "assets/images/05-OpenAI生命科学基准/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAI/status/2067346916929937827",
+    "author": "OpenAI @OpenAI",
+    "screenshot": "assets/images/05-OpenAI生命科学基准/02-核心来源中文卡.jpg",
+    "observed_signal": "OpenAI 官方 X 贴作为锚点；生命科学应用自带可靠性和责任争议"
+  },
+  "publishing": {
+    "title": "OpenAI把AI测进生命科学",
+    "description": "OpenAI 发布 LifeSciBench 和 GPT-Rosalind，重点是生命科学推理、实验设计和专业判断。争议会集中在可靠性、责任归属和医疗边界。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "生命科学",
+      "医疗AI",
+      "GPT",
+      "科研",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "OpenAI 测科研 AI",
+      "实验题也让模型做",
+      "科研岗位要换工具"
+    ],
+    "conclusion": "AI 正从写文案进入实验室决策",
+    "badge": "OpenAI",
+    "bg_image": "assets/cover-bg/05-OpenAI生命科学基准.jpg"
+  },
+  "bgm": {
+    "path": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-refresh-screenshot-description/assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  },
+  "image_grade": {
+    "high_luma_brightness": 0.96,
+    "high_luma_contrast": 1.0,
+    "normal_brightness": 1.08,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.16,
+    "low_contrast": 1.06,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.16,
+    "color": 1.02
+  },
+  "bottom_description": [
+    "OpenAI 发布 LifeSciBench，用来测试模型解决生命科学问题的能力",
+    "GPT-Rosalind 指向的是科研、实验设计和生物医学推理场景",
+    "这不是普通聊天升级，而是 AI 开始进入高门槛专业工作",
+    "争议会集中在可靠性、责任归属和医疗边界上",
+    "普通人未来感受到的，可能是药物研发和医学工具速度变化",
+    "信息差是，AI 正从写文案进入实验室决策"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "motion": {
+    "zoom": 0.05,
+    "pan_x": 18,
+    "pan_y": 14
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "重磅",
+    "category": "普通人反应版",
+    "source": "X 热议"
+  }
+}

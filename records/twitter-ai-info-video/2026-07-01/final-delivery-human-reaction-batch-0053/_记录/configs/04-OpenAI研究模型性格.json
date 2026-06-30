@@ -1,0 +1,214 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/04-OpenAI研究模型性格.mp4",
+  "contact_sheet": "renders/04-OpenAI研究模型性格-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "普通人反应版",
+  "header_source": "OpenAI X · 06.19",
+  "title": [
+    {
+      "text": "OpenAI 研究模型性格",
+      "y": 116,
+      "size": 82,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "好行为不一定稳",
+      "y": 214,
+      "size": 88,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "安全开始查脾气",
+      "y": 318,
+      "size": 84,
+      "color": [
+        255,
+        146,
+        112
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "title_line3": "安全开始查脾气",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "OpenAI 研究显示，模型的有益行为特质可能迁移到新领域",
+    "这说明安全训练不能只靠背题，而要看模型遇到新场景怎么反应",
+    "高风险任务里，听话和可靠并不是同一件事",
+    "普通用户看到的是回答，研究者看的是模型行为会不会泛化",
+    "如果好习惯能迁移，坏习惯和漏洞也可能跨场景出现",
+    "信息差是，AI 安全要测性格，不只是测答案"
+  ],
+  "images": [
+    "assets/images/04-OpenAI研究有益特质/01-真实视觉.jpg",
+    "assets/images/04-OpenAI研究有益特质/02-核心来源中文卡.jpg",
+    "assets/images/04-OpenAI研究有益特质/03-来源截图.jpg",
+    "assets/images/04-OpenAI研究有益特质/04-信息差解释.jpg",
+    "assets/images/04-OpenAI研究有益特质/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAI/status/2067722696759329125",
+    "author": "OpenAI @OpenAI",
+    "screenshot": "assets/images/04-OpenAI研究有益特质/02-核心来源中文卡.jpg",
+    "observed_signal": "OpenAI 官方 X 研究帖；可见回复围绕听话、可靠和安全边界讨论"
+  },
+  "publishing": {
+    "title": "OpenAI开始研究模型性格",
+    "description": "OpenAI 的研究重点不是模型会不会答题，而是“有益行为”能不能迁移到新场景。安全评估开始从答案对错，转向模型行为是否可靠。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "AI安全",
+      "模型行为",
+      "大模型",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "OpenAI 研究模型性格",
+      "好行为不一定稳",
+      "安全开始查脾气"
+    ],
+    "conclusion": "AI 安全要看行为，不只是看答案",
+    "badge": "OpenAI",
+    "bg_image": "assets/cover-bg/04-OpenAI研究有益特质.jpg"
+  },
+  "bgm": {
+    "path": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter-refresh-screenshot-description/assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  },
+  "image_grade": {
+    "high_luma_brightness": 0.96,
+    "high_luma_contrast": 1.0,
+    "normal_brightness": 1.08,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.16,
+    "low_contrast": 1.06,
+    "dark_brightness": 1.45,
+    "dark_contrast": 1.16,
+    "color": 1.02
+  },
+  "bottom_description": [
+    "OpenAI 研究显示，模型的有益行为特质可能迁移到新领域",
+    "这说明安全训练不能只靠背题，而要看模型遇到新场景怎么反应",
+    "高风险任务里，听话和可靠并不是同一件事",
+    "普通用户看到的是回答，研究者看的是模型行为会不会泛化",
+    "如果好习惯能迁移，坏习惯和漏洞也可能跨场景出现",
+    "信息差是，AI 安全要测性格，不只是测答案"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "motion": {
+    "zoom": 0.05,
+    "pan_x": 18,
+    "pan_y": 14
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "重磅",
+    "category": "普通人反应版",
+    "source": "X 热议"
+  }
+}

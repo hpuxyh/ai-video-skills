@@ -1,0 +1,77 @@
+{
+  "01-Ford又请回人类": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "02-Meta伪装青少年测试AI": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "03-Anthropic回应政府模型限制": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "04-OpenAI研究模型性格": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "05-OpenAI生命科学基准": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "01-Meta伪装青少年测试AI.jpg": {
+    "source": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/records/twitter-ai-info-video/2026-06-30/final-delivery/_记录/素材与来源/02-Meta员工追踪训练AI/封面背景.jpg",
+    "type": "company_person",
+    "note": "本地历史正确封面背景：Mark Zuckerberg/Meta 代表人物"
+  },
+  "02-Anthropic回应政府模型限制.jpg": {
+    "source": "/Users/xieyahao/Documents/别人好项目/anthropic-alibaba-representative-backgrounds/final/01_达里奥_Claude背景图.jpg",
+    "type": "company_person",
+    "note": "本地 Anthropic/Claude 代表人物素材：Dario Amodei"
+  },
+  "03-Gemini上线学习笔记.jpg": {
+    "source": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/records/twitter-ai-info-video/2026-06-30/final-delivery/_记录/素材与来源/03-Google限制Meta用Gemini/封面背景.jpg",
+    "type": "company_person",
+    "note": "本地历史正确封面背景：Sundar Pichai/Google 代表人物"
+  },
+  "04-OpenAI研究有益特质.jpg": {
+    "source": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/records/twitter-ai-info-video/2026-06-30/final-delivery/_记录/素材与来源/01-报纸起诉OpenAI微软/封面背景.jpg",
+    "type": "company_person",
+    "note": "本地历史正确封面背景：Sam Altman/OpenAI 代表人物"
+  },
+  "05-OpenAI生命科学基准.jpg": {
+    "source": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/records/twitter-ai-info-video/2026-06-30/final-delivery/_记录/素材与来源/01-报纸起诉OpenAI微软/封面背景.jpg",
+    "type": "company_person",
+    "note": "本地历史正确封面背景：Sam Altman/OpenAI 代表人物"
+  }
+}

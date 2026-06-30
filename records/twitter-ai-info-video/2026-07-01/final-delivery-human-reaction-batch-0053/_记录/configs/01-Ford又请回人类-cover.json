@@ -1,0 +1,61 @@
+{
+  "background_image": "assets/images/event/cover-bg-ford-factory.jpg",
+  "focus": [
+    0.5,
+    0.5
+  ],
+  "background_brightness": 1.02,
+  "background_contrast": 1.06,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "Ford",
+  "badge_text": "Ford",
+  "logo_badge_w": 260,
+  "logo_badge_h": 92,
+  "logo_badge_x": 752,
+  "logo_badge_y": 890,
+  "title": [
+    {
+      "text": "Ford 又请回人类",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "AI 质检没顶住",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "经验被重新定价",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "title_y": 1085,
+  "title_sizes": [
+    86,
+    92,
+    86
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "关键岗位，不能只看自动化",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "01"
+}

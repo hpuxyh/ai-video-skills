@@ -1,0 +1,30 @@
+{
+  "note": "最终使用本地 BGM 渲染，但归档不上传 BGM 原文件。",
+  "items": [
+    {
+      "folder": "01-Ford又请回人类",
+      "track": "say-no-cry.mp3",
+      "source": "local only"
+    },
+    {
+      "folder": "02-Meta伪装青少年测试AI",
+      "track": "bgm-moment.mp3",
+      "source": "local only"
+    },
+    {
+      "folder": "03-Anthropic回应政府模型限制",
+      "track": "bgm-bba-march.mp3",
+      "source": "local only"
+    },
+    {
+      "folder": "04-OpenAI研究模型性格",
+      "track": "bgm-bba-march.mp3",
+      "source": "local only"
+    },
+    {
+      "folder": "05-OpenAI生命科学基准",
+      "track": "bgm-bba-march.mp3",
+      "source": "local only"
+    }
+  ]
+}

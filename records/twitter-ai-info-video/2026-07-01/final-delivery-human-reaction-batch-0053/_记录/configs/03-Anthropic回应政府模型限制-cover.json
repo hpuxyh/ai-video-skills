@@ -1,0 +1,57 @@
+{
+  "output": "covers/封面-03-Anthropic回应政府模型限制.jpg",
+  "background_image": "assets/cover-bg/02-Anthropic回应政府模型限制.jpg",
+  "badge_text": "Anthropic",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    {
+      "text": "Anthropic 模型被卡",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "政府入口要审批",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "强模型也要排队",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "bottom_text": "强模型进公共部门，也要先过审批",
+  "index_badge": "03",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1080,
+  "logo_badge_y": 930,
+  "background_brightness": 0.96,
+  "background_contrast": 1.08,
+  "title_stroke_width": 5,
+  "title_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ],
+  "title_line1_stroke_width": 5,
+  "title_line1_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ]
+}

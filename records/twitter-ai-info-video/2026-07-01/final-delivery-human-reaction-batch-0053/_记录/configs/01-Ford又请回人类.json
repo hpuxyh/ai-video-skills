@@ -1,0 +1,109 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/Ford普通人反应版样片.mp4",
+  "contact_sheet": "renders/Ford普通人反应版样片-contact-sheet.jpg",
+  "images": [
+    "assets/images/event/01-Ford生产线明亮视觉.jpg",
+    "assets/images/event/02-Polymarket核心X证据卡.jpg",
+    "assets/images/event/03-普通人高情绪评论.jpg",
+    "assets/images/event/04-中文新闻事实确认.jpg",
+    "assets/images/event/05-Ford生产线资料图.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "重磅",
+    "category": "普通人反应版",
+    "source": "X 热议"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Ford 又请回人类",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "AI 质检没顶住",
+      "y": 214,
+      "size": 92,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "经验被重新定价",
+      "y": 320,
+      "size": 86,
+      "color": [
+        255,
+        146,
+        112
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "Ford 又把人类工程师请回来了",
+    "原因是 AI 没顶住质量检查",
+    "这不是反 AI，而是反 AI 万能论",
+    "经验、责任和现场判断还很值钱",
+    "会用 AI 的人会更快",
+    "但关键岗位不能只看自动化"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/say-no-cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

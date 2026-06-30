@@ -1,0 +1,57 @@
+{
+  "output": "covers/封面-05-OpenAI生命科学基准.jpg",
+  "background_image": "assets/cover-bg/05-OpenAI生命科学基准.jpg",
+  "badge_text": "OpenAI",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    {
+      "text": "OpenAI 测科研 AI",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "实验题也让模型做",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "科研岗位要换工具",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "bottom_text": "AI 正从写文案进入实验室决策",
+  "index_badge": "05",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1080,
+  "logo_badge_y": 910,
+  "background_brightness": 0.88,
+  "background_contrast": 1.08,
+  "title_stroke_width": 5,
+  "title_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ],
+  "title_line1_stroke_width": 5,
+  "title_line1_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ]
+}

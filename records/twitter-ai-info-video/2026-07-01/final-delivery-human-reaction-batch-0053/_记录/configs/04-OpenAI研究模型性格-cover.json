@@ -1,0 +1,57 @@
+{
+  "output": "covers/封面-04-OpenAI研究模型性格.jpg",
+  "background_image": "assets/cover-bg/04-OpenAI研究有益特质.jpg",
+  "badge_text": "OpenAI",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    {
+      "text": "OpenAI 研究模型性格",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "好行为不一定稳",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "安全开始查脾气",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "bottom_text": "AI 安全要看行为，不只是看答案",
+  "index_badge": "04",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1080,
+  "logo_badge_y": 910,
+  "background_brightness": 0.88,
+  "background_contrast": 1.08,
+  "title_stroke_width": 5,
+  "title_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ],
+  "title_line1_stroke_width": 5,
+  "title_line1_stroke_fill": [
+    4,
+    8,
+    16,
+    235
+  ]
+}
