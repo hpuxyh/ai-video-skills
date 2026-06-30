@@ -34,17 +34,48 @@ Delete or downgrade candidates when any of these are true:
 
 If the protagonist is obscure but the public issue is familiar, keep it only when the title can lead with the familiar issue instead of the obscure name.
 
+## Production Hard Gate
+
+Do not let freshness, screenshot quality, a clean cover, or a good rewrite substitute for topic quality. A topic is not approved until it has passed the scoring model below and duplicate checks. Treat this as a hard gate before screenshot capture, cover generation, title writing, description writing, or rendering.
+
+- Candidate pool is not the final list. A freshness audit or source table only proves that stories are recent enough to consider; it does not approve them for production.
+- Score before assets. Do not move a candidate into rendering just because it has a clean X screenshot, a strong visual, or a familiar company name.
+- Fresh is not enough. A latest 2-3 day story can still fail if it is a minor tool fix, a narrow developer issue, a weak product update, or has no public emotion.
+- No visual rescue. If a topic is weak or duplicate, do not try to save it with better screenshots, a stronger cover, sharper title, or denser bottom copy. Replace the topic.
+- Duplicates are hard fails. If the same event/development and information-gap angle already appeared in 推特版 or ordinary AI 信息差 history, delete it even if a new tweet, new media account, or better asset is available.
+- A daily 5-topic batch should not contain backup-only topics unless the user explicitly accepts them. Prefer 80+ topics; if fewer than five pass, keep scouting.
+- Before reporting the selected 5 topics, include the score and decision band for each topic plus a short note for any deleted near-miss. If this audit is missing, the batch is not ready to render.
+
 ## Selection Workflow
 
 1. Read recent topic history when available and remove exact repeats.
 2. Read both 推特版 history and ordinary AI 信息差 news-video history. Remove exact repeats and near-duplicates across both workflows before scoring. Similar company/theme is allowed, but if the event object, factual anchor/source tweet, title hook, and ordinary-viewer takeaway are almost the same, treat it as a duplicate and delete it.
-3. Build a candidate pool from the approved sources, with Polymarket and official OpenAI/Anthropic updates checked first.
+3. Build a default candidate pool of 30 topics from the approved sources, with Polymarket and official OpenAI/Anthropic updates checked first. If fewer than 30 credible candidates are available inside the requested time window, record the smaller number and why.
 4. For each candidate, capture the factual anchor: official post/page, trusted media story, or source tweet.
 5. Judge controversy with replies, quote-posts, comment count, and visible disagreement. Likes alone are not enough.
-6. Score the remaining candidates using the table below.
-7. Keep the strongest 5, but avoid choosing five stories with the same company, theme, or emotional hook.
+6. Score the remaining candidates using the table below before any visual work, then sort by total score and decision band.
+7. Keep the strongest 5, but avoid choosing five stories with the same company, theme, or emotional hook. If one of the strongest 5 is backup-only or duplicate, replace it before rendering.
+8. Before rendering or screenshot capture, keep a record of the full candidate pool, deleted candidates, final top 5, scores, and reasons.
 
 Familiarity is a practical priority, not a decorative score. Prefer stories led by familiar companies, people, products, or public issues. Cold protagonists such as niche enterprise suppliers, component vendors, or unknown startups should be downgraded unless the public conflict is so clear that the title can lead with the familiar issue instead of the obscure name.
+
+## Default 30-To-5 Daily Mode
+
+For daily auto-scouting, the default logic is:
+
+```text
+collect 30 candidates -> remove duplicates/weak sources -> score every candidate -> rank -> select final 5
+```
+
+Do not directly choose the first 5 high-like or easy-to-screenshot posts. The 30-candidate pool is part of the quality control: it forces comparison across official sources, media amplification, public familiarity, controversy, emotional comments, visual assets, and duplicate risk.
+
+If source access, login state, or the time window prevents finding 30 credible candidates, continue with the largest credible pool and explicitly record:
+
+- candidate count found
+- candidate count deleted
+- final selected count
+- why the pool was smaller than 30
+- whether any selected topic is below 80 and why the user accepted it
 
 ## Scoring
 
@@ -88,6 +119,8 @@ When presenting selected topics, include:
 topic:
 source:
 link:
+candidate rank:
+candidate pool size:
 public theme:
 controversy:
 emotion:

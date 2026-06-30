@@ -17,6 +17,16 @@ Bottom: description, for explaining the news
 
 The description is not a press release, long article, or source transcript. It should explain the title in compact Chinese, with a length close to the reference competitor accounts. For video bottom copy, split the same logic into 4-6 short on-screen lines, defaulting to 6 for daily 推特版 videos.
 
+## Precondition Gate
+
+Write bottom descriptions only after the topic and three-line title have passed review. Do not use dense copy to make a weak topic look acceptable.
+
+- If the topic has not passed `twitter-ai-viral-topic-selection`, stop and ask for or create the topic-quality audit before writing final bottom copy.
+- If the topic is recent but weak, developer-only, a narrow tool fix, a minor product update, pure benchmark, pure funding, or low-emotion, mark it for replacement instead of writing a stronger explanation.
+- If the topic duplicates an already-produced event and information-gap angle, do not rewrite the description to make it look different. Replace the topic or explicitly frame it as a user-approved follow-up.
+- If the title and topic disagree, fix the topic/title decision first. The description must mirror a passed angle, not introduce a new angle to compensate.
+- Visual review and screenshot quality do not validate bottom-copy quality; final copy should be reviewed together with the topic score and duplicate audit.
+
 ## What To Extract
 
 Extract only the facts that help viewers understand the conflict:
@@ -73,6 +83,17 @@ If the description introduces a totally different angle from the title, rewrite 
 - Do not repeat the screenshot text verbatim; explain what the screenshot proves.
 - Do not overstate legal, financial, medical, or safety claims beyond the source.
 - Do not write `这个选题的信息差是...` or any similar meta sentence. State the takeaway directly.
+
+## Final Upload Review
+
+Use this review again immediately before video upload or GitHub sync. The description is not final just because it rendered once.
+
+- Confirm the bottom lines visible in the video, `整体描述.md`, and any `文案.md`/publishing copy all use the same verified facts and the same title angle.
+- Confirm the video bottom area has 4-6 pure Chinese lines, defaulting to 6 for daily batches, with no visible labels, numbering, or structure names.
+- Confirm the first line explains the event, the next lines explain the fact/mechanism/conflict, and the final line gives a natural ordinary-viewer takeaway.
+- Confirm the description explains what the screenshot proves, instead of simply repeating screenshot text or drifting into a different claim.
+- Reject copy that contains unsupported claims, stale facts, wrong numbers, exaggerated legal/financial/safety conclusions, or vague slogans.
+- If a screenshot, title, source, or selected topic changes during production, rewrite the bottom description before uploading.
 
 ## Competitor Pattern Library
 

@@ -11,6 +11,16 @@ Use this skill to write Chinese titles for **推特版 AI 信息差视频** afte
 
 The title is not a neutral news headline. It is the large hook that makes ordinary viewers stop, understand the public conflict in one second, then see the event and consequence.
 
+## Precondition Gate
+
+Write titles only for topics that have passed `twitter-ai-viral-topic-selection`. Do not use a sharper title to rescue a weak or duplicate topic.
+
+- If the topic has no score, decision band, controversy evidence, or duplicate check, pause title writing and request or create the topic-quality audit first.
+- If the topic is below 80 in a daily batch, label it as backup-only instead of polishing it into a final headline unless the user explicitly accepts the weakness.
+- If the topic is developer-only, a narrow tool fix, a minor product update, pure benchmark, pure funding, or low-emotion news, say that the topic should be replaced before writing final titles.
+- If the topic repeats an already-produced event and viewer takeaway, reject it even when a different title could make it feel new.
+- A title can sharpen a passed topic; it cannot make an unpassed topic production-ready.
+
 ## Title Structure
 
 Use exactly three short lines. Each line should usually be about 8-16 Chinese characters when possible:
@@ -162,5 +172,15 @@ Before finalizing, check:
 - Could a non-AI viewer understand the issue without prior context?
 - Is the emotional hook supported by the source?
 - Are obscure names moved out of line 1 unless they are necessary?
+
+## Final Upload Review
+
+Use this review again immediately before video upload or GitHub sync. The title is not final just because it rendered once.
+
+- Confirm the rendered video title, cover title, and `整体描述.md` three-line title use the same words and the same angle unless the user explicitly approved a platform-specific rewrite.
+- Confirm the paste-ready 抖音标题 is a compressed version of the three-line title, not a different story angle.
+- Confirm line 1 still creates public conflict or uses a familiar protagonist, line 2 still states the concrete event/change, and line 3 still lands on the ordinary-viewer consequence or information gap.
+- If a screenshot, source, or bottom description changed during production, re-check whether the title still matches the evidence. If not, rewrite the title before uploading.
+- Reject titles that became neutral news summaries, obscure product-name leads, unsupported exaggeration, or vague hooks such as `AI 又有大事`.
 
 Return 2-4 title options when the topic is promising but the best emotional angle is not obvious. Mark the recommended title first.

@@ -15,11 +15,38 @@ It also preserves the older dark vertical fast-news template and the older purpl
 
 This skill is optimized for fast iteration. When the user asks for visual tuning, generate preview screenshots first. Render the full MP4 only after the user confirms the style.
 
+## Mandatory Execution Order
+
+Every production run must begin by reading the current local requirements, workflow, quality standards, and purpose before taking action. Do not rely on remembered workflow details from an older run.
+
+1. Read this `SKILL.md` completely, then read `references/style-guide.md` and `references/paper-card-daily-production.md` before creating configs, screenshots, covers, or videos.
+2. Read the topic/title/description standards used by the Twitter workflow when the ordinary-version run needs controversy-first scoring, three-line titles, or bottom descriptions: `twitter-ai-viral-topic-selection`, `twitter-ai-viral-title-writing`, and `twitter-ai-viral-description-writing`.
+3. Read ordinary-version and 推特版 history records before selecting topics, then remove exact duplicates and near-duplicates.
+4. In auto-scout mode, build a default pool of 30 candidate topics from the latest 2-3 days whenever source availability allows. If fewer than 30 credible candidates can be found, record the reason in `选题记录.md`.
+5. Score the candidate pool with the controversy-first model, rank it, and select the final 5 topics only after scoring. Do not jump directly from a few discovered headlines to the final 5.
+6. For each selected topic, write the three-line title first, then the 4-6 line bottom description, and verify that the description mirrors the title angle.
+7. Capture or prepare screenshots and real visual assets only after the topic/title/description pass review. The ordinary version may use the clearest media, official, data, product, research, filing, or X/Twitter screenshot as final evidence.
+8. Build configs, choose BGM, render videos and covers, run `ffprobe`, inspect contact sheets, and package the final delivery.
+9. Before any GitHub upload, commit, push, or success report, run the final pre-upload quality gate below. If it finds a problem, fix that stage and rerun the relevant checks before uploading.
+
+## Topic Quality Hard Gate
+
+Run this gate before title writing, bottom-description writing, image capture, cover generation, BGM selection, or MP4 rendering. The ordinary workflow shares the same controversy-first quality bar as 推特版, even when the final evidence image is not a tweet.
+
+- Freshness is only an entry condition. A story from the latest 2-3 days can still fail if it is a narrow developer issue, a minor tool fix, a weak product update, pure funding, pure benchmark, or has no public emotion.
+- Candidate pool is not final selection. Do not copy a freshness-audit row or source-capture row into configs until it has passed scoring, duplicate checks, and ordinary-viewer relevance checks.
+- Score before assets. Use the controversy-first scoring model before downloading assets or rendering previews. Record score, decision band, public theme, source/confirmation, and information-gap angle.
+- Do not use visual polish to rescue weak topics. Better screenshots, cleaner covers, good BGM, sharper titles, or denser bottom rows do not make a low-score or duplicate topic acceptable.
+- Reject exact or near duplicates across ordinary AI 信息差 history and 推特版 history before rendering. Same event/development plus same source or same viewer takeaway is a hard fail unless the user explicitly asks for a follow-up with a new angle.
+- A daily 5-topic batch should use 80+ topics by default. If fewer than five pass, continue scouting instead of filling the list with backup-only items.
+- Final review must include topic quality, not just pixels. Contact sheets, cover review, and MP4 specs validate the asset layer only; the run is incomplete without a selected/deleted topic audit.
+- If a topic fails after render, replace it and rebuild the topic's assets, title, bottom copy, cover, records, and history. Do not patch the rendered topic in place.
+
 ## Workflow
 
 1. Route the request:
    - If the user gives a concrete news topic, company, event, URL, or instruction, generate one video for that event using the confirmed workflow.
-   - If the user does not give a concrete topic, search the latest 2-3 days of AI hotspots using the official-first X/Twitter scouting logic below: start with major model-company official accounts and founder/core-person accounts, then validate spread through selected AI digest, media, and market/viral accounts. Choose 5 distinct high-conflict topics and generate 5 separate one-event videos.
+   - If the user does not give a concrete topic, search the latest 2-3 days of AI hotspots using the official-first X/Twitter scouting logic below: start with major model-company official accounts and founder/core-person accounts, then validate spread through selected AI digest, media, and market/viral accounts. Build a default 30-topic candidate pool when possible, score and rank every credible candidate, then choose the strongest 5 distinct high-conflict topics and generate 5 separate one-event videos.
 2. Confirm or infer each video's topic, X/Twitter discovery source, visible engagement/controversy signal, tweet/core-source URL when available, three-line animated title, bottom description lines, image set, cover, and BGM.
 3. Require real topic-matched images. For news videos, start with real people/company/product photos, then add official/news/media/data/product screenshots as supporting evidence. The second carousel image should usually be the clearest core evidence screenshot: official page, media report, data chart, product page, or a tweet screenshot when the tweet is the strongest evidence. Do not use fake UI, abstract placeholders, or pure text cards as primary images.
 4. For social publishing, generate a cover preview using the cover rules in `references/style-guide.md`: real person first, headline as the first visual layer, company logo as secondary recognition, and one conclusion row only.
@@ -59,8 +86,32 @@ python3 /Users/xieyahao/.codex/skills/vertical-ai-info-video/scripts/render_clea
 If the user explicitly requests the legacy dark fast-news template, render with `scripts/render_vertical_info_video.py` instead.
 
 10. Validate the MP4 with `ffprobe` and inspect the contact sheet before reporting completion.
-11. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the same project-level delivery structure as the 推特版 workflow. Each topic folder contains only `视频.mp4` and `封面.jpg`; the batch root `整体描述.md` contains all topics' video/cover paths, 抖音 titles, video-bottom copy, tags, and source summaries. If publishing copy is also split into `文案.md` for compatibility, keep it out of the core topic folder unless the user explicitly asks for that older shape.
-12. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, including discovery account, core X/Twitter URL when available, visible reply/repost/quote/view signal, two typical controversy/emotion comments, confirmation source, final screenshot source, and information-gap angle. Then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
+11. Run the final pre-upload quality gate below. Do this after rendering and packaging, but before GitHub archive, commit, push, or success report.
+12. Export every finished batch into the fixed creator-delivery directory under `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频` using the same project-level delivery structure as the 推特版 workflow. Each topic folder contains only `视频.mp4` and `封面.jpg`; the batch root `整体描述.md` contains all topics' video/cover paths, 抖音 titles, video-bottom copy, tags, and source summaries. If publishing copy is also split into `文案.md` for compatibility, keep it out of the core topic folder unless the user explicitly asks for that older shape.
+13. Record the finished topics in both the batch record and `/Users/xieyahao/Desktop/我自己/小红/视频/新闻视频/选题历史.md`, including discovery account, core X/Twitter URL when available, visible reply/repost/quote/view signal, two typical controversy/emotion comments, confirmation source, final screenshot source, and information-gap angle. Then sync the final exported deliverables, source-review materials, history records, and any reusable skill/workflow updates to the user's GitHub repository before reporting the run complete.
+
+## Final Pre-Upload Quality Gate
+
+Run this gate after the final MP4s, covers, `整体描述.md`, and `_记录` package are assembled, and before uploading or pushing anything to GitHub. Create or update `_记录/最终上传前质量检查.md` with pass/fail notes for each topic.
+
+If any item fails, do not upload and do not report the run as successful. Fix the specific problem, regenerate the affected screenshot/config/video/cover/copy, rerun the visual/contact-sheet review, and only then continue.
+
+Required checks:
+
+1. Screenshot quality:
+   - Source screenshots must be complete, readable, and cropped to the useful content area.
+   - X/Twitter screenshots, when used, should show the appropriate post/comment card only. Do not include left navigation, right sidebar, browser chrome, bottom login bars, unrelated replies, excessive blank space, or half-visible surrounding posts.
+   - Media/news/product/data screenshots must preserve the title, source identity, key chart/text/UI, and any logo or date needed to understand the source.
+   - Reject screenshots with 403/429/Cloudflare/login-wall/blank/error states, blurred text, cropped faces/logos, or dark/gray overlays that make the image look broken.
+2. Description and title correctness:
+   - Re-check the three-line title against `twitter-ai-viral-title-writing`: line 1 has public conflict or familiar protagonist, line 2 has concrete event/change, and line 3 has ordinary-viewer consequence or information gap.
+   - Re-check bottom copy against `twitter-ai-viral-description-writing`: 4-6 pure Chinese lines, default 6 for daily batches, no visible labels, no structure names, no exaggerated claims, and no angle drift away from the title.
+   - Confirm `整体描述.md` contains the 抖音 title, video-bottom content, tags, and source summary for every topic.
+3. Visual quality:
+   - Inspect every video contact sheet and cover overview. Title, screenshots, and bottom rows must not overlap, clip, squeeze into awkward wraps, or run outside the safe area.
+   - Covers must be separately rendered people/company-first assets, not MP4 first frames, tweet cards, paper-card screenshots, or ordinary video frames.
+   - Check cover brightness, face/logo protection, company/product recognition, title readability, and consistency with the three-line title.
+   - Confirm final MP4s have video stream, audio stream, expected 1080x1920 resolution, and about 7 seconds duration unless the user requested otherwise.
 
 ## Delivery Output Contract
 
