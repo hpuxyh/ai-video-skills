@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-02-Anthropic回应政府模型限制.jpg",
+  "background_image": "assets/cover-bg/02-Anthropic回应政府模型限制.jpg",
+  "badge_text": "Anthropic",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Anthropic 模型被卡",
+    "公开要求恢复访问",
+    "强模型也要批准"
+  ],
+  "bottom_text": "模型发布不等于机构可以直接使用",
+  "index_badge": "02",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

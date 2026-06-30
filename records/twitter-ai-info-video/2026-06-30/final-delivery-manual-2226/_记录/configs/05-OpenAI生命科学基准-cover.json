@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-05-OpenAI生命科学基准.jpg",
+  "background_image": "assets/cover-bg/05-OpenAI生命科学基准.jpg",
+  "badge_text": "OpenAI",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "OpenAI 测生命科学 AI",
+    "GPT-Rosalind 做实验题",
+    "科研也要换工具"
+  ],
+  "bottom_text": "AI 正进入高门槛科研决策",
+  "index_badge": "05",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-03-Gemini上线学习笔记.jpg",
+  "background_image": "assets/cover-bg/03-Gemini上线学习笔记.jpg",
+  "badge_text": "Google",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Gemini 做学习笔记",
+    "资料变成复习本",
+    "学习方法先变"
+  ],
+  "bottom_text": "学习入口从搜索变成资料整理",
+  "index_badge": "03",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

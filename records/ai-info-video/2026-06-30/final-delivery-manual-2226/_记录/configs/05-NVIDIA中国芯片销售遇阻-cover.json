@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-05-NVIDIA中国芯片销售遇阻.jpg",
+  "background_image": "assets/cover-bg/05-NVIDIA中国芯片销售遇阻.jpg",
+  "badge_text": "NVIDIA",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "NVIDIA 中国遇阻",
+    "华为方案开始抢单",
+    "供应链正在换路线"
+  ],
+  "bottom_text": "硬件路线会影响模型开放速度",
+  "index_badge": "05",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

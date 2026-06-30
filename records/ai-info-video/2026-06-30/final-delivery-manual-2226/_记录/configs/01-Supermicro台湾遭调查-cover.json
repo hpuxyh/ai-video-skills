@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-01-Supermicro台湾遭调查.jpg",
+  "background_image": "assets/cover-bg/01-Supermicro台湾遭调查.jpg",
+  "badge_text": "Supermicro",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Supermicro 遭搜查",
+    "AI 服务器卷入疑云",
+    "算力也要合规"
+  ],
+  "bottom_text": "AI 算力正在变成合规资源",
+  "index_badge": "01",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

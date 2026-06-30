@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-Gemini上线学习笔记.mp4",
+  "contact_sheet": "renders/03-Gemini上线学习笔记-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "学习工具 · Gemini",
+  "header_source": "Google X · 06.25",
+  "title": [
+    "Gemini 做学习笔记",
+    "资料变成复习本"
+  ],
+  "title_line3": "学习方法先变",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Google 宣布 Gemini App 推出 Study Notebooks 学习笔记能力",
+    "它不是单纯总结资料，而是把内容转成可复习、可提问的结构",
+    "学生和职场人会先用它处理课件、论文、会议材料",
+    "争议也会跟着来，作业边界和学习能力怎么判断会更难",
+    "会提问和验收的人，比只会复制答案的人更占便宜",
+    "信息差是，AI 学习工具先改变资料整理方式"
+  ],
+  "images": [
+    "assets/images/03-Gemini上线学习笔记/01-真实视觉.jpg",
+    "assets/images/03-Gemini上线学习笔记/02-核心来源中文卡.jpg",
+    "assets/images/03-Gemini上线学习笔记/03-来源截图.jpg",
+    "assets/images/03-Gemini上线学习笔记/04-信息差解释.jpg",
+    "assets/images/03-Gemini上线学习笔记/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/Google/status/2070188803340353693",
+    "author": "Google @Google",
+    "screenshot": "assets/images/03-Gemini上线学习笔记/02-核心来源中文卡.jpg",
+    "observed_signal": "Google 官方 X 贴作为锚点；教育场景天然引发效率和作弊边界讨论"
+  },
+  "publishing": {
+    "title": "Gemini开始把资料变学习笔记",
+    "description": "Google 宣布 Gemini App 上线 Study Notebooks。这个功能的关键不是多一个总结按钮，而是把资料转成可复习、可追问的学习结构。学生和职场人都会先从资料整理方式开始改变。",
+    "tags": [
+      "AI",
+      "Gemini",
+      "Google",
+      "学习工具",
+      "教育",
+      "效率",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Gemini 做学习笔记",
+      "资料变成复习本",
+      "学习方法先变"
+    ],
+    "conclusion": "学习入口从搜索变成资料整理",
+    "badge": "Google",
+    "bg_image": "assets/cover-bg/03-Gemini上线学习笔记.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-fashion-motion.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "时尚动感.mp3",
+    "mood": "creator_product"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/02-TIDAL屏蔽AI音乐收益.mp4",
+  "contact_sheet": "renders/02-TIDAL屏蔽AI音乐收益-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "音乐版权 · 创作者",
+  "header_source": "TIDAL · 06.29",
+  "title": [
+    "AI 音乐被打标签",
+    "TIDAL 开始限制分成"
+  ],
+  "title_line3": "创作者要先证明自己",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "TIDAL 开始标记 AI 生成音乐，并限制部分曲目的版税收益",
+    "平台争的不是能不能用 AI，而是谁该拿到播放分成",
+    "当音乐越来越像真人作品，证明来源会变得更重要",
+    "普通创作者以后不只要发布，还要保留制作过程证据",
+    "AI 能降低创作成本，也会抬高版权和分账门槛",
+    "信息差在于，平台先管钱，再管内容本身"
+  ],
+  "images": [
+    "assets/images/02-TIDAL屏蔽AI音乐收益/01-真实视觉.jpg",
+    "assets/images/02-TIDAL屏蔽AI音乐收益/02-核心来源中文卡.jpg",
+    "assets/images/02-TIDAL屏蔽AI音乐收益/03-来源截图.jpg",
+    "assets/images/02-TIDAL屏蔽AI音乐收益/04-信息差解释.jpg",
+    "assets/images/02-TIDAL屏蔽AI音乐收益/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://tidal.com/ai-policy",
+    "author": "TIDAL · 06.29",
+    "screenshot": "assets/images/02-TIDAL屏蔽AI音乐收益/02-核心来源中文卡.jpg",
+    "observed_signal": "媒体/官方来源确认；可见争议样本记录在选题记录"
+  },
+  "publishing": {
+    "title": "AI音乐开始影响版税了",
+    "description": "TIDAL 开始给 AI 生成音乐打标签，并限制部分曲目的版税收益。这个变化不是简单反 AI，而是平台开始重新分配钱：当作品像真人一样，创作者就得证明它怎么来的、谁该拿钱。",
+    "tags": [
+      "AI音乐",
+      "TIDAL",
+      "版权",
+      "创作者",
+      "版税",
+      "人工智能",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "AI 音乐被打标签",
+      "TIDAL 开始限制分成",
+      "创作者要先证明自己"
+    ],
+    "conclusion": "平台开始用分成规则管理 AI 内容",
+    "badge": "TIDAL",
+    "bg_image": "assets/cover-bg/02-TIDAL屏蔽AI音乐收益.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "default"
+  }
+}

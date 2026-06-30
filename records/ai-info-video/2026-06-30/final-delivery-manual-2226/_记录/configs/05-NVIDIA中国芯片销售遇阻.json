@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-NVIDIA中国芯片销售遇阻.mp4",
+  "contact_sheet": "renders/05-NVIDIA中国芯片销售遇阻-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "芯片市场 · 中国",
+  "header_source": "AP · 06.30",
+  "title": [
+    "NVIDIA 中国遇阻",
+    "华为方案开始抢单"
+  ],
+  "title_line3": "供应链正在换路线",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "NVIDIA 面向中国市场的 AI 芯片销售被报道出现阻力",
+    "限制、替代方案和本土采购，让客户不再只看单颗芯片性能",
+    "AI 公司真正关心的是能不能长期买到、用得起、不断供",
+    "华为等本土方案的机会，来自稳定供应和政策确定性",
+    "普通人看到模型竞争，企业先看的会是芯片路线安全",
+    "信息差是，谁掌握硬件入口，谁就影响模型开放速度"
+  ],
+  "images": [
+    "assets/images/05-NVIDIA中国芯片销售遇阻/01-真实视觉.jpg",
+    "assets/images/05-NVIDIA中国芯片销售遇阻/02-核心来源中文卡.jpg",
+    "assets/images/05-NVIDIA中国芯片销售遇阻/03-来源截图.jpg",
+    "assets/images/05-NVIDIA中国芯片销售遇阻/04-信息差解释.jpg",
+    "assets/images/05-NVIDIA中国芯片销售遇阻/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://apnews.com/article/1ae6228c4928ddbb43f984e9b38f49dd",
+    "author": "AP · 06.30",
+    "screenshot": "assets/images/05-NVIDIA中国芯片销售遇阻/02-核心来源中文卡.jpg",
+    "observed_signal": "媒体/官方来源确认；可见争议样本记录在选题记录"
+  },
+  "publishing": {
+    "title": "NVIDIA在中国也开始被替代",
+    "description": "NVIDIA 面向中国市场的 AI 芯片销售被报道遇阻，华为等替代方案开始进入更多采购讨论。AI 竞争表面是模型强弱，背后其实是芯片路线、供应稳定性和政策确定性。",
+    "tags": [
+      "NVIDIA",
+      "华为",
+      "AI芯片",
+      "中国市场",
+      "算力",
+      "大模型",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "NVIDIA 中国遇阻",
+      "华为方案开始抢单",
+      "供应链正在换路线"
+    ],
+    "conclusion": "硬件路线会影响模型开放速度",
+    "badge": "NVIDIA",
+    "bg_image": "assets/cover-bg/05-NVIDIA中国芯片销售遇阻.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "heavy_infrastructure"
+  }
+}

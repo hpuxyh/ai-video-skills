@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-Google请哲学家管AI价值观.mp4",
+  "contact_sheet": "renders/03-Google请哲学家管AI价值观-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "AI伦理 · 安全",
+  "header_source": "The Guardian · 06.30",
+  "title": [
+    "Google 请哲学家管 AI",
+    "价值观不只是代码"
+  ],
+  "title_line3": "模型先定边界",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Google DeepMind 的伦理负责人正在参与定义 AI 的价值边界",
+    "问题不是模型会不会回答，而是它该按谁的价值判断回答",
+    "不同国家、学校和公司，对同一个回答可能要求完全不同",
+    "普通用户看到的是聊天结果，背后其实是规则和价值排序",
+    "AI 越像助手，越需要解释它为什么拒答、偏好或建议",
+    "信息差是，安全不是开关，而是一整套价值选择"
+  ],
+  "images": [
+    "assets/images/03-Google请哲学家管AI价值观/01-真实视觉.jpg",
+    "assets/images/03-Google请哲学家管AI价值观/02-核心来源中文卡.jpg",
+    "assets/images/03-Google请哲学家管AI价值观/03-来源截图.jpg",
+    "assets/images/03-Google请哲学家管AI价值观/04-信息差解释.jpg",
+    "assets/images/03-Google请哲学家管AI价值观/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind",
+    "author": "The Guardian · 06.30",
+    "screenshot": "assets/images/03-Google请哲学家管AI价值观/02-核心来源中文卡.jpg",
+    "observed_signal": "媒体/官方来源确认；可见争议样本记录在选题记录"
+  },
+  "publishing": {
+    "title": "Google开始认真给AI定价值观",
+    "description": "Google DeepMind 的伦理负责人 Iason Gabriel 正在参与定义 AI 的“道德罗盘”。普通人要看的不是哲学本身，而是模型以后怎么拒答、怎么建议、按谁的价值排序，这些都会影响你每天用到的 AI。",
+    "tags": [
+      "Google",
+      "DeepMind",
+      "AI伦理",
+      "AI安全",
+      "价值观",
+      "Gemini",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Google 请哲学家管 AI",
+      "价值观不只是代码",
+      "模型先定边界"
+    ],
+    "conclusion": "AI 安全背后是价值排序",
+    "badge": "Google DeepMind",
+    "bg_image": "assets/cover-bg/03-Google请哲学家管AI价值观.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "default"
+  }
+}

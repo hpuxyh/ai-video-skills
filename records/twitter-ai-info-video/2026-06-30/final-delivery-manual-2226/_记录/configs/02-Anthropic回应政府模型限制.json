@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/02-Anthropic回应政府模型限制.mp4",
+  "contact_sheet": "renders/02-Anthropic回应政府模型限制-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "模型访问 · 政府采购",
+  "header_source": "Anthropic X · 06.30",
+  "title": [
+    "Anthropic 模型被卡",
+    "公开要求恢复访问"
+  ],
+  "title_line3": "强模型也要批准",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Anthropic 公开回应美国政府模型访问指令，并要求恢复部分访问",
+    "争议点不是模型能力，而是政府和企业谁能先用最强模型",
+    "当 AI 进入公共部门，采购、合规和安全审查会先挡在入口前",
+    "普通人看到产品发布，机构看到的是审批和责任边界",
+    "强模型越关键，越不可能只按市场需求直接开放",
+    "信息差是，发布不等于可用，批准才是真入口"
+  ],
+  "images": [
+    "assets/images/02-Anthropic回应政府模型限制/01-真实视觉.jpg",
+    "assets/images/02-Anthropic回应政府模型限制/02-核心来源中文卡.jpg",
+    "assets/images/02-Anthropic回应政府模型限制/03-来源截图.jpg",
+    "assets/images/02-Anthropic回应政府模型限制/04-信息差解释.jpg",
+    "assets/images/02-Anthropic回应政府模型限制/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/AnthropicAI/status/2065597531644743999",
+    "author": "Anthropic @AnthropicAI",
+    "screenshot": "assets/images/02-Anthropic回应政府模型限制/02-核心来源中文卡.jpg",
+    "observed_signal": "Anthropic 官方 X 贴作为核心锚点；围绕政府采购、公平准入和安全审查有争议"
+  },
+  "publishing": {
+    "title": "Anthropic模型被政府入口卡住",
+    "description": "Anthropic 公开回应美国政府关于模型访问的指令。普通人要看的不是单个模型名称，而是当 AI 进入政府和公共部门以后，能力、采购、安全审查和责任边界会一起决定谁能先用。",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Claude",
+      "政府采购",
+      "模型访问",
+      "AI安全",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Anthropic 模型被卡",
+      "公开要求恢复访问",
+      "强模型也要批准"
+    ],
+    "conclusion": "模型发布不等于机构可以直接使用",
+    "badge": "Anthropic",
+    "bg_image": "assets/cover-bg/02-Anthropic回应政府模型限制.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  }
+}

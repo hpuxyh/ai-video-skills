@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-02-TIDAL屏蔽AI音乐收益.jpg",
+  "background_image": "assets/cover-bg/02-TIDAL屏蔽AI音乐收益.jpg",
+  "badge_text": "TIDAL",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "AI 音乐被打标签",
+    "TIDAL 开始限制分成",
+    "创作者要先证明自己"
+  ],
+  "bottom_text": "平台开始用分成规则管理 AI 内容",
+  "index_badge": "02",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

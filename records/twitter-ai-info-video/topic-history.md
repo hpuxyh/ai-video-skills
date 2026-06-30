@@ -162,3 +162,11 @@
 - 03-Google限制Meta用Gemini | Google / Meta / Gemini | Cybernews / TNW | https://cybernews.com/ai-news/google-meta-gemini-constraints/ | 标题：连 Meta 都被限量 / Google 卡住 Gemini / AI 算力也要排队 | 信息差：强模型也要拼容量入口
 - 04-苹果高管跳槽OpenAI | Apple / OpenAI / Vision Pro | TechCrunch | https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/ | 标题：苹果硬件高管跳槽 / OpenAI 抢走设备人才 / AI 入口要离开屏幕 | 信息差：OpenAI 在补硬件入口
 - 05-马斯克太空数据中心被质疑 | Elon Musk / Masayoshi Son / SoftBank / SpaceX | Business Insider / TechCrunch | https://www.businessinsider.com/softbank-ceo-masayoshi-son-elon-musk-ai-space-data-centers-2026-6 | 标题：马斯克想把 AI 搬上天 / 孙正义当场泼冷水 / 算力故事也要算账 | 信息差：太空 AI 概念也要算成本
+
+### 2026-06-30 推特版AI信息差快报手动执行
+
+- 01-Meta伪装青少年测试AI | Meta | WIRED X · 06.30 | https://x.com/WIRED/status/2071719798749446528 | 标题：Meta 伪装青少年 / 测试竞品 AI 聊天 / 儿童安全成指标 | 信息差：儿童安全会成为 AI 产品竞争指标 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/01-Meta伪装青少年测试AI
+- 02-Anthropic回应政府模型限制 | Anthropic | Anthropic X · 06.30 | https://x.com/AnthropicAI/status/2065597531644743999 | 标题：Anthropic 模型被卡 / 公开要求恢复访问 / 强模型也要批准 | 信息差：模型发布不等于机构可以直接使用 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/02-Anthropic回应政府模型限制
+- 03-Gemini上线学习笔记 | Google | Google X · 06.25 | https://x.com/Google/status/2070188803340353693 | 标题：Gemini 做学习笔记 / 资料变成复习本 / 学习方法先变 | 信息差：学习入口从搜索变成资料整理 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/03-Gemini上线学习笔记
+- 04-OpenAI研究有益特质 | OpenAI | OpenAI X · 06.19 | https://x.com/OpenAI/status/2067722696759329125 | 标题：OpenAI 研究模型性格 / 好行为能迁移 / 安全不是只刷题 | 信息差：安全评估要看行为泛化 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/04-OpenAI研究有益特质
+- 05-OpenAI生命科学基准 | OpenAI | OpenAI X · 06.18 | https://x.com/OpenAI/status/2067346916929937827 | 标题：OpenAI 测生命科学 AI / GPT-Rosalind 做实验题 / 科研也要换工具 | 信息差：AI 正进入高门槛科研决策 | 导出：/Users/xieyahao/Desktop/小红/视频/推特专用-AI信息差视频/导出-2026年06月30日-22点26分-推特版AI信息差快报-手动执行/05-OpenAI生命科学基准

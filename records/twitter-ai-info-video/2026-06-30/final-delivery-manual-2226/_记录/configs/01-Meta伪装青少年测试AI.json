@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-Meta伪装青少年测试AI.mp4",
+  "contact_sheet": "renders/01-Meta伪装青少年测试AI-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "青少年安全 · 竞品测试",
+  "header_source": "WIRED X · 06.30",
+  "title": [
+    "Meta 伪装青少年",
+    "测试竞品 AI 聊天"
+  ],
+  "title_line3": "儿童安全成指标",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "WIRED 报道称，Meta 承包商曾伪装成青少年测试竞品聊天机器人",
+    "争议点不是普通评测，而是青少年安全被放进商业竞争里",
+    "AI 聊天对象越像真人，平台越要证明自己怎么测试边界",
+    "家长真正关心的是孩子遇到危险回答时谁负责",
+    "公司说是在找风险，外界担心测试本身也会制造风险",
+    "信息差是，儿童安全会变成 AI 产品竞争的硬指标"
+  ],
+  "images": [
+    "assets/images/01-Meta伪装青少年测试AI/01-真实视觉.jpg",
+    "assets/images/01-Meta伪装青少年测试AI/02-核心来源中文卡.jpg",
+    "assets/images/01-Meta伪装青少年测试AI/03-来源截图.jpg",
+    "assets/images/01-Meta伪装青少年测试AI/04-信息差解释.jpg",
+    "assets/images/01-Meta伪装青少年测试AI/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/WIRED/status/2071719798749446528",
+    "author": "WIRED @WIRED",
+    "screenshot": "assets/images/01-Meta伪装青少年测试AI/02-核心来源中文卡.jpg",
+    "observed_signal": "WIRED 官方 X 贴作为传播锚点；评论围绕青少年安全和平台责任争议"
+  },
+  "publishing": {
+    "title": "Meta被曝伪装青少年测AI",
+    "description": "WIRED 报道称，Meta 承包商曾伪装成青少年测试竞品 AI 聊天机器人。这个争议的重点不是测评，而是儿童安全、商业竞争和平台责任被绑到一起了。",
+    "tags": [
+      "AI",
+      "Meta",
+      "青少年安全",
+      "聊天机器人",
+      "WIRED",
+      "隐私",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Meta 伪装青少年",
+      "测试竞品 AI 聊天",
+      "儿童安全成指标"
+    ],
+    "conclusion": "儿童安全会成为 AI 产品竞争指标",
+    "badge": "Meta",
+    "bg_image": "assets/cover-bg/01-Meta伪装青少年测试AI.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "default"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-Supermicro台湾遭调查.mp4",
+  "contact_sheet": "renders/01-Supermicro台湾遭调查-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "算力硬件 · 监管",
+  "header_source": "Yahoo Finance · 06.30",
+  "title": [
+    "Supermicro 遭搜查",
+    "AI 服务器卷入疑云"
+  ],
+  "title_line3": "算力也要合规",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "台湾方面调查 AI 硬件走私线索，Supermicro 办公室被报道遭搜查",
+    "争议点不是一家公司，而是高端服务器和芯片流向谁手里",
+    "AI 算力越稀缺，采购、转运和合规就越容易变成风险",
+    "普通公司看到的是买机器，监管看到的是战略资源流动",
+    "以后 AI 项目不只比模型，还要比供应链是否合规",
+    "真正稀缺的不是参数，是稳定又合法的算力入口"
+  ],
+  "images": [
+    "assets/images/01-Supermicro台湾遭调查/01-真实视觉.jpg",
+    "assets/images/01-Supermicro台湾遭调查/02-核心来源中文卡.jpg",
+    "assets/images/01-Supermicro台湾遭调查/03-来源截图.jpg",
+    "assets/images/01-Supermicro台湾遭调查/04-信息差解释.jpg",
+    "assets/images/01-Supermicro台湾遭调查/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-plunges-8-taiwan-195509397.html",
+    "author": "Yahoo Finance · 06.30",
+    "screenshot": "assets/images/01-Supermicro台湾遭调查/02-核心来源中文卡.jpg",
+    "observed_signal": "媒体/官方来源确认；可见争议样本记录在选题记录"
+  },
+  "publishing": {
+    "title": "Supermicro被卷入AI芯片走私调查",
+    "description": "Supermicro 台湾办公室被报道遭突击搜查，背后是 AI 服务器和高端芯片的流向问题。普通人看到的是算力越来越贵，企业真正要面对的是：AI 项目能不能拿到稳定、合规、可追溯的硬件入口。",
+    "tags": [
+      "AI",
+      "Supermicro",
+      "NVIDIA",
+      "AI服务器",
+      "芯片",
+      "算力",
+      "供应链",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "Supermicro 遭搜查",
+      "AI 服务器卷入疑云",
+      "算力也要合规"
+    ],
+    "conclusion": "AI 算力正在变成合规资源",
+    "badge": "Supermicro",
+    "bg_image": "assets/cover-bg/01-Supermicro台湾遭调查.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-04-Fox为AI数据中心说法道歉.jpg",
+  "background_image": "assets/cover-bg/04-Fox为AI数据中心说法道歉.jpg",
+  "badge_text": "AI Data Center",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "AI 数据中心惹争议",
+    "Fox 为说法道歉",
+    "算力落地也会反弹"
+  ],
+  "bottom_text": "AI 算力扩张会变成本地资源冲突",
+  "index_badge": "04",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

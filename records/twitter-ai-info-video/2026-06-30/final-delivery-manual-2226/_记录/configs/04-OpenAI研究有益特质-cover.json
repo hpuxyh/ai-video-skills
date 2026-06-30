@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-04-OpenAI研究有益特质.jpg",
+  "background_image": "assets/cover-bg/04-OpenAI研究有益特质.jpg",
+  "badge_text": "OpenAI",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "OpenAI 研究模型性格",
+    "好行为能迁移",
+    "安全不是只刷题"
+  ],
+  "bottom_text": "安全评估要看行为泛化",
+  "index_badge": "04",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}

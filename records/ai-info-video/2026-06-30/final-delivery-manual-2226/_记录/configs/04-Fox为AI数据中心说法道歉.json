@@ -1,0 +1,127 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/04-Fox为AI数据中心说法道歉.mp4",
+  "contact_sheet": "renders/04-Fox为AI数据中心说法道歉-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "数据中心 · 舆论",
+  "header_source": "Business Insider · 06.30",
+  "title": [
+    "AI 数据中心惹争议",
+    "Fox 为说法道歉"
+  ],
+  "title_line3": "算力落地也会反弹",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Fox News 为把 AI 数据中心反对者称作中国代理的说法道歉",
+    "争议点是电力、用水、噪音和地方社区，而不只是 AI 技术",
+    "算力中心越靠近城市，居民和企业的利益冲突越明显",
+    "普通人看到的是 AI 服务，地方看到的是资源消耗",
+    "未来建机房不只拼资金，也要拼社区沟通和能源账",
+    "AI 的瓶颈会从云端，落到真实土地和电网里"
+  ],
+  "images": [
+    "assets/images/04-Fox为AI数据中心说法道歉/01-真实视觉.jpg",
+    "assets/images/04-Fox为AI数据中心说法道歉/02-核心来源中文卡.jpg",
+    "assets/images/04-Fox为AI数据中心说法道歉/03-来源截图.jpg",
+    "assets/images/04-Fox为AI数据中心说法道歉/04-信息差解释.jpg",
+    "assets/images/04-Fox为AI数据中心说法道歉/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://www.businessinsider.com/kevin-oleary-data-center-apology-fox-news-china-opponents-claim-2026-6",
+    "author": "Business Insider · 06.30",
+    "screenshot": "assets/images/04-Fox为AI数据中心说法道歉/02-核心来源中文卡.jpg",
+    "observed_signal": "媒体/官方来源确认；可见争议样本记录在选题记录"
+  },
+  "publishing": {
+    "title": "AI数据中心开始惹出社区争议",
+    "description": "Fox News 为此前关于 AI 数据中心反对者的说法道歉。这个话题说明，AI 不是只在云端发生：电力、用水、土地和社区沟通，都会成为算力扩张的现实门槛。",
+    "tags": [
+      "AI",
+      "数据中心",
+      "算力",
+      "FoxNews",
+      "能源",
+      "社区",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "AI 数据中心惹争议",
+      "Fox 为说法道歉",
+      "算力落地也会反弹"
+    ],
+    "conclusion": "AI 算力扩张会变成本地资源冲突",
+    "badge": "AI Data Center",
+    "bg_image": "assets/cover-bg/04-Fox为AI数据中心说法道歉.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "controversy_risk"
+  }
+}

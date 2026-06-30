@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "01-Supermicro台湾遭调查",
+    "video": "renders/01-Supermicro台湾遭调查.mp4",
+    "contact_sheet": "renders/01-Supermicro台湾遭调查-contact-sheet.jpg",
+    "cover": "covers/封面-01-Supermicro台湾遭调查.jpg",
+    "title": [
+      "Supermicro 遭搜查",
+      "AI 服务器卷入疑云",
+      "算力也要合规"
+    ],
+    "source": "https://finance.yahoo.com/markets/stocks/articles/super-micro-plunges-8-taiwan-195509397.html",
+    "core_x_url": null,
+    "angle": "AI 算力正在变成合规资源"
+  },
+  {
+    "slug": "02-TIDAL屏蔽AI音乐收益",
+    "video": "renders/02-TIDAL屏蔽AI音乐收益.mp4",
+    "contact_sheet": "renders/02-TIDAL屏蔽AI音乐收益-contact-sheet.jpg",
+    "cover": "covers/封面-02-TIDAL屏蔽AI音乐收益.jpg",
+    "title": [
+      "AI 音乐被打标签",
+      "TIDAL 开始限制分成",
+      "创作者要先证明自己"
+    ],
+    "source": "https://tidal.com/ai-policy",
+    "core_x_url": null,
+    "angle": "平台开始用分成规则管理 AI 内容"
+  },
+  {
+    "slug": "03-Google请哲学家管AI价值观",
+    "video": "renders/03-Google请哲学家管AI价值观.mp4",
+    "contact_sheet": "renders/03-Google请哲学家管AI价值观-contact-sheet.jpg",
+    "cover": "covers/封面-03-Google请哲学家管AI价值观.jpg",
+    "title": [
+      "Google 请哲学家管 AI",
+      "价值观不只是代码",
+      "模型先定边界"
+    ],
+    "source": "https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind",
+    "core_x_url": null,
+    "angle": "AI 安全背后是价值排序"
+  },
+  {
+    "slug": "04-Fox为AI数据中心说法道歉",
+    "video": "renders/04-Fox为AI数据中心说法道歉.mp4",
+    "contact_sheet": "renders/04-Fox为AI数据中心说法道歉-contact-sheet.jpg",
+    "cover": "covers/封面-04-Fox为AI数据中心说法道歉.jpg",
+    "title": [
+      "AI 数据中心惹争议",
+      "Fox 为说法道歉",
+      "算力落地也会反弹"
+    ],
+    "source": "https://www.businessinsider.com/kevin-oleary-data-center-apology-fox-news-china-opponents-claim-2026-6",
+    "core_x_url": null,
+    "angle": "AI 算力扩张会变成本地资源冲突"
+  },
+  {
+    "slug": "05-NVIDIA中国芯片销售遇阻",
+    "video": "renders/05-NVIDIA中国芯片销售遇阻.mp4",
+    "contact_sheet": "renders/05-NVIDIA中国芯片销售遇阻-contact-sheet.jpg",
+    "cover": "covers/封面-05-NVIDIA中国芯片销售遇阻.jpg",
+    "title": [
+      "NVIDIA 中国遇阻",
+      "华为方案开始抢单",
+      "供应链正在换路线"
+    ],
+    "source": "https://apnews.com/article/1ae6228c4928ddbb43f984e9b38f49dd",
+    "core_x_url": null,
+    "angle": "硬件路线会影响模型开放速度"
+  }
+]

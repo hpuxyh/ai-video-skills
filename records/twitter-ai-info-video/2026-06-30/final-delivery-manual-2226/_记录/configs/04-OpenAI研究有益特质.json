@@ -1,0 +1,126 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/04-OpenAI研究有益特质.mp4",
+  "contact_sheet": "renders/04-OpenAI研究有益特质-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "AI安全 · 模型行为",
+  "header_source": "OpenAI X · 06.19",
+  "title": [
+    "OpenAI 研究模型性格",
+    "好行为能迁移"
+  ],
+  "title_line3": "安全不是只刷题",
+  "title_base_size": 66,
+  "title_min_size": 50,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.28,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "OpenAI 研究显示，模型的有益行为特质可能迁移到新领域",
+    "这说明安全训练不能只靠背题，而要看模型遇到新场景怎么反应",
+    "高风险任务里，听话和可靠并不是同一件事",
+    "普通用户看到的是回答，研究者看的是模型行为会不会泛化",
+    "如果好习惯能迁移，坏习惯和漏洞也可能跨场景出现",
+    "信息差是，AI 安全要测性格，不只是测答案"
+  ],
+  "images": [
+    "assets/images/04-OpenAI研究有益特质/01-真实视觉.jpg",
+    "assets/images/04-OpenAI研究有益特质/02-核心来源中文卡.jpg",
+    "assets/images/04-OpenAI研究有益特质/03-来源截图.jpg",
+    "assets/images/04-OpenAI研究有益特质/04-信息差解释.jpg",
+    "assets/images/04-OpenAI研究有益特质/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAI/status/2067722696759329125",
+    "author": "OpenAI @OpenAI",
+    "screenshot": "assets/images/04-OpenAI研究有益特质/02-核心来源中文卡.jpg",
+    "observed_signal": "OpenAI 官方 X 研究帖；可见回复围绕听话、可靠和安全边界讨论"
+  },
+  "publishing": {
+    "title": "OpenAI开始研究模型性格迁移",
+    "description": "OpenAI 的研究讨论了模型有益特质在新领域里的迁移。普通人要看的信息差是：AI 安全不是只看它答对多少题，而是看它遇到没见过的任务时，是否还能保持可靠边界。",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "AI安全",
+      "模型行为",
+      "大模型",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "OpenAI 研究模型性格",
+      "好行为能迁移",
+      "安全不是只刷题"
+    ],
+    "conclusion": "安全评估要看行为泛化",
+    "badge": "OpenAI",
+    "bg_image": "assets/cover-bg/04-OpenAI研究有益特质.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  }
+}

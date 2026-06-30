@@ -1,0 +1,147 @@
+{
+  "schema": "vertical-ai-info-video.bgm-plan.v1",
+  "project_dir": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter",
+  "dry_run": false,
+  "tracks": [
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter/configs/01-Meta伪装青少年测试AI.json",
+      "output": "renders/01-Meta伪装青少年测试AI.mp4",
+      "mood": "default",
+      "track": "moment.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter/configs/02-Anthropic回应政府模型限制.json",
+      "output": "renders/02-Anthropic回应政府模型限制.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter/configs/03-Gemini上线学习笔记.json",
+      "output": "renders/03-Gemini上线学习笔记.mp4",
+      "mood": "creator_product",
+      "track": "时尚动感.mp3",
+      "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐",
+      "candidates": [
+        {
+          "name": "时尚动感.mp3",
+          "weight": 2,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        },
+        {
+          "name": "时尚热情绽放.mp3",
+          "weight": 2,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/时尚动感.mp3",
+      "project_path": "assets/audio/bgm-fashion-motion.mp3",
+      "best_fit": "product launches, consumer apps, creator tools, stylish tech topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter/configs/04-OpenAI研究有益特质.json",
+      "output": "renders/04-OpenAI研究有益特质.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/manual-run-20260630-2226/twitter/configs/05-OpenAI生命科学基准.json",
+      "output": "renders/05-OpenAI生命科学基准.mp4",
+      "mood": "default",
+      "track": "bba进行曲.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/bba进行曲.mp3",
+      "project_path": "assets/audio/bgm-bba-march.mp3",
+      "best_fit": "major company moves, policy, infrastructure, safety, heavy/urgent topics"
+    }
+  ],
+  "summary": {
+    "moment.mp3": 1,
+    "bba进行曲.mp3": 3,
+    "时尚动感.mp3": 1
+  }
+}

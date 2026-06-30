@@ -1,0 +1,21 @@
+{
+  "output": "covers/封面-01-Meta伪装青少年测试AI.jpg",
+  "background_image": "assets/cover-bg/01-Meta伪装青少年测试AI.jpg",
+  "badge_text": "Meta",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Meta 伪装青少年",
+    "测试竞品 AI 聊天",
+    "儿童安全成指标"
+  ],
+  "bottom_text": "儿童安全会成为 AI 产品竞争指标",
+  "index_badge": "01",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1070,
+  "logo_badge_y": 930,
+  "background_brightness": 0.82
+}
