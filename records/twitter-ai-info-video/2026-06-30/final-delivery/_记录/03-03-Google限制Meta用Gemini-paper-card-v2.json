@@ -1,0 +1,128 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-03-Google限制Meta用Gemini-paper-card-v2.mp4",
+  "contact_sheet": "renders/03-03-Google限制Meta用Gemini-paper-card-v2-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.06.30",
+  "header_tag": "重磅",
+  "header_category": "Google · Gemini",
+  "header_source": "Cybernews · 06.30",
+  "title": [
+    "连 Meta 都被限量",
+    "Google 卡住 Gemini"
+  ],
+  "title_line3": "AI 算力也要排队",
+  "title_base_size": 70,
+  "title_min_size": 54,
+  "title_line_gap": 24,
+  "title_y": 150,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.24,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "product-screenshot"
+  ],
+  "media_zoom_extra": 0.02,
+  "body_y": 1212,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 5,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Google 被曝限制 Meta 使用 Gemini 模型",
+    "Meta 想买的 AI 容量超过了 Google 能提供的范围",
+    "连大厂用 AI 也要面对算力和配额限制",
+    "普通人看到模型变强，企业先看到额度不够用",
+    "AI 竞争不只是模型好不好，而是谁能稳定拿到入口"
+  ],
+  "images": [
+    "assets/images/03-Google限制Meta用Gemini/01-真实视觉.jpg",
+    "assets/images/03-Google限制Meta用Gemini/02-核心来源中文卡.jpg",
+    "assets/images/03-Google限制Meta用Gemini/03-来源截图.jpg",
+    "assets/images/03-Google限制Meta用Gemini/04-信息差解释.jpg",
+    "assets/images/03-Google限制Meta用Gemini/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "source-card",
+    "media",
+    "clean-card",
+    "media"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "source-card"
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "tweet_anchor": {
+    "url": "https://cybernews.com/ai-news/google-meta-gemini-constraints/",
+    "author": "Cybernews / TNW",
+    "screenshot": "assets/images/03-Google限制Meta用Gemini/02-核心来源中文卡.jpg",
+    "observed_signal": "主题已确认；来源页/可信媒体作为证据锚点"
+  },
+  "publishing": {
+    "title": "连Meta用Gemini都被限量",
+    "description": "Google 被曝限制 Meta 使用 Gemini，重点不是两家大厂吵架，而是好模型背后的容量、配额和算力开始变成门票。普通人看到的是模型升级，企业先感受到的是额度不够用。",
+    "tags": [
+      "AI",
+      "Google",
+      "Meta",
+      "Gemini",
+      "算力",
+      "大模型",
+      "信息差"
+    ]
+  },
+  "cover": {
+    "title": [
+      "连 Meta 都被限量",
+      "Google 卡住 Gemini",
+      "AI 算力也要排队"
+    ],
+    "conclusion": "强模型也要拼容量入口",
+    "badge": "Gemini",
+    "bg_image": "assets/cover-bg/cover-bg-03.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-bba-march.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "bba进行曲.mp3",
+    "mood": "default"
+  }
+}

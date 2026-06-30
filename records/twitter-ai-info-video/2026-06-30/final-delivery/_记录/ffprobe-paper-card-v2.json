@@ -1,0 +1,72 @@
+{
+  "01-01-报纸起诉OpenAI微软-paper-card-v2.mp4": {
+    "ok": false,
+    "duration": 7.0,
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ]
+  },
+  "02-02-Meta员工追踪训练AI-paper-card-v2.mp4": {
+    "ok": false,
+    "duration": 7.0,
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ]
+  },
+  "03-03-Google限制Meta用Gemini-paper-card-v2.mp4": {
+    "ok": false,
+    "duration": 7.0,
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ]
+  },
+  "04-04-苹果高管跳槽OpenAI-paper-card-v2.mp4": {
+    "ok": false,
+    "duration": 7.0,
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ]
+  },
+  "05-05-马斯克太空数据中心被质疑-paper-card-v2.mp4": {
+    "ok": false,
+    "duration": 7.0,
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ]
+  }
+}
