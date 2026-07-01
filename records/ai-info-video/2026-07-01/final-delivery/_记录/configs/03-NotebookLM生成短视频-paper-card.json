@@ -1,0 +1,149 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-NotebookLM生成短视频.mp4",
+  "contact_sheet": "renders/03-NotebookLM生成短视频-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.07.01",
+  "header_tag": "重磅",
+  "header_category": "创作者工具 · 学习",
+  "header_source": "The Verge · 06.30",
+  "title": [
+    "NotebookLM 出短视频",
+    "资料变成 Clips"
+  ],
+  "title_line3": "内容门槛又低了",
+  "title_base_size": 68,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.3,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "core-evidence"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "The Verge 报道，Google NotebookLM 可以把研究资料总结成 TikTok 风格 Clips",
+    "这不是普通摘要功能，而是把资料直接变成可传播的视频形态",
+    "可见讨论里有人觉得学习效率提升，也有人担心内容会被批量生成刷屏",
+    "学生、博主和运营会先受影响，因为资料到视频的距离被缩短了",
+    "会选资料和判断事实的人，比只会点生成的人更有优势",
+    "短视频门槛降低后，真正稀缺的是选题和判断"
+  ],
+  "images": [
+    "assets/images/03-NotebookLM生成短视频/01-真实视觉.jpg",
+    "assets/images/03-NotebookLM生成短视频/02-核心来源中文卡.jpg",
+    "assets/images/03-NotebookLM生成短视频/03-来源截图.jpg",
+    "assets/images/03-NotebookLM生成短视频/04-评论争议样本.jpg",
+    "assets/images/03-NotebookLM生成短视频/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "source-card",
+    "clean-card",
+    "source-card"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "publishing": {
+    "title": "NotebookLM开始生成短视频，内容门槛又低了",
+    "description": "The Verge 报道，Google NotebookLM 新增 AI Clips，可以把研究资料变成 TikTok 风格短视频。它改变的不只是学习笔记，而是把“整理资料”和“做内容”接在了一起。以后更稀缺的不是生成按钮，而是选题、事实判断和表达角度。",
+    "tags": [
+      "AI",
+      "Google",
+      "NotebookLM",
+      "AI视频",
+      "短视频创作",
+      "学习工具",
+      "内容创作",
+      "信息差"
+    ]
+  },
+  "source_record": {
+    "url": "https://www.theverge.com/tech/959778/google-notebooklm-ai-clips",
+    "support": null,
+    "comments": [
+      "有人兴奋以后学习资料能直接变成可看的短视频。",
+      "也有人担心平台会出现大量相似 AI 摘要内容，真假和质量更难判断。"
+    ],
+    "angle": "资料整理工具正在进入短视频表达，创作者门槛下降但同质化会加速",
+    "score": 86,
+    "score_parts": {
+      "controversy_strength": 23,
+      "emotional_spread": 21,
+      "source_priority": 14,
+      "public_familiarity": 9,
+      "information_gap": 9,
+      "comment_spread_signal": 5,
+      "visual_assets": 5
+    }
+  },
+  "cover": {
+    "title": [
+      "NotebookLM 出短视频",
+      "资料变成 Clips",
+      "内容门槛又低了"
+    ],
+    "conclusion": "资料整理工具正在进入短视频表达，创作者门槛下降但同质化会加速",
+    "badge": "Google",
+    "bg_image": "assets/cover-bg/03-NotebookLM生成短视频.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-fashion-motion.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "时尚动感.mp3",
+    "mood": "creator_product"
+  }
+}

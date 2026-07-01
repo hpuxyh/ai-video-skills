@@ -1,0 +1,31 @@
+{
+  "output": "covers/封面-05-Amazon砸钱做FDE.jpg",
+  "background_image": "assets/cover-bg/05-Amazon砸钱做FDE-clean.jpg",
+  "badge_text": "AWS",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Amazon 砸 10 亿",
+    "工程师进客户现场",
+    "落地比模型更贵"
+  ],
+  "bottom_text": "企业 AI 真正花钱的地方从模型订阅转向现场改流程、接系统和交付结果",
+  "index_badge": "05",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1040,
+  "logo_badge_y": 905,
+  "background_brightness": 1.0,
+  "cover_source_type": "person_or_company_image",
+  "cover_source": "https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers",
+  "title_sizes": [
+    78,
+    76,
+    74
+  ],
+  "title_max_width": 980,
+  "title_line_gap": 16,
+  "cover_source_asset": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/assets/images/05-Amazon砸钱做FDE/01-真实视觉.jpg"
+}

@@ -1,0 +1,149 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-Zuckerberg不信AI抢饭碗.mp4",
+  "contact_sheet": "renders/01-Zuckerberg不信AI抢饭碗-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.07.01",
+  "header_tag": "重磅",
+  "header_category": "就业争议 · CEO表态",
+  "header_source": "Business Insider · 06.30",
+  "title": [
+    "Zuckerberg 不信抢饭碗",
+    "AI 焦虑被 CEO 顶回去"
+  ],
+  "title_line3": "别只听裁员叙事",
+  "title_base_size": 68,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.3,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "core-evidence"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Business Insider 6 月 30 日报道，Zuckerberg 公开说不认同 AI 抢走饭碗的焦虑",
+    "争议点不是 AI 会不会替代人，而是哪些岗位会被重新分配任务",
+    "可见讨论里有人担心新岗位更少，也有人反驳企业只是在包装裁员",
+    "普通人别只问会不会被替代，要看自己负责的是重复执行还是判断交付",
+    "公司越强调 AI 提效，员工越要把结果验收和业务判断拿在手里",
+    "真正变化不是人消失，而是低价值任务更快被拿走"
+  ],
+  "images": [
+    "assets/images/01-Zuckerberg不信AI抢饭碗/01-真实视觉.jpg",
+    "assets/images/01-Zuckerberg不信AI抢饭碗/02-核心来源中文卡.jpg",
+    "assets/images/01-Zuckerberg不信AI抢饭碗/03-来源截图.jpg",
+    "assets/images/01-Zuckerberg不信AI抢饭碗/04-评论争议样本.jpg",
+    "assets/images/01-Zuckerberg不信AI抢饭碗/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "source-card",
+    "clean-card",
+    "source-card"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "publishing": {
+    "title": "Zuckerberg不信AI抢饭碗，普通人别只听裁员叙事",
+    "description": "Business Insider 报道，Zuckerberg 不认同 AI 会简单抢走大量饭碗的焦虑。争议点在于：AI 不一定让人立刻消失，但会更快拿走重复执行任务。普通人真正要补的是判断、验收和业务交付，而不是只背工具名字。",
+    "tags": [
+      "AI",
+      "人工智能",
+      "Meta",
+      "Zuckerberg",
+      "AI就业",
+      "职场变化",
+      "大厂观点",
+      "信息差"
+    ]
+  },
+  "source_record": {
+    "url": "https://www.businessinsider.com/mark-zuckerberg-ai-job-displacement-2026-6",
+    "support": null,
+    "comments": [
+      "有人担心 CEO 用“AI 提效”包装裁员，岗位减少最后由员工承担。",
+      "也有人反驳：真正危险的是只做重复执行、不负责判断的人。"
+    ],
+    "angle": "AI 就业影响正在从单向恐慌变成“岗位重分配”争论",
+    "score": 92,
+    "score_parts": {
+      "controversy_strength": 28,
+      "emotional_spread": 24,
+      "source_priority": 13,
+      "public_familiarity": 10,
+      "information_gap": 9,
+      "comment_spread_signal": 4,
+      "visual_assets": 4
+    }
+  },
+  "cover": {
+    "title": [
+      "Zuckerberg 不信抢饭碗",
+      "AI 焦虑被 CEO 顶回去",
+      "别只听裁员叙事"
+    ],
+    "conclusion": "AI 就业影响正在从单向恐慌变成“岗位重分配”争论",
+    "badge": "Meta",
+    "bg_image": "assets/cover-bg/01-Zuckerberg不信AI抢饭碗.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "moment.mp3",
+    "mood": "default"
+  }
+}

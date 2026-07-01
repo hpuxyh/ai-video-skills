@@ -1,0 +1,77 @@
+{
+  "01-Zuckerberg不信AI抢饭碗.mp4": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "02-Anthropic降本跑Agent.mp4": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "03-NotebookLM生成短视频.mp4": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "04-Gemini免费个性化图片.mp4": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "05-Amazon砸钱做FDE.mp4": {
+    "streams": [
+      {
+        "codec_type": "video",
+        "duration": "7.000000"
+      },
+      {
+        "codec_type": "audio",
+        "duration": "7.000000"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  }
+}

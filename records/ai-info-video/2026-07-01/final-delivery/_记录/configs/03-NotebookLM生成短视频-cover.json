@@ -1,0 +1,31 @@
+{
+  "output": "covers/封面-03-NotebookLM生成短视频.jpg",
+  "background_image": "assets/cover-bg/03-NotebookLM生成短视频-clean.jpg",
+  "badge_text": "Google",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "NotebookLM 出短视频",
+    "资料变成 Clips",
+    "内容门槛又低了"
+  ],
+  "bottom_text": "资料整理工具正在进入短视频表达，创作者门槛下降但同质化会加速",
+  "index_badge": "03",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1010,
+  "logo_badge_y": 905,
+  "background_brightness": 1.0,
+  "cover_source_type": "person_or_company_image",
+  "cover_source": "https://www.theverge.com/tech/959778/google-notebooklm-ai-clips",
+  "title_sizes": [
+    76,
+    76,
+    72
+  ],
+  "title_max_width": 980,
+  "title_line_gap": 16,
+  "cover_source_asset": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/assets/images/03-NotebookLM生成短视频/01-真实视觉.jpg"
+}

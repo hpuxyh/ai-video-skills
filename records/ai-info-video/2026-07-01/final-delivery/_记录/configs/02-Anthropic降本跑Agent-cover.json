@@ -1,0 +1,30 @@
+{
+  "output": "covers/封面-02-Anthropic降本跑Agent.jpg",
+  "background_image": "assets/cover-bg/02-Anthropic降本跑Agent.jpg",
+  "badge_text": "Anthropic",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Anthropic 降本跑 Agent",
+    "Sonnet 5 主打更便宜",
+    "会用才省钱"
+  ],
+  "bottom_text": "Agent 普及的关键不只是能力，而是能不能长期便宜运行",
+  "index_badge": "02",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1040,
+  "logo_badge_y": 910,
+  "background_brightness": 0.82,
+  "cover_source_type": "person_or_company_image",
+  "cover_source": "https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/",
+  "title_sizes": [
+    82,
+    84,
+    78
+  ],
+  "title_max_width": 980,
+  "title_line_gap": 16
+}

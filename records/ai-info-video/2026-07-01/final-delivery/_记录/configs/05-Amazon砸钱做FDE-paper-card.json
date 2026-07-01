@@ -1,0 +1,149 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-Amazon砸钱做FDE.mp4",
+  "contact_sheet": "renders/05-Amazon砸钱做FDE-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.07.01",
+  "header_tag": "重磅",
+  "header_category": "企业落地 · Agent",
+  "header_source": "Amazon / TechCrunch · 06.30",
+  "title": [
+    "Amazon 砸 10 亿",
+    "工程师进客户现场"
+  ],
+  "title_line3": "落地比模型更贵",
+  "title_base_size": 68,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.3,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "core-evidence"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "Amazon 宣布 AWS 投入 10 亿美元，组建 Forward Deployed Engineer 团队服务客户",
+    "TechCrunch 也报道，Amazon 正跟进 OpenAI 和 Anthropic 的现场交付模式",
+    "可见讨论里有人看好企业落地，也有人质疑这其实是高价咨询生意",
+    "普通公司买 AI 不够，还要有人把模型接进流程、数据和权限系统",
+    "未来最值钱的岗位，可能是懂业务又能把 AI 接进现场的人",
+    "AI 落地不是买账号，而是重做流程"
+  ],
+  "images": [
+    "assets/images/05-Amazon砸钱做FDE/01-真实视觉.jpg",
+    "assets/images/05-Amazon砸钱做FDE/02-核心来源中文卡.jpg",
+    "assets/images/05-Amazon砸钱做FDE/03-来源截图.jpg",
+    "assets/images/05-Amazon砸钱做FDE/04-评论争议样本.jpg",
+    "assets/images/05-Amazon砸钱做FDE/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "product"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "source-card",
+    "clean-card",
+    "real"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "publishing": {
+    "title": "Amazon砸10亿美元让AI工程师进客户现场，落地比模型更贵",
+    "description": "Amazon 宣布 AWS 投入 10 亿美元组建 Forward Deployed Engineer 团队，TechCrunch 也报道它在跟进 OpenAI、Anthropic 的现场交付模式。这个信号很直接：企业 AI 最贵的不是买模型账号，而是把模型接进业务流程、数据和权限系统。",
+    "tags": [
+      "AI",
+      "Amazon",
+      "AWS",
+      "Agent",
+      "企业AI",
+      "AI工程师",
+      "AI落地",
+      "信息差"
+    ]
+  },
+  "source_record": {
+    "url": "https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers",
+    "support": "https://techcrunch.com/2026/06/30/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/",
+    "comments": [
+      "有人认为大厂终于承认 AI 不能只靠卖 API，必须有人到客户现场解决问题。",
+      "也有人质疑这会变成新一轮昂贵咨询服务，中小企业未必用得起。"
+    ],
+    "angle": "企业 AI 真正花钱的地方从模型订阅转向现场改流程、接系统和交付结果",
+    "score": 91,
+    "score_parts": {
+      "controversy_strength": 27,
+      "emotional_spread": 23,
+      "source_priority": 15,
+      "public_familiarity": 9,
+      "information_gap": 9,
+      "comment_spread_signal": 4,
+      "visual_assets": 4
+    }
+  },
+  "cover": {
+    "title": [
+      "Amazon 砸 10 亿",
+      "工程师进客户现场",
+      "落地比模型更贵"
+    ],
+    "conclusion": "企业 AI 真正花钱的地方从模型订阅转向现场改流程、接系统和交付结果",
+    "badge": "AWS",
+    "bg_image": "assets/cover-bg/05-Amazon砸钱做FDE.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-do-it.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "do it.mp3",
+    "mood": "default"
+  }
+}

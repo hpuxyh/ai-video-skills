@@ -1,0 +1,30 @@
+{
+  "output": "covers/封面-04-Gemini免费个性化图片.jpg",
+  "background_image": "assets/cover-bg/04-Gemini免费个性化图片.jpg",
+  "badge_text": "Gemini",
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "title": [
+    "Gemini 图片免费开放",
+    "美国用户先用个性化",
+    "隐私也成价格"
+  ],
+  "bottom_text": "免费 AI 图片能力背后，是个人数据、账号画像和工具入口的交换",
+  "index_badge": "04",
+  "focus": [
+    0.5,
+    0.42
+  ],
+  "title_y": 1040,
+  "logo_badge_y": 910,
+  "background_brightness": 0.82,
+  "cover_source_type": "person_or_company_image",
+  "cover_source": "https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/",
+  "title_sizes": [
+    82,
+    84,
+    78
+  ],
+  "title_max_width": 980,
+  "title_line_gap": 16
+}

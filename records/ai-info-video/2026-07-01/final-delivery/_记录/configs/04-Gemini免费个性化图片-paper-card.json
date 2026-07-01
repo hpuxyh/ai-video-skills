@@ -1,0 +1,149 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/04-Gemini免费个性化图片.mp4",
+  "contact_sheet": "renders/04-Gemini免费个性化图片-contact-sheet.jpg",
+  "badge": "AI 信息差快报",
+  "date": "2026.07.01",
+  "header_tag": "重磅",
+  "header_category": "图片生成 · 隐私",
+  "header_source": "TechCrunch · 06.29",
+  "title": [
+    "Gemini 图片免费开放",
+    "美国用户先用个性化"
+  ],
+  "title_line3": "隐私也成价格",
+  "title_base_size": 68,
+  "title_min_size": 48,
+  "title_line_gap": 22,
+  "title_y": 142,
+  "media_box": [
+    30,
+    460,
+    1050,
+    1172
+  ],
+  "media_outline_width": 0,
+  "media_fit": "cover",
+  "media_pad": 0,
+  "media_transition_mode": "fade",
+  "media_transition_duration": 0.3,
+  "media_preserve_roles": [
+    "media",
+    "source-card",
+    "official-screenshot",
+    "clean-card",
+    "product",
+    "tweet",
+    "screenshot",
+    "core-evidence"
+  ],
+  "body_y": 1210,
+  "body_show_numbers": false,
+  "body_show_labels": false,
+  "body_max_rows": 6,
+  "body_highlight_fill": [
+    53,
+    214,
+    226,
+    232
+  ],
+  "body_rows_animate": true,
+  "body_row_start": 1.05,
+  "body_row_interval": 0.52,
+  "body_row_duration": 0.42,
+  "body_rows": [
+    "TechCrunch 报道，Gemini 个性化 AI 图片生成已向美国用户免费开放",
+    "免费不是没有成本，个性化能力通常需要更多账号和偏好信息参与",
+    "可见讨论里有人想马上试用，也有人担心照片、偏好和账号数据怎么被用",
+    "普通人用 AI 生图时，要分清公开素材、私人照片和商业素材边界",
+    "工具越免费，越要看清数据设置、保存范围和生成用途",
+    "别只盯效果，隐私和授权也会成为使用成本"
+  ],
+  "images": [
+    "assets/images/04-Gemini免费个性化图片/01-真实视觉.jpg",
+    "assets/images/04-Gemini免费个性化图片/02-核心来源中文卡.jpg",
+    "assets/images/04-Gemini免费个性化图片/03-来源截图.jpg",
+    "assets/images/04-Gemini免费个性化图片/04-评论争议样本.jpg",
+    "assets/images/04-Gemini免费个性化图片/05-补充素材.jpg"
+  ],
+  "image_roles": [
+    "hero",
+    "core-evidence",
+    "media",
+    "media",
+    "auxiliary"
+  ],
+  "image_quality": [
+    "real",
+    "source-card",
+    "source-card",
+    "clean-card",
+    "source-card"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "beat_cuts": [
+    1.17,
+    3.5,
+    4.67,
+    5.83
+  ],
+  "publishing": {
+    "title": "Gemini个性化图片免费开放，隐私也成价格",
+    "description": "TechCrunch 报道，Gemini 个性化 AI 图片生成向美国用户免费开放。看上去是福利，背后真正要注意的是账号数据、偏好、照片和授权边界。以后选 AI 生图工具，不只比效果，也要看它拿什么换免费。",
+    "tags": [
+      "AI",
+      "Gemini",
+      "Google",
+      "AI生图",
+      "隐私",
+      "数据安全",
+      "免费工具",
+      "信息差"
+    ]
+  },
+  "source_record": {
+    "url": "https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/",
+    "support": null,
+    "comments": [
+      "有人觉得免费开放很香，普通用户不用再为图片生成单独付费。",
+      "也有人质疑个性化越强，平台会不会拿到更多照片、偏好和账号数据。"
+    ],
+    "angle": "免费 AI 图片能力背后，是个人数据、账号画像和工具入口的交换",
+    "score": 85,
+    "score_parts": {
+      "controversy_strength": 24,
+      "emotional_spread": 20,
+      "source_priority": 14,
+      "public_familiarity": 9,
+      "information_gap": 9,
+      "comment_spread_signal": 4,
+      "visual_assets": 5
+    }
+  },
+  "cover": {
+    "title": [
+      "Gemini 图片免费开放",
+      "美国用户先用个性化",
+      "隐私也成价格"
+    ],
+    "conclusion": "免费 AI 图片能力背后，是个人数据、账号画像和工具入口的交换",
+    "badge": "Gemini",
+    "bg_image": "assets/cover-bg/04-Gemini免费个性化图片.jpg"
+  },
+  "bgm": {
+    "path": "assets/audio/bgm-do-it.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35,
+    "source_track": "do it.mp3",
+    "mood": "default"
+  }
+}

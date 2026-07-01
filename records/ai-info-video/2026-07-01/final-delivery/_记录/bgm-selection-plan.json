@@ -1,0 +1,147 @@
+{
+  "schema": "vertical-ai-info-video.bgm-plan.v1",
+  "project_dir": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800",
+  "dry_run": false,
+  "tracks": [
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/configs/01-Zuckerberg不信AI抢饭碗-paper-card.json",
+      "output": "renders/01-Zuckerberg不信AI抢饭碗.mp4",
+      "mood": "default",
+      "track": "moment.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/configs/02-Anthropic降本跑Agent-paper-card.json",
+      "output": "renders/02-Anthropic降本跑Agent.mp4",
+      "mood": "default",
+      "track": "moment.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/moment.mp3",
+      "project_path": "assets/audio/bgm-moment.mp3",
+      "best_fit": "reflective business shifts, slower strategic explainers"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/configs/03-NotebookLM生成短视频-paper-card.json",
+      "output": "renders/03-NotebookLM生成短视频.mp4",
+      "mood": "creator_product",
+      "track": "时尚动感.mp3",
+      "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐",
+      "candidates": [
+        {
+          "name": "时尚动感.mp3",
+          "weight": 2,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        },
+        {
+          "name": "时尚热情绽放.mp3",
+          "weight": 2,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "产品发布、AI 视频、创作者工具优先使用更轻快的科技感音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/时尚动感.mp3",
+      "project_path": "assets/audio/bgm-fashion-motion.mp3",
+      "best_fit": "product launches, consumer apps, creator tools, stylish tech topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/configs/04-Gemini免费个性化图片-paper-card.json",
+      "output": "renders/04-Gemini免费个性化图片.mp4",
+      "mood": "default",
+      "track": "do it.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/do it.mp3",
+      "project_path": "assets/audio/bgm-do-it.mp3",
+      "best_fit": "action-oriented tools, workflow tips, what-to-do-now topics"
+    },
+    {
+      "config": "/Users/xieyahao/Documents/别人好项目/ai-video-skills/work/ai-info-video-2026-07-01-auto-0800/configs/05-Amazon砸钱做FDE-paper-card.json",
+      "output": "renders/05-Amazon砸钱做FDE.mp4",
+      "mood": "default",
+      "track": "do it.mp3",
+      "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐",
+      "candidates": [
+        {
+          "name": "bba进行曲.mp3",
+          "weight": 2,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "moment.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        },
+        {
+          "name": "do it.mp3",
+          "weight": 1,
+          "reason": "未命中特定主题词，使用通用 AI 新闻候选音乐"
+        }
+      ],
+      "source_path": "/Users/xieyahao/Desktop/我自己/小红/半奏/do it.mp3",
+      "project_path": "assets/audio/bgm-do-it.mp3",
+      "best_fit": "action-oriented tools, workflow tips, what-to-do-now topics"
+    }
+  ],
+  "summary": {
+    "moment.mp3": 2,
+    "时尚动感.mp3": 1,
+    "do it.mp3": 2
+  }
+}
