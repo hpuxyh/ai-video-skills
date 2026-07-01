@@ -1,0 +1,63 @@
+{
+  "background_image": "assets/cover-bg/openai-sam-altman.jpg",
+  "cover_source_type": "person/company",
+  "cover_source": "Sam Altman / OpenAI representative asset from prior local batch",
+  "focus": [
+    0.5,
+    0.36
+  ],
+  "background_brightness": 1.04,
+  "background_contrast": 1.07,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "OpenAI Developers",
+  "badge_text": "OpenAI",
+  "logo_badge_w": 330,
+  "logo_badge_h": 94,
+  "logo_badge_x": 690,
+  "logo_badge_y": 890,
+  "title": [
+    {
+      "text": "Codex 做成硬按钮",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "7 月 15 日升级",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "AI 编程抢入口",
+      "color": [
+        255,
+        146,
+        112
+      ]
+    }
+  ],
+  "title_y": 1085,
+  "title_sizes": [
+    84,
+    90,
+    84
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "编程入口，正在从 App 变成动作",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "01"
+}

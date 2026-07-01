@@ -1,0 +1,63 @@
+{
+  "background_image": "assets/cover-bg/claude-dario.jpg",
+  "cover_source_type": "person/company",
+  "cover_source": "Dario Amodei local role image for Claude/Anthropic",
+  "focus": [
+    0.52,
+    0.34
+  ],
+  "background_brightness": 1.04,
+  "background_contrast": 1.07,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "Claude",
+  "badge_text": "Claude",
+  "logo_badge_w": 330,
+  "logo_badge_h": 94,
+  "logo_badge_x": 690,
+  "logo_badge_y": 890,
+  "title": [
+    {
+      "text": "Claude 进实验室",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "60 多个数据库接入",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "科研不只问答了",
+      "color": [
+        70,
+        210,
+        170
+      ]
+    }
+  ],
+  "title_y": 1085,
+  "title_sizes": [
+    84,
+    90,
+    84
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "科研 AI，开始进入真实流程",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "03"
+}

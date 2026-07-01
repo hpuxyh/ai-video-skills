@@ -1,0 +1,115 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/02-Anthropic-Fable解封.mp4",
+  "contact_sheet": "renders/02-Anthropic-Fable解封-contact-sheet.jpg",
+  "images": [
+    "assets/images/02-Anthropic-Fable解封/01-真实视觉.jpg",
+    "assets/images/02-Anthropic-Fable解封/02-核心X证据卡.jpg",
+    "assets/images/02-Anthropic-Fable解封/03-来源确认.jpg",
+    "assets/images/02-Anthropic-Fable解封/04-争议评论.jpg",
+    "assets/images/02-Anthropic-Fable解封/05-信息差解释.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "准入规则",
+    "source": "X · 2026.06.30"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Anthropic 模型解封",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "政府撤回出口限制",
+      "y": 214,
+      "size": 90,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "能用也要先合规",
+      "y": 320,
+      "size": 84,
+      "color": [
+        255,
+        132,
+        92
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "Anthropic 称美国商务部已解除相关出口限制",
+    "Claude Fable 5 和 Mythos 5 将开始恢复访问",
+    "这不是普通更新，而是强模型准入规则变化",
+    "用户关心能不能用，企业更关心合规边界",
+    "模型越强，越会被安全和出口规则卡住",
+    "发布只是第一步，真正门槛是批准和责任"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "tweet_anchor": {
+    "url": "https://x.com/AnthropicAI/status/2072106151890809341",
+    "author": "Anthropic @AnthropicAI",
+    "screenshot": "assets/images/02-Anthropic-Fable解封/02-核心X证据卡.jpg",
+    "observed_signal": "2026年6月30日 · 约198.4万 Views · 可见1993回复"
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/say no cry.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

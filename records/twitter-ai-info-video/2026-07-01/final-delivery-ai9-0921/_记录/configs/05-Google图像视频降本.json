@@ -1,0 +1,115 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/05-Google图像视频降本.mp4",
+  "contact_sheet": "renders/05-Google图像视频降本-contact-sheet.jpg",
+  "images": [
+    "assets/images/05-Google图像视频降本/01-真实视觉.jpg",
+    "assets/images/05-Google图像视频降本/02-核心X证据卡.jpg",
+    "assets/images/05-Google图像视频降本/03-来源确认.jpg",
+    "assets/images/05-Google图像视频降本/04-争议评论.jpg",
+    "assets/images/05-Google图像视频降本/05-信息差解释.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "创作工具",
+    "source": "X · 2026.06.30"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Google 连发两个模型",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "图片更便宜视频进 API",
+      "y": 214,
+      "size": 90,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "创作成本继续下探",
+      "y": 320,
+      "size": 84,
+      "color": [
+        84,
+        190,
+        255
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "Google DeepMind 同时发布 Nano Banana 2 Lite 和 Gemini Omni Flash",
+    "一个强调更快更便宜的图片生成，一个把视频生成接进 API",
+    "这不是单纯新模型，而是创作能力继续降价",
+    "开发者能把图片和视频生成直接放进产品里",
+    "创作者会更容易出片，也会面对更快的同质化",
+    "真正稀缺的会变成选题、审美和分发能力"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "tweet_anchor": {
+    "url": "https://x.com/GoogleDeepMind/status/2071988044878516466",
+    "author": "Google DeepMind @GoogleDeepMind",
+    "screenshot": "assets/images/05-Google图像视频降本/02-核心X证据卡.jpg",
+    "observed_signal": "2026年6月30日 · 约14.3万 Views · 可见54回复"
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/时尚动感.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

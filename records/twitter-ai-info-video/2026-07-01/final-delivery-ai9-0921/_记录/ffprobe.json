@@ -1,0 +1,72 @@
+{
+  "01-Codex-Micro硬件按钮": {
+    "duration": "7.000000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "verified_by": "ffprobe wrapper",
+        "source_frame_size": "1080x1920"
+      },
+      {
+        "codec_type": "audio",
+        "verified_by": "ffprobe wrapper"
+      }
+    ]
+  },
+  "02-Anthropic-Fable解封": {
+    "duration": "7.000000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "verified_by": "ffprobe wrapper",
+        "source_frame_size": "1080x1920"
+      },
+      {
+        "codec_type": "audio",
+        "verified_by": "ffprobe wrapper"
+      }
+    ]
+  },
+  "03-Claude-Science科研工作台": {
+    "duration": "7.000000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "verified_by": "ffprobe wrapper",
+        "source_frame_size": "1080x1920"
+      },
+      {
+        "codec_type": "audio",
+        "verified_by": "ffprobe wrapper"
+      }
+    ]
+  },
+  "04-Tinker接入Bridgewater": {
+    "duration": "7.000000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "verified_by": "ffprobe wrapper",
+        "source_frame_size": "1080x1920"
+      },
+      {
+        "codec_type": "audio",
+        "verified_by": "ffprobe wrapper"
+      }
+    ]
+  },
+  "05-Google图像视频降本": {
+    "duration": "7.000000",
+    "streams": [
+      {
+        "codec_type": "video",
+        "verified_by": "ffprobe wrapper",
+        "source_frame_size": "1080x1920"
+      },
+      {
+        "codec_type": "audio",
+        "verified_by": "ffprobe wrapper"
+      }
+    ]
+  }
+}

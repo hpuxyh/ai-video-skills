@@ -1,0 +1,115 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/03-Claude-Science科研工作台.mp4",
+  "contact_sheet": "renders/03-Claude-Science科研工作台-contact-sheet.jpg",
+  "images": [
+    "assets/images/03-Claude-Science科研工作台/01-真实视觉.jpg",
+    "assets/images/03-Claude-Science科研工作台/02-核心X证据卡.jpg",
+    "assets/images/03-Claude-Science科研工作台/03-来源确认.jpg",
+    "assets/images/03-Claude-Science科研工作台/04-争议评论.jpg",
+    "assets/images/03-Claude-Science科研工作台/05-信息差解释.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "科研工具",
+    "source": "X · 2026.06.30"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Claude 进实验室",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "60 多个数据库接入",
+      "y": 214,
+      "size": 90,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "科研不只问答了",
+      "y": 320,
+      "size": 84,
+      "color": [
+        70,
+        210,
+        170
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "Claude 官方发布 Claude Science 测试版",
+    "它面向研究流程，能连接 60 多个科学数据库",
+    "这不是普通聊天框，而是科研工作台",
+    "争议点会落在数据权限、结果溯源和责任边界",
+    "科研人员要看的不是会不会答，而是能不能复查",
+    "AI 正从写摘要进入真实研究流程"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "tweet_anchor": {
+    "url": "https://x.com/claudeai/status/2072002740830842899",
+    "author": "Claude @claudeai",
+    "screenshot": "assets/images/03-Claude-Science科研工作台/02-核心X证据卡.jpg",
+    "observed_signal": "2026年6月30日 · 约437.1万 Views · 可见896回复"
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/moment.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

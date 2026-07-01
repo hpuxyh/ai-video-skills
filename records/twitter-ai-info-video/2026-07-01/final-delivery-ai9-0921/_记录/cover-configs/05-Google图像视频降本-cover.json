@@ -1,0 +1,63 @@
+{
+  "background_image": "assets/cover-bg/google-sundar.jpg",
+  "cover_source_type": "person/company",
+  "cover_source": "Sundar Pichai / Google representative asset from prior local batch",
+  "focus": [
+    0.52,
+    0.34
+  ],
+  "background_brightness": 1.04,
+  "background_contrast": 1.07,
+  "tag": "重磅",
+  "brand": "AI 信息差快报",
+  "company": "Google DeepMind",
+  "badge_text": "Google",
+  "logo_badge_w": 330,
+  "logo_badge_h": 94,
+  "logo_badge_x": 690,
+  "logo_badge_y": 890,
+  "title": [
+    {
+      "text": "Google 连发两个模型",
+      "color": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "text": "图片更便宜视频进 API",
+      "color": [
+        58,
+        220,
+        235
+      ]
+    },
+    {
+      "text": "创作成本继续下探",
+      "color": [
+        84,
+        190,
+        255
+      ]
+    }
+  ],
+  "title_y": 1085,
+  "title_sizes": [
+    84,
+    90,
+    84
+  ],
+  "title_line_gap": 16,
+  "title_stroke_width": 3,
+  "title_stroke_fill": [
+    255,
+    255,
+    255,
+    225
+  ],
+  "bottom_text": "创作降价后，选题更值钱",
+  "bottom_y": 1648,
+  "bottom_y2": 1810,
+  "index_badge": "05"
+}

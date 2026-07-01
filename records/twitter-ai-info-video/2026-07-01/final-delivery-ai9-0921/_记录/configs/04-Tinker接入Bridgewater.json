@@ -1,0 +1,115 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/04-Tinker接入Bridgewater.mp4",
+  "contact_sheet": "renders/04-Tinker接入Bridgewater-contact-sheet.jpg",
+  "images": [
+    "assets/images/04-Tinker接入Bridgewater/01-真实视觉.jpg",
+    "assets/images/04-Tinker接入Bridgewater/02-核心X证据卡.jpg",
+    "assets/images/04-Tinker接入Bridgewater/03-来源确认.jpg",
+    "assets/images/04-Tinker接入Bridgewater/04-争议评论.jpg",
+    "assets/images/04-Tinker接入Bridgewater/05-信息差解释.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "金融AI",
+    "source": "X · 2026.06.30"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Bridgewater 也调模型",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "金融经验喂给 Tinker",
+      "y": 214,
+      "size": 90,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "专家判断被复制",
+      "y": 320,
+      "size": 84,
+      "color": [
+        96,
+        190,
+        255
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "Mira Murati 称 Bridgewater 用 Tinker 微调模型",
+    "目标是让分析师把注意力放在真正重要的问题上",
+    "这不是普通金融工具，而是把专家判断变成模型能力",
+    "争议点在于经验能复制，责任却不能复制",
+    "金融 AI 不只看答案快，还要看谁敢用它做判断",
+    "未来值钱的是专家如何把经验教给 AI"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "tweet_anchor": {
+    "url": "https://x.com/miramurati/status/2072050039317578236",
+    "author": "Mira Murati @miramurati",
+    "screenshot": "assets/images/04-Tinker接入Bridgewater/02-核心X证据卡.jpg",
+    "observed_signal": "2026年6月30日 · 约3.8万 Views · 可见20回复"
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/do it.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}

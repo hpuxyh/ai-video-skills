@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "01-Codex-Micro硬件按钮",
+    "video": "01-Codex-Micro硬件按钮/视频.mp4",
+    "cover": "01-Codex-Micro硬件按钮/封面.jpg",
+    "tweet_url": "https://x.com/OpenAIDevs/status/2071639953927438440",
+    "score": 88,
+    "score_parts": {
+      "controversy_strength": 24,
+      "emotional_spread": 21,
+      "source_priority": 15,
+      "public_familiarity": 10,
+      "information_gap": 9,
+      "comment_spread_signal": 4,
+      "visual_assets": 5
+    },
+    "information_gap": "AI 编程竞争不只是谁模型强，而是谁把入口放到用户每天最顺手的位置。"
+  },
+  {
+    "slug": "02-Anthropic-Fable解封",
+    "video": "02-Anthropic-Fable解封/视频.mp4",
+    "cover": "02-Anthropic-Fable解封/封面.jpg",
+    "tweet_url": "https://x.com/AnthropicAI/status/2072106151890809341",
+    "score": 92,
+    "score_parts": {
+      "controversy_strength": 28,
+      "emotional_spread": 23,
+      "source_priority": 15,
+      "public_familiarity": 10,
+      "information_gap": 9,
+      "comment_spread_signal": 4,
+      "visual_assets": 3
+    },
+    "information_gap": "同样是模型发布，真正决定能不能用的是监管、出口限制和合规通道。"
+  },
+  {
+    "slug": "03-Claude-Science科研工作台",
+    "video": "03-Claude-Science科研工作台/视频.mp4",
+    "cover": "03-Claude-Science科研工作台/封面.jpg",
+    "tweet_url": "https://x.com/claudeai/status/2072002740830842899",
+    "score": 86,
+    "score_parts": {
+      "controversy_strength": 23,
+      "emotional_spread": 21,
+      "source_priority": 15,
+      "public_familiarity": 8,
+      "information_gap": 9,
+      "comment_spread_signal": 5,
+      "visual_assets": 5
+    },
+    "information_gap": "科研 AI 的关键不是回答漂亮，而是结果、环境和数据能不能追踪复查。"
+  },
+  {
+    "slug": "04-Tinker接入Bridgewater",
+    "video": "04-Tinker接入Bridgewater/视频.mp4",
+    "cover": "04-Tinker接入Bridgewater/封面.jpg",
+    "tweet_url": "https://x.com/miramurati/status/2072050039317578236",
+    "score": 84,
+    "score_parts": {
+      "controversy_strength": 24,
+      "emotional_spread": 20,
+      "source_priority": 13,
+      "public_familiarity": 8,
+      "information_gap": 10,
+      "comment_spread_signal": 4,
+      "visual_assets": 5
+    },
+    "information_gap": "金融 AI 不是替代分析师，而是把专家判断流程变成可训练、可复用的系统。"
+  },
+  {
+    "slug": "05-Google图像视频降本",
+    "video": "05-Google图像视频降本/视频.mp4",
+    "cover": "05-Google图像视频降本/封面.jpg",
+    "tweet_url": "https://x.com/GoogleDeepMind/status/2071988044878516466",
+    "score": 85,
+    "score_parts": {
+      "controversy_strength": 23,
+      "emotional_spread": 21,
+      "source_priority": 15,
+      "public_familiarity": 9,
+      "information_gap": 9,
+      "comment_spread_signal": 3,
+      "visual_assets": 5
+    },
+    "information_gap": "AI 创作工具降价后，普通人真正要补的不再是生成按钮，而是选题和审美判断。"
+  }
+]

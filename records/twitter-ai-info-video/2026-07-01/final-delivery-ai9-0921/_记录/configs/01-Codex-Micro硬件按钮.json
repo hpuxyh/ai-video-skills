@@ -1,0 +1,115 @@
+{
+  "duration": 7,
+  "fps": 30,
+  "output": "renders/01-Codex-Micro硬件按钮.mp4",
+  "contact_sheet": "renders/01-Codex-Micro硬件按钮-contact-sheet.jpg",
+  "images": [
+    "assets/images/01-Codex-Micro硬件按钮/01-真实视觉.jpg",
+    "assets/images/01-Codex-Micro硬件按钮/02-核心X证据卡.jpg",
+    "assets/images/01-Codex-Micro硬件按钮/03-来源确认.jpg",
+    "assets/images/01-Codex-Micro硬件按钮/04-争议评论.jpg",
+    "assets/images/01-Codex-Micro硬件按钮/05-信息差解释.jpg"
+  ],
+  "image_hold_weights": [
+    1,
+    2,
+    1,
+    1,
+    1
+  ],
+  "photo_box": [
+    0,
+    515,
+    1080,
+    1235
+  ],
+  "photo_fit": "contain",
+  "motion": {
+    "zoom": 0.06,
+    "pan_x": 20,
+    "pan_y": 16
+  },
+  "header": {
+    "brand": "AI 信息差快报",
+    "tag": "推特",
+    "category": "工具入口",
+    "source": "X · 2026.06.30"
+  },
+  "title_weight_multiplier": 0.9,
+  "title_oblique": -0.075,
+  "title": [
+    {
+      "text": "Codex 做成硬按钮",
+      "y": 116,
+      "size": 84,
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "7 月 15 日升级",
+      "y": 214,
+      "size": 90,
+      "color": [
+        58,
+        220,
+        235
+      ],
+      "stroke_width": 10
+    },
+    {
+      "text": "AI 编程抢入口",
+      "y": 320,
+      "size": 84,
+      "color": [
+        255,
+        146,
+        112
+      ],
+      "stroke_width": 10
+    }
+  ],
+  "bottom_description": [
+    "OpenAI Developers 预告 Codex 快捷入口升级",
+    "外界把它解读成 Codex Micro 硬件按钮线索",
+    "争议不是按钮本身，而是谁占住编程入口",
+    "写代码会从 App 变成桌面和键盘动作",
+    "普通人要看的是入口成本和使用习惯",
+    "AI 编程的竞争正在离屏幕越来越近"
+  ],
+  "description_style": {
+    "y": 1284,
+    "row_h": 58,
+    "text_size": 31,
+    "min_text_size": 27,
+    "start": 0.55,
+    "step": 0.42,
+    "last_line_color": [
+      58,
+      220,
+      235
+    ]
+  },
+  "tweet_anchor": {
+    "url": "https://x.com/OpenAIDevs/status/2071639953927438440",
+    "author": "OpenAI Developers @OpenAIDevs",
+    "screenshot": "assets/images/01-Codex-Micro硬件按钮/02-核心X证据卡.jpg",
+    "observed_signal": "2026年6月29日 · 约105.9万 Views · 可见303回复"
+  },
+  "image_grade": {
+    "normal_brightness": 1.1,
+    "normal_contrast": 1.04,
+    "low_brightness": 1.18,
+    "low_contrast": 1.07
+  },
+  "bgm": {
+    "path": "assets/audio/bba进行曲.mp3",
+    "start": 3,
+    "volume": 0.55,
+    "fade_in": 0.08,
+    "fade_out": 0.35
+  }
+}
